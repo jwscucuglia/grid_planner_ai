@@ -1,0 +1,32 @@
+{
+  "project": "KAPTUS GRID PLANNER (KGP) — Desafio 07 Inova Cemig.Lab Ciclo 5",
+  "execution_timestamp": "2026-10-28T20:20:55.528653+00:00",
+  "python_version": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "dev_seeds": [
+    101,
+    102,
+    103,
+    104
+  ],
+  "eval_seeds": [
+    202601,
+    202602,
+    202603,
+    202604,
+    202605,
+    202606,
+    202607,
+    202608
+  ],
+  "calibrated_b1_radius_km_on_dev": 0.75,
+  "objective_weights": {
+    "window_weight": 90.0,
+    "consumer_hour_weight": 1.0,
+    "repeat_consumer_weight": 12.0,
+    "physical_maneuver_weight": 2.5,
+    "crew_hour_weight": 0.6,
+    "unscheduled_penalty": 1000000.0
+  },
+  "anti_calibration_statement": "Gerador não calibrado para reproduzir 1,7%; taxas de acoplamento emergem das restrições topológicas, temporais e de equipes de cada cenário."
+}

@@ -1,0 +1,27 @@
+{
+  "generated_at_utc": "2026-10-28T20:20:56.386610+00:00",
+  "files": {
+    "AGENTS.md": "0c613992d247eb35649cc37f1eecfa5c7d2d44209cca817695de09e3eb535692",
+    "configs/protocol_and_seeds.json": "b00bbfe61146fcf19b600b7761aecbb5ebce9caaa34178f671e17ea438c0484b",
+    "data/reference_network.json": "397da561e4f37041ff7eb7050c1038f53918f795f7f77af9ede349021d70702b",
+    "pyproject.toml": "545f3d1eb9f7d55d3685dea6ba476d564e0598153d4d76cea42b05ce16ff0591",
+    "README.md": "77f14d7c8fc7ff24013b0fcceab156c9e4ab921d5a0674166beb8ad060fca861",
+    "reports/comparativo_kgp_desafio07.png": "a9a2ef8d57ff65669c0c4856adf8c8b1c7fae81a4b30e0f239e20945a2d8d44c",
+    "reports/kgp_evaluation_results.csv": "6fd93e2b575f9ef9061299789dfc25e869f73174f50aa37d7003e5e1764577a5",
+    "reports/kgp_evaluation_summary.json": "c36f32223739b641989a1f8df91f5f1ae83f2273376e517a9b74f0b6c41ac24e",
+    "reports/pytest_execution.log": "962ed2322fb9f0103f872e0311268674a8572413a8ff46723e2a76c1aaea72f3",
+    "reports/RELATORIO_EXECUCAO_KGP.md": "c157692488914ef4c085f0b169104bc1590389c84418bb004b94cb555fb7aeef",
+    "requirements.txt": "0a93ec637de7d3b492444cda84782013f48267481fe803a329cf631f33a683f4",
+    "src/kgp/__init__.py": "be5c399c97684bb32c4cdfb33c4c6f39fc5ca41262b53bc7fd1c4dc21444ec90",
+    "src/kgp/baselines.py": "0005ce9fdf5928c4732bab96c72727c396e1838e0748247ee7d9a5ab83fc2cd2",
+    "src/kgp/contracts.py": "73baff6dc365d037abeb34f2eadd6af2336f2d9a59edbf16198c22b09bcb1bfd",
+    "src/kgp/eligibility.py": "299ae2e5d0b3aae46d6138c996264bb16d5dc16b7a66b7bdc121ab9ac625f4da",
+    "src/kgp/experiment.py": "c9c6e5cb4e4815ce48e77c87b434cb323731d50d319bd87295b9427fa5511dc5",
+    "src/kgp/feasibility.py": "93691f4a723fe9e95eb6bd96ed35bbe0cec27d098df062cd822ef4d6337a7d7a",
+    "src/kgp/metrics.py": "4e7534087941f02687fe9ffc39be4b010d0da91d1a235cae9af975fca9a05ba9",
+    "src/kgp/optimizer.py": "15debe3a1a6c35b4ce6ee0ff3d2f7758d58e84f3d3dfb558f4ce63dbcdd8ab0d",
+    "src/kgp/scheduling.py": "c930308e00db1dac41c8f619ce4d9f9e054230295c9deeb252e70505d83ef28f",
+    "src/kgp/topology.py": "cae2f908ee03770e1309bf33736c057cb926d7fdf4015e53d8e1d8ac9005ad65",
+    "tests/test_kgp_critical_cases.py": "b628bd156318ccabefaaa8875e76f0a4d0067b3617485602d95950b2c02d1bf5"
+  }
+}
