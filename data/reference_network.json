@@ -1,12 +1,13 @@
 {
   "network_id": "CEMIG_D07_REF_MULTIFEEDER_13K8V",
-  "version": "2026.10.28-rev1",
+  "version": "2026.10.28-rev2",
   "valid_from_day": 0,
   "coordinate_system": "CARTESIAN_KM",
-  "origin": "Rede de Referência Sintética Multi-Alimentador 13,8 kV (3 alimentadores, 15 barras, 9 chaves NF/NA, 198 consumidores)",
+  "origin": "Rede de Referência Sintética Multi-Alimentador 13,8 kV (3 alimentadores, 15 barras, 9 chaves NF/NA, 14 ativos em barras e trechos, 198 consumidores)",
   "license": "CC-BY-4.0 (Demonstrador Científico Independente KGP - Desafio 07)",
   "changelog": [
-    "2026-10-28: Criação da rede multi-alimentador com interligação NA (SW_TIE_12) e ramal bifásico com GD."
+    "2026-10-28 (rev1): Criação da rede multi-alimentador com interligação NA (SW_TIE_12) e ramal bifásico com GD.",
+    "2026-10-28 (rev2): Inclusão de ativo vinculado a trecho (AST_BR_A1_23 em BR_A1_23) e validação conservadora de extremidades."
   ],
   "nodes": {
     "SUB_01": {
@@ -586,6 +587,21 @@
       "in_service": true,
       "x": 1.55,
       "y": 1.02
+    },
+    "AST_BR_A1_23": {
+      "asset_id": "AST_BR_A1_23",
+      "node_id": null,
+      "branch_id": "BR_A1_23",
+      "feeder_id": "F1",
+      "asset_type": "VAO_REDE_PODA",
+      "phases": [
+        "A",
+        "B",
+        "C"
+      ],
+      "in_service": true,
+      "x": 2.45,
+      "y": 1.0
     },
     "AST_A1_3A": {
       "asset_id": "AST_A1_3A",

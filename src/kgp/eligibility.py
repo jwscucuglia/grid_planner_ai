@@ -17,7 +17,11 @@ from .contracts import (
     ServiceOrder,
     ServiceType,
 )
-from .topology import simulate_zone_intervention, validate_asset_registration
+from .topology import (
+    simulate_zone_intervention,
+    validate_asset_registration,
+    validate_switch_maneuverability,
+)
 
 
 def filter_known_services(
@@ -51,6 +55,13 @@ def get_zone_deenergized_assets(
     if zone_id not in network.isolation_zones:
         return set(), False, f"Zona '{zone_id}' inexistente na rede."
 
+    zone = network.isolation_zones[zone_id]
+    sw_issues = validate_switch_maneuverability(
+        network, set(zone.open_switches), set(zone.tie_switches_closed)
+    )
+    if sw_issues:
+        return set(), False, "; ".join(sw_issues)
+
     steps, _ = simulate_zone_intervention(
         network=network,
         zone_id=zone_id,
@@ -62,7 +73,6 @@ def get_zone_deenergized_assets(
         return set(), False, f"Zona '{zone_id}' sem etapa de execução válida."
 
     exec_step = exec_steps[0]
-    zone = network.isolation_zones[zone_id]
     if zone.requires_transfer_validation and not exec_step.transfer_feasible:
         return (
             set(),

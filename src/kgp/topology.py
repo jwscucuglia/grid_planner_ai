@@ -3,7 +3,7 @@
 Calcula componentes conectados às fontes por fase, barras e ativos efetivamente
 desenergizados, consumidores sem alimentação em cada etapa da manobra (isolamento,
 transferência por chave NA/NF, execução e recomposição) e verificação elétrica
-simplificada de transferência de carga (carregamento térmico e queda de tensão).
+por fase de transferência de carga (carregamento térmico e queda de tensão).
 """
 
 from __future__ import annotations
@@ -16,7 +16,6 @@ from .contracts import (
     GridAsset,
     GridBranch,
     GridNetwork,
-    GridNode,
     IsolationZoneSpec,
     ManeuverStage,
     ManeuverStepResult,
@@ -25,7 +24,7 @@ from .contracts import (
 
 
 class TopologyValidationError(ValueError):
-    """Erro de integridade cadastral de ativo, barra, trecho ou fase."""
+    """Erro de integridade cadastral de ativo, barra, trecho, chave ou fase."""
 
 
 def validate_asset_registration(network: GridNetwork, asset_id: str) -> List[str]:
@@ -75,16 +74,40 @@ def validate_asset_registration(network: GridNetwork, asset_id: str) -> List[str
     return issues
 
 
+def validate_switch_maneuverability(
+    network: GridNetwork,
+    open_switches_override: Set[str],
+    closed_switches_override: Set[str],
+) -> List[str]:
+    """Verifica se todas as chaves acionadas existem, estão em serviço e são manobráveis."""
+    issues: List[str] = []
+    for sw_id in sorted(open_switches_override | closed_switches_override):
+        if sw_id not in network.switches:
+            issues.append(f"Chave '{sw_id}' inexistente no cadastro da rede.")
+            continue
+        sw = network.switches[sw_id]
+        if not sw.in_service:
+            issues.append(f"Chave '{sw_id}' fora de serviço.")
+        if not sw.is_maneuverable:
+            issues.append(
+                f"Chave '{sw_id}' marcada como não manobrável (is_maneuverable=False)."
+            )
+    return issues
+
+
 def get_effective_switch_states(
     network: GridNetwork,
     open_switches_override: Set[str],
     closed_switches_override: Set[str],
 ) -> Dict[str, SwitchState]:
-    """Determina o estado efetivo de cada chave considerando overrides da etapa."""
+    """Determina o estado efetivo de cada chave considerando overrides e permissão de manobra."""
     states: Dict[str, SwitchState] = {}
     for sw_id, sw in network.switches.items():
         if not sw.in_service:
             states[sw_id] = SwitchState.OPEN
+        elif not sw.is_maneuverable:
+            # Chave bloqueada/não manobrável permanece fisicamente em seu estado atual:
+            states[sw_id] = sw.current_state
         elif sw_id in open_switches_override:
             states[sw_id] = SwitchState.OPEN
         elif sw_id in closed_switches_override:
@@ -128,9 +151,14 @@ def compute_energized_phases_by_node(
     Retorna:
         energized_phases: mapa node_id -> conjunto de fases energizadas
         supplying_sources: mapa node_id -> conjunto de fontes que alimentam o nó
-        topology_notes: observações sobre ilhamento de GD ou fontes inativas
+        topology_notes: observações sobre ilhamento de GD, chaves bloqueadas ou fontes inativas
     """
-    switch_states = get_effective_switch_states(network, open_switches, closed_switches)
+    notes: List[str] = validate_switch_maneuverability(
+        network, open_switches, closed_switches
+    )
+    switch_states = get_effective_switch_states(
+        network, open_switches, closed_switches
+    )
     active_branches = get_active_branches(network, switch_states)
 
     adj: Dict[str, List[Tuple[str, GridBranch]]] = {
@@ -146,7 +174,6 @@ def compute_energized_phases_by_node(
     supplying_sources: Dict[str, Set[str]] = {
         node_id: set() for node_id in network.nodes
     }
-    notes: List[str] = []
 
     for phase in ("A", "B", "C"):
         queue: deque[Tuple[str, str]] = deque()
@@ -197,13 +224,20 @@ def verify_transfer_electrical_feasibility(
     energized_phases: Dict[str, Set[str]],
     supplying_sources: Dict[str, Set[str]],
 ) -> Tuple[bool, float, float, str]:
-    """Verifica factibilidade elétrica (fluxo radial aproximado, carregamento e queda de tensão).
+    """Verifica factibilidade elétrica por fase (fluxo radial por fase, carregamento e queda de tensão).
 
-    Se parâmetros elétricos forem insuficientes na zona ou nos trechos, desabilita
-    a transferência e declara explicitamente a limitação.
+    Agrega a potência de cada fase `ph in ('A', 'B', 'C')` exclusivamente ao longo
+    dos trechos ativos que possuem a respectiva fase `ph`, impedindo que cargas
+    de uma fase sejam roteadas por atalhos de outra fase.
     """
     if not closed_switches and not zone.requires_transfer_validation:
         return True, 0.0, 0.0, "Sem transferência por chave NA."
+
+    sw_issues = validate_switch_maneuverability(
+        network, open_switches, closed_switches
+    )
+    if sw_issues:
+        return False, 0.0, 0.0, "; ".join(sw_issues)
 
     if not zone.transfer_params_complete:
         return (
@@ -213,7 +247,9 @@ def verify_transfer_electrical_feasibility(
             f"Zona '{zone.zone_id}' sem parâmetros elétricos completos para validar transferência.",
         )
 
-    switch_states = get_effective_switch_states(network, open_switches, closed_switches)
+    switch_states = get_effective_switch_states(
+        network, open_switches, closed_switches
+    )
     active_branches = get_active_branches(network, switch_states)
 
     for br in active_branches.values():
@@ -225,78 +261,125 @@ def verify_transfer_electrical_feasibility(
                 f"Trecho '{br.branch_id}' com parâmetros elétricos inválidos/ausentes.",
             )
 
-    node_demand_kw: Dict[str, float] = {
-        node_id: node.load_kw for node_id, node in network.nodes.items()
+    # Demanda nodal separada estritamente por fase (A, B, C):
+    node_phase_demand_kw: Dict[str, Dict[str, float]] = {
+        ph: {node_id: 0.0 for node_id in network.nodes}
+        for ph in ("A", "B", "C")
     }
-    for consumer in network.consumers.values():
-        if consumer.node_id in node_demand_kw:
-            if consumer.phase in energized_phases.get(consumer.node_id, set()):
-                node_demand_kw[consumer.node_id] += consumer.avg_demand_kw
+    for node_id, node in network.nodes.items():
+        active_ph = energized_phases.get(node_id, set())
+        if active_ph and node.load_kw > 0.0:
+            per_ph_kw = node.load_kw / float(len(active_ph))
+            for ph in active_ph:
+                node_phase_demand_kw[ph][node_id] += per_ph_kw
 
-    adj: Dict[str, List[Tuple[str, GridBranch]]] = {
-        node_id: [] for node_id in network.nodes
+    for consumer in network.consumers.values():
+        if consumer.node_id in network.nodes:
+            ph = consumer.phase
+            if ph in energized_phases.get(consumer.node_id, set()):
+                node_phase_demand_kw[ph][consumer.node_id] += consumer.avg_demand_kw
+
+    # Fluxo acumulado por trecho e por fase:
+    branch_phase_flow_kw: Dict[str, Dict[str, float]] = {
+        br_id: {ph: 0.0 for ph in ("A", "B", "C")}
+        for br_id in active_branches
     }
-    for br in active_branches.values():
-        adj[br.from_node].append((br.to_node, br))
-        adj[br.to_node].append((br.from_node, br))
+    phase_trees: List[Tuple[str, str, List[str], Dict[str, Optional[str]], Dict[str, GridBranch]]] = []
+
+    for ph in ("A", "B", "C"):
+        adj_ph: Dict[str, List[Tuple[str, GridBranch]]] = {
+            node_id: [] for node_id in network.nodes
+        }
+        for br in active_branches.values():
+            if ph not in br.phases:
+                continue
+            if (
+                ph in energized_phases.get(br.from_node, set())
+                and ph in energized_phases.get(br.to_node, set())
+            ):
+                adj_ph[br.from_node].append((br.to_node, br))
+                adj_ph[br.to_node].append((br.from_node, br))
+
+        active_sources_ph = [
+            n.node_id
+            for n in network.nodes.values()
+            if n.is_source
+            and n.in_service
+            and ph in energized_phases.get(n.node_id, set())
+        ]
+
+        ph_trees_raw: List[Tuple[str, List[str], Dict[str, Optional[str]], Dict[str, GridBranch]]] = []
+        ph_srcs_by_node: Dict[str, Set[str]] = {
+            node_id: set() for node_id in network.nodes
+        }
+
+        for src_id in active_sources_ph:
+            src_node = network.nodes[src_id]
+            if src_node.nominal_voltage_kv <= 0.0:
+                return (
+                    False,
+                    0.0,
+                    0.0,
+                    f"Fonte '{src_id}' sem tensão nominal válida.",
+                )
+
+            parent: Dict[str, Optional[str]] = {src_id: None}
+            parent_branch: Dict[str, GridBranch] = {}
+            order: List[str] = []
+            queue: deque[str] = deque([src_id])
+
+            while queue:
+                curr = queue.popleft()
+                order.append(curr)
+                ph_srcs_by_node[curr].add(src_id)
+                for nbr, br in adj_ph.get(curr, []):
+                    if nbr not in parent:
+                        parent[nbr] = curr
+                        parent_branch[nbr] = br
+                        queue.append(nbr)
+
+            ph_trees_raw.append((src_id, order, parent, parent_branch))
+
+        for src_id, order, parent, parent_branch in ph_trees_raw:
+            subtree_ph_kw: Dict[str, float] = {}
+            for n_id in order:
+                num_srcs = max(1, len(ph_srcs_by_node.get(n_id, {src_id})))
+                subtree_ph_kw[n_id] = (
+                    node_phase_demand_kw[ph].get(n_id, 0.0) / float(num_srcs)
+                )
+
+            for n_id in reversed(order):
+                p_id = parent[n_id]
+                if p_id is not None:
+                    br = parent_branch[n_id]
+                    subtree_ph_kw[p_id] += subtree_ph_kw[n_id]
+                    branch_phase_flow_kw[br.branch_id][ph] += subtree_ph_kw[n_id]
+
+            phase_trees.append((ph, src_id, order, parent, parent_branch))
 
     max_loading_pct = 0.0
     max_vdrop_pct = 0.0
 
-    active_sources = [
-        n.node_id
-        for n in network.nodes.values()
-        if n.is_source and n.in_service and energized_phases.get(n.node_id)
-    ]
+    branch_total_flow_kw: Dict[str, float] = {}
+    for br_id, br in active_branches.items():
+        tot_flow = sum(branch_phase_flow_kw[br_id].values())
+        branch_total_flow_kw[br_id] = tot_flow
+        loading_pct = (tot_flow / br.max_capacity_kw) * 100.0
+        max_loading_pct = max(max_loading_pct, loading_pct)
 
-    for src_id in active_sources:
-        src_node = network.nodes[src_id]
-        if src_node.nominal_voltage_kv <= 0.0:
-            return (
-                False,
-                0.0,
-                0.0,
-                f"Fonte '{src_id}' sem tensão nominal válida.",
-            )
+    power_factor = 0.92
+    tan_phi = math.tan(math.acos(power_factor))
 
-        parent: Dict[str, Optional[str]] = {src_id: None}
-        parent_branch: Dict[str, GridBranch] = {}
-        order: List[str] = []
-        queue: deque[str] = deque([src_id])
-
-        while queue:
-            curr = queue.popleft()
-            order.append(curr)
-            for nbr, br in adj.get(curr, []):
-                if nbr not in parent and energized_phases.get(nbr):
-                    parent[nbr] = curr
-                    parent_branch[nbr] = br
-                    queue.append(nbr)
-
-        subtree_kw: Dict[str, float] = {
-            n_id: node_demand_kw.get(n_id, 0.0) for n_id in order
-        }
-        for n_id in reversed(order):
-            p_id = parent[n_id]
-            if p_id is not None:
-                num_sources = max(1, len(supplying_sources.get(n_id, {src_id})))
-                subtree_kw[p_id] += subtree_kw[n_id] / num_sources
-
+    for ph, src_id, order, parent, parent_branch in phase_trees:
+        v_base_kv = network.nodes[src_id].nominal_voltage_kv
         v_drop_node_pct: Dict[str, float] = {src_id: 0.0}
-        v_base_kv = src_node.nominal_voltage_kv
-        power_factor = 0.92
-        tan_phi = math.tan(math.acos(power_factor))
-
         for n_id in order:
             if n_id == src_id:
                 continue
             p_id = parent[n_id]
             br = parent_branch[n_id]
             assert p_id is not None
-            flow_kw = subtree_kw[n_id]
-            loading_pct = (flow_kw / br.max_capacity_kw) * 100.0
-            max_loading_pct = max(max_loading_pct, loading_pct)
-
+            flow_kw = branch_total_flow_kw.get(br.branch_id, 0.0)
             z_eff_ohm = br.r_ohm + br.x_ohm * tan_phi
             p_mw = flow_kw / 1000.0
             step_vdrop_pct = (p_mw * z_eff_ohm / (v_base_kv ** 2)) * 100.0
@@ -342,8 +425,8 @@ def evaluate_maneuver_step(
     open_set = set(open_switches)
     closed_set = set(closed_switches)
 
-    energized_phases, supplying_sources, topo_notes = compute_energized_phases_by_node(
-        network, open_set, closed_set
+    energized_phases, supplying_sources, topo_notes = (
+        compute_energized_phases_by_node(network, open_set, closed_set)
     )
 
     energized_nodes: List[str] = []
@@ -375,19 +458,12 @@ def evaluate_maneuver_step(
                 is_asset_live = True
         if asset.branch_id is not None:
             br = network.branches[asset.branch_id]
+            # Regra conservadora: ativo de trecho só é considerado desenergizado se
+            # AMBAS as extremidades do trecho estiverem totalmente desenergizadas.
             if energized_phases.get(br.from_node, set()) or energized_phases.get(
                 br.to_node, set()
             ):
-                switch_states = get_effective_switch_states(
-                    network, open_set, closed_set
-                )
-                active_branches = get_active_branches(network, switch_states)
-                if asset.branch_id in active_branches:
-                    is_asset_live = True
-                elif energized_phases.get(br.from_node, set()) and energized_phases.get(
-                    br.to_node, set()
-                ):
-                    is_asset_live = True
+                is_asset_live = True
         if not is_asset_live:
             deenergized_assets.append(asset_id)
 
@@ -402,17 +478,17 @@ def evaluate_maneuver_step(
             interrupted_consumers.append(cid)
 
     active_sources = sorted(
-        {
-            src
-            for srcs in supplying_sources.values()
-            for src in srcs
-        }
+        {src for srcs in supplying_sources.values() for src in srcs}
     )
 
     transfer_ok = True
     max_loading = 0.0
     max_vdrop = 0.0
-    if zone is not None and (closed_set or zone.requires_transfer_validation):
+    sw_issues = validate_switch_maneuverability(network, open_set, closed_set)
+    if sw_issues:
+        transfer_ok = False
+        topo_notes.extend(sw_issues)
+    elif zone is not None and (closed_set or zone.requires_transfer_validation):
         transfer_ok, max_loading, max_vdrop, tr_note = (
             verify_transfer_electrical_feasibility(
                 network,
@@ -450,23 +526,7 @@ def simulate_zone_intervention(
     work_start_hour: float,
     work_end_hour: float,
 ) -> Tuple[Tuple[ManeuverStepResult, ...], int]:
-    """Simula todas as etapas de uma intervenção em uma zona de isolamento.
-
-    Se a zona possuir chave de interligação (NA) e a transferência for eletricamente
-    factível:
-      1. Etapa ISOLATION: abertura das chaves NF de isolamento (duração prep_duration_hours/2).
-      2. Etapa TRANSFER: fechamento da chave NA de socorro (duração prep_duration_hours/2).
-      3. Etapa EXECUTION: execução dos serviços com socorro ativo [work_start_hour, work_end_hour].
-      4. Etapa RECOMPOSITION: retorno das chaves NA/NF ao estado normal.
-
-    Se a transferência não for factível (ou não existir chave NA):
-      1. Etapa ISOLATION: abertura das chaves NF [work_start - prep, work_start].
-      2. Etapa EXECUTION: execução sem transferência [work_start, work_end].
-      3. Etapa RECOMPOSITION: fechamento das chaves NF [work_end, work_end + recomp].
-
-    Retorna:
-        (tupla de ManeuverStepResult, total de manobras físicas de chaves)
-    """
+    """Simula todas as etapas de uma intervenção em uma zona de isolamento."""
     if zone_id not in network.isolation_zones:
         raise TopologyValidationError(f"Zona de isolamento '{zone_id}' inexistente.")
 

@@ -1,6 +1,7 @@
 {
   "project": "KAPTUS GRID PLANNER (KGP) — Desafio 07 Inova Cemig.Lab Ciclo 5",
-  "execution_timestamp": "2026-10-28T20:20:55.528653+00:00",
+  "package_version": "0.2.0",
+  "execution_timestamp": "2026-10-28T21:37:34.691768+00:00",
   "python_version": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
   "platform": "Windows-10-10.0.26300-SP0",
   "dev_seeds": [

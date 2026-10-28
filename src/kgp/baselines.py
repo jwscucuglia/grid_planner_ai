@@ -74,6 +74,49 @@ def _subtract_materials(
     return updated
 
 
+def _get_conflicting_zones_map(network: GridNetwork) -> Dict[str, Set[str]]:
+    """Mapeia cada zona para todas as zonas que compartilham a própria zona, chaves ou ativos desenergizados."""
+    zone_switches: Dict[str, Set[str]] = {}
+    zone_assets: Dict[str, Set[str]] = {}
+    for zid, z in network.isolation_zones.items():
+        zone_switches[zid] = set(z.open_switches) | set(z.tie_switches_closed)
+        steps, _ = simulate_zone_intervention(network, zid, 9.0, 11.0)
+        deenerg: Set[str] = set()
+        for st in steps:
+            deenerg.update(st.deenergized_assets)
+        zone_assets[zid] = deenerg
+
+    conflicts: Dict[str, Set[str]] = {
+        zid: {zid} for zid in network.isolation_zones
+    }
+    zids = list(network.isolation_zones.keys())
+    for i in range(len(zids)):
+        za = zids[i]
+        for j in range(i + 1, len(zids)):
+            zb = zids[j]
+            if (zone_switches[za] & zone_switches[zb]) or (
+                zone_assets[za] & zone_assets[zb]
+            ):
+                conflicts[za].add(zb)
+                conflicts[zb].add(za)
+    return conflicts
+
+
+def _update_conflicting_zones_day_end(
+    zone_conflicts: Dict[str, Set[str]],
+    zone_day_end: Dict[Tuple[str, int], float],
+    zone_id: str,
+    day: int,
+    end_hour: float,
+) -> None:
+    """Atualiza o horário de liberação no dia para a zona e todas as zonas conflitantes."""
+    for czid in zone_conflicts.get(zone_id, {zone_id}):
+        zone_day_end[(czid, day)] = max(
+            zone_day_end.get((czid, day), 0.0),
+            end_hour,
+        )
+
+
 def run_baseline_b0_individual(
     network: GridNetwork,
     services: Iterable[ServiceOrder],
@@ -92,6 +135,7 @@ def run_baseline_b0_individual(
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
+    zone_conflicts = _get_conflicting_zones_map(network)
     zone_day_end: Dict[Tuple[str, int], float] = {}
     service_scheduled_day: Dict[str, int] = {}
     service_scheduled_end: Dict[str, float] = {}
@@ -169,8 +213,12 @@ def run_baseline_b0_individual(
             windows.append(scheduled_win)
             completed.append(svc.service_id)
             day_intervals[scheduled_win.day].extend(scheduled_win.crew_intervals)
-            zone_day_end[(scheduled_win.zone_id, scheduled_win.day)] = (
-                scheduled_win.end_hour
+            _update_conflicting_zones_day_end(
+                zone_conflicts,
+                zone_day_end,
+                scheduled_win.zone_id,
+                scheduled_win.day,
+                scheduled_win.end_hour,
             )
             service_scheduled_day[svc.service_id] = scheduled_win.day
             service_scheduled_end[svc.service_id] = scheduled_win.work_end_hour
@@ -221,6 +269,7 @@ def run_baseline_b1_geographic(
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
+    zone_conflicts = _get_conflicting_zones_map(network)
     zone_day_end: Dict[Tuple[str, int], float] = {}
     service_scheduled_day: Dict[str, int] = {}
     service_scheduled_end: Dict[str, float] = {}
@@ -355,8 +404,12 @@ def run_baseline_b1_geographic(
         if scheduled_win is not None:
             windows.append(scheduled_win)
             day_intervals[scheduled_win.day].extend(scheduled_win.crew_intervals)
-            zone_day_end[(scheduled_win.zone_id, scheduled_win.day)] = (
-                scheduled_win.end_hour
+            _update_conflicting_zones_day_end(
+                zone_conflicts,
+                zone_day_end,
+                scheduled_win.zone_id,
+                scheduled_win.day,
+                scheduled_win.end_hour,
             )
             remaining_materials = _subtract_materials(
                 remaining_materials, scheduled_win.materials_used
@@ -419,6 +472,7 @@ def run_baseline_b2_topological_greedy(
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
+    zone_conflicts = _get_conflicting_zones_map(network)
     zone_day_end: Dict[Tuple[str, int], float] = {}
     service_scheduled_day: Dict[str, int] = {}
     service_scheduled_end: Dict[str, float] = {}
@@ -562,8 +616,12 @@ def run_baseline_b2_topological_greedy(
         if scheduled_win is not None:
             windows.append(scheduled_win)
             day_intervals[scheduled_win.day].extend(scheduled_win.crew_intervals)
-            zone_day_end[(scheduled_win.zone_id, scheduled_win.day)] = (
-                scheduled_win.end_hour
+            _update_conflicting_zones_day_end(
+                zone_conflicts,
+                zone_day_end,
+                scheduled_win.zone_id,
+                scheduled_win.day,
+                scheduled_win.end_hour,
             )
             remaining_materials = _subtract_materials(
                 remaining_materials, scheduled_win.materials_used

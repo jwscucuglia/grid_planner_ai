@@ -1,9 +1,10 @@
-# KAPTUS GRID PLANNER (KGP) — Desafio 07 Inova Cemig.Lab Ciclo 5
+# KAPTUS GRID PLANNER (KGP v0.2.0 / REV02) — Desafio 07 Inova Cemig.Lab Ciclo 5
 
-Demonstrador computacional independente e reproduzível para programação conjunta de serviços de manutenção e obras na rede elétrica de distribuição sob restrições topológicas pós-manobra, temporais e de recursos operacionais.
+Demonstrador computacional independente, auditado e reproduzível para programação conjunta de serviços de manutenção e obras na rede elétrica de distribuição sob restrições topológicas pós-manobra por fase, temporais e de recursos operacionais.
 
 - **Isolamento de Escopo:** Este repositório (`grid_planner_ai`) é 100% independente do Desafio 06 (GTA). Não compartilha nem importa código, dados ou resultados do D06.
 - **Modo de Operação:** *Sidecar / Out-of-Band* — sem telecomandos, operando sobre rede elétrica de referência multi-alimentador (`13,8 kV`) e carteira sintética documentada.
+- **Rigor de Verificação (`v0.2.0`):** Fluxo radial trifásico separado por fase (`A`, `B`, `C`), desenergização conservadora de ativos em trechos (ambas as barras extremas desenergizadas), colunas diárias completas encadeadas no MILP com igualdade exata entre objetivo do solver e plano exportado, e verificador independente com reconstrução autônoma pós-serialização JSON e 20 testes automatizados (`tests/test_kgp_critical_cases.py`).
 
 ---
 

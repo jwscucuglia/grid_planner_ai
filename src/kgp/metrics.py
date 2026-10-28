@@ -1,14 +1,14 @@
 """Cálculo exato de métricas operacionais, elétricas e do solver no KGP.
 
 Calcula:
-- janelas de interrupção vs. manobras físicas de chaves;
+- janelas de interrupção vs. manobras físicas de chaves (recalculadas pelo verificador);
 - taxa de acoplamento (janelas com 2+ serviços / total de janelas);
 - clientes-hora pela soma, por consumidor, da duração da união dos intervalos
   sem alimentação (sem duplicar intervalos sobrepostos ou contíguos);
 - reincidência (consumidores com 2+ interrupções distintas separadas por recomposição);
 - métricas de ocupação e deslocamento de equipes;
-- status, objetivo, bound, gap e tempo do solver (declarando otimalidade apenas quando
-  comprovada pelos limites numéricos).
+- status, objetivo, bound, gap e tempo do solver (declarando otimalidade no espaço
+  discreto de colunas apenas quando comprovada pelos limites numéricos e factível).
 """
 
 from __future__ import annotations
@@ -29,7 +29,7 @@ def merge_intervals(
     tol: float = 1e-5,
 ) -> List[Tuple[float, float]]:
     """Calcula a união disjunta de intervalos [inicio, fim], fundindo sobreposições e adjacências."""
-    valid = [( float(s), float(e) ) for s, e in intervals if e > s + 1e-9]
+    valid = [(float(s), float(e)) for s, e in intervals if e > s + 1e-9]
     if not valid:
         return []
     valid.sort(key=lambda x: (x[0], x[1]))
@@ -84,7 +84,7 @@ def compute_plan_metrics(
     plan: ExecutionPlan,
     feasibility: FeasibilityReport,
 ) -> PlanMetrics:
-    """Apura todas as métricas auditáveis de um plano e seu relatório de factibilidade."""
+    """Apura todas as métricas auditáveis a partir do plano e do verificador independente."""
     svc_map: Dict[str, ServiceOrder] = {s.service_id: s for s in services}
     known_mandatory = [
         s
@@ -94,11 +94,12 @@ def compute_plan_metrics(
         and s.created_at_day <= plan.decision_day
     ]
 
-    scheduled_services: List[str] = []
-    for win in plan.windows:
-        for sid in win.service_ids:
-            if sid not in scheduled_services:
-                scheduled_services.append(sid)
+    scheduled_services = list(feasibility.recalculated_completed_services)
+    if not scheduled_services:
+        for win in plan.windows:
+            for sid in win.service_ids:
+                if sid not in scheduled_services:
+                    scheduled_services.append(sid)
 
     completed_mandatory = [
         s.service_id
@@ -112,7 +113,7 @@ def compute_plan_metrics(
     )
 
     windows_count = len(plan.windows)
-    physical_maneuvers = sum(w.physical_maneuvers_count for w in plan.windows)
+    physical_maneuvers = feasibility.recalculated_physical_maneuvers
     coupled_windows = sum(1 for w in plan.windows if len(w.service_ids) >= 2)
     coupling_rate = (
         coupled_windows / windows_count if windows_count > 0 else 0.0
@@ -123,15 +124,9 @@ def compute_plan_metrics(
 
     merged_by_consumer = compute_consumer_interruption_unions(plan)
     unique_consumers = len(merged_by_consumer)
-    repeat_consumers = sum(
-        1 for ivs in merged_by_consumer.values() if len(ivs) >= 2
-    )
+    repeat_consumers = feasibility.recalculated_repeat_consumers
     total_interruptions = sum(len(ivs) for ivs in merged_by_consumer.values())
-    consumer_hours = sum(
-        (end - start)
-        for ivs in merged_by_consumer.values()
-        for start, end in ivs
-    )
+    consumer_hours = feasibility.recalculated_consumer_hours
 
     total_work_h = 0.0
     total_travel_h = 0.0
@@ -149,7 +144,8 @@ def compute_plan_metrics(
 
     proven_optimal = False
     if (
-        plan.solver_status == "OPTIMAL"
+        feasibility.is_feasible
+        and plan.solver_status in ("OPTIMAL", "OPTIMAL_ON_DISCRETE_COLUMNS")
         and plan.solver_objective is not None
         and plan.solver_bound is not None
         and plan.solver_gap is not None

@@ -324,6 +324,9 @@ class FeasibilityReport:
     recalculated_consumer_hours: float = 0.0
     recalculated_windows_count: int = 0
     recalculated_physical_maneuvers: int = 0
+    recalculated_repeat_consumers: int = 0
+    recalculated_completed_services: Tuple[str, ...] = ()
+    isolation_verified: bool = True
 
 
 @dataclass
