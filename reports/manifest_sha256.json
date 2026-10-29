@@ -1,14 +1,14 @@
 {
   "package_version": "0.3.0",
   "source_commit": "5adf593ad9168e61a4b4ceea62346db7402a3d4c",
-  "generated_at_utc": "2026-10-29T12:57:48.093563+00:00",
+  "generated_at_utc": "2026-10-29T13:00:54.192781+00:00",
   "scope": "Public technical release files; candidature and budget remain in the private Drive bundle. Excludes this manifest itself.",
   "files": {
     ".gitignore": "64508c18eadea8a3c4d52dc60bde114847530e5915ca741f39d443b73505930d",
     "AGENTS.md": "0c613992d247eb35649cc37f1eecfa5c7d2d44209cca817695de09e3eb535692",
     "configs/protocol_and_seeds.json": "dc1cc2822088c520f7e946ec41839b0f63125dc5bd84002f767e096b8f7d78ec",
     "data/reference_network.json": "617d9318d02293722a9cc557f95c6fa9fcae6f28af7f33218035a5a6fdb8eed1",
-    "docs/superpowers/plans/2026-10-29-revisao-integral-d07.md": "dc8fcecb713882cd8b483d8f91ca9f1054c4a997b96c76d6e40874407d47f067",
+    "docs/superpowers/plans/2026-10-29-revisao-integral-d07.md": "27af76db2112d89dbcc9e3836a1afbc4b39a0f1479bb9ab2f8c410181c907b6c",
     "pyproject.toml": "f6abf9a834340978c45be7fe23b341c33373fabfefe885e0435d85bdd8023211",
     "README.md": "6fc99c5eb9ec39cb0a5434ecaab23f52676f2b742c40888e68562aca1eeea195",
     "reports/AUDITORIA_OTIMIZADOR_D07.md": "c59c7604a67f6a363191ff94df17170127355e46a254e7a21ea1fded431ac766",

@@ -27,7 +27,7 @@
 - [x] 3. Corrigir optimizer.py e tests/test_optimizer_audit.py: mesma penalidade opcional, cobertura obrigatória rígida, comparação pequena com enumeração; relatar catálogo.
 - [x] 4. Corrigir fronteiras JSON e experiment.py: JSON estrito, entradas/planos/verificações exportados, protocolo congelado antes execução, classificação reavaliação sintética e perdas por métrica; executar 48 planos e manifestos.
 - [x] 5. Conferir edital/modelos/orçamento; produzir matrizes em reports; reconciliar documentos vigentes, slides e PDFs no Drive após resultados finais.
-- [ ] 6. Revisão independente; regressões de achados adicionais; suíte final e hashes; commits rastreáveis, push branch e PR se houver acesso.
+- [x] 6. Revisão independente; regressões de achados adicionais; suíte final e hashes; commits rastreáveis, push branch e PR se houver acesso.
 
 ## Registro de decisões e verificações
 - 2026-10-29: branch em checkout limpo atende isolamento autorizado; base 84340636c6d3877eacf44d4e19a1b802451057c1.
@@ -37,3 +37,4 @@
 - Revisões adicionais encontraram contratos malformados, relato de ótimo, outages preexistentes, fallback sem incumbent, figura legada e raio B1. Todos corrigidos ou bloqueados explicitamente, com evidências no pacote. Deslocamento abaixo de5km/h também corrigido por referência física10/2=5h.
 - Repositório confirmado público: dados da candidatura, orçamento, inventário e matrizes permanecem no Drive/pacote restrito. Código, testes e evidências experimentais integram a PR.
 - Documentos e pitch atualizados nos próprios IDs,9 PDFs conferidos por hash e65 páginas inspecionadas. Orçamento é estimativa; classificação de apoio/h é pendência contábil/Cemig. Dados empresariais serão preenchidos pelo usuário.
+- PR para revisão interna criada: https://github.com/jwscucuglia/grid_planner_ai/pull/1 (draft). Conector recusou criação por permissão da integração; acesso Git local autorizado criou a PR. Principal preservada em8434063; sem merge, deploy ou submissão.
