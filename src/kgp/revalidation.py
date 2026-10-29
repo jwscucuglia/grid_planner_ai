@@ -70,6 +70,7 @@ def run_revalidation(base_dir):
         'objective_weights': asdict(weights), 'electrical_window_policy': 'SERIAL_WINDOWS_ONLY',
         'dg_policy': 'UNSUPPORTED_ISLANDING_REJECTED_BEFORE_PLANNING',
         'operational_resolution_hours': 0.0001,
+        'daily_gap_policy': 'Positive overnight restoration gap required; continuous 24h catalogs unsupported',
         'interval_adjacency_rule': 'Integer tick equality only; any positive tick gap is a restoration',
         'stage_admissibility_rule': 'Every positive-duration stage must pass electrical checks',
         'transfer_policy': 'Required transfer failure rejects zone; optional failed transfer stays open and actual state is audited',
@@ -226,6 +227,7 @@ def _write_report(path, summary, rows):
               '- REV04/A2: ilhamento por geração distribuída é explicitamente não suportado e bloqueado antes de planejar/auditar. A rede de referência mantém anti-ilhamento; não se anuncia fluxo de DG sem seus limites.',
               '- REV04/A3/A4: dias anteriores à decisão são excluídos; certificado exige auditoria do plano bruto e após JSON. Transferência obrigatória malsucedida rejeita a intervenção; na opcional abandonada, a chave permanece aberta e esse estado efetivamente executado é auditado.',
               '- REV04/A5: grade operacional de 0,0001 h (0,36 s), fronteiras/união em ticks inteiros e adjacência exata. Horários fora da grade são rejeitados; a tolerância de representação binária não apaga intervalos ou reduz requisitos de duração/agenda.',
+              '- Baliza temporal adicional: o catálogo exige gap diário positivo de recomposição. Catálogos ininterruptos 0–24h são recusados antes de planejar/auditar; o objetivo de colunas diárias não certifica continuidade de uma interrupção através da meia-noite.',
               '## Artefatos e reprodução', '',
               '`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `reports/revalidation_REV04_20261029/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.',
               'Consulte também AUDITORIA_DOCUMENTAL_D07.md, MATRIZ_ADERENCIA_OFICIAL_D07.md, AUDITORIA_OTIMIZADOR_D07.md e REVISAO_INDEPENDENTE_NUCLEO_D07.md.', '']

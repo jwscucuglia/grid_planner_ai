@@ -615,7 +615,7 @@ def run_kgp_optimizer(
     w = weights if weights is not None else ObjectiveWeights()
 
     all_services = list(services)
-    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "KGP")
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "KGP", catalog=catalog)
     if unsupported is not None:
         return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)

@@ -173,7 +173,7 @@ def run_baseline_b0_individual(
     """B0 — Programação individual por prioridade e prazo (1 serviço por janela)."""
     t0 = time.perf_counter()
     all_services = list(services)
-    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B0")
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B0", catalog=catalog)
     if unsupported is not None:
         return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
@@ -310,7 +310,7 @@ def run_baseline_b1_geographic(
     """
     t0 = time.perf_counter()
     all_services = list(services)
-    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B1")
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B1", catalog=catalog)
     if unsupported is not None:
         return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
@@ -516,7 +516,7 @@ def run_baseline_b2_topological_greedy(
     """
     t0 = time.perf_counter()
     all_services = list(services)
-    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B2")
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B2", catalog=catalog)
     if unsupported is not None:
         return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)

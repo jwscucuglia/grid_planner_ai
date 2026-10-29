@@ -88,6 +88,8 @@ def validate_problem_and_plan(network, services, catalog, plan):
               and crew.speed_kmh > 0 and ticks(crew.prep_hours) >= 0,
               f'turno/velocidade de {crew.crew_id}')
     check(len(set(catalog.planning_days)) == len(catalog.planning_days), 'dias duplicados')
+    check(ticks(catalog.window_end_hour) - ticks(catalog.window_start_hour) < day_end,
+          'catálogo contínuo 24h sem gap diário positivo não suportado pelas colunas diárias')
     check(0 <= ticks(catalog.window_start_hour) < ticks(catalog.window_end_hour) <= day_end
           and ticks(catalog.max_window_duration_hours) > 0,
           'horizonte de horas')

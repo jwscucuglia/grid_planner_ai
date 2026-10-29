@@ -46,3 +46,5 @@ TRL 3 é proposto somente para as funções demonstradas em laboratório. Integr
 A REV04 rejeita qualquer etapa elétrica positiva inviável e ilhamento por DG não suportado. Transferência obrigatória malsucedida rejeita a intervenção; na opcional abandonada, a tie permanece aberta e o estado executado é auditado. Datas anteriores à decisão são excluídas; o certificado bruto do KGP exige auditoria antes/depois do JSON. Horários operacionais usam ticks de0,0001h (0,36s), adjacência exata e rejeição de valores fora da grade.
 
 O manifesto preserva SHA-256 dos bytes e acrescenta SHA-256 canônico apenas para texto UTF-8 com CRLF/LF. `validate_delivery.py` identifica equivalência de finais de linha separadamente; binários e arquivos de origem continuam verificados por bytes exatos. As evidências REV03 em `reports/revalidation_20261029/` e `reports/history/REV03/` são históricas; a rodada corrente está no diretório REV04 acima.
+
+O cat?logo exige intervalo di?rio positivo de recomposi??o; calend?rios cont?nuos0?24h s?o explicitamente n?o suportados.
