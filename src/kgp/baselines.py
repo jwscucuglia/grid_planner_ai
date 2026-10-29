@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import math
 import time
+from dataclasses import replace
 from typing import Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
 from .contracts import (
@@ -75,31 +76,13 @@ def _subtract_materials(
 
 
 def _get_conflicting_zones_map(network: GridNetwork) -> Dict[str, Set[str]]:
-    """Mapeia cada zona para todas as zonas que compartilham a própria zona, chaves ou ativos desenergizados."""
-    zone_switches: Dict[str, Set[str]] = {}
-    zone_assets: Dict[str, Set[str]] = {}
-    for zid, z in network.isolation_zones.items():
-        zone_switches[zid] = set(z.open_switches) | set(z.tie_switches_closed)
-        steps, _ = simulate_zone_intervention(network, zid, 9.0, 11.0)
-        deenerg: Set[str] = set()
-        for st in steps:
-            deenerg.update(st.deenergized_assets)
-        zone_assets[zid] = deenerg
+    """Serial electrical windows until joint switching is supported and certified.
 
-    conflicts: Dict[str, Set[str]] = {
-        zid: {zid} for zid in network.isolation_zones
-    }
-    zids = list(network.isolation_zones.keys())
-    for i in range(len(zids)):
-        za = zids[i]
-        for j in range(i + 1, len(zids)):
-            zb = zids[j]
-            if (zone_switches[za] & zone_switches[zb]) or (
-                zone_assets[za] & zone_assets[zb]
-            ):
-                conflicts[za].add(zb)
-                conflicts[zb].add(za)
-    return conflicts
+    Disjoint switch/asset sets do not imply electrical independence. The same
+    conservative restriction applies to B0/B1/B2 and the daily MILP columns.
+    Parallel crews inside one window remain allowed.
+    """
+    return {zid: set(network.isolation_zones) for zid in network.isolation_zones}
 
 
 def _update_conflicting_zones_day_end(
@@ -115,6 +98,68 @@ def _update_conflicting_zones_day_end(
             zone_day_end.get((czid, day), 0.0),
             end_hour,
         )
+
+
+def _improve_b2_zones(network, services, catalog, plan, max_candidates=30):
+    """One bounded local pass over alternative zones, keeping packages and days.
+
+    Rebuilds every daily route for each candidate; accepts only a complete
+    feasible plan with lower fixed default J (90,1,12,2.5,0.6). This is a
+    neighborhood search, not a claim of a local optimum over all schedules.
+    """
+    from .feasibility import verify_plan_feasibility
+    from .metrics import compute_plan_metrics
+
+    services = list(services)
+    by_id = {s.service_id: s for s in services}
+
+    def score(candidate):
+        report = verify_plan_feasibility(network, services, catalog, candidate)
+        if not report.is_feasible:
+            return None
+        m = compute_plan_metrics(network, services, candidate, report)
+        return (90 * m.interruption_windows_count + m.consumer_hours_total +
+                12 * m.repeat_interrupted_consumers_count + 2.5 * m.physical_maneuvers_count +
+                0.6 * (m.total_crew_work_hours + m.total_crew_travel_hours))
+
+    best, best_score, tried = plan, score(plan), 0
+    if best_score is None:
+        return plan
+    ordered = sorted(plan.windows, key=lambda w: (w.day, w.start_hour, w.window_id))
+    for chosen in ordered:
+        for zid in sorted(network.isolation_zones):
+            if zid == chosen.zone_id or tried >= max_candidates:
+                continue
+            pack = [by_id[sid] for sid in chosen.service_ids]
+            if not all(check_service_zone_eligibility(network, svc, zid)[0] for svc in pack):
+                continue
+            tried += 1
+            rebuilt, histories, ends = [], {}, {}
+            remaining = dict(catalog.materials_inventory)
+            for original in ordered:
+                zone = zid if original.window_id == chosen.window_id else original.zone_id
+                window, _ = build_window_schedule(
+                    network, catalog, zone, original.day, original.window_id,
+                    [by_id[sid] for sid in original.service_ids],
+                    existing_day_intervals=histories.get(original.day, []), remaining_materials=remaining,
+                    earliest_window_start_hour=max(original.start_hour, ends.get(original.day, catalog.window_start_hour)),
+                )
+                if window is None:
+                    break
+                rebuilt.append(window)
+                histories.setdefault(window.day, []).extend(window.crew_intervals)
+                ends[window.day] = window.end_hour + 0.10
+                remaining = _subtract_materials(remaining, window.materials_used)
+            if len(rebuilt) != len(ordered):
+                continue
+            candidate = replace(plan, windows=rebuilt)
+            value = score(candidate)
+            if value is not None and value < best_score - 1e-4:
+                best, best_score = candidate, value
+    best.metadata = dict(best.metadata)
+    best.metadata['local_zone_search'] = {'max_candidates': max_candidates, 'evaluated': tried,
+                                        'accepted': best is not plan, 'scope': 'one_pass_zone_change_same_packages_days'}
+    return best
 
 
 def run_baseline_b0_individual(
@@ -644,7 +689,7 @@ def run_baseline_b2_topological_greedy(
             )
 
     elapsed = time.perf_counter() - t0
-    return ExecutionPlan(
+    plan = ExecutionPlan(
         plan_id=f"PLAN_B2_{scenario_id}",
         method_name="B2",
         scenario_id=scenario_id,
@@ -657,3 +702,7 @@ def run_baseline_b2_topological_greedy(
         solver_status="HEURISTIC_TOPOLOGICAL_GREEDY",
         solver_time_sec=round(elapsed, 6),
     )
+    plan = _improve_b2_zones(network, all_services, catalog, plan)
+    plan.solver_time_sec = round(time.perf_counter() - t0, 6)
+    plan.solver_status = 'HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES'
+    return plan

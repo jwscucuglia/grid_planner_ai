@@ -1,8 +1,8 @@
 """Otimizador combinatório MILP (KGP) via SciPy/HiGHS para programação de desligamentos.
 
 Seleciona conjuntamente pacotes de serviços, zonas de isolamento, datas, sequências
-diárias de janelas e alocação de equipes dentro exatamente do mesmo espaço de zonas,
-horários e restrições permitido aos comparadores (B0, B1, B2).
+diárias de janelas e alocação de equipes sob as mesmas restrições operacionais dos
+comparadores (B0, B1, B2), em um catálogo discreto limitado que inclui suas sementes.
 
 Função objetivo documentada (minimização ponderada):
   J = w_win * N_janelas
@@ -10,6 +10,9 @@ Função objetivo documentada (minimização ponderada):
     + w_rep * Consumidores_Reincidentes
     + w_man * Manobras_Fisicas
     + w_hh  * (Horas_Trabalho_Equipe + Horas_Deslocamento_Equipe)
+    + w_opt * N_ordens_opcionais_omitidas
+
+Carteira obrigatória e precedências são restrições rígidas, sem troca por custo.
 
 Cada coluna candidata no MILP representa uma programação diária completa e factível
 (1 ou mais janelas encadeadas no dia `d` com o deslocamento real entre serviços e a
@@ -19,8 +22,9 @@ avaliado pelo solver e o custo do plano final exportado.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, fields
 from itertools import combinations
+import math
 import time
 from typing import Dict, FrozenSet, Iterable, List, Optional, Sequence, Set, Tuple
 
@@ -61,7 +65,15 @@ class ObjectiveWeights:
     repeat_consumer_weight: float = 12.0
     physical_maneuver_weight: float = 2.5
     crew_hour_weight: float = 0.6
+    # Compatibilidade da API 0.2.0; não é usada como relaxação de carteira obrigatória.
     unscheduled_penalty: float = 1_000_000.0
+    optional_unscheduled_penalty: float = 50.0
+
+    def __post_init__(self) -> None:
+        for item in fields(self):
+            value = getattr(self, item.name)
+            if not math.isfinite(value) or value < 0.0:
+                raise ValueError(f"Peso '{item.name}' deve ser finito e não negativo.")
 
 
 @dataclass
@@ -468,8 +480,25 @@ def _generate_day_schedule_columns(
 def compute_exact_plan_objective(
     plan: ExecutionPlan,
     weights: ObjectiveWeights,
+    services: Optional[Iterable[ServiceOrder]] = None,
 ) -> float:
-    """Calcula o valor exato da função objetivo J sobre um ExecutionPlan completo."""
+    """Recalcula J; omissões opcionais exigem a carteira canônica ``services``.
+
+    A carteira obrigatória é restrição rígida. Um plano que a omita não possui
+    objetivo factível; não recebe pontuação artificialmente favorável nem uma
+    penalidade finita que possa ser trocada por custo operacional.
+    """
+    if services is None:
+        if plan.unscheduled_service_ids:
+            raise ValueError("services é obrigatório para classificar omissões do plano.")
+        omitted_optional_count = 0
+    else:
+        known, _ = filter_known_services(list(services), plan.decision_day)
+        completed = {sid for win in plan.windows for sid in win.service_ids}
+        omitted = [svc for svc in known if svc.service_id not in completed]
+        if any(svc.mandatory for svc in omitted):
+            raise ValueError("Carteira mandatory incompleta: objetivo factível indefinido.")
+        omitted_optional_count = len(omitted)
     merged_by_cons = compute_consumer_interruption_unions(plan)
     ch_total = sum(
         (end - start)
@@ -489,7 +518,7 @@ def compute_exact_plan_objective(
         + weights.repeat_consumer_weight * repeat_count
         + weights.physical_maneuver_weight * phys_man
         + weights.crew_hour_weight * crew_h
-        + weights.unscheduled_penalty * len(plan.unscheduled_service_ids)
+        + weights.optional_unscheduled_penalty * omitted_optional_count
     )
     return round(obj, 4)
 
@@ -574,7 +603,10 @@ def run_kgp_optimizer(
 
     for i, svc in enumerate(known_services):
         var_idx = num_cols + i
-        c_vec[var_idx] = w.unscheduled_penalty if svc.mandatory else 50.0
+        c_vec[var_idx] = 0.0 if svc.mandatory else w.optional_unscheduled_penalty
+        # Não negociar carteira obrigatória por uma penalidade finita.
+        if svc.mandatory:
+            ub[var_idx] = 0.0
 
     # Indicador estritamente binário r_g in {0, 1} para reincidência (>= 2 interrupções):
     for g_idx, g_key in enumerate(group_keys):
@@ -617,8 +649,23 @@ def run_kgp_optimizer(
     for s_idx, svc in enumerate(known_services):
         for pred_id in svc.precedence_service_ids:
             if pred_id not in svc_index:
+                # Predecessor fora da carteira conhecida/ativa não pode sustentar
+                # uma execução; obrigatórias tornam o catálogo inviável.
+                row = np.zeros(total_vars, dtype=float)
+                row[num_cols + s_idx] = 1.0
+                rows.append(row)
+                lhs_list.append(1.0)
+                rhs_list.append(1.0)
                 continue
             p_idx = svc_index[pred_id]
+            # Cobertura do predecessor: omitir P implica omitir S, mesmo se P
+            # for opcional. A desigualdade de datas sozinha relaxava esse caso.
+            presence_row = np.zeros(total_vars, dtype=float)
+            presence_row[num_cols + p_idx] = 1.0
+            presence_row[num_cols + s_idx] = -1.0
+            rows.append(presence_row)
+            lhs_list.append(-np.inf)
+            rhs_list.append(0.0)
             row = np.zeros(total_vars, dtype=float)
             for k, col in enumerate(columns):
                 has_p = pred_id in col.service_ids
@@ -685,14 +732,34 @@ def run_kgp_optimizer(
     )
 
     elapsed = time.perf_counter() - t0
-    if not res.success or res.x is None:
+    if res.x is None or res.status not in (0, 1):
         fallback = run_baseline_b2_topological_greedy(
-            network, services, catalog, scenario_id, decision_day
+            network, all_services, catalog, scenario_id, decision_day
         )
         fallback.plan_id = f"PLAN_KGP_{scenario_id}"
         fallback.method_name = "KGP"
-        fallback.solver_status = f"FALLBACK_AFTER_SOLVER_STATUS_{res.status}"
+        fallback.solver_status = (
+            "INFEASIBLE_ON_DISCRETE_COLUMNS" if res.status == 2
+            else f"FALLBACK_AFTER_SOLVER_STATUS_{res.status}"
+        )
         fallback.solver_time_sec = round(elapsed, 6)
+        fallback.solver_objective = None
+        fallback.solver_bound = None
+        fallback.solver_gap = None
+        fallback.is_optimal_proven = False
+        fallback.metadata = {
+            "candidate_columns_count": num_cols,
+            "solver_raw_status": int(res.status),
+            "optimality_scope": "Inviabilidade restrita às colunas geradas; não prova inviabilidade operacional geral.",
+            "missing_mandatory_service_ids": [
+                s.service_id for s in known_services
+                if s.mandatory and s.service_id not in fallback.completed_service_ids
+            ],
+            "omitted_optional_service_ids": [
+                s.service_id for s in known_services
+                if not s.mandatory and s.service_id not in fallback.completed_service_ids
+            ],
+        }
         return fallback
 
     x_sol = res.x
@@ -757,20 +824,23 @@ def run_kgp_optimizer(
 
     milp_obj_val = float(res.fun) if res.fun is not None else 0.0
     mip_gap = float(getattr(res, "mip_gap", 0.0) or 0.0)
-    dual_bound = float(
-        getattr(res, "mip_dual_bound", milp_obj_val * (1.0 - mip_gap))
-        or milp_obj_val
-    )
+    raw_bound = getattr(res, "mip_dual_bound", None)
+    dual_bound = float(raw_bound) if raw_bound is not None and math.isfinite(raw_bound) else None
+    missing_mandatory = [s.service_id for s in known_services
+                         if s.mandatory and s.service_id in unscheduled_ids]
+    omitted_optional = [s.service_id for s in known_services
+                        if not s.mandatory and s.service_id in unscheduled_ids]
 
     is_optimal = (
         res.status == 0
         and mip_gap <= 1e-4
-        and len(unscheduled_ids) == 0
+        and dual_bound is not None
+        and len(missing_mandatory) == 0
     )
     status_str = (
         "OPTIMAL_ON_DISCRETE_COLUMNS"
         if is_optimal
-        else ("PARTIAL_PORTFOLIO" if unscheduled_ids else "FEASIBLE_BOUNDED")
+        else ("INCOMPLETE_MANDATORY_PORTFOLIO" if missing_mandatory else "FEASIBLE_BOUNDED")
     )
 
     plan_out = ExecutionPlan(
@@ -785,27 +855,46 @@ def run_kgp_optimizer(
         lifecycle_alerts=lc_alerts,
         solver_status=status_str,
         solver_objective=round(milp_obj_val, 4),
-        solver_bound=round(dual_bound, 4),
+        solver_bound=round(dual_bound, 4) if dual_bound is not None else None,
         solver_gap=round(max(0.0, mip_gap), 6),
         solver_time_sec=round(elapsed, 6),
         is_optimal_proven=is_optimal,
     )
-    exact_reconstructed_obj = compute_exact_plan_objective(plan_out, w)
+    exact_reconstructed_obj = compute_exact_plan_objective(plan_out, w, known_services)
     plan_out.solver_objective = exact_reconstructed_obj
+    objective_matches = abs(exact_reconstructed_obj - milp_obj_val) <= 1e-3
+    if not objective_matches:
+        plan_out.solver_status = "OBJECTIVE_INTEGRITY_FAILURE"
+        plan_out.is_optimal_proven = False
+        plan_out.solver_bound = None
+        plan_out.solver_gap = None
     plan_out.metadata = {
         "candidate_columns_count": num_cols,
         "milp_column_objective": round(milp_obj_val, 4),
         "reconstructed_plan_objective": exact_reconstructed_obj,
+        "objective_reconstruction_matches": objective_matches,
+        "missing_mandatory_service_ids": missing_mandatory,
+        "omitted_optional_service_ids": omitted_optional,
+        "mandatory_coverage_rule": "HARD_CONSTRAINT",
         "optimality_scope": (
             "Ótimo global comprovado sobre o conjunto discreto de colunas "
             "diárias factíveis geradas (incluindo encadeamento diário e sementes B0/B1/B2)."
         ),
+        "candidate_generation_limits": {
+            "max_package_size": 5,
+            "max_windows_per_day": 5,
+            "max_states_per_depth": 120,
+            "window_start_rule": "Primeiro início viável por sequência, turno, precedência e recursos; não enumera inícios contínuos.",
+            "crew_allocation_rule": "Catálogo completo e subcatálogos de uma equipe na primeira janela; escalonador construtivo.",
+            "sequence_rule": "Expansão limitada, deduplicação e poda por custo; sementes B0/B1/B2 incluídas.",
+        },
         "objective_weights": {
             "window_weight": w.window_weight,
             "consumer_hour_weight": w.consumer_hour_weight,
             "repeat_consumer_weight": w.repeat_consumer_weight,
             "physical_maneuver_weight": w.physical_maneuver_weight,
             "crew_hour_weight": w.crew_hour_weight,
+            "optional_unscheduled_penalty": w.optional_unscheduled_penalty,
         },
     }
     return plan_out

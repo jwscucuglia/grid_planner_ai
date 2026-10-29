@@ -13,6 +13,7 @@ Calcula:
 
 from __future__ import annotations
 
+import math
 from typing import Dict, Iterable, List, Sequence, Tuple
 
 from .contracts import (
@@ -122,10 +123,9 @@ def compute_plan_metrics(
         len(scheduled_services) / windows_count if windows_count > 0 else 0.0
     )
 
-    merged_by_consumer = compute_consumer_interruption_unions(plan)
-    unique_consumers = len(merged_by_consumer)
+    unique_consumers = feasibility.recalculated_unique_consumers
     repeat_consumers = feasibility.recalculated_repeat_consumers
-    total_interruptions = sum(len(ivs) for ivs in merged_by_consumer.values())
+    total_interruptions = feasibility.recalculated_total_interruptions
     consumer_hours = feasibility.recalculated_consumer_hours
 
     total_work_h = 0.0
@@ -145,11 +145,13 @@ def compute_plan_metrics(
     proven_optimal = False
     if (
         feasibility.is_feasible
-        and plan.solver_status in ("OPTIMAL", "OPTIMAL_ON_DISCRETE_COLUMNS")
+        and plan.is_optimal_proven
+        and plan.solver_status == "OPTIMAL_ON_DISCRETE_COLUMNS"
         and plan.solver_objective is not None
         and plan.solver_bound is not None
         and plan.solver_gap is not None
         and plan.solver_gap <= 1e-4
+        and abs(plan.solver_objective - plan.solver_bound) <= 1e-4 * max(1.0, abs(plan.solver_objective))
     ):
         proven_optimal = True
 

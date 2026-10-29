@@ -1,0 +1,35 @@
+# Revisão integral D07 — plano de implementação
+
+> Execução autorizada no repasse do usuário: corrigir, testar, documentar e preparar PR sem merge ou submissão. Usar revisão sistemática, TDD e revisão final independente.
+
+**Objetivo:** fechar os achados A–E da reauditoria de 8434063 e reconciliar a candidatura com evidências reproduzidas.
+**Arquitetura:** manter os módulos existentes; uma referência elétrica no verificador sem chamar o simulador do planejador. Restringir o catálogo a janelas elétricas seriais, com execução paralela de equipes dentro de uma janela.
+**Tecnologias:** Python, SciPy MILP, pytest, Google Drive conectado.
+**Especificação:** repasse integral fornecido pelo usuário e AGENTS.md.
+
+## Restrições globais
+- D07 independente; sidecar, rede de referência e carteira sintética; sem telecomandos.
+- Sem calibrar para benefício desejado; mesmos dados e limites para B0/B1/B2/KGP.
+- Preservar IDs/históricos Drive e alterações anteriores; não mergear, assinar, publicar nem submeter.
+- Otimalidade apenas nas colunas discretas efetivamente geradas; resultados conhecidos não são nova avaliação cega.
+
+## Foco de revisão
+- Transferência em zona disjunta reenergizando outro serviço: rejeitar toda sobreposição elétrica até suportar composição global.
+- Adulteração de campos e falha comum no simulador: recálculo BFS por fase e comparação completa dos campos evidenciais.
+- NaN, infinito, ordem temporal inválida, referências e IDs duplicados: rejeitar antes de cálculo.
+- Ordens opcionais omitidas e mandatory caro/inviável: objetivo/bound/gap coerentes sem relaxar carteira obrigatória.
+- Evidência documental desatualizada: versionar a reavaliação sem somar estudos anteriores.
+
+## Tarefas
+- [x] Acessos, inventário recursivo, base limpa e branch isolada; baseline 20 testes aprovados.
+- [ ] 1. Regressões em tests/test_verifier_audit.py: contraexemplo global, adulterações por campo, falha compartilhada, não-finitos e cronologia. Rodar antes e registrar falhas.
+- [ ] 2. Corrigir feasibility.py: reconstrução independente de etapas e impacto, integridade completa; validar contratos; mapear todas zonas como conflitantes em baselines.py. Rodar regressões e suíte.
+- [ ] 3. Corrigir optimizer.py e tests/test_optimizer_audit.py: mesma penalidade opcional, cobertura obrigatória rígida, comparação pequena com enumeração; relatar catálogo.
+- [ ] 4. Corrigir fronteiras JSON e experiment.py: JSON estrito, entradas/planos/verificações exportados, protocolo congelado antes execução, classificação reavaliação sintética e perdas por métrica; executar 48 planos e manifestos.
+- [ ] 5. Conferir edital/modelos/orçamento; produzir matrizes em reports; reconciliar documentos vigentes, slides e PDFs no Drive após resultados finais.
+- [ ] 6. Revisão independente; regressões de achados adicionais; suíte final e hashes; commits rastreáveis, push branch e PR se houver acesso.
+
+## Registro de decisões e verificações
+- 2026-10-29: branch em checkout limpo atende isolamento autorizado; base 84340636c6d3877eacf44d4e19a1b802451057c1.
+- Restrição conservadora: nenhuma janela elétrica simultânea, mesmo em zonas disjuntas. Evita assumir independência elétrica por interseção estática; custa oportunidades de paralelismo entre janelas, explicitamente fora do escopo demonstrado.
+- Reavaliação das mesmas sementes DEV/EVAL conhecidas; preservar rótulos para rastreio, retirar alegação de cegamento/independência estatística.

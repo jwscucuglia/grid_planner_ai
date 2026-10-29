@@ -7,9 +7,122 @@ e métricas auditáveis.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, fields, is_dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional, Set, Tuple
+import json
+import math
+from typing import Any, Dict, List, Optional, Set, Tuple, Union, get_args, get_origin, get_type_hints
+
+
+def nonfinite_paths(value: Any, path: str = "contract") -> List[str]:
+    """Find non-finite numbers, including nested metadata and mutated objects."""
+    if isinstance(value, float):
+        return [] if math.isfinite(value) else [f"{path}: valor não finito"]
+    if is_dataclass(value):
+        return [e for f in fields(value) for e in nonfinite_paths(getattr(value, f.name), f"{path}.{f.name}")]
+    if isinstance(value, dict):
+        return [e for k, v in value.items() for e in nonfinite_paths(v, f"{path}.{k}")]
+    if isinstance(value, (list, tuple, set)):
+        return [e for i, v in enumerate(value) for e in nonfinite_paths(v, f"{path}[{i}]")]
+    return []
+
+
+class FiniteContract:
+    """Dataclass construction boundary; verifier rechecks after any mutation."""
+
+    def __post_init__(self) -> None:
+        errors = nonfinite_paths(self)
+        if errors:
+            raise ValueError("; ".join(errors))
+
+
+def _decode_typed(value: Any, expected: Any, path: str) -> Any:
+    """Strict contract reader: no coercion of bools, strings or fractional days."""
+    if expected is Any:
+        errors = nonfinite_paths(value, path)
+        if errors:
+            raise ValueError("; ".join(errors))
+        return value
+    origin, args = get_origin(expected), get_args(expected)
+    if origin is Union:
+        for kind in args:
+            try:
+                return _decode_typed(value, kind, path)
+            except (ValueError, TypeError):
+                pass
+        raise ValueError(f"{path}: tipo inválido")
+    if expected is type(None):
+        if value is not None:
+            raise ValueError(f"{path}: esperado null")
+        return None
+    if isinstance(expected, type) and issubclass(expected, Enum):
+        return expected(value)
+    if isinstance(expected, type) and is_dataclass(expected):
+        if is_dataclass(value):
+            hints = get_type_hints(expected)
+            for item in fields(expected):
+                kind = hints[item.name]
+                if isinstance(kind, type) and issubclass(kind, Enum) and not isinstance(getattr(value, item.name), kind):
+                    raise ValueError(f"{path}.{item.name}: esperado enum {kind.__name__}")
+        raw = {f.name: getattr(value, f.name) for f in fields(value)} if is_dataclass(value) else value
+        if not isinstance(raw, dict):
+            raise ValueError(f"{path}: esperado objeto")
+        known = {f.name for f in fields(expected)}
+        if set(raw) - known:
+            raise ValueError(f"{path}: campos desconhecidos {sorted(set(raw) - known)}")
+        hints = get_type_hints(expected)
+        try:
+            return expected(**{k: _decode_typed(v, hints[k], f"{path}.{k}") for k, v in raw.items()})
+        except TypeError as exc:
+            raise ValueError(f"{path}: estrutura inválida: {exc}") from exc
+    if origin in (list, tuple, set):
+        if not isinstance(value, (list, tuple, set)):
+            raise ValueError(f"{path}: esperado sequência")
+        if origin is tuple and args and args[-1] is not Ellipsis:
+            if len(value) != len(args):
+                raise ValueError(f"{path}: comprimento inválido")
+            return tuple(_decode_typed(v, t, path) for v, t in zip(value, args))
+        decoded = [_decode_typed(v, args[0], f"{path}[{i}]") for i, v in enumerate(value)]
+        return origin(decoded)
+    if origin is dict:
+        if not isinstance(value, dict):
+            raise ValueError(f"{path}: esperado objeto")
+        return {_decode_typed(k, args[0], path): _decode_typed(v, args[1], f"{path}.{k}") for k, v in value.items()}
+    if expected is float:
+        try:
+            finite = type(value) in (int, float) and math.isfinite(float(value))
+        except (OverflowError, ValueError):
+            finite = False
+        if not finite:
+            raise ValueError(f"{path}: esperado número finito")
+        return float(value)
+    if type(value) is not expected:
+        raise ValueError(f"{path}: esperado {expected.__name__}")
+    return value
+
+
+def strict_json_loads(raw: str) -> Any:
+    def reject_constant(value: str) -> None:
+        raise ValueError(f"JSON não finito: {value}")
+
+    def unique_keys(pairs: list) -> dict:
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f"JSON com chave duplicada: {key}")
+            result[key] = value
+        return result
+
+    data = json.loads(raw, parse_constant=reject_constant, object_pairs_hook=unique_keys)
+    errors = nonfinite_paths(data)
+    if errors:
+        raise ValueError("; ".join(errors))
+    return data
+
+
+def plan_from_json(raw: str) -> ExecutionPlan:
+    """Read the actual exported JSON using the same typed contracts, strictly."""
+    return _decode_typed(strict_json_loads(raw), ExecutionPlan, "plan")
 
 
 class SwitchState(str, Enum):
@@ -40,7 +153,7 @@ class ManeuverStage(str, Enum):
 
 
 @dataclass(frozen=True)
-class GridNode:
+class GridNode(FiniteContract):
     """Barra/nó da rede elétrica com faseamento, coordenadas e estado em serviço."""
 
     node_id: str
@@ -57,7 +170,7 @@ class GridNode:
 
 
 @dataclass(frozen=True)
-class GridBranch:
+class GridBranch(FiniteContract):
     """Trecho elétrico entre dois nós com parâmetros de impedância e limite térmico."""
 
     branch_id: str
@@ -73,7 +186,7 @@ class GridBranch:
 
 
 @dataclass(frozen=True)
-class GridSwitch:
+class GridSwitch(FiniteContract):
     """Chave de manobra (NF ou NA) associada a um trecho da rede."""
 
     switch_id: str
@@ -86,7 +199,7 @@ class GridSwitch:
 
 
 @dataclass(frozen=True)
-class GridAsset:
+class GridAsset(FiniteContract):
     """Ativo de trabalho (estrutura, transformador, vão, regulador) vinculado à rede."""
 
     asset_id: str
@@ -101,7 +214,7 @@ class GridAsset:
 
 
 @dataclass(frozen=True)
-class ConsumerUnit:
+class ConsumerUnit(FiniteContract):
     """Unidade consumidora conectada a um nó/ativo e conjunto de fases."""
 
     consumer_id: str
@@ -116,7 +229,7 @@ class ConsumerUnit:
 
 
 @dataclass(frozen=True)
-class IsolationZoneSpec:
+class IsolationZoneSpec(FiniteContract):
     """Zona de isolamento predefinida e validada com manobras e transferência opcional."""
 
     zone_id: str
@@ -132,7 +245,7 @@ class IsolationZoneSpec:
 
 
 @dataclass
-class GridNetwork:
+class GridNetwork(FiniteContract):
     """Grafo completo da rede de distribuição com metadados e rastreabilidade."""
 
     network_id: str
@@ -152,7 +265,7 @@ class GridNetwork:
 
 
 @dataclass(frozen=True)
-class ServiceOrder:
+class ServiceOrder(FiniteContract):
     """Ordem/nota de serviço na carteira de manutenção e obras."""
 
     service_id: str
@@ -182,7 +295,7 @@ class ServiceOrder:
 
 
 @dataclass(frozen=True)
-class CrewResource:
+class CrewResource(FiniteContract):
     """Equipe operacional com especialidades, jornada diária e base geográfica."""
 
     crew_id: str
@@ -198,7 +311,7 @@ class CrewResource:
 
 
 @dataclass
-class ResourceCatalog:
+class ResourceCatalog(FiniteContract):
     """Catálogo de recursos operacionais (equipes, estoque de materiais e horizonte)."""
 
     crews: Dict[str, CrewResource] = field(default_factory=dict)
@@ -210,7 +323,7 @@ class ResourceCatalog:
 
 
 @dataclass(frozen=True)
-class ManeuverStepResult:
+class ManeuverStepResult(FiniteContract):
     """Resultado elétrico e topológico de uma etapa da intervenção."""
 
     step_order: int
@@ -231,7 +344,7 @@ class ManeuverStepResult:
 
 
 @dataclass(frozen=True)
-class CrewScheduleInterval:
+class CrewScheduleInterval(FiniteContract):
     """Alocação temporal contínua de uma equipe a um serviço dentro de uma janela."""
 
     crew_id: str
@@ -249,7 +362,7 @@ class CrewScheduleInterval:
 
 
 @dataclass(frozen=True)
-class LifecycleConflictAlert:
+class LifecycleConflictAlert(FiniteContract):
     """Alerta de conflito entre manutenção e substituição futura no mesmo ativo."""
 
     maintenance_service_id: str
@@ -260,7 +373,7 @@ class LifecycleConflictAlert:
 
 
 @dataclass
-class PlannedInterruptionWindow:
+class PlannedInterruptionWindow(FiniteContract):
     """Janela programada de intervenção associada a uma zona de isolamento e data."""
 
     window_id: str
@@ -281,7 +394,7 @@ class PlannedInterruptionWindow:
 
 
 @dataclass
-class ExecutionPlan:
+class ExecutionPlan(FiniteContract):
     """Plano de programação exportado por qualquer comparador (B0, B1, B2) ou KGP."""
 
     plan_id: str
@@ -308,7 +421,7 @@ class ExecutionPlan:
 
 
 @dataclass
-class FeasibilityReport:
+class FeasibilityReport(FiniteContract):
     """Relatório de auditoria do verificador independente sobre um plano exportado."""
 
     plan_id: str
@@ -325,12 +438,14 @@ class FeasibilityReport:
     recalculated_windows_count: int = 0
     recalculated_physical_maneuvers: int = 0
     recalculated_repeat_consumers: int = 0
+    recalculated_unique_consumers: int = 0
+    recalculated_total_interruptions: int = 0
     recalculated_completed_services: Tuple[str, ...] = ()
     isolation_verified: bool = True
 
 
 @dataclass
-class PlanMetrics:
+class PlanMetrics(FiniteContract):
     """Métricas exatas de avaliação de um plano de desligamentos programados."""
 
     plan_id: str
