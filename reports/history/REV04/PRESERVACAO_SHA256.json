@@ -1,0 +1,14 @@
+{
+  "historical_revision": "REV04",
+  "copied_before_REV05_revalidation": true,
+  "source_base_commit": "e4f9dd78e9ef0065a87f40b31889bfcb07da4ade",
+  "files": {
+    "reports/RELATORIO_EXECUCAO_KGP.md": "0a610675e565d70b50325e35b64f28215dc8575535697c3554a51c67ffda1647",
+    "reports/kgp_evaluation_results.csv": "5320ea0cd231795c6c872af200590e80d6dc00014c5e013cdc567ee3b8c11222",
+    "reports/kgp_evaluation_summary.json": "6e47773a42cfba19efdef208d04811796411d4e2005dd64cb345d06ec9160b29",
+    "reports/comparativo_kgp_desafio07.png": "3e8d77efeb308ca447e4841b5da3c9c81f89bc199d1283c670a80d35095a568f",
+    "reports/manifest_sha256.json": "023de62f0d591e776953a757ce6562b2f076d23788588107db67873fe718d8e8",
+    "reports/pytest_execution.log": "962e89e822342811d3004e4f26cae974b900dd93beddfba945faa5bd9640d625",
+    "configs/protocol_and_seeds.json": "ad6c9bee582c6e78164ea4363ebe5462a979b34c22489210622bfddbedffb274"
+  }
+}

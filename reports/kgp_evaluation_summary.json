@@ -1,54 +1,62 @@
 {
   "protocol_config": {
-    "release_revision": "REV04",
-    "evidence_directory": "reports/revalidation_REV04_20261029",
+    "release_revision": "REV06",
+    "evidence_directory": "reports/revalidation_REV06_20261029",
     "project": "KAPTUS GRID PLANNER — D07",
-    "package_version": "0.4.0",
-    "execution_timestamp": "2026-10-29T14:09:22.548329+00:00",
-    "source_commit": "66e90ea783720ccd4dd1e9cda9eef288e0facb3d",
+    "package_version": "0.6.0",
+    "execution_timestamp": "2026-10-29T21:47:45.713158+00:00",
+    "source_commit": "bdd6ab6be7593c906d80261c916eb9874676240a",
     "source_sha256": {
-      "pyproject.toml": "965c1c490c3c4510916aa51a7fe0afa778fb4df5513ac43c3e02987ccfc0ad63",
+      "pyproject.toml": "1f03837cc161e27c229e7e29d4e3ef166440f1a7f737001927e2b3d50dafe641",
       "requirements.txt": "0a93ec637de7d3b492444cda84782013f48267481fe803a329cf631f33a683f4",
-      "src/kgp/__init__.py": "5961a3c25312b7734a2b909b18b05b5c66e04dc873b840e2100aace365939684",
-      "src/kgp/baselines.py": "de4d47f9733d011f29917a68c2432f5cf2876d023112cf0d0369869287450ba8",
-      "src/kgp/contracts.py": "acd1aec447c8bec1cc18ae7778f81de69aa3026ee0be44ad92f09a1244a352e5",
+      "src/kgp/__init__.py": "7f973d9b6a4a709dcb42cf0713dd44a978a0ecd5a5951e9122c57e788916f0bc",
+      "src/kgp/baselines.py": "e3162fb8e44f8c5fee39a066574ee91b22987441db70b505da531461ccfed2d0",
+      "src/kgp/contracts.py": "a86d977598149a70dd58eb8e6151da27e7624c8f0d4a42b3dba360c0928381cc",
       "src/kgp/eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
       "src/kgp/experiment.py": "212e3e5919da9a679fd3ba1a6c47d9dfd49a4fdf515a7fd257ddda3b927c9474",
-      "src/kgp/feasibility.py": "469a03878a771260844df6d89ca362d78038cd72ee29f97bdda1c0816b3a2530",
+      "src/kgp/feasibility.py": "2c2672ab02c47bc90dd5a982563318de49c91b55c1f6246dafa7144173364416",
+      "src/kgp/ingestion.py": "3f11f9a09c89f7e5741e1fb1a8b6bfbd0e54b6ab5f9008cdfdab7ab0b86aca16",
       "src/kgp/integrity.py": "cc34687ad9bfad4ccb9ed023c0961cf7239198eab840b1eca2483d48b45177e5",
+      "src/kgp/materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda",
       "src/kgp/metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
-      "src/kgp/optimizer.py": "93a761fa245f7eb5980787a280350a3ee751a0bbd0b0997a35fb6449deccb345",
-      "src/kgp/planning_policy.py": "369ba7887626c4497a7e2d35ef764e73a1191462b604eb72f298e3fd172e8194",
-      "src/kgp/revalidation.py": "02c8f8e144404e2bfb6e6db8c6fbdb6fda0a71a352a6a9b9852b3392f94b9fb9",
-      "src/kgp/scheduling.py": "4c42121e11d1c5e64129d4ad17bc8dc32267e04bfae979133571530f7dbda1fd",
-      "src/kgp/topology.py": "4f27b3f09c5b2704ceef0fbd4459ee4b603721bee720a200abd658f84952f11d",
-      "src/kgp/validation.py": "015a0a88438fafe58a5368e976f30214ed9bbf612188333749c260fbb2403e79",
+      "src/kgp/optimizer.py": "4f27ad9da19b81f32c61f6877017090cd2223d9260949f163e6ede1b44ee0088",
+      "src/kgp/planning_policy.py": "2ebb205db857174a0cc328919bac32cda23a633f42d7287098fa08ca3a29d5a4",
+      "src/kgp/revalidation.py": "754da10225b17b944f5088814fd7427ce3b132c13966ea2cfe424ca9764b2e2d",
+      "src/kgp/scheduling.py": "ffa223c6c3b1f119548e6a6d964f19e0b7247820637259f08b3d18cc91cbc78e",
+      "src/kgp/topology.py": "b08ec30b6d9735187554d42e99635718cc31c00bde28e195bc1d044325671cd3",
+      "src/kgp/validation.py": "83a66b8e1ae20ddb2e8d9015c5c73e58492079aff9a8925bd234fe970e620cdb",
       "tests/test_baseline_local.py": "29c4fb95c3e2b1c125dc7a7585db10e12b10324513825e1899f0386d74c47a1b",
       "tests/test_experiment_protocol.py": "1af07515c662a81118b6811d37d3972d9a12865b9fe11dd0d3b430c205144869",
+      "tests/test_gis_reference_integration.py": "9acc3047370ea110793b2f70f1af76bfcb46b55d55e3aec3dfe10334bf605a8f",
       "tests/test_independent_review.py": "213ca1cb98a41728d1be986c71436227240c96b84a11055eef013c1e29b4e458",
+      "tests/test_ingestion.py": "d9a95bf282c7a273dcdd28bb9ebc0342e9566e7e8fd785cdc14f6f0863999b20",
+      "tests/test_ingestion_integrity_review.py": "43e4972038863f5f04315ddc2610739f02ff00003c885c9e1bbf4c2b7d1ba09a",
       "tests/test_kgp_critical_cases.py": "e3803f2fd3ae1019f17f28bcc059bb3f4e5ea2dbb3c770412db6b74421d6a810",
       "tests/test_manifest_portability.py": "221e2aee412cab044052b41149dab5d67f0e5d39ca8f0718eadbc4a50a2df555",
+      "tests/test_material_conservation.py": "1b3b7ac0342684d9033f7847e50620d10e90ddb7a9f6ddd4a9ba249531d31be2",
+      "tests/test_numeric_underflow.py": "b32b102eb31ce64778f46551c71cba9fcc18f27f6018ea09af697276555bdac0",
       "tests/test_optimizer_audit.py": "9b6d3a08944916c74378153930b30540d24f6f4d972e904c2c7b118b3d232153",
+      "tests/test_radial_domain.py": "2a2e317414a953fc7822b7b5750566361a34b205878461baeed01bf6ca9db598",
       "tests/test_rev04_boundaries.py": "360db4222262690a7d0b94f0068b6cec3f8063a4c56496c80b6b84f3c5e1bfed",
       "tests/test_rev04_daily_gap.py": "d7e0b07b825945a609fdd1814b027098be99bc814a91b5bb62d54aeee61bd1e4",
       "tests/test_rev04_electrical.py": "342c3671999e78fe7dff19e7b4a00772b23f6074bb253c738364c684d677df60",
       "tests/test_rev04_replanning.py": "8deb6da5eddde1698cc94b2113ba271179bca87885504d59411de0e885e7c715",
       "tests/test_rev04_time.py": "00021727baab335e97a11ac1638287750afdb9a50d5d4819e13f1cd99bf09cd7",
-      "tests/test_verifier_audit.py": "fe8acca4044220af866ebe1e721d9e43f46b3518bebf7fd81ed30f2c4c96238b"
+      "tests/test_verifier_audit.py": "0b7895bd5db4430d0204fe1607bf3eb6cae7a962dd8512cd36fff89aafd03c5d"
     },
     "input_sha256": {
-      "reports/revalidation_REV04_20261029/inputs/DEV_101_STOCHASTIC_PORTFOLIO.json": "a1d55ba7b3984e4c22318fd28acafbca7f61700f2dd947ccb97cd978241c9137",
-      "reports/revalidation_REV04_20261029/inputs/DEV_102_STOCHASTIC_PORTFOLIO.json": "ccf66ba61c1960ebf9fab3dfe0eb9a74e5d5ebe5ce846438cc385552a63ac66d",
-      "reports/revalidation_REV04_20261029/inputs/DEV_103_STOCHASTIC_PORTFOLIO.json": "7a2cec4e1d0a40215363178b21e2064ad94af0b280f90a4b79cc2a87f0d6cb3a",
-      "reports/revalidation_REV04_20261029/inputs/DEV_104_STOCHASTIC_PORTFOLIO.json": "831aa0cbd17fc8d95e64da3477651f5dc10c9ade12bea919afa223ff51dac795",
-      "reports/revalidation_REV04_20261029/inputs/EVAL_01_TOPO_DISTANT_AND_PARALLEL.json": "89ed66fda46fc45a9532e8efcef592638062739d76b11c95070b3d38af181ce7",
-      "reports/revalidation_REV04_20261029/inputs/EVAL_02_TIE_TRANSFER_AND_CREW_SYNC.json": "2d524f568c027f233f40b5177359ea43623d3b19716da8160a2541d088719b88",
-      "reports/revalidation_REV04_20261029/inputs/EVAL_03_PRECEDENCE_AND_RELEASE_DATES.json": "e8c468281281431a0c851adda192978f34c4f84de48605d6b1e5030995d98979",
-      "reports/revalidation_REV04_20261029/inputs/EVAL_04_FREQ_VS_DURATION_TRADEOFF.json": "f55aad75915a474f603908a5c6394417ad3d498fb3a7b0509bd73b12cd68ebc0",
-      "reports/revalidation_REV04_20261029/inputs/EVAL_05_DISJOINT_NO_OPPORTUNITY.json": "c7d7748f3cc49e8790b9f35422a59461db9b19147aae1746dce68cae1dfbbcee",
-      "reports/revalidation_REV04_20261029/inputs/EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER.json": "cebd8905871ae5083fb9b2f60626b507f45a6f40343ece69e45c978a714be5db",
-      "reports/revalidation_REV04_20261029/inputs/EVAL_07_STOCHASTIC_PORTFOLIO.json": "e67f876bf47940708d4b2b8471c10b70b2cbf4a5b9fcdbf20ac6f34a4d0ffdf5",
-      "reports/revalidation_REV04_20261029/inputs/EVAL_08_STOCHASTIC_PORTFOLIO.json": "66815670fb55fd82b7ae7f70043922ee5c2b6d3c4a689c80e6fcaf64061abe09"
+      "reports/revalidation_REV06_20261029/inputs/DEV_101_STOCHASTIC_PORTFOLIO.json": "a1d55ba7b3984e4c22318fd28acafbca7f61700f2dd947ccb97cd978241c9137",
+      "reports/revalidation_REV06_20261029/inputs/DEV_102_STOCHASTIC_PORTFOLIO.json": "ccf66ba61c1960ebf9fab3dfe0eb9a74e5d5ebe5ce846438cc385552a63ac66d",
+      "reports/revalidation_REV06_20261029/inputs/DEV_103_STOCHASTIC_PORTFOLIO.json": "7a2cec4e1d0a40215363178b21e2064ad94af0b280f90a4b79cc2a87f0d6cb3a",
+      "reports/revalidation_REV06_20261029/inputs/DEV_104_STOCHASTIC_PORTFOLIO.json": "831aa0cbd17fc8d95e64da3477651f5dc10c9ade12bea919afa223ff51dac795",
+      "reports/revalidation_REV06_20261029/inputs/EVAL_01_TOPO_DISTANT_AND_PARALLEL.json": "89ed66fda46fc45a9532e8efcef592638062739d76b11c95070b3d38af181ce7",
+      "reports/revalidation_REV06_20261029/inputs/EVAL_02_TIE_TRANSFER_AND_CREW_SYNC.json": "2d524f568c027f233f40b5177359ea43623d3b19716da8160a2541d088719b88",
+      "reports/revalidation_REV06_20261029/inputs/EVAL_03_PRECEDENCE_AND_RELEASE_DATES.json": "e8c468281281431a0c851adda192978f34c4f84de48605d6b1e5030995d98979",
+      "reports/revalidation_REV06_20261029/inputs/EVAL_04_FREQ_VS_DURATION_TRADEOFF.json": "f55aad75915a474f603908a5c6394417ad3d498fb3a7b0509bd73b12cd68ebc0",
+      "reports/revalidation_REV06_20261029/inputs/EVAL_05_DISJOINT_NO_OPPORTUNITY.json": "c7d7748f3cc49e8790b9f35422a59461db9b19147aae1746dce68cae1dfbbcee",
+      "reports/revalidation_REV06_20261029/inputs/EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER.json": "cebd8905871ae5083fb9b2f60626b507f45a6f40343ece69e45c978a714be5db",
+      "reports/revalidation_REV06_20261029/inputs/EVAL_07_STOCHASTIC_PORTFOLIO.json": "e67f876bf47940708d4b2b8471c10b70b2cbf4a5b9fcdbf20ac6f34a4d0ffdf5",
+      "reports/revalidation_REV06_20261029/inputs/EVAL_08_STOCHASTIC_PORTFOLIO.json": "66815670fb55fd82b7ae7f70043922ee5c2b6d3c4a689c80e6fcaf64061abe09"
     },
     "python_version": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
     "platform": "Windows-10-10.0.26300-SP0",
@@ -101,19 +109,25 @@
       "max_windows_per_day": 5,
       "max_states_per_depth": 120
     },
+    "solver_catalog_seed_exception": "Feasible daily B0/B1/B2 seed agendas are added outside the constructive expansion size filters; certificate covers the actual combined catalog only.",
+    "material_conservation": "Exact rational sums of canonical decimal input quantities, independent exact verifier and strict inventory check; exported float echoes never debit inventory.",
+    "physical_analysis_domain": "Initial state and evaluated positive-duration stages require an energized tree per phase and exactly one active source per connected component; cycles, parallel conducting paths and connected multiple sources are unsupported. Connectivity retains all registered edges.",
+    "switch_timing_policy": "Zone prep/recomposition are authoritative externally validated aggregate durations; individual switch maneuver durations are informational and do not generate the schedule.",
+    "ingestion_integrity": "Strict CSV parsing and collision checks on the full effective field map including identity defaults; nonrepresentable nonzero numbers are rejected before planning.",
+    "coupling_denominator": "All windows in the exported plan; numerator is windows containing at least two services. Official maneuver ratio has a different denominator.",
     "analysis_rule": "Parear somente cenários com os 4 métodos factíveis e 100% da mesma carteira obrigatória; excluir falhas do benefício e preservá-las nas saídas.",
     "statistical_scope": "Descrição dos casos desenhados na mesma rede; bootstrap empírico não é inferência sobre desempenho Cemig.",
     "freeze_rule": "Código, objetivo, dados e regra de análise gravados antes de executar os métodos; hashes conferidos após execução.",
     "anti_calibration_statement": "Sem ajuste para 1,7% ou benefício desejado. Sementes conhecidas mantidas; não é nova avaliação retida."
   },
-  "frozen_protocol_sha256": "ad6c9bee582c6e78164ea4363ebe5462a979b34c22489210622bfddbedffb274",
+  "frozen_protocol_sha256": "1901f58e159bc1b5a54a2a3dd035415d7625a174bccaf03a2fce376411f7075b",
   "eval_aggregated_metrics": {
     "B0": {
       "feasible_instances": 8,
       "total_instances": 8,
       "comparable_instances": 8,
       "mandatory_completion_rate_mean": 1.0,
-      "planning_time_sec_mean": 0.07287387499999999,
+      "planning_time_sec_mean": 0.098353125,
       "interruption_windows_mean_ci95": [
         3.875,
         3.375,
@@ -145,7 +159,7 @@
       "total_instances": 8,
       "comparable_instances": 8,
       "mandatory_completion_rate_mean": 1.0,
-      "planning_time_sec_mean": 0.0670705,
+      "planning_time_sec_mean": 0.084733625,
       "interruption_windows_mean_ci95": [
         3.25,
         2.75,
@@ -177,7 +191,7 @@
       "total_instances": 8,
       "comparable_instances": 8,
       "mandatory_completion_rate_mean": 1.0,
-      "planning_time_sec_mean": 0.43255137499999996,
+      "planning_time_sec_mean": 0.5784945,
       "interruption_windows_mean_ci95": [
         2.5,
         1.875,
@@ -209,7 +223,7 @@
       "total_instances": 8,
       "comparable_instances": 8,
       "mandatory_completion_rate_mean": 1.0,
-      "planning_time_sec_mean": 10.203407624999999,
+      "planning_time_sec_mean": 12.246398249999999,
       "interruption_windows_mean_ci95": [
         2.125,
         1.625,
@@ -1894,7 +1908,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.090015,
+            "solver_time_sec": 0.08701,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -1925,7 +1939,12 @@
               "S_101_02",
               "S_101_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "1",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_DEV_101_STOCHASTIC_PORTFOLIO",
@@ -1947,7 +1966,7 @@
             "total_crew_travel_hours": 0.3638,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.090015,
+            "planning_time_sec": 0.08701,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -3209,7 +3228,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.085843,
+            "solver_time_sec": 0.105167,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -3242,7 +3261,12 @@
               "S_101_02",
               "S_101_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "1",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_DEV_101_STOCHASTIC_PORTFOLIO",
@@ -3264,7 +3288,7 @@
             "total_crew_travel_hours": 0.3625,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.085843,
+            "planning_time_sec": 0.105167,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -4526,7 +4550,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.904102,
+            "solver_time_sec": 0.951877,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -4564,7 +4588,12 @@
               "S_101_02",
               "S_101_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "1",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_DEV_101_STOCHASTIC_PORTFOLIO",
@@ -4586,7 +4615,7 @@
             "total_crew_travel_hours": 0.3625,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.904102,
+            "planning_time_sec": 0.951877,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -5734,7 +5763,7 @@
             "solver_objective": 642.2487,
             "solver_bound": 642.2487,
             "solver_gap": 0.0,
-            "solver_time_sec": 8.616724,
+            "solver_time_sec": 9.577742,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -5797,7 +5826,12 @@
               "S_101_02",
               "S_101_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "1",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_DEV_101_STOCHASTIC_PORTFOLIO",
@@ -5819,7 +5853,7 @@
             "total_crew_travel_hours": 0.3145,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 8.616724,
+            "planning_time_sec": 9.577742,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 642.2487,
             "solver_bound": 642.2487,
@@ -7024,7 +7058,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.07556,
+            "solver_time_sec": 0.087232,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -7056,7 +7090,13 @@
               "S_102_01",
               "S_102_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1",
+              "ISOLADOR_15KV": "3",
+              "CRUZETA_CONCRETO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_DEV_102_STOCHASTIC_PORTFOLIO",
@@ -7078,7 +7118,7 @@
             "total_crew_travel_hours": 0.4684,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.07556,
+            "planning_time_sec": 0.087232,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -8276,7 +8316,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.075437,
+            "solver_time_sec": 0.086976,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -8310,7 +8350,13 @@
               "S_102_01",
               "S_102_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1",
+              "ISOLADOR_15KV": "3",
+              "CRUZETA_CONCRETO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_DEV_102_STOCHASTIC_PORTFOLIO",
@@ -8332,7 +8378,7 @@
             "total_crew_travel_hours": 0.444,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.075437,
+            "planning_time_sec": 0.086976,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -9416,7 +9462,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.331237,
+            "solver_time_sec": 0.363118,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -9455,7 +9501,13 @@
               "S_102_02",
               "S_102_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ELO_FUSIVEL": "2",
+              "ISOLADOR_15KV": "3",
+              "KIT_TRAFO": "1",
+              "CRUZETA_CONCRETO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_DEV_102_STOCHASTIC_PORTFOLIO",
@@ -9477,7 +9529,7 @@
             "total_crew_travel_hours": 0.4511,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.331237,
+            "planning_time_sec": 0.363118,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -10342,7 +10394,7 @@
             "solver_objective": 452.5556,
             "solver_bound": 452.5556,
             "solver_gap": 0.0,
-            "solver_time_sec": 13.792475,
+            "solver_time_sec": 15.627049,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -10406,7 +10458,13 @@
               "S_102_04",
               "S_102_01"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "1",
+              "CRUZETA_CONCRETO": "1",
+              "ELO_FUSIVEL": "2",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_DEV_102_STOCHASTIC_PORTFOLIO",
@@ -10428,7 +10486,7 @@
             "total_crew_travel_hours": 0.3727,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 13.792475,
+            "planning_time_sec": 15.627049,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 452.5556,
             "solver_bound": 452.5556,
@@ -11872,7 +11930,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.079897,
+            "solver_time_sec": 0.089394,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -11903,7 +11961,12 @@
               "S_103_01",
               "S_103_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "CONECTOR_CUNHA": "3",
+              "ELO_FUSIVEL": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_DEV_103_STOCHASTIC_PORTFOLIO",
@@ -11925,7 +11988,7 @@
             "total_crew_travel_hours": 0.3347,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.079897,
+            "planning_time_sec": 0.089394,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -13362,7 +13425,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.084822,
+            "solver_time_sec": 0.088083,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -13395,7 +13458,12 @@
               "S_103_01",
               "S_103_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "CONECTOR_CUNHA": "3",
+              "ELO_FUSIVEL": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_DEV_103_STOCHASTIC_PORTFOLIO",
@@ -13417,7 +13485,7 @@
             "total_crew_travel_hours": 0.2556,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.084822,
+            "planning_time_sec": 0.088083,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -14514,7 +14582,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.585228,
+            "solver_time_sec": 0.613064,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -14552,7 +14620,12 @@
               "S_103_02",
               "S_103_01"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "CONECTOR_CUNHA": "3",
+              "ELO_FUSIVEL": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_DEV_103_STOCHASTIC_PORTFOLIO",
@@ -14574,7 +14647,7 @@
             "total_crew_travel_hours": 0.2654,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.585228,
+            "planning_time_sec": 0.613064,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -15671,7 +15744,7 @@
             "solver_objective": 511.7319,
             "solver_bound": 511.7319,
             "solver_gap": 0.0,
-            "solver_time_sec": 12.628158,
+            "solver_time_sec": 14.350787,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -15734,7 +15807,12 @@
               "S_103_03",
               "S_103_01"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CONECTOR_CUNHA": "3",
+              "KIT_TRAFO": "2",
+              "ELO_FUSIVEL": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_DEV_103_STOCHASTIC_PORTFOLIO",
@@ -15756,7 +15834,7 @@
             "total_crew_travel_hours": 0.2531,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 12.628158,
+            "planning_time_sec": 14.350787,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 511.7319,
             "solver_bound": 511.7319,
@@ -17299,7 +17377,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.076483,
+            "solver_time_sec": 0.091114,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -17330,7 +17408,12 @@
               "S_104_03",
               "S_104_04"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "CRUZETA_CONCRETO": "1",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_DEV_104_STOCHASTIC_PORTFOLIO",
@@ -17352,7 +17435,7 @@
             "total_crew_travel_hours": 0.2925,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.076483,
+            "planning_time_sec": 0.091114,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -18888,7 +18971,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.074653,
+            "solver_time_sec": 0.08725,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -18921,7 +19004,12 @@
               "S_104_03",
               "S_104_04"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "CRUZETA_CONCRETO": "1",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_DEV_104_STOCHASTIC_PORTFOLIO",
@@ -18943,7 +19031,7 @@
             "total_crew_travel_hours": 0.2848,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.074653,
+            "planning_time_sec": 0.08725,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -20140,7 +20228,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.455087,
+            "solver_time_sec": 0.510165,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -20178,7 +20266,12 @@
               "S_104_03",
               "S_104_04"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "CRUZETA_CONCRETO": "1",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_DEV_104_STOCHASTIC_PORTFOLIO",
@@ -20200,7 +20293,7 @@
             "total_crew_travel_hours": 0.2848,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.455087,
+            "planning_time_sec": 0.510165,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -21397,7 +21490,7 @@
             "solver_objective": 618.323,
             "solver_bound": 618.323,
             "solver_gap": 0.0,
-            "solver_time_sec": 8.078376,
+            "solver_time_sec": 9.665537,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -21460,7 +21553,12 @@
               "S_104_01",
               "S_104_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ISOLADOR_15KV": "3",
+              "KIT_TRAFO": "2",
+              "CRUZETA_CONCRETO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_DEV_104_STOCHASTIC_PORTFOLIO",
@@ -21482,7 +21580,7 @@
             "total_crew_travel_hours": 0.2384,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 8.078376,
+            "planning_time_sec": 9.665537,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 618.323,
             "solver_bound": 618.323,
@@ -23089,7 +23187,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.075408,
+            "solver_time_sec": 0.088176,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -23120,7 +23218,12 @@
               "S03_F2_PARALLEL",
               "S04_F2_DISTAL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ISOLADOR_15KV": "9",
+              "KIT_TRAFO": "1",
+              "CONECTOR_CUNHA": "4"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL",
@@ -23142,7 +23245,7 @@
             "total_crew_travel_hours": 0.3064,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.075408,
+            "planning_time_sec": 0.088176,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -24742,7 +24845,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.078876,
+            "solver_time_sec": 0.092148,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -24775,7 +24878,12 @@
               "S03_F2_PARALLEL",
               "S04_F2_DISTAL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ISOLADOR_15KV": "9",
+              "KIT_TRAFO": "1",
+              "CONECTOR_CUNHA": "4"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_EVAL_01_TOPO_DISTANT_AND_PARALLEL",
@@ -24797,7 +24905,7 @@
             "total_crew_travel_hours": 0.2572,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.078876,
+            "planning_time_sec": 0.092148,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -25775,7 +25883,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.292269,
+            "solver_time_sec": 0.331367,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -25813,7 +25921,12 @@
               "S04_F2_DISTAL",
               "S03_F2_PARALLEL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "1",
+              "ISOLADOR_15KV": "9",
+              "CONECTOR_CUNHA": "4"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_EVAL_01_TOPO_DISTANT_AND_PARALLEL",
@@ -25835,7 +25948,7 @@
             "total_crew_travel_hours": 0.1879,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.292269,
+            "planning_time_sec": 0.331367,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -26813,7 +26926,7 @@
             "solver_objective": 448.7118,
             "solver_bound": 448.7118,
             "solver_gap": 0.0,
-            "solver_time_sec": 11.896927,
+            "solver_time_sec": 13.856565,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -26876,7 +26989,12 @@
               "S02_F1_FAR",
               "S01_F1_NEAR"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CONECTOR_CUNHA": "4",
+              "ISOLADOR_15KV": "9",
+              "KIT_TRAFO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_EVAL_01_TOPO_DISTANT_AND_PARALLEL",
@@ -26898,7 +27016,7 @@
             "total_crew_travel_hours": 0.1863,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 11.896927,
+            "planning_time_sec": 13.856565,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 448.7118,
             "solver_bound": 448.7118,
@@ -28520,7 +28638,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.082776,
+            "solver_time_sec": 0.117903,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -28551,7 +28669,12 @@
               "S23_F1_MID",
               "S24_F3_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "2",
+              "CONECTOR_CUNHA": "6"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
@@ -28573,7 +28696,7 @@
             "total_crew_travel_hours": 0.3386,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.082776,
+            "planning_time_sec": 0.117903,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -29727,7 +29850,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.064919,
+            "solver_time_sec": 0.108821,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -29760,7 +29883,12 @@
               "S23_F1_MID",
               "S24_F3_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "CRUZETA_CONCRETO": "2",
+              "CONECTOR_CUNHA": "6"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
@@ -29782,7 +29910,7 @@
             "total_crew_travel_hours": 0.2343,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.064919,
+            "planning_time_sec": 0.108821,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -30597,7 +30725,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.419499,
+            "solver_time_sec": 0.659871,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -30635,7 +30763,12 @@
               "S23_F1_MID",
               "S24_F3_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "CRUZETA_CONCRETO": "2",
+              "CONECTOR_CUNHA": "6"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
@@ -30657,7 +30790,7 @@
             "total_crew_travel_hours": 0.2343,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.419499,
+            "planning_time_sec": 0.659871,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -31472,7 +31605,7 @@
             "solver_objective": 373.9096,
             "solver_bound": 373.9096,
             "solver_gap": 0.0,
-            "solver_time_sec": 16.522272,
+            "solver_time_sec": 20.745881,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -31535,7 +31668,12 @@
               "S23_F1_MID",
               "S24_F3_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "2",
+              "CONECTOR_CUNHA": "6"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
@@ -31557,7 +31695,7 @@
             "total_crew_travel_hours": 0.2827,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 16.522272,
+            "planning_time_sec": 20.745881,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 373.9096,
             "solver_bound": 373.9096,
@@ -32609,7 +32747,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.071476,
+            "solver_time_sec": 0.096128,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -32641,7 +32779,13 @@
               "S33_F3_PODA",
               "S34_F1_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "1",
+              "ELO_FUSIVEL": "2",
+              "CONECTOR_CUNHA": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
@@ -32663,7 +32807,7 @@
             "total_crew_travel_hours": 0.497,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.071476,
+            "planning_time_sec": 0.096128,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -33489,7 +33633,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.057882,
+            "solver_time_sec": 0.069516,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -33523,7 +33667,13 @@
               "S33_F3_PODA",
               "S34_F1_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "1",
+              "ELO_FUSIVEL": "2",
+              "CONECTOR_CUNHA": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
@@ -33545,7 +33695,7 @@
             "total_crew_travel_hours": 0.4291,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.057882,
+            "planning_time_sec": 0.069516,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -34371,7 +34521,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.552259,
+            "solver_time_sec": 0.632537,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -34410,7 +34560,13 @@
               "S33_F3_PODA",
               "S34_F1_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "1",
+              "ELO_FUSIVEL": "2",
+              "CONECTOR_CUNHA": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
@@ -34432,7 +34588,7 @@
             "total_crew_travel_hours": 0.4291,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.552259,
+            "planning_time_sec": 0.632537,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -35039,7 +35195,7 @@
             "solver_objective": 376.6775,
             "solver_bound": 376.6775,
             "solver_gap": 0.0,
-            "solver_time_sec": 9.678793,
+            "solver_time_sec": 11.861161,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -35103,7 +35259,13 @@
               "S33_F3_PODA",
               "S34_F1_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "1",
+              "ELO_FUSIVEL": "2",
+              "CONECTOR_CUNHA": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
@@ -35125,7 +35287,7 @@
             "total_crew_travel_hours": 0.4291,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 9.678793,
+            "planning_time_sec": 11.861161,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 376.6775,
             "solver_bound": 376.6775,
@@ -36252,7 +36414,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.060307,
+            "solver_time_sec": 0.089896,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -36282,7 +36444,12 @@
               "S42_F1_TRUNK_B",
               "S43_F1_TAIL_LONG"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ISOLADOR_15KV": "3",
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_EVAL_04_FREQ_VS_DURATION_TRADEOFF",
@@ -36304,7 +36471,7 @@
             "total_crew_travel_hours": 0.2948,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.060307,
+            "planning_time_sec": 0.089896,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -37424,7 +37591,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.060065,
+            "solver_time_sec": 0.074856,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -37456,7 +37623,12 @@
               "S42_F1_TRUNK_B",
               "S43_F1_TAIL_LONG"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ISOLADOR_15KV": "3",
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_EVAL_04_FREQ_VS_DURATION_TRADEOFF",
@@ -37478,7 +37650,7 @@
             "total_crew_travel_hours": 0.2948,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.060065,
+            "planning_time_sec": 0.074856,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -38517,7 +38689,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.286424,
+            "solver_time_sec": 0.351782,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -38554,7 +38726,12 @@
               "S41_F1_MID_A",
               "S42_F1_TRUNK_B"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "2",
+              "ISOLADOR_15KV": "3",
+              "CRUZETA_CONCRETO": "2"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_EVAL_04_FREQ_VS_DURATION_TRADEOFF",
@@ -38576,7 +38753,7 @@
             "total_crew_travel_hours": 0.2948,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.286424,
+            "planning_time_sec": 0.351782,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -39121,7 +39298,7 @@
             "solver_objective": 365.9629,
             "solver_bound": 365.9629,
             "solver_gap": 0.0,
-            "solver_time_sec": 7.178283,
+            "solver_time_sec": 9.059852,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -39183,7 +39360,12 @@
               "S43_F1_TAIL_LONG",
               "S41_F1_MID_A"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "2",
+              "KIT_TRAFO": "2",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_EVAL_04_FREQ_VS_DURATION_TRADEOFF",
@@ -39205,7 +39387,7 @@
             "total_crew_travel_hours": 0.2948,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 7.178283,
+            "planning_time_sec": 9.059852,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 365.9629,
             "solver_bound": 365.9629,
@@ -40001,7 +40183,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.054225,
+            "solver_time_sec": 0.081309,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -40031,7 +40213,12 @@
               "S52_F2_DISTAL",
               "S53_F3_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CONECTOR_CUNHA": "2",
+              "KIT_TRAFO": "1",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_EVAL_05_DISJOINT_NO_OPPORTUNITY",
@@ -40053,7 +40240,7 @@
             "total_crew_travel_hours": 0.402,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.054225,
+            "planning_time_sec": 0.081309,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -40842,7 +41029,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.071133,
+            "solver_time_sec": 0.080879,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -40874,7 +41061,12 @@
               "S52_F2_DISTAL",
               "S53_F3_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CONECTOR_CUNHA": "2",
+              "KIT_TRAFO": "1",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_EVAL_05_DISJOINT_NO_OPPORTUNITY",
@@ -40896,7 +41088,7 @@
             "total_crew_travel_hours": 0.402,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.071133,
+            "planning_time_sec": 0.080879,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -41685,7 +41877,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.635841,
+            "solver_time_sec": 0.928935,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -41722,7 +41914,12 @@
               "S52_F2_DISTAL",
               "S53_F3_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CONECTOR_CUNHA": "2",
+              "KIT_TRAFO": "1",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_EVAL_05_DISJOINT_NO_OPPORTUNITY",
@@ -41744,7 +41941,7 @@
             "total_crew_travel_hours": 0.402,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.635841,
+            "planning_time_sec": 0.928935,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -42533,7 +42730,7 @@
             "solver_objective": 433.4712,
             "solver_bound": 433.4712,
             "solver_gap": 0.0,
-            "solver_time_sec": 1.125794,
+            "solver_time_sec": 1.599949,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -42595,7 +42792,12 @@
               "S52_F2_DISTAL",
               "S53_F3_TAIL"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CONECTOR_CUNHA": "2",
+              "KIT_TRAFO": "1",
+              "ISOLADOR_15KV": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_EVAL_05_DISJOINT_NO_OPPORTUNITY",
@@ -42617,7 +42819,7 @@
             "total_crew_travel_hours": 0.402,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 1.125794,
+            "planning_time_sec": 1.599949,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 433.4712,
             "solver_bound": 433.4712,
@@ -43926,7 +44128,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.063886,
+            "solver_time_sec": 0.096481,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -43957,7 +44159,11 @@
               "S63_F1_STRUCT",
               "S61_MAINT_TRAFO"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "3",
+              "CRUZETA_CONCRETO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
@@ -43979,7 +44185,7 @@
             "total_crew_travel_hours": 0.2565,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 1,
-            "planning_time_sec": 0.063886,
+            "planning_time_sec": 0.096481,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -44919,7 +45125,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.050248,
+            "solver_time_sec": 0.061946,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -44952,7 +45158,11 @@
               "S61_MAINT_TRAFO",
               "S63_F1_STRUCT"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "3",
+              "CRUZETA_CONCRETO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
@@ -44974,7 +45184,7 @@
             "total_crew_travel_hours": 0.2565,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 1,
-            "planning_time_sec": 0.050248,
+            "planning_time_sec": 0.061946,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -45575,7 +45785,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.296238,
+            "solver_time_sec": 0.306308,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -45613,7 +45823,11 @@
               "S62_REPL_TRAFO",
               "S61_MAINT_TRAFO"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "1",
+              "KIT_TRAFO": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
@@ -45635,7 +45849,7 @@
             "total_crew_travel_hours": 0.2097,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 1,
-            "planning_time_sec": 0.296238,
+            "planning_time_sec": 0.306308,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -46236,7 +46450,7 @@
             "solver_objective": 229.1889,
             "solver_bound": 229.1889,
             "solver_gap": 0.0,
-            "solver_time_sec": 7.488206,
+            "solver_time_sec": 8.580516,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -46299,7 +46513,11 @@
               "S63_F1_STRUCT",
               "S61_MAINT_TRAFO"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "KIT_TRAFO": "3",
+              "CRUZETA_CONCRETO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
@@ -46321,7 +46539,7 @@
             "total_crew_travel_hours": 0.2565,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 1,
-            "planning_time_sec": 7.488206,
+            "planning_time_sec": 8.580516,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 229.1889,
             "solver_bound": 229.1889,
@@ -47932,7 +48150,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.088701,
+            "solver_time_sec": 0.111421,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -47965,7 +48183,13 @@
               "S_202607_01",
               "S_202607_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1",
+              "CRUZETA_CONCRETO": "2",
+              "CONECTOR_CUNHA": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_EVAL_07_STOCHASTIC_PORTFOLIO",
@@ -47987,7 +48211,7 @@
             "total_crew_travel_hours": 0.4546,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.088701,
+            "planning_time_sec": 0.111421,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -49372,7 +49596,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.080281,
+            "solver_time_sec": 0.099054,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -49407,7 +49631,13 @@
               "S_202607_01",
               "S_202607_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1",
+              "CRUZETA_CONCRETO": "2",
+              "CONECTOR_CUNHA": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_EVAL_07_STOCHASTIC_PORTFOLIO",
@@ -49429,7 +49659,7 @@
             "total_crew_travel_hours": 0.3726,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.080281,
+            "planning_time_sec": 0.099054,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -50628,7 +50858,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.464907,
+            "solver_time_sec": 0.834693,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -50668,7 +50898,13 @@
               "S_202607_02",
               "S_202607_01"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1",
+              "CRUZETA_CONCRETO": "2",
+              "CONECTOR_CUNHA": "3"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_EVAL_07_STOCHASTIC_PORTFOLIO",
@@ -50690,7 +50926,7 @@
             "total_crew_travel_hours": 0.4016,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.464907,
+            "planning_time_sec": 0.834693,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -51889,7 +52125,7 @@
             "solver_objective": 591.9831,
             "solver_bound": 591.9831,
             "solver_gap": 0.0,
-            "solver_time_sec": 18.294137,
+            "solver_time_sec": 21.185926,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -51954,7 +52190,13 @@
               "S_202607_05",
               "S_202607_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "2",
+              "CONECTOR_CUNHA": "3",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_EVAL_07_STOCHASTIC_PORTFOLIO",
@@ -51976,7 +52218,7 @@
             "total_crew_travel_hours": 0.4219,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 18.294137,
+            "planning_time_sec": 21.185926,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 591.9831,
             "solver_bound": 591.9831,
@@ -53503,7 +53745,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.086212,
+            "solver_time_sec": 0.105511,
             "is_optimal_proven": false,
             "metadata": {}
           },
@@ -53537,7 +53779,14 @@
               "S_202608_01",
               "S_202608_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "1",
+              "ISOLADOR_15KV": "3",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1",
+              "CONECTOR_CUNHA": "4"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B0_EVAL_08_STOCHASTIC_PORTFOLIO",
@@ -53559,7 +53808,7 @@
             "total_crew_travel_hours": 0.5318,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.086212,
+            "planning_time_sec": 0.105511,
             "solver_status": "HEURISTIC_INDIVIDUAL",
             "solver_objective": null,
             "solver_bound": null,
@@ -54860,7 +55109,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.07316,
+            "solver_time_sec": 0.090649,
             "is_optimal_proven": false,
             "metadata": {
               "radius_km": 0.75
@@ -54896,7 +55145,14 @@
               "S_202608_01",
               "S_202608_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "1",
+              "ISOLADOR_15KV": "3",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1",
+              "CONECTOR_CUNHA": "4"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B1_EVAL_08_STOCHASTIC_PORTFOLIO",
@@ -54918,7 +55174,7 @@
             "total_crew_travel_hours": 0.4793,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.07316,
+            "planning_time_sec": 0.090649,
             "solver_status": "HEURISTIC_GEOGRAPHIC",
             "solver_objective": null,
             "solver_bound": null,
@@ -56219,7 +56475,7 @@
             "solver_objective": null,
             "solver_bound": null,
             "solver_gap": null,
-            "solver_time_sec": 0.512974,
+            "solver_time_sec": 0.582463,
             "is_optimal_proven": false,
             "metadata": {
               "local_zone_search": {
@@ -56260,7 +56516,14 @@
               "S_202608_01",
               "S_202608_03"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "CRUZETA_CONCRETO": "1",
+              "ISOLADOR_15KV": "3",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1",
+              "CONECTOR_CUNHA": "4"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_B2_EVAL_08_STOCHASTIC_PORTFOLIO",
@@ -56282,7 +56545,7 @@
             "total_crew_travel_hours": 0.4793,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 0.512974,
+            "planning_time_sec": 0.582463,
             "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
             "solver_objective": null,
             "solver_bound": null,
@@ -57364,7 +57627,7 @@
             "solver_objective": 579.0048,
             "solver_bound": 579.0048,
             "solver_gap": 0.0,
-            "solver_time_sec": 9.442849,
+            "solver_time_sec": 11.081336,
             "is_optimal_proven": true,
             "metadata": {
               "independent_verification": {
@@ -57430,7 +57693,14 @@
               "S_202608_04",
               "S_202608_01"
             ],
-            "isolation_verified": true
+            "isolation_verified": true,
+            "recalculated_materials_exact": {
+              "ISOLADOR_15KV": "3",
+              "CONECTOR_CUNHA": "4",
+              "CRUZETA_CONCRETO": "1",
+              "ELO_FUSIVEL": "2",
+              "KIT_TRAFO": "1"
+            }
           },
           "metrics": {
             "plan_id": "PLAN_KGP_EVAL_08_STOCHASTIC_PORTFOLIO",
@@ -57452,7 +57722,7 @@
             "total_crew_travel_hours": 0.4247,
             "deadline_violations_count": 0,
             "lifecycle_alerts_count": 0,
-            "planning_time_sec": 9.442849,
+            "planning_time_sec": 11.081336,
             "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
             "solver_objective": 579.0048,
             "solver_bound": 579.0048,

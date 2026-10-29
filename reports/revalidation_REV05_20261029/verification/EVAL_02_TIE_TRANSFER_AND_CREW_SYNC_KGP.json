@@ -1,0 +1,34 @@
+{
+  "plan_id": "PLAN_KGP_EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+  "method_name": "KGP",
+  "scenario_id": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 4,
+  "total_mandatory_count": 4,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "CRUZETA_CONCRETO": 2.0,
+    "KIT_TRAFO": 2.0,
+    "CONECTOR_CUNHA": 6.0
+  },
+  "recalculated_consumer_hours": 167.8,
+  "recalculated_windows_count": 2,
+  "recalculated_physical_maneuvers": 8,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 88,
+  "recalculated_total_interruptions": 88,
+  "recalculated_completed_services": [
+    "S21_F1_STRUCT",
+    "S22_F1_TRAFO",
+    "S23_F1_MID",
+    "S24_F3_TAIL"
+  ],
+  "isolation_verified": true,
+  "recalculated_materials_exact": {
+    "CRUZETA_CONCRETO": "2",
+    "KIT_TRAFO": "2",
+    "CONECTOR_CUNHA": "6"
+  }
+}

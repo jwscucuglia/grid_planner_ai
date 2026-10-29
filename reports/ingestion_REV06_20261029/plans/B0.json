@@ -1,0 +1,32 @@
+{
+  "plan_id": "PLAN_B0_PUBLIC_GIS_SYNTHETIC_OVERLAY",
+  "method_name": "B0",
+  "scenario_id": "PUBLIC_GIS_SYNTHETIC_OVERLAY",
+  "decision_day": 0,
+  "windows": [],
+  "completed_service_ids": [],
+  "unscheduled_service_ids": [
+    "SYN_SERVICE_1",
+    "SYN_SERVICE_2"
+  ],
+  "exclusion_justifications": {
+    "SYN_SERVICE_1": "Estado inicial fora do domínio físico radial: Domínio físico radial não suportado na fase A, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (344 nós, 348 trechos).; Domínio físico radial não suportado na fase B, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (338 nós, 342 trechos).; Domínio físico radial não suportado na fase C, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (338 nós, 342 trechos).",
+    "SYN_SERVICE_2": "Estado inicial fora do domínio físico radial: Domínio físico radial não suportado na fase A, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (344 nós, 348 trechos).; Domínio físico radial não suportado na fase B, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (338 nós, 342 trechos).; Domínio físico radial não suportado na fase C, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (338 nós, 342 trechos)."
+  },
+  "lifecycle_alerts": [],
+  "unmodeled_constraints": [
+    "Ajustes finos de coordenação e seletividade de proteção em tempo real",
+    "Aterramento temporário de campo e bloqueio mecânico (LOTO) pelo COD/Cemig",
+    "Autorização operacional humana final do programador e despachante"
+  ],
+  "solver_status": "UNSUPPORTED_INPUT",
+  "solver_objective": null,
+  "solver_bound": null,
+  "solver_gap": null,
+  "solver_time_sec": 0.0,
+  "is_optimal_proven": false,
+  "metadata": {
+    "unsupported_option": "radial_analysis_domain",
+    "reason": "Estado inicial fora do domínio físico radial: Domínio físico radial não suportado na fase A, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (344 nós, 348 trechos).; Domínio físico radial não suportado na fase B, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (338 nós, 342 trechos).; Domínio físico radial não suportado na fase C, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (338 nós, 342 trechos)."
+  }
+}

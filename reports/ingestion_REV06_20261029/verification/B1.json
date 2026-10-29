@@ -1,0 +1,26 @@
+{
+  "plan_id": "PLAN_B1_PUBLIC_GIS_SYNTHETIC_OVERLAY",
+  "method_name": "B1",
+  "scenario_id": "PUBLIC_GIS_SYNTHETIC_OVERLAY",
+  "is_feasible": false,
+  "mandatory_portfolio_complete": false,
+  "completed_mandatory_count": 0,
+  "total_mandatory_count": 2,
+  "violations": [
+    "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (344 nós, 348 trechos).",
+    "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase B, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (338 nós, 342 trechos).",
+    "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase C, componente 'S01B01A02CH000000017': ciclo/caminhos paralelos energizados (338 nós, 342 trechos).",
+    "Carteira obrigatória incompleta: faltam 2 serviço(s) obrigatório(s): ['SYN_SERVICE_1', 'SYN_SERVICE_2']."
+  ],
+  "warnings": [],
+  "recalculated_materials": {},
+  "recalculated_consumer_hours": 0.0,
+  "recalculated_windows_count": 0,
+  "recalculated_physical_maneuvers": 0,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 0,
+  "recalculated_total_interruptions": 0,
+  "recalculated_completed_services": [],
+  "isolation_verified": false,
+  "recalculated_materials_exact": {}
+}

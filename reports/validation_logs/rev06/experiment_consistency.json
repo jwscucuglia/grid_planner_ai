@@ -1,0 +1,39 @@
+{
+  "source_commit": "bdd6ab6be7593c906d80261c916eb9874676240a",
+  "source_files_unchanged_during_execution": 36,
+  "input_hashes_unchanged_from_REV04": 12,
+  "protocol_comparison": "same seeds, weights, B1 radius",
+  "plans_feasible": 48,
+  "complete_mandatory_portfolios": 48,
+  "known_eval_comparisons": 8,
+  "paired_results_identical_to_REV04": true,
+  "window_reduction_percent": 15.000000000000002,
+  "consumer_hours_reduction_percent": 16.940100601575526,
+  "head_to_head": {
+    "by_windows": {
+      "wins": 3,
+      "ties": 5,
+      "losses": 0
+    },
+    "by_consumer_hours": {
+      "wins": 5,
+      "ties": 2,
+      "losses": 1
+    },
+    "by_repeat_consumers": {
+      "wins": 3,
+      "ties": 5,
+      "losses": 0
+    },
+    "by_physical_maneuvers": {
+      "wins": 3,
+      "ties": 5,
+      "losses": 0
+    },
+    "by_combined_objective_J": {
+      "wins": 7,
+      "ties": 1,
+      "losses": 0
+    }
+  }
+}

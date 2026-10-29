@@ -1,0 +1,79 @@
+{
+  "delivery_revision": "REV06",
+  "package_version": "0.6.0",
+  "source_commit": "bdd6ab6be7593c906d80261c916eb9874676240a",
+  "prior_checkpoint_source_commit": "f49a8c6543717ff740f1f7c701e20d34e82e6e5a",
+  "tests": {
+    "passed": 396,
+    "skipped": 1,
+    "elapsed_seconds": 210.34,
+    "skip_reason": "Native symlink creation denied with Windows privilege error 1314; both resolution-error paths separately exercised",
+    "existing_test_adaptations": "Four GIS tests now assert physical-domain blocking; two timeline fixtures use break-before-make, retaining global-isolation rejection and valid serial control"
+  },
+  "adversarial_review": {
+    "import_contract_passed": 15,
+    "physical_domain_passed": 81,
+    "prior_probe_regressions_passed": [
+      58,
+      105,
+      143
+    ],
+    "human_external_audit": false
+  },
+  "experiment": {
+    "source_commit": "bdd6ab6be7593c906d80261c916eb9874676240a",
+    "source_files_unchanged_during_execution": 36,
+    "input_hashes_unchanged_from_REV04": 12,
+    "protocol_comparison": "same seeds, weights, B1 radius",
+    "plans_feasible": 48,
+    "complete_mandatory_portfolios": 48,
+    "known_eval_comparisons": 8,
+    "paired_results_identical_to_REV04": true,
+    "window_reduction_percent": 15.000000000000002,
+    "consumer_hours_reduction_percent": 16.940100601575526,
+    "head_to_head": {
+      "by_windows": {
+        "wins": 3,
+        "ties": 5,
+        "losses": 0
+      },
+      "by_consumer_hours": {
+        "wins": 5,
+        "ties": 2,
+        "losses": 1
+      },
+      "by_repeat_consumers": {
+        "wins": 3,
+        "ties": 5,
+        "losses": 0
+      },
+      "by_physical_maneuvers": {
+        "wins": 3,
+        "ties": 5,
+        "losses": 0
+      },
+      "by_combined_objective_J": {
+        "wins": 7,
+        "ties": 1,
+        "losses": 0
+      }
+    }
+  },
+  "gis_integration": {
+    "evidence": "reports/ingestion_REV06_20261029",
+    "nodes_preserved": 354,
+    "edges_preserved": 358,
+    "phase_reference_checks": 9,
+    "feasible_plans": 0,
+    "blocked_planner_attempts": 4,
+    "mandatory_services_in_input": 2,
+    "physical_domain_supported": false,
+    "benefit_metrics": null,
+    "operational_validation": false,
+    "cemig_data_used": false,
+    "interpretation": "Topology and reachability are preserved; this energized multigraph is outside the radial physical model. Two mandatory orders remain unscheduled. This is not a finding of real-network infeasibility.",
+    "source_edges_removed_for_acceptance": 0
+  },
+  "switch_timing_policy": "Zone aggregates authoritative with external validation as premise; individual switch durations informational, without field sequence certification",
+  "scope": "Known synthetic reevaluation, same reference network and frozen parameters; not a new blind/operational evaluation. REV04, INGESTAO01 and REV05 checkpoints remain historical."
+}

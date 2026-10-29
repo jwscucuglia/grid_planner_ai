@@ -1,0 +1,82 @@
+........................................................................ [ 18%]
+...............................................................s........ [ 36%]
+........................................................................ [ 54%]
+........................................................................ [ 72%]
+........................................................................ [ 90%]
+..............F..................F...                                    [100%]
+================================== FAILURES ===================================
+_________ test_disjoint_zones_that_reenergize_other_work_are_blocked __________
+
+    def test_disjoint_zones_that_reenergize_other_work_are_blocked():
+>       n, s, c, p = joint_case()
+                     ^^^^^^^^^^^^
+
+tests\test_verifier_audit.py:78: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def joint_case():
+        nodes = {n: GridNode(n, n, 'F', 0, 0, is_source=n.startswith('SRC'))
+                 for n in ('SRC1', 'SRC2', 'N1', 'N3')}
+        branches = {k: GridBranch(k, a, b, 'F') for k, a, b in
+                    [('B1', 'SRC1', 'N1'), ('B2', 'SRC2', 'N3'), ('B3', 'SRC2', 'N1')]}
+        switches = {k: GridSwitch(k, b, st, st) for k, b, st in
+                    [('SW1', 'B1', SwitchState.CLOSED), ('SW2', 'B2', SwitchState.CLOSED),
+                     ('SW3', 'B3', SwitchState.OPEN)]}
+        assets = {k: GridAsset(k, n, None, 'F', 'TEST') for k, n in [('A1', 'N1'), ('A3', 'N3')]}
+        zones = {'Z1': IsolationZoneSpec('Z1', 'Z1', 'F', ('SW1',)),
+                 'Z2': IsolationZoneSpec('Z2', 'Z2', 'F', ('SW2',), ('SW3',), requires_transfer_validation=True)}
+        net = GridNetwork('joint', 'test', 0, nodes=nodes, branches=branches, switches=switches,
+                          assets=assets, isolation_zones=zones,
+                          consumers={'U1': ConsumerUnit('U1', 'N1', 'A1'), 'U3': ConsumerUnit('U3', 'N3', 'A3')})
+        services = [ServiceOrder(k, k, ServiceType.PODA, (a,), True, 0, 1, 1, 1, (skill,),
+                                compatible_zone_ids=(z,)) for k, a, skill, z in
+                    [('S1', 'A1', 'ONE', 'Z1'), ('S3', 'A3', 'THREE', 'Z2')]]
+        cat = ResourceCatalog(crews={k: CrewResource(k, k, (skill,), (1,))
+                                    for k, skill in [('C1', 'ONE'), ('C3', 'THREE')]}, planning_days=(1,))
+        wins = [build_window_schedule(net, cat, z, 1, 'W' + str(i), [services[i]],
+                                     earliest_window_start_hour=9.0)[0] for i, z in enumerate(zones)]
+>       assert all(wins)
+E       assert False
+E        +  where False = all([PlannedInterruptionWindow(window_id='W0', day=1, zone_id='Z1', service_ids=('S1',), start_hour=9.0, end_hour=10.5, wo...ons={'S1': "Alocado na zona 'Z1' (dia 1, execução 9.25h-10.25h) com equipe(s) ['C1']; ativos ['A1'] isolados."}), None])
+
+tests\test_verifier_audit.py:71: AssertionError
+______ test_global_timeline_checks_transfer_and_recomposition_boundaries ______
+
+    def test_global_timeline_checks_transfer_and_recomposition_boundaries():
+        from kgp.feasibility import _global_reference_timeline
+>       n, s, c, p = joint_case()
+                     ^^^^^^^^^^^^
+
+tests\test_verifier_audit.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+    def joint_case():
+        nodes = {n: GridNode(n, n, 'F', 0, 0, is_source=n.startswith('SRC'))
+                 for n in ('SRC1', 'SRC2', 'N1', 'N3')}
+        branches = {k: GridBranch(k, a, b, 'F') for k, a, b in
+                    [('B1', 'SRC1', 'N1'), ('B2', 'SRC2', 'N3'), ('B3', 'SRC2', 'N1')]}
+        switches = {k: GridSwitch(k, b, st, st) for k, b, st in
+                    [('SW1', 'B1', SwitchState.CLOSED), ('SW2', 'B2', SwitchState.CLOSED),
+                     ('SW3', 'B3', SwitchState.OPEN)]}
+        assets = {k: GridAsset(k, n, None, 'F', 'TEST') for k, n in [('A1', 'N1'), ('A3', 'N3')]}
+        zones = {'Z1': IsolationZoneSpec('Z1', 'Z1', 'F', ('SW1',)),
+                 'Z2': IsolationZoneSpec('Z2', 'Z2', 'F', ('SW2',), ('SW3',), requires_transfer_validation=True)}
+        net = GridNetwork('joint', 'test', 0, nodes=nodes, branches=branches, switches=switches,
+                          assets=assets, isolation_zones=zones,
+                          consumers={'U1': ConsumerUnit('U1', 'N1', 'A1'), 'U3': ConsumerUnit('U3', 'N3', 'A3')})
+        services = [ServiceOrder(k, k, ServiceType.PODA, (a,), True, 0, 1, 1, 1, (skill,),
+                                compatible_zone_ids=(z,)) for k, a, skill, z in
+                    [('S1', 'A1', 'ONE', 'Z1'), ('S3', 'A3', 'THREE', 'Z2')]]
+        cat = ResourceCatalog(crews={k: CrewResource(k, k, (skill,), (1,))
+                                    for k, skill in [('C1', 'ONE'), ('C3', 'THREE')]}, planning_days=(1,))
+        wins = [build_window_schedule(net, cat, z, 1, 'W' + str(i), [services[i]],
+                                     earliest_window_start_hour=9.0)[0] for i, z in enumerate(zones)]
+>       assert all(wins)
+E       assert False
+E        +  where False = all([PlannedInterruptionWindow(window_id='W0', day=1, zone_id='Z1', service_ids=('S1',), start_hour=9.0, end_hour=10.5, wo...ons={'S1': "Alocado na zona 'Z1' (dia 1, execução 9.25h-10.25h) com equipe(s) ['C1']; ativos ['A1'] isolados."}), None])
+
+tests\test_verifier_audit.py:71: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_verifier_audit.py::test_disjoint_zones_that_reenergize_other_work_are_blocked
+FAILED tests/test_verifier_audit.py::test_global_timeline_checks_transfer_and_recomposition_boundaries
+2 failed, 394 passed, 1 skipped in 220.79s (0:03:40)

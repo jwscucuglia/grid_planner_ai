@@ -1,0 +1,34 @@
+{
+  "plan_id": "PLAN_KGP_DEV_101_STOCHASTIC_PORTFOLIO",
+  "method_name": "KGP",
+  "scenario_id": "DEV_101_STOCHASTIC_PORTFOLIO",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 4,
+  "total_mandatory_count": 4,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "CRUZETA_CONCRETO": 1.0,
+    "ELO_FUSIVEL": 2.0,
+    "KIT_TRAFO": 2.0
+  },
+  "recalculated_consumer_hours": 351.6,
+  "recalculated_windows_count": 3,
+  "recalculated_physical_maneuvers": 6,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 140,
+  "recalculated_total_interruptions": 140,
+  "recalculated_completed_services": [
+    "S_101_01",
+    "S_101_04",
+    "S_101_02",
+    "S_101_03"
+  ],
+  "isolation_verified": true,
+  "recalculated_materials_exact": {
+    "CRUZETA_CONCRETO": "1",
+    "ELO_FUSIVEL": "2",
+    "KIT_TRAFO": "2"
+  }
+}

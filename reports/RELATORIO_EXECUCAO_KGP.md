@@ -1,18 +1,18 @@
-# RELATÓRIO DE EXECUÇÃO — KGP 0.4.0 / REV04
+# RELATÓRIO DE EXECUÇÃO — KGP 0.6.0 / REV06
 
 Reavaliação sintética de casos conhecidos — Desafio 07 Inova Cemig.Lab Ciclo 5.
 
-Execução UTC: 2026-10-29T14:09:22.548329+00:00. Código: `66e90ea783720ccd4dd1e9cda9eef288e0facb3d`; SHA-256 por arquivo no protocolo.
+Execução UTC: 2026-10-29T21:47:45.713158+00:00. Código: `bdd6ab6be7593c906d80261c916eb9874676240a`; SHA-256 por arquivo no protocolo.
 48/48 planos factíveis após leitura do JSON exportado, 8 comparações EVAL admitidas. Carteira obrigatória e factibilidade são condições do benefício.
 
 ## Resultados descritivos — 8 casos EVAL conhecidos, uma rede de referência
 
 | Método | Factíveis | Janelas médias | Manobras médias | Acoplamento | Reincidentes médios | Clientes-hora médios | Tempo médio (s) |
 |---|---|---|---|---|---|---|---|
-| B0 | 8/8 | 3.8750 | 10.2500 | 0.0000 | 37.7500 | 318.7125 | 0.0729 |
-| B1 | 8/8 | 3.2500 | 8.5000 | 0.2083 | 35.0000 | 280.7424 | 0.0671 |
-| B2 | 8/8 | 2.5000 | 7.5000 | 0.4896 | 13.0000 | 255.6620 | 0.4326 |
-| KGP | 8/8 | 2.1250 | 6.2500 | 0.5833 | 0.0000 | 212.3526 | 10.2034 |
+| B0 | 8/8 | 3.8750 | 10.2500 | 0.0000 | 37.7500 | 318.7125 | 0.0984 |
+| B1 | 8/8 | 3.2500 | 8.5000 | 0.2083 | 35.0000 | 280.7424 | 0.0847 |
+| B2 | 8/8 | 2.5000 | 7.5000 | 0.4896 | 13.0000 | 255.6620 | 0.5785 |
+| KGP | 8/8 | 2.1250 | 6.2500 | 0.5833 | 0.0000 | 212.3526 | 12.2464 |
 
 ## Balanço KGP × B2 — valores menores são melhores
 
@@ -47,7 +47,7 @@ Execução UTC: 2026-10-29T14:09:22.548329+00:00. Código: `66e90ea783720ccd4dd1
 - Preparação/recomposição elétricas são etapas agregadas: abertura no início, transferência no meio da preparação e restauração do estado inicial ao final. Não se certifica sequência individual de campo, proteção, LOTO ou aterramento. Consumidores inicialmente sem alimentação são rejeitados por escopo.
 - Janelas, manobras físicas, interrupções por consumidor e reincidência são métricas diferentes. Clientes-hora são a soma por consumidor da união de intervalos, sem duplicidade; contadores provêm do recálculo independente.
 - B2 inclui um passe local de até 30 trocas de zona, preservando pacotes e dias, reconstruindo as rotas completas e aceitando somente menor objetivo padrão e plano factível. Não é ótimo local de todo espaço.
-- OPTIMAL_ON_DISCRETE_COLUMNS refere-se somente às colunas geradas: pacotes até 5 ordens, até 5 janelas/dia, 120 estados por profundidade, inícios construtivos e alocações limitadas. Inviabilidade desse catálogo não prova inviabilidade operacional geral. Objetivo, bound, gap, tempo e limites constam dos planos.
+- OPTIMAL_ON_DISCRETE_COLUMNS refere-se somente às colunas geradas. A expansão limita pacotes a 5 ordens, 5 janelas/dia e 120 estados por profundidade, com inícios e alocações construtivos. Agendas factíveis das sementes B0/B1/B2 são acrescentadas fora desses filtros de tamanho; o certificado cobre o catálogo combinado efetivo. Inviabilidade desse catálogo não prova inviabilidade operacional geral. Objetivo, bound, gap, tempo e limites constam dos planos.
 - Carteira obrigatória é restrição rígida; omissão opcional custa 50 por ordem nos pesos padrão. Nenhuma incompletude recebe pontuação de benefício. Bound/gap são saídas do solver, sem verificação formal de certificado externo.
 - TRL 3 é proposta restrita às funções demonstradas em laboratório; a plataforma não foi validada operacionalmente. Integrações Electric Office/GeoServiços/SAP e validação dos programadores dependem da Cemig, em leitura/sidecar e sem telecomandos.
 - Estudos históricos 0.1.0-d07-scoped e REV02 são preservados separadamente e não são somados a esta rodada.
@@ -57,7 +57,11 @@ Execução UTC: 2026-10-29T14:09:22.548329+00:00. Código: `66e90ea783720ccd4dd1
 - REV04/A3/A4: dias anteriores à decisão são excluídos; certificado exige auditoria do plano bruto e após JSON. Transferência obrigatória malsucedida rejeita a intervenção; na opcional abandonada, a chave permanece aberta e esse estado efetivamente executado é auditado.
 - REV04/A5: grade operacional de 0,0001 h (0,36 s), fronteiras/união em ticks inteiros e adjacência exata. Horários fora da grade são rejeitados; a tolerância de representação binária não apaga intervalos ou reduz requisitos de duração/agenda.
 - Baliza temporal adicional: o catálogo exige gap diário positivo de recomposição. Catálogos ininterruptos 0–24h são recusados antes de planejar/auditar; o objetivo de colunas diárias não certifica continuidade de uma interrupção através da meia-noite.
+- REV05/A-CODE-01: totais e saldos de materiais são conservados por aritmética racional exata dos valores decimais canônicos. O verificador reconstrói esses totais independentemente; arredondamento de apresentação e tolerâncias do MILP não autorizam falta de estoque. Totais não representáveis como float finito não são exportados como infinitos.
+- Acoplamento no estudo é a proporção de janelas do plano com dois ou mais serviços sobre todas as janelas do plano. Os 1,7% oficiais usam manobras como denominador e não são diretamente intercambiáveis com essa métrica.
+- REV06: a aproximação física exige árvore energizada por fase e uma fonte ativa por componente no estado inicial e nos estados analisados. Ciclos, paralelas condutoras e múltiplas fontes conectadas são bloqueados; a conectividade cadastral continua preservando todas as arestas. O cadastro GIS público CTMT002 fica fora desse domínio físico, sem descartar ligações para forçar aceite.
+- As durações de manobra por chave são informativas neste contrato. A agenda e o verificador usam durações agregadas autoritativas da zona, a validar externamente; não derivam nem certificam tempos individuais de campo.
 ## Artefatos e reprodução
 
-`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `reports/revalidation_REV04_20261029/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.
+`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `reports/revalidation_REV06_20261029/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.
 Consulte também AUDITORIA_DOCUMENTAL_D07.md, MATRIZ_ADERENCIA_OFICIAL_D07.md, AUDITORIA_OTIMIZADOR_D07.md e REVISAO_INDEPENDENTE_NUCLEO_D07.md.
