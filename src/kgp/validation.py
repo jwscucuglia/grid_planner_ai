@@ -1,5 +1,7 @@
 """Cross-reference and structural validation at the independent audit boundary."""
 from collections import Counter
+from fractions import Fraction
+import sys
 from .contracts import (
     GridNetwork, ResourceCatalog, ServiceOrder, ExecutionPlan, _decode_typed,
     TICKS_PER_HOUR, operational_time_ticks,
@@ -124,9 +126,12 @@ def validate_problem_and_plan(network, services, catalog, plan):
         for sid in win.service_ids:
             if sid in svc_map:
                 for mat, qty in svc_map[sid].required_materials.items():
-                    expected_materials[mat] = expected_materials.get(mat, 0) + qty
+                    expected_materials[mat] = expected_materials.get(mat, Fraction(0)) + Fraction(str(qty))
+        representable = all(q <= Fraction(str(sys.float_info.max)) for q in expected_materials.values())
+        check(representable, f'materiais não representáveis como float finito em {win.window_id}')
         check(set(win.materials_used) == set(expected_materials) and
-              all(abs(win.materials_used[k] - v) <= 1e-4 for k, v in expected_materials.items()),
+              representable and
+              all(win.materials_used[k] == float(v) for k, v in expected_materials.items()),
               f'materiais exportados de {win.window_id}')
         for step in win.maneuver_steps:
             check(0 <= ticks(step.start_hour) <= ticks(step.end_hour) <= day_end and step.max_loading_pct >= 0 and

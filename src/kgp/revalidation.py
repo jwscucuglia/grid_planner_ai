@@ -37,7 +37,7 @@ def run_revalidation(base_dir):
     base_dir = Path(base_dir)
     source_root = Path(__file__).resolve().parents[2]
     reports = base_dir / 'reports'
-    evidence = reports / 'revalidation_REV04_20261029'
+    evidence = reports / 'revalidation_REV05_20261029'
     evidence.mkdir(parents=True, exist_ok=True)
     scenarios = [generate_scenario_instance(seed, split) for split, seeds in
                  [('DEV', DEV_SEEDS), ('EVAL', EVAL_SEEDS)] for seed in seeds]
@@ -57,7 +57,7 @@ def run_revalidation(base_dir):
         source_commit = 'UNAVAILABLE'
     weights = ObjectiveWeights()
     config = {
-        'release_revision': 'REV04', 'evidence_directory': evidence.relative_to(base_dir).as_posix(),
+        'release_revision': 'REV05', 'evidence_directory': evidence.relative_to(base_dir).as_posix(),
         'project': 'KAPTUS GRID PLANNER — D07', 'package_version': __version__,
         'execution_timestamp': datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'source_commit': source_commit, 'source_sha256': source_hashes, 'input_sha256': inputs,
@@ -77,6 +77,9 @@ def run_revalidation(base_dir):
         'initial_supply_policy': 'All consumers initially supplied; preexisting outages rejected explicitly.',
         'b2_local_search': 'One pass, at most 30 alternative zones, packages/days fixed; rebuild all routes; accept only feasible lower default J.',
         'solver_catalog_limits': {'max_package_size': 5, 'max_windows_per_day': 5, 'max_states_per_depth': 120},
+        'solver_catalog_seed_exception': 'Feasible daily B0/B1/B2 seed agendas are added outside the constructive expansion size filters; certificate covers the actual combined catalog only.',
+        'material_conservation': 'Exact rational sums of canonical decimal input quantities, independent exact verifier and strict inventory check; exported float echoes never debit inventory.',
+        'coupling_denominator': 'All windows in the exported plan; numerator is windows containing at least two services. Official maneuver ratio has a different denominator.',
         'analysis_rule': 'Parear somente cenários com os 4 métodos factíveis e 100% da mesma carteira obrigatória; excluir falhas do benefício e preservá-las nas saídas.',
         'statistical_scope': 'Descrição dos casos desenhados na mesma rede; bootstrap empírico não é inferência sobre desempenho Cemig.',
         'freeze_rule': 'Código, objetivo, dados e regra de análise gravados antes de executar os métodos; hashes conferidos após execução.',
@@ -186,7 +189,7 @@ def run_revalidation(base_dir):
 
 def _write_report(path, summary, rows):
     cfg = summary['protocol_config']
-    lines = ['# RELATÓRIO DE EXECUÇÃO — KGP ' + cfg['package_version'] + ' / REV04', '',
+    lines = ['# RELATÓRIO DE EXECUÇÃO — KGP ' + cfg['package_version'] + ' / ' + cfg['release_revision'], '',
              'Reavaliação sintética de casos conhecidos — Desafio 07 Inova Cemig.Lab Ciclo 5.', '',
              f'Execução UTC: {cfg["execution_timestamp"]}. Código: `{cfg["source_commit"]}`; SHA-256 por arquivo no protocolo.',
              f'{sum(r["is_feasible"] for r in rows)}/{len(rows)} planos factíveis após leitura do JSON exportado, '
@@ -219,7 +222,7 @@ def _write_report(path, summary, rows):
               '- Preparação/recomposição elétricas são etapas agregadas: abertura no início, transferência no meio da preparação e restauração do estado inicial ao final. Não se certifica sequência individual de campo, proteção, LOTO ou aterramento. Consumidores inicialmente sem alimentação são rejeitados por escopo.',
               '- Janelas, manobras físicas, interrupções por consumidor e reincidência são métricas diferentes. Clientes-hora são a soma por consumidor da união de intervalos, sem duplicidade; contadores provêm do recálculo independente.',
               '- B2 inclui um passe local de até 30 trocas de zona, preservando pacotes e dias, reconstruindo as rotas completas e aceitando somente menor objetivo padrão e plano factível. Não é ótimo local de todo espaço.',
-              '- OPTIMAL_ON_DISCRETE_COLUMNS refere-se somente às colunas geradas: pacotes até 5 ordens, até 5 janelas/dia, 120 estados por profundidade, inícios construtivos e alocações limitadas. Inviabilidade desse catálogo não prova inviabilidade operacional geral. Objetivo, bound, gap, tempo e limites constam dos planos.',
+              '- OPTIMAL_ON_DISCRETE_COLUMNS refere-se somente às colunas geradas. A expansão limita pacotes a 5 ordens, 5 janelas/dia e 120 estados por profundidade, com inícios e alocações construtivos. Agendas factíveis das sementes B0/B1/B2 são acrescentadas fora desses filtros de tamanho; o certificado cobre o catálogo combinado efetivo. Inviabilidade desse catálogo não prova inviabilidade operacional geral. Objetivo, bound, gap, tempo e limites constam dos planos.',
               '- Carteira obrigatória é restrição rígida; omissão opcional custa 50 por ordem nos pesos padrão. Nenhuma incompletude recebe pontuação de benefício. Bound/gap são saídas do solver, sem verificação formal de certificado externo.',
               '- TRL 3 é proposta restrita às funções demonstradas em laboratório; a plataforma não foi validada operacionalmente. Integrações Electric Office/GeoServiços/SAP e validação dos programadores dependem da Cemig, em leitura/sidecar e sem telecomandos.',
               '- Estudos históricos 0.1.0-d07-scoped e REV02 são preservados separadamente e não são somados a esta rodada.', '',
@@ -228,7 +231,9 @@ def _write_report(path, summary, rows):
               '- REV04/A3/A4: dias anteriores à decisão são excluídos; certificado exige auditoria do plano bruto e após JSON. Transferência obrigatória malsucedida rejeita a intervenção; na opcional abandonada, a chave permanece aberta e esse estado efetivamente executado é auditado.',
               '- REV04/A5: grade operacional de 0,0001 h (0,36 s), fronteiras/união em ticks inteiros e adjacência exata. Horários fora da grade são rejeitados; a tolerância de representação binária não apaga intervalos ou reduz requisitos de duração/agenda.',
               '- Baliza temporal adicional: o catálogo exige gap diário positivo de recomposição. Catálogos ininterruptos 0–24h são recusados antes de planejar/auditar; o objetivo de colunas diárias não certifica continuidade de uma interrupção através da meia-noite.',
+              '- REV05/A-CODE-01: totais e saldos de materiais são conservados por aritmética racional exata dos valores decimais canônicos. O verificador reconstrói esses totais independentemente; arredondamento de apresentação e tolerâncias do MILP não autorizam falta de estoque. Totais não representáveis como float finito não são exportados como infinitos.',
+              '- Acoplamento no estudo é a proporção de janelas do plano com dois ou mais serviços sobre todas as janelas do plano. Os 1,7% oficiais usam manobras como denominador e não são diretamente intercambiáveis com essa métrica.',
               '## Artefatos e reprodução', '',
-              '`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `reports/revalidation_REV04_20261029/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.',
+              '`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `' + cfg['evidence_directory'] + '/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.',
               'Consulte também AUDITORIA_DOCUMENTAL_D07.md, MATRIZ_ADERENCIA_OFICIAL_D07.md, AUDITORIA_OTIMIZADOR_D07.md e REVISAO_INDEPENDENTE_NUCLEO_D07.md.', '']
     path.write_text('\n'.join(lines), encoding='utf-8')

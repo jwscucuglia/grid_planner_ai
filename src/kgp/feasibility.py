@@ -23,7 +23,9 @@ qualquer ExecutionPlan exportado recalculando de forma autônoma:
 from __future__ import annotations
 
 from collections import deque
+from fractions import Fraction
 import math
+import sys
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 
 from .contracts import (
@@ -485,7 +487,9 @@ def verify_plan_feasibility(
             f"serviço(s) obrigatório(s): {missing_mandatory}."
         )
 
-    recalculated_materials: Dict[str, float] = {}
+    # Reconstructed from canonical service requirements, independently of the
+    # planner's balance helper and of exported (display-only) window totals.
+    exact_materials: Dict[str, Fraction] = {}
     recalculated_maneuvers = 0
     recalc_consumer_intervals: Dict[str, List[Tuple[float, float]]] = {}
     exported_consumer_intervals: Dict[str, List[Tuple[float, float]]] = {}
@@ -711,9 +715,7 @@ def verify_plan_feasibility(
                         )
 
             for mat, qty in svc.required_materials.items():
-                recalculated_materials[mat] = round(
-                    recalculated_materials.get(mat, 0.0) + qty, 4
-                )
+                exact_materials[mat] = exact_materials.get(mat, Fraction(0)) + Fraction(str(qty))
 
             svc_intervals = [
                 iv for iv in win.crew_intervals if iv.service_id == sid
@@ -927,13 +929,18 @@ def verify_plan_feasibility(
                     f"{p_end:.2f}h após início de '{sid}' às {s_start:.2f}h."
                 )
 
-    for mat, qty in recalculated_materials.items():
-        avail = catalog.materials_inventory.get(mat, 0.0)
-        if qty > avail + 1e-4:
+    recalculated_materials: Dict[str, float] = {}
+    for mat, qty in exact_materials.items():
+        avail = Fraction(str(catalog.materials_inventory.get(mat, 0.0)))
+        if qty > avail:
             violations.append(
-                f"Violação de estoque de material '{mat}': plano consome {qty:.2f}, "
-                f"disponível {avail:.2f}."
+                f"Violação de estoque de material '{mat}': plano consome {qty}, "
+                f"disponível {avail} (valores exatos)."
             )
+        if qty > Fraction(str(sys.float_info.max)):
+            violations.append(f"Material '{mat}': total não representável como float finito; consulte o total exato.")
+        else:
+            recalculated_materials[mat] = float(qty)
 
     active_known_services = [
         s
@@ -992,6 +999,7 @@ def verify_plan_feasibility(
         violations=violations,
         warnings=warnings,
         recalculated_materials=recalculated_materials,
+        recalculated_materials_exact={mat: str(qty) for mat, qty in exact_materials.items()},
         recalculated_consumer_hours=round(recalc_consumer_hours, 4),
         recalculated_windows_count=len(plan.windows),
         recalculated_physical_maneuvers=recalculated_maneuvers,

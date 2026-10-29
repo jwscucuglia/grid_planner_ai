@@ -23,6 +23,7 @@ avaliado pelo solver e o custo do plano final exportado.
 from __future__ import annotations
 
 from dataclasses import asdict, dataclass, fields, replace
+from fractions import Fraction
 from itertools import combinations
 import json
 import math
@@ -54,6 +55,7 @@ from .eligibility import (
     find_eligible_zones_for_service,
 )
 from .metrics import compute_consumer_interruption_unions, merge_intervals
+from .materials import exact_materials, service_material_totals, subtract_service_materials
 from .scheduling import build_window_schedule
 from .planning_policy import unsupported_input_plan
 
@@ -86,7 +88,7 @@ class _DayScheduleColumn:
     day: int
     windows: Tuple[PlannedInterruptionWindow, ...]
     service_ids: Tuple[str, ...]
-    materials_used: Dict[str, float]
+    materials_used: Dict[str, Fraction]
     consumer_hours: float
     physical_maneuvers: int
     crew_hours: float
@@ -142,16 +144,6 @@ def _evaluate_day_windows_metrics(
         round(col_cost, 6),
         group_int_count,
     )
-
-
-def _subtract_materials(
-    stock: Dict[str, float],
-    used: Dict[str, float],
-) -> Dict[str, float]:
-    out = dict(stock)
-    for k, v in used.items():
-        out[k] = round(out.get(k, 0.0) - v, 4)
-    return out
 
 
 def _generate_day_schedule_columns(
@@ -241,13 +233,13 @@ def _generate_day_schedule_columns(
             Tuple[PlannedInterruptionWindow, ...],
             FrozenSet[str],
             Dict[str, float],
-            Dict[str, float],
+            Dict[str, Fraction],
         ]
         empty_state: StateType = (
             (),
             frozenset(),
             {},
-            dict(catalog.materials_inventory),
+            exact_materials(catalog.materials_inventory),
         )
         current_layer: List[StateType] = [empty_state]
         collected_states: List[Tuple[PlannedInterruptionWindow, ...]] = []
@@ -345,8 +337,8 @@ def _generate_day_schedule_columns(
                                 if iv.service_id == sid
                             )
                             new_end_map[sid] = s_end
-                        new_rem_mat = _subtract_materials(
-                            rem_mat, new_win.materials_used
+                        new_rem_mat = subtract_service_materials(
+                            rem_mat, (svc_map[sid] for sid in new_win.service_ids)
                         )
 
                         _, _, _, state_cost, _ = _evaluate_day_windows_metrics(
@@ -445,10 +437,10 @@ def _generate_day_schedule_columns(
             if not intra_pred_ok:
                 continue
 
-            mats_used: Dict[str, float] = {}
-            for w in wins_tuple:
-                for mk, mv in w.materials_used.items():
-                    mats_used[mk] = round(mats_used.get(mk, 0.0) + mv, 4)
+            mats_used = service_material_totals(svc_map[sid] for sid in covered_sorted)
+            if any(qty > Fraction(str(catalog.materials_inventory.get(mat, 0.0)))
+                   for mat, qty in mats_used.items()):
+                continue
 
             ch, phys, wh, cost, grp_ints = _evaluate_day_windows_metrics(
                 wins_tuple, consumer_groups, weights
@@ -769,19 +761,33 @@ def run_kgp_optimizer(
             lhs_list.append(-np.inf)
             rhs_list.append(1.0)
 
-    # 4. Estoque global de materiais:
-    for mat, avail_qty in catalog.materials_inventory.items():
+    # 4. Exact mandatory demand is a necessary physical condition. Encode an
+    # impossible row on deficit, including parcels below double precision.
+    mandatory_materials = service_material_totals(s for s in known_services if s.mandatory)
+    inventory = exact_materials(catalog.materials_inventory)
+    if any(qty > inventory.get(mat, Fraction(0)) for mat, qty in mandatory_materials.items()):
+        rows.append(np.zeros(total_vars, dtype=float))
+        lhs_list.append(-np.inf)
+        rhs_list.append(-1.0)
+
+    # Positive-stock rows are scaled to RHS=1; small absolute inventories must
+    # not disappear inside the solver's absolute feasibility tolerance. This
+    # remains a double-precision MILP; the exact final audit is the hard gate.
+    for mat in sorted(inventory.keys() | {m for col in columns for m in col.materials_used}):
+        avail_qty = inventory.get(mat, Fraction(0))
         row = np.zeros(total_vars, dtype=float)
         has_usage = False
         for k, col in enumerate(columns):
-            used = col.materials_used.get(mat, 0.0)
-            if used > 0.0:
-                row[k] = used
+            used = col.materials_used.get(mat, Fraction(0))
+            if used > avail_qty:
+                ub[k] = 0.0
+            elif used > 0:
+                row[k] = float(used / avail_qty)
                 has_usage = True
         if has_usage:
             rows.append(row)
             lhs_list.append(-np.inf)
-            rhs_list.append(float(avail_qty))
+            rhs_list.append(1.0)
 
     # 5. Reincidência exata (r_g = 1 se e somente se total de interrupções >= 2, sem cap artificial):
     for g_idx, g_key in enumerate(group_keys):

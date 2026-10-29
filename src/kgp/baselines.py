@@ -33,6 +33,7 @@ from .eligibility import (
     find_eligible_zones_for_service,
 )
 from .scheduling import build_window_schedule, topological_sort_services
+from .materials import exact_materials, subtract_service_materials
 from .topology import simulate_zone_intervention
 from .planning_policy import unsupported_input_plan
 
@@ -64,16 +65,6 @@ def _order_portfolio_with_precedences(
         services,
         key=lambda s: (s.priority, s.deadline_day, s.ready_at_day, s.service_id),
     )
-
-
-def _subtract_materials(
-    stock: Dict[str, float],
-    used: Dict[str, float],
-) -> Dict[str, float]:
-    updated = dict(stock)
-    for k, v in used.items():
-        updated[k] = round(updated.get(k, 0.0) - v, 4)
-    return updated
 
 
 def _get_conflicting_zones_map(network: GridNetwork) -> Dict[str, Set[str]]:
@@ -136,7 +127,7 @@ def _improve_b2_zones(network, services, catalog, plan, max_candidates=30):
                 continue
             tried += 1
             rebuilt, histories, ends = [], {}, {}
-            remaining = dict(catalog.materials_inventory)
+            remaining = exact_materials(catalog.materials_inventory)
             for original in ordered:
                 zone = zid if original.window_id == chosen.window_id else original.zone_id
                 window, _ = build_window_schedule(
@@ -150,7 +141,9 @@ def _improve_b2_zones(network, services, catalog, plan, max_candidates=30):
                 rebuilt.append(window)
                 histories.setdefault(window.day, []).extend(window.crew_intervals)
                 ends[window.day] = window.end_hour + 0.10
-                remaining = _subtract_materials(remaining, window.materials_used)
+                remaining = subtract_service_materials(
+                    remaining, (by_id[sid] for sid in window.service_ids)
+                )
             if len(rebuilt) != len(ordered):
                 continue
             candidate = replace(plan, windows=rebuilt)
@@ -180,7 +173,7 @@ def run_baseline_b0_individual(
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
 
-    remaining_materials = dict(catalog.materials_inventory)
+    remaining_materials = exact_materials(catalog.materials_inventory)
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
@@ -271,8 +264,8 @@ def run_baseline_b0_individual(
             )
             service_scheduled_day[svc.service_id] = scheduled_win.day
             service_scheduled_end[svc.service_id] = scheduled_win.work_end_hour
-            remaining_materials = _subtract_materials(
-                remaining_materials, scheduled_win.materials_used
+            remaining_materials = subtract_service_materials(
+                remaining_materials, [svc]
             )
         else:
             unscheduled.append(svc.service_id)
@@ -317,7 +310,7 @@ def run_baseline_b1_geographic(
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
 
-    remaining_materials = dict(catalog.materials_inventory)
+    remaining_materials = exact_materials(catalog.materials_inventory)
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
@@ -463,8 +456,8 @@ def run_baseline_b1_geographic(
                 scheduled_win.day,
                 scheduled_win.end_hour,
             )
-            remaining_materials = _subtract_materials(
-                remaining_materials, scheduled_win.materials_used
+            remaining_materials = subtract_service_materials(
+                remaining_materials, scheduled_pack
             )
             for s in scheduled_pack:
                 unassigned_ids.discard(s.service_id)
@@ -523,7 +516,7 @@ def run_baseline_b2_topological_greedy(
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
 
-    remaining_materials = dict(catalog.materials_inventory)
+    remaining_materials = exact_materials(catalog.materials_inventory)
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
@@ -678,8 +671,8 @@ def run_baseline_b2_topological_greedy(
                 scheduled_win.day,
                 scheduled_win.end_hour,
             )
-            remaining_materials = _subtract_materials(
-                remaining_materials, scheduled_win.materials_used
+            remaining_materials = subtract_service_materials(
+                remaining_materials, scheduled_pack
             )
             for s in scheduled_pack:
                 unassigned_ids.discard(s.service_id)

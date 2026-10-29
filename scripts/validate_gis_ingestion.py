@@ -6,10 +6,12 @@ import hashlib
 import json
 import math
 from pathlib import Path
+import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'src'))
+from kgp import __version__
 from kgp.baselines import (run_baseline_b0_individual, run_baseline_b1_geographic,
                            run_baseline_b2_topological_greedy)
 from kgp.contracts import plan_from_json
@@ -20,7 +22,7 @@ from kgp.optimizer import run_kgp_optimizer
 from kgp.topology import compute_energized_phases_by_node
 from prepare_gis_reference import prepare_reference_bundle, SOURCE, _read_csv, _phase_reachable
 
-OUT = ROOT / 'reports/ingestion_20261029'
+OUT = ROOT / 'reports/ingestion_REV05_20261029'
 
 
 def _write(path, data):
@@ -109,6 +111,8 @@ def main():
         _write(OUT / 'verification' / f'{name}.json', asdict(audit))
         results[name] = asdict(compute_plan_metrics(network, services, exported, audit))
     summary = {'scope': 'REAL_PUBLIC_MV_TOPOLOGY_WITH_SYNTHETIC_PLANNING_OVERLAY',
+               'package_version': __version__,
+               'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
                'operational_validation': False, 'cemig_data_used': False,
                'source': manifest_data['provenance']['public_source'],
                'synthetic_overlay': manifest_data['provenance']['synthetic_overlay'],
@@ -122,7 +126,7 @@ def main():
     _write(OUT / 'summary.json', summary)
     _figure(OUT / 'gis_public_reference.png')
     (OUT / 'RELATORIO_INGESTAO01.md').write_text(
-        '# INGESTAO01 — GIS público e integração ao KGP\n\n'
+        '# REV05 — revalidação do GIS público e integração ao KGP\n\n'
         'Fonte real: BDGD/ANEEL EFLUL 31/12/2025, CTMT 002. Os 354 PACs e 358 registros de ligação '
         'foram preservados, incluindo paralelas e estados normais das 43 chaves (33 fechadas, 10 abertas). '
         'A exportação CSV/GeoJSON foi conferida contra a GDB original e tem licença/proveniência próprias.\n\n'

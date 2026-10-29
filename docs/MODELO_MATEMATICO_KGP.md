@@ -1,6 +1,6 @@
 # Modelos elétrico e de programação do KAPTUS GRID PLANNER
 
-O demonstrador auditado REV04 usa uma rede sintética e agendas diárias candidatas. INGESTAO01 acrescenta leitura controlada de arquivos e um exemplo em topologia pública real com overlay sintético. Não transforma o estudo conhecido em validação operacional ou avaliação cega inédita. Os modelos abaixo distinguem funções implementadas e evolução a validar na PoC.
+O demonstrador REV05 usa uma rede sintética e agendas diárias candidatas. INGESTAO01 acrescentou leitura controlada de arquivos e um exemplo em topologia pública real com overlay sintético. A REV05 corrige conservação de materiais; as evidências REV04 e INGESTAO01 ficam preservadas como históricas. Não transforma o estudo conhecido em validação operacional ou avaliação cega inédita. Os modelos abaixo distinguem funções implementadas e evolução a validar na PoC.
 
 ## 1. Do cadastro à conectividade
 
@@ -43,6 +43,10 @@ Para cada dia d:
 Para cada material a, com uso m(a,k) e estoque M(a):
 
 `soma(k) m(a,k)*y(k) <= M(a)`.
+
+Materiais não têm grade de quatro casas decimais. O planejador conserva os totais e saldos por frações exatas dos valores decimais canônicos de entrada (`Fraction(str(q))`); debita requisitos dos serviços, sem usar o total float de apresentação das janelas. O verificador reconstrói a soma independentemente e compara o estoque sem tolerância que autorize consumo excedente. O relatório inclui os totais racionais em `recalculated_materials_exact`.
+
+O MILP continua em precisão dupla: linhas com estoque positivo são normalizadas para lado direito 1 e a demanda obrigatória total exata é uma condição necessária adicional. A auditoria exata final bloqueia qualquer solução com falta de estoque, mesmo quando a diferença fica abaixo da precisão do solver. Essa barreira pode recusar uma solução numérica; não garante encontrar outra solução factível no catálogo. Totais que excedem o maior float finito são rejeitados para exportação, com diagnóstico, sem `Inf` no JSON.
 
 Uma sucessora selecionada exige seu predecessor selecionado. Se ambos estão na mesma coluna, o gerador verifica a sequência de execução. Quando estão em dias distintos, as restrições do MILP preservam a ordem dos dias. O verificador repete essa conferência sobre os horários exportados.
 

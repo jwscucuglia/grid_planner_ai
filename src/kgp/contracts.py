@@ -490,6 +490,8 @@ class FeasibilityReport(FiniteContract):
     recalculated_total_interruptions: int = 0
     recalculated_completed_services: Tuple[str, ...] = ()
     isolation_verified: bool = True
+    # Rational strings preserve totals that cannot be represented by float.
+    recalculated_materials_exact: Dict[str, str] = field(default_factory=dict)
 
 
 @dataclass

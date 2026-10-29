@@ -13,8 +13,9 @@ Calcula a alocação exata no tempo contínuo para cada equipe considerando:
 from __future__ import annotations
 
 from itertools import combinations
+from fractions import Fraction
 import math
-from typing import Dict, List, Optional, Sequence, Set, Tuple
+from typing import Dict, List, Mapping, Optional, Sequence, Set, Tuple
 
 from .contracts import (
     CrewResource,
@@ -26,6 +27,7 @@ from .contracts import (
     ServiceOrder,
 )
 from .eligibility import detect_lifecycle_conflicts, check_service_zone_eligibility
+from .materials import MaterialQuantity, exact_materials, export_material_totals, service_material_totals
 from .topology import simulate_zone_intervention, validate_switch_maneuverability
 
 
@@ -107,7 +109,7 @@ def build_window_schedule(
     window_id: str,
     services: Sequence[ServiceOrder],
     existing_day_intervals: Sequence[CrewScheduleInterval] = (),
-    remaining_materials: Optional[Dict[str, float]] = None,
+    remaining_materials: Optional[Mapping[str, MaterialQuantity]] = None,
     earliest_window_start_hour: Optional[float] = None,
 ) -> Tuple[Optional[PlannedInterruptionWindow], Optional[str]]:
     """Constrói uma janela programada factível para um pacote de serviços na zona e dia.
@@ -139,30 +141,29 @@ def build_window_schedule(
     if sw_issues:
         return None, "; ".join(sw_issues)
 
-    materials_needed: Dict[str, float] = {}
     for svc in services:
         if not svc.target_assets:
             return (
                 None,
                 f"Serviço '{svc.service_id}' sem ativos de trabalho definidos.",
             )
-        for mat, qty in svc.required_materials.items():
-            materials_needed[mat] = round(
-                materials_needed.get(mat, 0.0) + qty, 4
-            )
-
-    mat_stock = (
+    materials_needed = service_material_totals(services)
+    mat_stock = exact_materials(
         remaining_materials
         if remaining_materials is not None
         else catalog.materials_inventory
     )
     for mat, qty in materials_needed.items():
-        avail = mat_stock.get(mat, 0.0)
-        if qty > avail + 1e-6:
+        avail = mat_stock.get(mat, Fraction(0))
+        if qty > avail:
             return (
                 None,
-                f"Material insuficiente '{mat}': necessário {qty:.2f}, disponível {avail:.2f}.",
+                f"Material insuficiente '{mat}': necessário {qty}, disponível {avail} (valores exatos).",
             )
+    try:
+        material_echo = export_material_totals(materials_needed)
+    except ValueError as error:
+        return None, str(error)
 
     day_avail_crews = [
         crew for crew in catalog.crews.values() if day in crew.available_days
@@ -442,7 +443,7 @@ def build_window_schedule(
             work_end_hour=work_end_hour,
             maneuver_steps=maneuver_steps,
             crew_intervals=tuple(new_intervals),
-            materials_used=materials_needed,
+            materials_used=material_echo,
             physical_maneuvers_count=physical_maneuvers,
             interrupted_consumers=tuple(sorted(all_interrupted)),
             lifecycle_alerts=lifecycle_alerts,
