@@ -1,0 +1,2153 @@
+{
+  "scope": "Extension of ingestion class 12: A-CODE-02 source and unit underflow",
+  "source_sha256": {
+    "src\\kgp\\__init__.py": "7f973d9b6a4a709dcb42cf0713dd44a978a0ecd5a5951e9122c57e788916f0bc",
+    "src\\kgp\\baselines.py": "e3162fb8e44f8c5fee39a066574ee91b22987441db70b505da531461ccfed2d0",
+    "src\\kgp\\contracts.py": "a86d977598149a70dd58eb8e6151da27e7624c8f0d4a42b3dba360c0928381cc",
+    "src\\kgp\\eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
+    "src\\kgp\\experiment.py": "212e3e5919da9a679fd3ba1a6c47d9dfd49a4fdf515a7fd257ddda3b927c9474",
+    "src\\kgp\\feasibility.py": "2c2672ab02c47bc90dd5a982563318de49c91b55c1f6246dafa7144173364416",
+    "src\\kgp\\ingestion.py": "3f11f9a09c89f7e5741e1fb1a8b6bfbd0e54b6ab5f9008cdfdab7ab0b86aca16",
+    "src\\kgp\\integrity.py": "cc34687ad9bfad4ccb9ed023c0961cf7239198eab840b1eca2483d48b45177e5",
+    "src\\kgp\\materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda",
+    "src\\kgp\\metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
+    "src\\kgp\\optimizer.py": "4f27ad9da19b81f32c61f6877017090cd2223d9260949f163e6ede1b44ee0088",
+    "src\\kgp\\planning_policy.py": "2ebb205db857174a0cc328919bac32cda23a633f42d7287098fa08ca3a29d5a4",
+    "src\\kgp\\revalidation.py": "754da10225b17b944f5088814fd7427ce3b132c13966ea2cfe424ca9764b2e2d",
+    "src\\kgp\\scheduling.py": "ffa223c6c3b1f119548e6a6d964f19e0b7247820637259f08b3d18cc91cbc78e",
+    "src\\kgp\\topology.py": "b08ec30b6d9735187554d42e99635718cc31c00bde28e195bc1d044325671cd3",
+    "src\\kgp\\validation.py": "83a66b8e1ae20ddb2e8d9015c5c73e58492079aff9a8925bd234fe970e620cdb"
+  },
+  "elapsed_seconds": 3.65,
+  "probes": 143,
+  "passed": 143,
+  "failed": 0,
+  "results": [
+    {
+      "probe": "strict_json/0",
+      "passed": true,
+      "evidence": {
+        "oracle": "0",
+        "accepted": true,
+        "parsed": 0,
+        "error": null
+      }
+    },
+    {
+      "probe": "strict_json/0e-400",
+      "passed": true,
+      "evidence": {
+        "oracle": "0E-400",
+        "accepted": true,
+        "parsed": 0.0,
+        "error": null
+      }
+    },
+    {
+      "probe": "strict_json/-0.000e-400",
+      "passed": true,
+      "evidence": {
+        "oracle": "-0E-403",
+        "accepted": true,
+        "parsed": -0.0,
+        "error": null
+      }
+    },
+    {
+      "probe": "strict_json/5e-324",
+      "passed": true,
+      "evidence": {
+        "oracle": "5E-324",
+        "accepted": true,
+        "parsed": 5e-324,
+        "error": null
+      }
+    },
+    {
+      "probe": "strict_json/1e-400",
+      "passed": true,
+      "evidence": {
+        "oracle": "1E-400",
+        "accepted": false,
+        "parsed": null,
+        "error": "JSON numeric underflow: '1e-400' não zero fora do domínio de floats canônicos; conversão produziria zero."
+      }
+    },
+    {
+      "probe": "strict_json/-1e-400",
+      "passed": true,
+      "evidence": {
+        "oracle": "-1E-400",
+        "accepted": false,
+        "parsed": null,
+        "error": "JSON numeric underflow: '-1e-400' não zero fora do domínio de floats canônicos; conversão produziria zero."
+      }
+    },
+    {
+      "probe": "strict_json/1e-324",
+      "passed": true,
+      "evidence": {
+        "oracle": "1E-324",
+        "accepted": false,
+        "parsed": null,
+        "error": "JSON numeric underflow: '1e-324' não zero fora do domínio de floats canônicos; conversão produziria zero."
+      }
+    },
+    {
+      "probe": "strict_json/1e400",
+      "passed": true,
+      "evidence": {
+        "oracle": "1E+400",
+        "accepted": false,
+        "parsed": null,
+        "error": "contract.M: valor não finito"
+      }
+    },
+    {
+      "probe": "json/literal=0/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "0ac4bea6756e02d8c73204f734875c8437c7b90f1391794909f083b7d4baa661",
+        "oracle": "0",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.0
+      }
+    },
+    {
+      "probe": "json/literal=0/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0",
+        "quantity": 0.0
+      }
+    },
+    {
+      "probe": "json/literal=0/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "1c0c4c252ec51336cf70a9abc59b3026b8ddc227cc443616e55def68537def47",
+        "oracle": "0E-400",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.0
+      }
+    },
+    {
+      "probe": "json/literal=0e-400/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0E-400",
+        "quantity": 0.0
+      }
+    },
+    {
+      "probe": "json/literal=0e-400/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0e-400/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0e-400/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0e-400/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=-0.000e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "c6c24557a128ab7bad8e44d189e9c4b0f73e3f2d6c7de579a74890744572d3f8",
+        "oracle": "-0E-403",
+        "import_valid": true,
+        "issues": [],
+        "imported": -0.0
+      }
+    },
+    {
+      "probe": "json/literal=-0.000e-400/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "-0E-403",
+        "quantity": -0.0
+      }
+    },
+    {
+      "probe": "json/literal=-0.000e-400/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=-0.000e-400/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=-0.000e-400/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=-0.000e-400/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=1e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "4cde13c69d5a2d96e60e4a87ee6954da00a58df6d26f7bdfd8a6271226fc0147",
+        "oracle": "1E-400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_FILE",
+            "table": "services",
+            "row": null,
+            "record_id": null,
+            "message": "JSON numeric underflow: '1e-400' não zero fora do domínio de floats canônicos; conversão produziria zero.",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "json/literal=-1e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "c6bf38f2c61b5f946ee8792a5e2ba81459545537c54744a7bbc79f9fb3e1b5bd",
+        "oracle": "-1E-400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_FILE",
+            "table": "services",
+            "row": null,
+            "record_id": null,
+            "message": "JSON numeric underflow: '-1e-400' não zero fora do domínio de floats canônicos; conversão produziria zero.",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "json/literal=1e400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "d995003319eb3f4a072831d23d2cdba1e7917844dfd4d599b5a524c76d90d877",
+        "oracle": "1E+400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_FILE",
+            "table": "services",
+            "row": null,
+            "record_id": null,
+            "message": "contract[0].required_materials.M: valor não finito",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "a8160a01462c44a3b9597392803f39df7cd2958ffb80fc5d4751cf68856615f1",
+        "oracle": "5E-324",
+        "import_valid": true,
+        "issues": [],
+        "imported": 5e-324
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "5E-324",
+        "quantity": 5e-324
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=5e-324/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "a8160a01462c44a3b9597392803f39df7cd2958ffb80fc5d4751cf68856615f1",
+        "oracle": "5E-324",
+        "import_valid": true,
+        "issues": [],
+        "imported": 5e-324
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=5e-324/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "5E-324",
+        "quantity": 5e-324
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=5e-324/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=5e-324/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=5e-324/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=5e-324/stock=5e-324/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0.1/stock=0.1/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "1769bfad5042aeb4aaddc31e7a06888c1fb207454dff26071553e1a47a23e123",
+        "oracle": "0.1",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.1
+      }
+    },
+    {
+      "probe": "json/literal=0.1/stock=0.1/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0.1",
+        "quantity": 0.1
+      }
+    },
+    {
+      "probe": "json/literal=0.1/stock=0.1/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0.1/stock=0.1/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0.1/stock=0.1/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "json/literal=0.1/stock=0.1/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "39dd255f7ca466aa3df1fe5ef92d62621b9fdf467eeb595437b696e1344be9bd",
+        "oracle": "0",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.0
+      }
+    },
+    {
+      "probe": "csv/literal=0/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0",
+        "quantity": 0.0
+      }
+    },
+    {
+      "probe": "csv/literal=0/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "5ca2970d684db3b5d1d9e2c6dd45ce21be597a49fec6b320a3c8f5c2c70776bd",
+        "oracle": "0E-400",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.0
+      }
+    },
+    {
+      "probe": "csv/literal=0e-400/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0E-400",
+        "quantity": 0.0
+      }
+    },
+    {
+      "probe": "csv/literal=0e-400/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0e-400/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0e-400/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0e-400/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=-0.000e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "c8cd0bcf0fbaf613432ede3b6822a409d41ef97068ce273e83044eab96e92d30",
+        "oracle": "-0E-403",
+        "import_valid": true,
+        "issues": [],
+        "imported": -0.0
+      }
+    },
+    {
+      "probe": "csv/literal=-0.000e-400/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "-0E-403",
+        "quantity": -0.0
+      }
+    },
+    {
+      "probe": "csv/literal=-0.000e-400/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=-0.000e-400/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=-0.000e-400/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=-0.000e-400/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=1e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "bc1dd5a9561fb984095828f40c5b1e7cdb2e0ecd71fa81de68e3e0f276b59d9b",
+        "oracle": "1E-400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "services",
+            "row": 1,
+            "record_id": "S1",
+            "message": "JSON numeric underflow: '1e-400' não zero fora do domínio de floats canônicos; conversão produziria zero.",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "csv/literal=-1e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "7f475d40ea82c29968c14947f1084558e1f18763b1540837bd294aade757049c",
+        "oracle": "-1E-400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "services",
+            "row": 1,
+            "record_id": "S1",
+            "message": "JSON numeric underflow: '-1e-400' não zero fora do domínio de floats canônicos; conversão produziria zero.",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "csv/literal=1e400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "aa88ff2c6ae838a33fec15fcd4ed8b440bfa576c88d04c014f948244191e3f0a",
+        "oracle": "1E+400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "services",
+            "row": 1,
+            "record_id": "S1",
+            "message": "contract.M: valor não finito",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "bddc47c51c32edd9586a09e3cf62b9f2c9f3edd15ca32bdc809822a3ee3fe884",
+        "oracle": "5E-324",
+        "import_valid": true,
+        "issues": [],
+        "imported": 5e-324
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "5E-324",
+        "quantity": 5e-324
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=5e-324/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "bddc47c51c32edd9586a09e3cf62b9f2c9f3edd15ca32bdc809822a3ee3fe884",
+        "oracle": "5E-324",
+        "import_valid": true,
+        "issues": [],
+        "imported": 5e-324
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=5e-324/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "5E-324",
+        "quantity": 5e-324
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=5e-324/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=5e-324/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=5e-324/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=5e-324/stock=5e-324/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0.1/stock=0.1/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "1664fe3c9bc598f48aa22399bd5ac85df68dbc16a81e1a037b5810fb9a5b23f7",
+        "oracle": "0.1",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.1
+      }
+    },
+    {
+      "probe": "csv/literal=0.1/stock=0.1/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0.1",
+        "quantity": 0.1
+      }
+    },
+    {
+      "probe": "csv/literal=0.1/stock=0.1/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0.1/stock=0.1/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0.1/stock=0.1/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/literal=0.1/stock=0.1/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "cdf2e73806dfdefcfbfebfba67cc0162d41c2eef3dd730a7f350f8dd87e58cc6",
+        "oracle": "0",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.0
+      }
+    },
+    {
+      "probe": "geojson/literal=0/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0",
+        "quantity": 0.0
+      }
+    },
+    {
+      "probe": "geojson/literal=0/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "76d9589e2bca3d25fb0292eafe97924ed6437b83f41eab495ff8f5838f59e3f0",
+        "oracle": "0E-400",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.0
+      }
+    },
+    {
+      "probe": "geojson/literal=0e-400/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0E-400",
+        "quantity": 0.0
+      }
+    },
+    {
+      "probe": "geojson/literal=0e-400/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0e-400/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0e-400/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0e-400/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=-0.000e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "d719c880a2fdd9fc2a52c2bc9907b4e5711404f99fb5b5af637e9081a211559d",
+        "oracle": "-0E-403",
+        "import_valid": true,
+        "issues": [],
+        "imported": -0.0
+      }
+    },
+    {
+      "probe": "geojson/literal=-0.000e-400/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "-0E-403",
+        "quantity": -0.0
+      }
+    },
+    {
+      "probe": "geojson/literal=-0.000e-400/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=-0.000e-400/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=-0.000e-400/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=-0.000e-400/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "0"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=1e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "5240966cad6507297e493a209ee0f6249352659f46cbff8c1e90788cb0930b7a",
+        "oracle": "1E-400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_FILE",
+            "table": "services",
+            "row": null,
+            "record_id": null,
+            "message": "JSON numeric underflow: '1e-400' não zero fora do domínio de floats canônicos; conversão produziria zero.",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "geojson/literal=-1e-400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "5a42d5bb92664123cf07a84c570a5d4e79cc1013cbd663c2caae347852640c3a",
+        "oracle": "-1E-400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_FILE",
+            "table": "services",
+            "row": null,
+            "record_id": null,
+            "message": "JSON numeric underflow: '-1e-400' não zero fora do domínio de floats canônicos; conversão produziria zero.",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "geojson/literal=1e400/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "ef3e2f7ebf814150a262c6d34d8433dd700e2640fa5e6b850edb56562589f47a",
+        "oracle": "1E+400",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_FILE",
+            "table": "services",
+            "row": null,
+            "record_id": null,
+            "message": "contract.features[0].properties.required_materials.M: valor não finito",
+            "severity": "ERROR"
+          }
+        ],
+        "imported": null
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=0.0/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "2c8317ebc80c1cbd749afd1de8c538b3b8872e2354b16f1be612aab0c2687d33",
+        "oracle": "5E-324",
+        "import_valid": true,
+        "issues": [],
+        "imported": 5e-324
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=0.0/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "5E-324",
+        "quantity": 5e-324
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=0.0/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=0.0/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=0.0/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=0.0/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "complete": [],
+        "optimal": false,
+        "solver_status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "materials_exact": {},
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=5e-324/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "2c8317ebc80c1cbd749afd1de8c538b3b8872e2354b16f1be612aab0c2687d33",
+        "oracle": "5E-324",
+        "import_valid": true,
+        "issues": [],
+        "imported": 5e-324
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=5e-324/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "5E-324",
+        "quantity": 5e-324
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=5e-324/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=5e-324/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=5e-324/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=5e-324/stock=5e-324/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0.1/stock=0.1/boundary",
+      "passed": true,
+      "evidence": {
+        "source_sha256": "eee5924329df390a45e979709ca0c9c482bc60bc61ba019fb9f97bd97b9db6ab",
+        "oracle": "0.1",
+        "import_valid": true,
+        "issues": [],
+        "imported": 0.1
+      }
+    },
+    {
+      "probe": "geojson/literal=0.1/stock=0.1/sign_preserved",
+      "passed": true,
+      "evidence": {
+        "oracle": "0.1",
+        "quantity": 0.1
+      }
+    },
+    {
+      "probe": "geojson/literal=0.1/stock=0.1/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0.1/stock=0.1/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0.1/stock=0.1/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "geojson/literal=0.1/stock=0.1/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "materials_exact": {
+          "M": "1/10"
+        },
+        "violations": []
+      }
+    },
+    {
+      "probe": "unit/json/coordinates/5e-324",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "5e-324",
+        "factor": "0.001",
+        "oracle_converted": "5E-327",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "nodes",
+            "row": 2,
+            "record_id": "N1",
+            "message": "x: numeric underflow during unit conversion; nonzero input is outside the canonical float domain after conversion",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "unit/json/coordinates/0.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "0.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0000",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/json/coordinates/1.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "1.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0010",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/json/power/5e-324",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "5e-324",
+        "factor": "0.001",
+        "oracle_converted": "5E-327",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "avg_demand_kw: numeric underflow during unit conversion; nonzero input is outside the canonical float domain after conversion",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "unit/json/power/0.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "0.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0000",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/json/power/1.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "1.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0010",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/csv/coordinates/5e-324",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "5e-324",
+        "factor": "0.001",
+        "oracle_converted": "5E-327",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "nodes",
+            "row": 2,
+            "record_id": "N1",
+            "message": "x: numeric underflow during unit conversion; nonzero input is outside the canonical float domain after conversion",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "unit/csv/coordinates/0.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "0.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0000",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/csv/coordinates/1.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "1.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0010",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/csv/power/5e-324",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "5e-324",
+        "factor": "0.001",
+        "oracle_converted": "5E-327",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "avg_demand_kw: numeric underflow during unit conversion; nonzero input is outside the canonical float domain after conversion",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "unit/csv/power/0.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "0.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0000",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/csv/power/1.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "1.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0010",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/geojson/coordinates/5e-324",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "5e-324",
+        "factor": "0.001",
+        "oracle_converted": "5E-327",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "nodes",
+            "row": 2,
+            "record_id": "N1",
+            "message": "x: numeric underflow during unit conversion; nonzero input is outside the canonical float domain after conversion",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "unit/geojson/coordinates/0.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "0.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0000",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/geojson/coordinates/1.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "1.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0010",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/geojson/power/5e-324",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "5e-324",
+        "factor": "0.001",
+        "oracle_converted": "5E-327",
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_VALUE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "avg_demand_kw: numeric underflow during unit conversion; nonzero input is outside the canonical float domain after conversion",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "unit/geojson/power/0.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "0.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0000",
+        "import_valid": true,
+        "issues": []
+      }
+    },
+    {
+      "probe": "unit/geojson/power/1.0",
+      "passed": true,
+      "evidence": {
+        "source_quantity": "1.0",
+        "factor": "0.001",
+        "oracle_converted": "0.0010",
+        "import_valid": true,
+        "issues": []
+      }
+    }
+  ]
+}

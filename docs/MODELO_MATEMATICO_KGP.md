@@ -1,6 +1,6 @@
 # Modelos elétrico e de programação do KAPTUS GRID PLANNER
 
-O demonstrador REV05 usa uma rede sintética e agendas diárias candidatas. INGESTAO01 acrescentou leitura controlada de arquivos e um exemplo em topologia pública real com overlay sintético. A REV05 corrige conservação de materiais; as evidências REV04 e INGESTAO01 ficam preservadas como históricas. Não transforma o estudo conhecido em validação operacional ou avaliação cega inédita. Os modelos abaixo distinguem funções implementadas e evolução a validar na PoC.
+O demonstrador REV06 usa uma rede sintética e agendas diárias candidatas. INGESTAO01 acrescentou leitura controlada de arquivos e um exemplo em topologia pública real com overlay sintético. A REV05 corrigiu conservação de materiais e underflow de entrada; a REV06 acrescenta integridade CSV/mapeamento e o bloqueio explícito da fronteira física. As evidências REV04, INGESTAO01 e o checkpoint REV05 ficam históricas. Não transforma o estudo conhecido em validação operacional ou avaliação cega inédita. Os modelos abaixo distinguem funções implementadas e evolução a validar na PoC.
 
 ## 1. Do cadastro à conectividade
 
@@ -14,7 +14,11 @@ O cenário aplica isolamento, eventual transferência, execução e recomposiç�
 
 ## 2. Verificação elétrica e limites físicos
 
-O código representa uma aproximação radial de carga e queda de tensão, com hipóteses documentadas; não resolve fluxo AC multifásico completo, proteção, aterramento ou liberação de trabalho. Ilhamento DG é bloqueado. O exemplo BDGD preserva arestas paralelas e conexões declaradas, mas não certifica o comportamento elétrico real desse alimentador.
+O código representa uma aproximação radial de carga e queda de tensão, com hipóteses documentadas; não resolve fluxo AC multifásico completo, proteção, aterramento ou liberação de trabalho. Ilhamento DG é bloqueado. O estado inicial e os estados avaliados exigem, por fase, uma árvore energizada com exatamente uma fonte ativa por componente. A contagem mantém cada branch_id, incluindo paralelas e self-loops. Ciclos e múltiplas fontes conectadas são recusados antes de atribuir fluxo a uma árvore arbitrária. O planejador verifica componentes por BFS/contagem de arestas; o verificador usa Union-Find próprio, ciclos e contagem de fontes. Componentes desenergizados ficam fora desse cálculo físico.
+
+O exemplo BDGD preserva todas as conexões declaradas e seus cinco ciclos energizados por fase; a importação e os nove checks de alcançabilidade continuam válidos. Na REV06 os quatro métodos bloqueiam o planejamento desse multigrafo, sem eliminar arestas ou ordens. Os quatro planos internamente factíveis anteriores são históricos sob a fronteira então permissiva; não certificam comportamento elétrico real. Para essa classe de rede será necessário modelo elétrico adequado e validado com a engenharia.
+
+Os tempos de preparação e recomposição da zona são agregados autoritativos do cenário, com validação externa como premissa. A duração individual informada em cada chave é informativa neste contrato, sem gerar sequência ou concorrência de operadores. Alterar somente esse campo não altera o cronograma; o demonstrador não certifica tempos individuais de campo.
 
 Uma evolução de fluxo nodal poderá usar I=Y(s)V, combinada com relações de potência/carga, fontes e modelos dos equipamentos. Essa relação isolada não basta para resolver o problema. Modelo, parâmetros, ferramenta e critérios de aceite serão validados com a engenharia; OpenDSS é uma opção estudada, não uma integração entregue neste incremento.
 

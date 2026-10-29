@@ -1,0 +1,2604 @@
+{
+  "source_sha256": {
+    "kgp\\__init__.py": "7f973d9b6a4a709dcb42cf0713dd44a978a0ecd5a5951e9122c57e788916f0bc",
+    "kgp\\baselines.py": "e3162fb8e44f8c5fee39a066574ee91b22987441db70b505da531461ccfed2d0",
+    "kgp\\contracts.py": "a86d977598149a70dd58eb8e6151da27e7624c8f0d4a42b3dba360c0928381cc",
+    "kgp\\eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
+    "kgp\\experiment.py": "212e3e5919da9a679fd3ba1a6c47d9dfd49a4fdf515a7fd257ddda3b927c9474",
+    "kgp\\feasibility.py": "2c2672ab02c47bc90dd5a982563318de49c91b55c1f6246dafa7144173364416",
+    "kgp\\ingestion.py": "3f11f9a09c89f7e5741e1fb1a8b6bfbd0e54b6ab5f9008cdfdab7ab0b86aca16",
+    "kgp\\integrity.py": "cc34687ad9bfad4ccb9ed023c0961cf7239198eab840b1eca2483d48b45177e5",
+    "kgp\\materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda",
+    "kgp\\metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
+    "kgp\\optimizer.py": "4f27ad9da19b81f32c61f6877017090cd2223d9260949f163e6ede1b44ee0088",
+    "kgp\\planning_policy.py": "2ebb205db857174a0cc328919bac32cda23a633f42d7287098fa08ca3a29d5a4",
+    "kgp\\revalidation.py": "754da10225b17b944f5088814fd7427ce3b132c13966ea2cfe424ca9764b2e2d",
+    "kgp\\scheduling.py": "ffa223c6c3b1f119548e6a6d964f19e0b7247820637259f08b3d18cc91cbc78e",
+    "kgp\\topology.py": "b08ec30b6d9735187554d42e99635718cc31c00bde28e195bc1d044325671cd3",
+    "kgp\\validation.py": "83a66b8e1ae20ddb2e8d9015c5c73e58492079aff9a8925bd234fe970e620cdb"
+  },
+  "elapsed_seconds": 2.517,
+  "cases": 17,
+  "probes": 81,
+  "passed": 81,
+  "failed": 0,
+  "public_topology_reference": {
+    "nodes": 354,
+    "branches": 358,
+    "oracle": {
+      "supported": false,
+      "components": [
+        {
+          "phase": "A",
+          "nodes": 344,
+          "edges": 348,
+          "sources": [
+            "S01B01A02P0000002087"
+          ],
+          "cycle_rank": 5,
+          "unsupported": true
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "A",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 338,
+          "edges": 342,
+          "sources": [
+            "S01B01A02P0000002087"
+          ],
+          "cycle_rank": 5,
+          "unsupported": true
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "B",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 338,
+          "edges": 342,
+          "sources": [
+            "S01B01A02P0000002087"
+          ],
+          "cycle_rank": 5,
+          "unsupported": true
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        },
+        {
+          "phase": "C",
+          "nodes": 1,
+          "edges": 0,
+          "sources": [],
+          "cycle_rank": 0,
+          "unsupported": false
+        }
+      ]
+    },
+    "file_sha256": {
+      "nodes.json": "270e6796efc860b9c958ccf7b3323f20195699d0c8a680a7a94398926ae42aa9",
+      "branches.json": "7832363a48ddb589453d6cdacb44420f8f74565dda798564171a6d0b5ef9bc99",
+      "switches.json": "977fd0e732f50ddb84d8971163c2f2d6bfe72a574d368c9c08804fe5ca7ffa13"
+    }
+  },
+  "results": [
+    {
+      "probe": "control/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          0.0,
+          0.0,
+          "Transferência factível (carregamento máx 0.0%, queda máx 0.00%)."
+        ],
+        "verifier": [
+          true,
+          0.0,
+          0.0,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "control/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "control/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "control/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "control/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "parallel_high_first/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (2 nós, 2 trechos)."
+        ],
+        "verifier": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (2 nós, 2 trechos)."
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 3,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "parallel_high_first/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (3 nós, 3 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "parallel_high_first/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (3 nós, 3 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "parallel_high_first/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (3 nós, 3 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "parallel_high_first/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (3 nós, 3 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "parallel_low_first/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (2 nós, 2 trechos)."
+        ],
+        "verifier": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (2 nós, 2 trechos)."
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 3,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "parallel_low_first/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (3 nós, 3 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "parallel_low_first/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (3 nós, 3 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "parallel_low_first/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (3 nós, 3 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "parallel_low_first/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (3 nós, 3 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "radial_high/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          10.0,
+          0.05250997689561016,
+          "Transferência factível (carregamento máx 10.0%, queda máx 0.05%)."
+        ],
+        "verifier": [
+          true,
+          10.0,
+          0.05250997689561016,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "radial_high/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "radial_high/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "radial_high/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "radial_high/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "radial_low/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          false,
+          10000.0,
+          0.0005250997689561016,
+          "Sobrecarga térmica em transferência (10000.0% > 100%)."
+        ],
+        "verifier": [
+          false,
+          10000.0,
+          0.0005250997689561016,
+          "Sobrecarga térmica por fase na transferência (10000.0% > 100%)."
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "radial_low/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "radial_low/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "radial_low/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "radial_low/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "parallel_disabled/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          10.0,
+          0.05250997689561016,
+          "Transferência factível (carregamento máx 10.0%, queda máx 0.05%)."
+        ],
+        "verifier": [
+          true,
+          10.0,
+          0.05250997689561016,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "parallel_disabled/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "parallel_disabled/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "parallel_disabled/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "parallel_disabled/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "triangle_live/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'SRC': ciclo/caminhos paralelos energizados (3 nós, 3 trechos)."
+        ],
+        "verifier": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'SRC': ciclo/caminhos paralelos energizados (3 nós, 3 trechos)."
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 4,
+              "edges": 4,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 3,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "triangle_live/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'N1': ciclo/caminhos paralelos energizados (4 nós, 4 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "triangle_live/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'N1': ciclo/caminhos paralelos energizados (4 nós, 4 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "triangle_live/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'N1': ciclo/caminhos paralelos energizados (4 nós, 4 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "triangle_live/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'N1': ciclo/caminhos paralelos energizados (4 nós, 4 trechos).",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "triangle_dead/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          0.0,
+          0.0,
+          "Transferência factível (carregamento máx 0.0%, queda máx 0.00%)."
+        ],
+        "verifier": [
+          true,
+          0.0,
+          0.0,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 3,
+              "sources": [],
+              "cycle_rank": 1,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 3,
+              "sources": [],
+              "cycle_rank": 1,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "triangle_dead/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "triangle_dead/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "triangle_dead/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "triangle_dead/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "two_sources_tree/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': 2 fontes ativas conectadas; exige exatamente uma por componente/fase."
+        ],
+        "verifier": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': 2 fontes ativas conectadas; exige exatamente uma por componente/fase."
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 4,
+              "edges": 3,
+              "sources": [
+                "SRC",
+                "SRC2"
+              ],
+              "cycle_rank": 0,
+              "unsupported": true
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 2,
+              "sources": [
+                "SRC",
+                "SRC2"
+              ],
+              "cycle_rank": 0,
+              "unsupported": true
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "two_sources_tree/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': 2 fontes ativas conectadas; exige exatamente uma por componente/fase.",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "two_sources_tree/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': 2 fontes ativas conectadas; exige exatamente uma por componente/fase.",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "two_sources_tree/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': 2 fontes ativas conectadas; exige exatamente uma por componente/fase.",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "two_sources_tree/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "UNSUPPORTED_INPUT",
+        "violations": [
+          "Rede fora do escopo radial no estado inicial: Domínio físico radial não suportado na fase A, componente 'LIVE': 2 fontes ativas conectadas; exige exatamente uma por componente/fase.",
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "two_sources_disconnected/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          10.0,
+          0.005250997689561017,
+          "Transferência factível (carregamento máx 10.0%, queda máx 0.01%)."
+        ],
+        "verifier": [
+          true,
+          10.0,
+          0.005250997689561017,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC2"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC2"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "two_sources_disconnected/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "two_sources_disconnected/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "two_sources_disconnected/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "two_sources_disconnected/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "two_sources_different_phases/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          5.0,
+          0.0026254988447805085,
+          "Transferência factível (carregamento máx 5.0%, queda máx 0.00%)."
+        ],
+        "verifier": [
+          true,
+          5.0,
+          0.0026254988447805085,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "B",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC2"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "B",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC2"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "two_sources_different_phases/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "two_sources_different_phases/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "two_sources_different_phases/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "two_sources_different_phases/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "parallel_different_phases/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          5.0,
+          0.0026254988447805085,
+          "Transferência factível (carregamento máx 5.0%, queda máx 0.00%)."
+        ],
+        "verifier": [
+          true,
+          5.0,
+          0.0026254988447805085,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "B",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "B",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "parallel_different_phases/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "parallel_different_phases/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "parallel_different_phases/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "parallel_different_phases/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "source_selfloop/import",
+      "passed": true,
+      "evidence": {
+        "import_valid": false,
+        "issues": [
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de LOOP",
+            "severity": "ERROR"
+          }
+        ],
+        "initial_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "switch_two_hours/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          0.0,
+          0.0,
+          "Transferência factível (carregamento máx 0.0%, queda máx 0.00%)."
+        ],
+        "verifier": [
+          true,
+          0.0,
+          0.0,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "switch_two_hours/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "switch_two_hours/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "switch_two_hours/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "switch_two_hours/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "switch_and_zone_two_hours/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          true,
+          0.0,
+          0.0,
+          "Transferência factível (carregamento máx 0.0%, queda máx 0.00%)."
+        ],
+        "verifier": [
+          true,
+          0.0,
+          0.0,
+          "OK"
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 1,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "switch_and_zone_two_hours/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 10.0,
+            "work_end": 11.0,
+            "end": 13.0,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "switch_and_zone_two_hours/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 10.0,
+            "work_end": 11.0,
+            "end": 13.0,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "switch_and_zone_two_hours/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 10.0,
+            "work_end": 11.0,
+            "end": 13.0,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "switch_and_zone_two_hours/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 10.0,
+            "work_end": 11.0,
+            "end": 13.0,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "optional_transfer_mesh/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (2 nós, 2 trechos)."
+        ],
+        "verifier": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (2 nós, 2 trechos)."
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "optional_transfer_mesh/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "optional_transfer_mesh/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "optional_transfer_mesh/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "optional_transfer_mesh/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": true,
+        "completed": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": [],
+        "windows": [
+          {
+            "start": 8.0,
+            "work_start": 8.1,
+            "work_end": 9.1,
+            "end": 9.2,
+            "maneuvers": 2
+          }
+        ]
+      }
+    },
+    {
+      "probe": "required_transfer_mesh/electrical",
+      "passed": true,
+      "evidence": {
+        "planner": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (2 nós, 2 trechos)."
+        ],
+        "verifier": [
+          false,
+          0.0,
+          0.0,
+          "Domínio físico radial não suportado na fase A, componente 'LIVE': ciclo/caminhos paralelos energizados (2 nós, 2 trechos)."
+        ],
+        "import_valid": true,
+        "issues": [],
+        "initial_oracle": {
+          "supported": true,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 3,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        },
+        "work_oracle": {
+          "supported": false,
+          "components": [
+            {
+              "phase": "A",
+              "nodes": 2,
+              "edges": 2,
+              "sources": [
+                "SRC"
+              ],
+              "cycle_rank": 1,
+              "unsupported": true
+            },
+            {
+              "phase": "A",
+              "nodes": 1,
+              "edges": 0,
+              "sources": [],
+              "cycle_rank": 0,
+              "unsupported": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "probe": "required_transfer_mesh/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "required_transfer_mesh/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "required_transfer_mesh/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    },
+    {
+      "probe": "required_transfer_mesh/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": [],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ],
+        "windows": []
+      }
+    }
+  ]
+}

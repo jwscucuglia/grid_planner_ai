@@ -51,7 +51,7 @@ def test_imported_public_graph_preserves_all_declared_connections_and_switches(t
 
 
 @pytest.mark.parametrize('method', ['B0', 'B1', 'B2', 'KGP'])
-def test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier(tmp_path, method):
+def test_public_gis_multigraph_preserves_input_and_blocks_unsupported_physical_plans(tmp_path, method):
     result = import_bundle(prepare(tmp_path))
     assert result.is_valid, result.issues
     funcs = {'B0': run_baseline_b0_individual, 'B1': run_baseline_b1_geographic,
@@ -60,9 +60,13 @@ def test_public_gis_bundle_runs_through_existing_planners_and_independent_verifi
                          scenario_id='PUBLIC_GIS_SYNTHETIC_OVERLAY', decision_day=0)
     exported = plan_from_json(json.dumps(asdict(plan), allow_nan=False))
     audit = verify_plan_feasibility(result.network, result.services, result.catalog, exported)
-    assert audit.is_feasible, audit.violations
-    assert audit.mandatory_portfolio_complete
-    assert set(audit.recalculated_completed_services) == {s.service_id for s in result.services}
+    assert not audit.is_feasible
+    assert not audit.mandatory_portfolio_complete
+    assert plan.solver_status == 'UNSUPPORTED_INPUT'
+    assert not plan.is_optimal_proven
+    assert not plan.completed_service_ids
+    assert set(plan.unscheduled_service_ids) == {s.service_id for s in result.services}
+    assert len(result.network.nodes) == 354 and len(result.network.branches) == 358
     assert len(result.services) == 2
 
 

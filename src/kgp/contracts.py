@@ -252,7 +252,11 @@ class GridBranch(FiniteContract):
 
 @dataclass(frozen=True)
 class GridSwitch(FiniteContract):
-    """Chave de manobra (NF ou NA) associada a um trecho da rede."""
+    """Chave de manobra; duração individual é informativa no modelo agregado.
+
+    A agenda usa prep/recomp da IsolationZoneSpec, não soma este campo nem
+    certifica sequência/concorrência das operações individuais de campo.
+    """
 
     switch_id: str
     branch_id: str
@@ -295,7 +299,11 @@ class ConsumerUnit(FiniteContract):
 
 @dataclass(frozen=True)
 class IsolationZoneSpec(FiniteContract):
-    """Zona de isolamento predefinida e validada com manobras e transferência opcional."""
+    """Intervenção predefinida com durações agregadas autoritativas.
+
+    A validação externa desses agregados é premissa da entrada; o software
+    não os deriva das durações individuais das chaves ou de operadores.
+    """
 
     zone_id: str
     name: str

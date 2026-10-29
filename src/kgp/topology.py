@@ -218,6 +218,62 @@ def compute_energized_phases_by_node(
     return energized_phases, supplying_sources, notes
 
 
+def _radial_component_issues(network, active_branches, energized_phases):
+    """BFS components of each live phase, counting every conducting branch.
+
+    This is a domain guard, not a load-flow calculation. Parallel branch IDs
+    and self-loops count as edges; disconnected dark components do not enter
+    the physical analysis. Each live component must be a single-source tree.
+    """
+    issues = []
+    for phase in ('A', 'B', 'C'):
+        adjacency = {
+            nid: [] for nid, node in network.nodes.items()
+            if node.in_service and phase in node.phases
+            and phase in energized_phases.get(nid, set())
+        }
+        for bid, branch in active_branches.items():
+            if (phase in branch.phases and branch.from_node in adjacency
+                    and branch.to_node in adjacency):
+                adjacency[branch.from_node].append((branch.to_node, bid))
+                adjacency[branch.to_node].append((branch.from_node, bid))
+        visited = set()
+        for start in sorted(adjacency):
+            if start in visited:
+                continue
+            component, edge_ids = set(), set()
+            queue = deque([start])
+            visited.add(start)
+            while queue:
+                node = queue.popleft()
+                component.add(node)
+                for neighbor, bid in adjacency[node]:
+                    edge_ids.add(bid)
+                    if neighbor not in visited:
+                        visited.add(neighbor)
+                        queue.append(neighbor)
+            sources = [nid for nid in component if network.nodes[nid].is_source]
+            if not sources:
+                continue
+            prefix = f"Domínio físico radial não suportado na fase {phase}, componente '{start}': "
+            if len(edge_ids) != len(component) - 1:
+                issues.append(prefix + f"ciclo/caminhos paralelos energizados ({len(component)} nós, {len(edge_ids)} trechos).")
+            if len(sources) != 1:
+                issues.append(prefix + f"{len(sources)} fontes ativas conectadas; exige exatamente uma por componente/fase.")
+    return issues
+
+
+def radial_analysis_issues(network, open_switches, closed_switches):
+    """Return unsupported live radial-analysis domains for the effective state.
+
+    Topological reachability remains available on the full imported multigraph;
+    no edge is removed to manufacture a physically supported input.
+    """
+    phases, _, _ = compute_energized_phases_by_node(network, set(open_switches), set(closed_switches))
+    branches = get_active_branches(network, get_effective_switch_states(network, set(open_switches), set(closed_switches)))
+    return _radial_component_issues(network, branches, phases)
+
+
 def verify_transfer_electrical_feasibility(
     network: GridNetwork,
     zone: IsolationZoneSpec,
@@ -253,6 +309,10 @@ def verify_transfer_electrical_feasibility(
         network, open_switches, closed_switches
     )
     active_branches = get_active_branches(network, switch_states)
+
+    domain_issues = _radial_component_issues(network, active_branches, energized_phases)
+    if domain_issues:
+        return False, 0.0, 0.0, "; ".join(domain_issues)
 
     for br in active_branches.values():
         if br.max_capacity_kw <= 0.0 or br.r_ohm < 0.0 or br.x_ohm < 0.0:
@@ -502,6 +562,17 @@ def evaluate_maneuver_step(
             )
         )
         topo_notes.append(tr_note)
+    else:
+        # A topology-only snapshot still must not advertise physical support
+        # for a meshed/multi-source state when no zone limits were supplied.
+        domain_issues = _radial_component_issues(
+            network,
+            get_active_branches(network, get_effective_switch_states(network, open_set, closed_set)),
+            energized_phases,
+        )
+        if domain_issues:
+            transfer_ok = False
+            topo_notes.extend(domain_issues)
 
     return ManeuverStepResult(
         step_order=step_order,

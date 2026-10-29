@@ -94,13 +94,22 @@ class _InputError(ValueError):
         self.code = code
 
 
+def _resolve_input_path(path: Path) -> Path:
+    try:
+        return path.resolve()
+    except RuntimeError as exc:
+        # Python 3.11 reports symlink cycles here as RuntimeError. Keep this
+        # conversion local to resolve(), never around the importer as a whole.
+        raise _InputError("SYMLINK_LOOP", f"symbolic link cycle while resolving input path: {exc}") from exc
+
+
 def _safe_path(root: Path, raw: Any) -> Path:
     if not isinstance(raw, str) or not raw.strip():
         raise _InputError("UNSAFE_PATH", "path must be a nonempty relative file path")
     path = Path(raw)
     if path.is_absolute() or path.drive:
         raise _InputError("UNSAFE_PATH", "table path must be relative to the manifest directory")
-    resolved = (root / path).resolve()
+    resolved = _resolve_input_path(root / path)
     if not resolved.is_relative_to(root):
         raise _InputError("UNSAFE_PATH", "table path escapes the manifest directory")
     return resolved
@@ -111,7 +120,7 @@ def _records(path: Path, fmt: str) -> tuple[list, bytes]:
     raw = content.decode("utf-8-sig")
     if fmt == "csv":
         import io
-        reader = csv.DictReader(io.StringIO(raw, newline=""))
+        reader = csv.DictReader(io.StringIO(raw, newline=""), strict=True)
         header = reader.fieldnames
         if not header or any(not key for key in header):
             raise _InputError("INVALID_FILE", "CSV requires nonempty column names")
@@ -238,13 +247,13 @@ def import_bundle(manifest_path: str | Path) -> IngestionResult:
                                None if blocked else catalog, tuple(issues), provenance)
 
     try:
-        path = Path(manifest_path).resolve()
+        path = _resolve_input_path(Path(manifest_path))
         content = path.read_bytes()
         manifest = strict_json_loads(content.decode("utf-8-sig"))
         if not isinstance(manifest, dict):
             raise ValueError("manifest must be a JSON object")
     except (OSError, ValueError, TypeError, UnicodeError) as exc:
-        issue("INVALID_MANIFEST", "manifest", str(exc))
+        issue(getattr(exc, "code", "INVALID_MANIFEST"), "manifest", str(exc))
         return result()
     provenance["manifest_sha256"] = hashlib.sha256(content).hexdigest()
     provenance["schema_version"] = manifest.get("schema_version")
@@ -293,12 +302,16 @@ def import_bundle(manifest_path: str | Path) -> IngestionResult:
                 or len(set(mapping.values())) != len(mapping)):
             issue("INVALID_FIELD_MAP", table, "field_map must map unique canonical names to unique source names")
             continue
+        effective_mapping = {name: mapping.get(name, name) for name in hints}
+        if len(set(effective_mapping.values())) != len(effective_mapping):
+            issue("INVALID_FIELD_MAP", table, "field_map source names collide after resolving identity fallbacks")
+            continue
         provenance["field_maps"][table] = mapping
         try:
             table_path = _safe_path(path.parent, descriptor.get("path"))
             rows, raw = _records(table_path, descriptor.get("format"))
         except (OSError, ValueError, TypeError, UnicodeError, csv.Error) as exc:
-            message = (f"CSV parser maximum field length is {csv.field_size_limit()} characters: {exc}"
+            message = (f"CSV parser error (maximum field length is {csv.field_size_limit()} characters): {exc}"
                        if isinstance(exc, csv.Error) else str(exc))
             issue(getattr(exc, "code", "INVALID_FILE"), table, message)
             continue
@@ -312,7 +325,7 @@ def import_bundle(manifest_path: str | Path) -> IngestionResult:
             if not isinstance(row, dict):
                 issue("INVALID_RECORD", table, "record must be an object", row_number)
                 continue
-            record_id = row.get(mapping.get(id_field, id_field))
+            record_id = row.get(effective_mapping[id_field])
             record_id = record_id if isinstance(record_id, str) else None
             provenance["record_ids"][table].append(record_id)
             if record_id is not None and record_id in seen:
@@ -320,12 +333,12 @@ def import_bundle(manifest_path: str | Path) -> IngestionResult:
                 continue
             if record_id is not None:
                 seen.add(record_id)
-            values = {name: row[mapping.get(name, name)] for name in hints if mapping.get(name, name) in row}
+            values = {name: row[source] for name, source in effective_mapping.items() if source in row}
             missing = sorted(required - values.keys())
             if missing:
                 issue("MISSING_FIELD", table, f"explicit critical fields required: {', '.join(missing)}", row_number, record_id)
                 continue
-            extra = set(row) - {mapping.get(name, name) for name in hints}
+            extra = set(row) - set(effective_mapping.values())
             if extra:
                 issue("UNMAPPED_FIELDS", table, f"source fields not used: {sorted(extra)}", row_number, record_id, "WARNING")
             try:

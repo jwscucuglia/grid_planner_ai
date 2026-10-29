@@ -56,8 +56,11 @@ def joint_case():
                 [('SW1', 'B1', SwitchState.CLOSED), ('SW2', 'B2', SwitchState.CLOSED),
                  ('SW3', 'B3', SwitchState.OPEN)]}
     assets = {k: GridAsset(k, n, None, 'F', 'TEST') for k, n in [('A1', 'N1'), ('A3', 'N3')]}
+    # Break the normal source path before transferring N1 to SRC2. Each
+    # individual window stays in the single-source radial domain; overlapping
+    # Z2 still reenergizes A1 while S1 is working, which is the test's oracle.
     zones = {'Z1': IsolationZoneSpec('Z1', 'Z1', 'F', ('SW1',)),
-             'Z2': IsolationZoneSpec('Z2', 'Z2', 'F', ('SW2',), ('SW3',), requires_transfer_validation=True)}
+             'Z2': IsolationZoneSpec('Z2', 'Z2', 'F', ('SW2', 'SW1'), ('SW3',), requires_transfer_validation=True)}
     net = GridNetwork('joint', 'test', 0, nodes=nodes, branches=branches, switches=switches,
                       assets=assets, isolation_zones=zones,
                       consumers={'U1': ConsumerUnit('U1', 'N1', 'A1'), 'U3': ConsumerUnit('U3', 'N3', 'A3')})
@@ -74,7 +77,7 @@ def joint_case():
     return net, services, cat, p
 
 
-def test_disjoint_zones_that_reenergize_other_work_are_blocked():
+def test_disjoint_targets_that_reenergize_other_work_are_blocked():
     n, s, c, p = joint_case()
     r = verify_plan_feasibility(n, s, c, p)
     assert not r.is_feasible

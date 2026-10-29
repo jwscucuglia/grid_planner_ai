@@ -140,6 +140,55 @@ def _independent_energized_phases_and_sources(network, open_switches, closed_swi
     return energized, sources_by_ph, active_branches
 
 
+def _independent_radial_analysis_issues(network, energized_phases, active_branches):
+    """Independent Union-Find cycle/source gate for the radial physical model.
+
+    Unlike planner BFS/edge counting, every edge closing a disjoint-set path
+    records a cycle. Source counts and cycle ownership are resolved only after
+    all unions; record ordering cannot choose a physical flow tree.
+    """
+    issues = []
+    for phase in ('A', 'B', 'C'):
+        parent = {nid: nid for nid, node in network.nodes.items()
+                  if node.in_service and phase in node.phases
+                  and phase in energized_phases.get(nid, set())}
+        def find(nid):
+            while parent[nid] != nid:
+                parent[nid] = parent[parent[nid]]
+                nid = parent[nid]
+            return nid
+        cycle_nodes = []
+        edges = []
+        for branch in active_branches.values():
+            a, b = branch.from_node, branch.to_node
+            if phase not in branch.phases or a not in parent or b not in parent:
+                continue
+            edges.append((a, b))
+            ra, rb = find(a), find(b)
+            if ra == rb:
+                cycle_nodes.append(a)
+            else:
+                parent[ra] = rb
+        components = {}
+        for nid in sorted(parent):
+            components.setdefault(find(nid), []).append(nid)
+        cyclic_roots = {find(nid) for nid in cycle_nodes}
+        edge_counts = {}
+        for a, _ in edges:
+            root = find(a)
+            edge_counts[root] = edge_counts.get(root, 0) + 1
+        for root, component in components.items():
+            sources = [nid for nid in component if network.nodes[nid].is_source]
+            if not sources:
+                continue
+            prefix = f"Domínio físico radial não suportado na fase {phase}, componente '{component[0]}': "
+            if root in cyclic_roots:
+                issues.append(prefix + f"ciclo/caminhos paralelos energizados ({len(component)} nós, {edge_counts.get(root, 0)} trechos).")
+            if len(sources) != 1:
+                issues.append(prefix + f"{len(sources)} fontes ativas conectadas; exige exatamente uma por componente/fase.")
+    return issues
+
+
 def _independent_phase_transfer_check(
     network: GridNetwork,
     zone: IsolationZoneSpec,
@@ -166,6 +215,10 @@ def _independent_phase_transfer_check(
             0.0,
             f"Parâmetros de transferência incompletos na zona '{zone.zone_id}'.",
         )
+
+    domain_issues = _independent_radial_analysis_issues(network, energized_phases, active_branches)
+    if domain_issues:
+        return False, 0.0, 0.0, "; ".join(domain_issues)
 
     for br in active_branches.values():
         if br.max_capacity_kw <= 0.0 or br.r_ohm < 0.0 or br.x_ohm < 0.0:
@@ -431,7 +484,9 @@ def verify_plan_feasibility(
     svc_map: Dict[str, ServiceOrder] = {s.service_id: s for s in services}
     violations: List[str] = []
     warnings: List[str] = []
-    initial_phases, _, _ = _independent_energized_phases_and_sources(network, set(), set())
+    initial_phases, _, initial_branches = _independent_energized_phases_and_sources(network, set(), set())
+    initial_domain_issues = _independent_radial_analysis_issues(network, initial_phases, initial_branches)
+    violations.extend('Rede fora do escopo radial no estado inicial: ' + message for message in initial_domain_issues)
     initially_off = [cid for cid, consumer in network.consumers.items()
                      if consumer.phase not in initial_phases[consumer.node_id]]
     if initially_off:

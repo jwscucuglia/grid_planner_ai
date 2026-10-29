@@ -37,7 +37,7 @@ def run_revalidation(base_dir):
     base_dir = Path(base_dir)
     source_root = Path(__file__).resolve().parents[2]
     reports = base_dir / 'reports'
-    evidence = reports / 'revalidation_REV05_20261029'
+    evidence = reports / 'revalidation_REV06_20261029'
     evidence.mkdir(parents=True, exist_ok=True)
     scenarios = [generate_scenario_instance(seed, split) for split, seeds in
                  [('DEV', DEV_SEEDS), ('EVAL', EVAL_SEEDS)] for seed in seeds]
@@ -57,7 +57,7 @@ def run_revalidation(base_dir):
         source_commit = 'UNAVAILABLE'
     weights = ObjectiveWeights()
     config = {
-        'release_revision': 'REV05', 'evidence_directory': evidence.relative_to(base_dir).as_posix(),
+        'release_revision': 'REV06', 'evidence_directory': evidence.relative_to(base_dir).as_posix(),
         'project': 'KAPTUS GRID PLANNER — D07', 'package_version': __version__,
         'execution_timestamp': datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'source_commit': source_commit, 'source_sha256': source_hashes, 'input_sha256': inputs,
@@ -79,6 +79,9 @@ def run_revalidation(base_dir):
         'solver_catalog_limits': {'max_package_size': 5, 'max_windows_per_day': 5, 'max_states_per_depth': 120},
         'solver_catalog_seed_exception': 'Feasible daily B0/B1/B2 seed agendas are added outside the constructive expansion size filters; certificate covers the actual combined catalog only.',
         'material_conservation': 'Exact rational sums of canonical decimal input quantities, independent exact verifier and strict inventory check; exported float echoes never debit inventory.',
+        'physical_analysis_domain': 'Initial state and evaluated positive-duration stages require an energized tree per phase and exactly one active source per connected component; cycles, parallel conducting paths and connected multiple sources are unsupported. Connectivity retains all registered edges.',
+        'switch_timing_policy': 'Zone prep/recomposition are authoritative externally validated aggregate durations; individual switch maneuver durations are informational and do not generate the schedule.',
+        'ingestion_integrity': 'Strict CSV parsing and collision checks on the full effective field map including identity defaults; nonrepresentable nonzero numbers are rejected before planning.',
         'coupling_denominator': 'All windows in the exported plan; numerator is windows containing at least two services. Official maneuver ratio has a different denominator.',
         'analysis_rule': 'Parear somente cenários com os 4 métodos factíveis e 100% da mesma carteira obrigatória; excluir falhas do benefício e preservá-las nas saídas.',
         'statistical_scope': 'Descrição dos casos desenhados na mesma rede; bootstrap empírico não é inferência sobre desempenho Cemig.',
@@ -233,6 +236,8 @@ def _write_report(path, summary, rows):
               '- Baliza temporal adicional: o catálogo exige gap diário positivo de recomposição. Catálogos ininterruptos 0–24h são recusados antes de planejar/auditar; o objetivo de colunas diárias não certifica continuidade de uma interrupção através da meia-noite.',
               '- REV05/A-CODE-01: totais e saldos de materiais são conservados por aritmética racional exata dos valores decimais canônicos. O verificador reconstrói esses totais independentemente; arredondamento de apresentação e tolerâncias do MILP não autorizam falta de estoque. Totais não representáveis como float finito não são exportados como infinitos.',
               '- Acoplamento no estudo é a proporção de janelas do plano com dois ou mais serviços sobre todas as janelas do plano. Os 1,7% oficiais usam manobras como denominador e não são diretamente intercambiáveis com essa métrica.',
+              '- REV06: a aproximação física exige árvore energizada por fase e uma fonte ativa por componente no estado inicial e nos estados analisados. Ciclos, paralelas condutoras e múltiplas fontes conectadas são bloqueados; a conectividade cadastral continua preservando todas as arestas. O cadastro GIS público CTMT002 fica fora desse domínio físico, sem descartar ligações para forçar aceite.',
+              '- As durações de manobra por chave são informativas neste contrato. A agenda e o verificador usam durações agregadas autoritativas da zona, a validar externamente; não derivam nem certificam tempos individuais de campo.',
               '## Artefatos e reprodução', '',
               '`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `' + cfg['evidence_directory'] + '/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.',
               'Consulte também AUDITORIA_DOCUMENTAL_D07.md, MATRIZ_ADERENCIA_OFICIAL_D07.md, AUDITORIA_OTIMIZADOR_D07.md e REVISAO_INDEPENDENTE_NUCLEO_D07.md.', '']

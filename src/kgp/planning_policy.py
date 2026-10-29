@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from .contracts import ExecutionPlan, GridNetwork, ServiceOrder, ResourceCatalog, operational_time_ticks, TICKS_PER_HOUR
+from .topology import radial_analysis_issues
 
 
 def unsupported_input_plan(
@@ -15,7 +16,8 @@ def unsupported_input_plan(
 ) -> ExecutionPlan | None:
     """Bloqueia opções fora do catálogo elétrico e temporal suportado."""
     no_daily_gap = catalog is not None and (operational_time_ticks(catalog.window_end_hour) - operational_time_ticks(catalog.window_start_hour) >= 24*TICKS_PER_HOUR)
-    if not network.allow_dg_islanding and not no_daily_gap:
+    radial_issues = radial_analysis_issues(network, set(), set())
+    if not network.allow_dg_islanding and not no_daily_gap and not radial_issues:
         return None
     known_ids = tuple(
         svc.service_id for svc in services
@@ -29,6 +31,9 @@ def unsupported_input_plan(
     if no_daily_gap and not network.allow_dg_islanding:
         option = 'continuous_24h_catalog'
         reason = 'Catálogo contínuo 24h não suportado: as colunas diárias exigem gap positivo de recomposição entre dias.'
+    elif radial_issues and not network.allow_dg_islanding:
+        option = 'radial_analysis_domain'
+        reason = 'Estado inicial fora do domínio físico radial: ' + '; '.join(radial_issues)
     return ExecutionPlan(
         plan_id=f"PLAN_{method_name}_{scenario_id}",
         method_name=method_name,

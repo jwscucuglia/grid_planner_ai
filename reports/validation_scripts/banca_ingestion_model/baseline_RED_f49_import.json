@@ -1,0 +1,553 @@
+{
+  "source_sha256": {
+    "kgp\\__init__.py": "3a32c2a1e7dabea9ed4664e48e60d6634afc0124bc6734754478f4487f965a95",
+    "kgp\\baselines.py": "e3162fb8e44f8c5fee39a066574ee91b22987441db70b505da531461ccfed2d0",
+    "kgp\\contracts.py": "d0d55330b169d6d7cd1b5df39622675be740f1095217e02184575c4731cf8c3d",
+    "kgp\\eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
+    "kgp\\experiment.py": "f4f1ef26efdc8b0f5162761aa2bb3cf9dfe574f145ac7b9e38530b78028cf6fe",
+    "kgp\\feasibility.py": "a657b4e82891ffcade376c2752849bfebc6d35b63f15ecdd637580f80dd746b9",
+    "kgp\\ingestion.py": "d2b33675621e13e4fe5a33bf1404515bd4d19477436845d4cfe7a74d7e63e935",
+    "kgp\\integrity.py": "cc34687ad9bfad4ccb9ed023c0961cf7239198eab840b1eca2483d48b45177e5",
+    "kgp\\materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda",
+    "kgp\\metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
+    "kgp\\optimizer.py": "4f27ad9da19b81f32c61f6877017090cd2223d9260949f163e6ede1b44ee0088",
+    "kgp\\planning_policy.py": "369ba7887626c4497a7e2d35ef764e73a1191462b604eb72f298e3fd172e8194",
+    "kgp\\revalidation.py": "f9f044384715ac09328c873d4e87562f033edaa0aa4e700ffb2721f4832204e5",
+    "kgp\\scheduling.py": "ffa223c6c3b1f119548e6a6d964f19e0b7247820637259f08b3d18cc91cbc78e",
+    "kgp\\topology.py": "4f27b3f09c5b2704ceef0fbd4459ee4b603721bee720a200abd658f84952f11d",
+    "kgp\\validation.py": "83a66b8e1ae20ddb2e8d9015c5c73e58492079aff9a8925bd234fe970e620cdb"
+  },
+  "probes": 19,
+  "passed": 10,
+  "failed": 9,
+  "skipped": [
+    {
+      "probe": "symlink/native_loop",
+      "reason": "Native symlink creation unavailable in this environment",
+      "error_type": "OSError",
+      "winerror": 1314,
+      "platform": "win32"
+    }
+  ],
+  "results": [
+    {
+      "probe": "csv/control",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1",
+          "S2"
+        ],
+        "mandatory_ids": [
+          "S1",
+          "S2"
+        ],
+        "source_count": 2,
+        "source_ids": [
+          "S1",
+          "S2"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "csv/control/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": 1,
+        "total": 2,
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/control/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": 1,
+        "total": 2,
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/control/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": 1,
+        "total": 2,
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/control/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": 1,
+        "total": 2,
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/unterminated_title",
+      "passed": false,
+      "evidence": {
+        "strict_parser_error": "unexpected end of data",
+        "source_sha256": "99f70164137e23c9eb4183d396702eb732047fdfaf841b229bd5aaa2c1330160",
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "csv/hidden_mandatory/B0",
+      "passed": false,
+      "evidence": {
+        "feasible": true,
+        "completed": 1,
+        "total": 1,
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/hidden_mandatory/B1",
+      "passed": false,
+      "evidence": {
+        "feasible": true,
+        "completed": 1,
+        "total": 1,
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/hidden_mandatory/B2",
+      "passed": false,
+      "evidence": {
+        "feasible": true,
+        "completed": 1,
+        "total": 1,
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/hidden_mandatory/KGP",
+      "passed": false,
+      "evidence": {
+        "feasible": true,
+        "completed": 1,
+        "total": 1,
+        "violations": []
+      }
+    },
+    {
+      "probe": "csv/legitimate_multiline",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1",
+          "S2"
+        ],
+        "mandatory_ids": [
+          "S1",
+          "S2"
+        ],
+        "source_count": 2,
+        "source_ids": [
+          "S1",
+          "S2"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "mapping/control",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "mapping/implicit_state",
+      "passed": false,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": false,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": []
+        }
+      }
+    },
+    {
+      "probe": "mapping/explicit_state",
+      "passed": true,
+      "evidence": {
+        "is_valid": false,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [
+          {
+            "code": "INVALID_FIELD_MAP",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "field_map must map unique canonical names to unique source names",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID SRC",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "MISSING_SOURCE",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "network requires at least one explicitly active source",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "mapping/implicit_coordinate",
+      "passed": false,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "mapping/legitimate_rename",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "mapping/explicit_axis_swap",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 0.0,
+            "y": 1.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "symlink/resolve_runtime_manifest",
+      "passed": false,
+      "evidence": {
+        "uncaught_error": "Synthetic native Path.resolve symlink-cycle condition"
+      }
+    },
+    {
+      "probe": "symlink/resolve_runtime_nodes",
+      "passed": false,
+      "evidence": {
+        "uncaught_error": "Synthetic native Path.resolve symlink-cycle condition"
+      }
+    }
+  ]
+}

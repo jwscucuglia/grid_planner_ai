@@ -17,12 +17,11 @@ from kgp.baselines import (run_baseline_b0_individual, run_baseline_b1_geographi
 from kgp.contracts import plan_from_json
 from kgp.feasibility import verify_plan_feasibility, _independent_energized_phases_and_sources
 from kgp.ingestion import import_bundle
-from kgp.metrics import compute_plan_metrics
 from kgp.optimizer import run_kgp_optimizer
-from kgp.topology import compute_energized_phases_by_node
+from kgp.topology import compute_energized_phases_by_node, radial_analysis_issues
 from prepare_gis_reference import prepare_reference_bundle, SOURCE, _read_csv, _phase_reachable
 
-OUT = ROOT / 'reports/ingestion_REV05_20261029'
+OUT = ROOT / 'reports/ingestion_REV06_20261029'
 
 
 def _write(path, data):
@@ -62,8 +61,9 @@ def _figure(output):
     ax.grid(alpha=.15)
     ax.legend(loc='best', frameon=False)
     fig.text(.06, .035, 'Fonte: ANEEL/EFLUL, 31/12/2025, ODbL. 81 PACs têm posições conflitantes (até 64 m).\n'
-             'Ensaio de programação: consumidores, cargas, recursos, parâmetros adicionais e coordenadas de agenda são sintéticos. '
-             'Sem validação operacional ou dados Cemig.', fontsize=10, color='#555555')
+             'REV06: cadastro e conectividade preservados; planejamento bloqueado por ciclos energizados fora do modelo radial.\n'
+             'Overlay de cargas, consumidores e serviços sintético. Sem benefício apurado, validação operacional ou dados Cemig.',
+             fontsize=10, color='#555555')
     fig.subplots_adjust(bottom=.16, top=.86, left=.08, right=.95)
     fig.savefig(output, dpi=130, facecolor='white')
     plt.close(fig)
@@ -100,16 +100,24 @@ def main():
                              'source_reference_equals_bfs_and_union_find': True})
     methods = {'B0': run_baseline_b0_individual, 'B1': run_baseline_b1_geographic,
                'B2': run_baseline_b2_topological_greedy, 'KGP': run_kgp_optimizer}
+    domain_issues = radial_analysis_issues(network, set(), set())
+    assert domain_issues, 'The unchanged public multigraph must remain outside the radial physical domain'
     results = {}
     for name, method in methods.items():
         plan = method(network, services, catalog, scenario_id='PUBLIC_GIS_SYNTHETIC_OVERLAY', decision_day=0)
         _write(OUT / 'plans' / f'{name}.json', asdict(plan))
         exported = plan_from_json((OUT / 'plans' / f'{name}.json').read_text(encoding='utf-8'))
         audit = verify_plan_feasibility(network, services, catalog, exported)
-        assert audit.is_feasible and audit.mandatory_portfolio_complete, (name, audit.violations)
-        assert len(audit.recalculated_completed_services) == len(services) == 2
+        assert not audit.is_feasible and not audit.mandatory_portfolio_complete, name
+        assert plan.solver_status == 'UNSUPPORTED_INPUT' and not plan.is_optimal_proven, name
+        assert not plan.completed_service_ids and set(plan.unscheduled_service_ids) == {s.service_id for s in services}
+        assert len(services) == 2
         _write(OUT / 'verification' / f'{name}.json', asdict(audit))
-        results[name] = asdict(compute_plan_metrics(network, services, exported, audit))
+        results[name] = {'solver_status': plan.solver_status, 'physical_domain_supported': False,
+                         'is_feasible': audit.is_feasible, 'completed_mandatory': audit.completed_mandatory_count,
+                         'total_mandatory': audit.total_mandatory_count,
+                         'unscheduled_service_ids': list(plan.unscheduled_service_ids),
+                         'reason': plan.metadata.get('reason'), 'benefit_metrics': None}
     summary = {'scope': 'REAL_PUBLIC_MV_TOPOLOGY_WITH_SYNTHETIC_PLANNING_OVERLAY',
                'package_version': __version__,
                'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
@@ -119,21 +127,29 @@ def main():
                'nodes_preserved': len(network.nodes), 'edges_preserved': len(network.branches),
                'closed_switches': sum(sw.current_state.value == 'CLOSED' for sw in network.switches.values()),
                'open_switches': sum(sw.current_state.value == 'OPEN' for sw in network.switches.values()),
-               'phase_reference_checks': phase_checks, 'feasible_plans': 4, 'mandatory_services_per_plan': 2,
+               'phase_reference_checks': phase_checks, 'physical_domain_supported': False,
+               'physical_domain_issues': domain_issues, 'feasible_plans': 0, 'blocked_planner_attempts': 4,
+               'mandatory_services_in_input': 2,
                'methods': results,
-               'interpretation': 'Functional import/integration test only. No operational or financial benefit is estimated; '
-                                 'B1 uses synthetic scheduling positions, not real geographic scheduling.'}
+               'interpretation': 'Topology preservation and connectivity agree, but the unchanged energized multigraph '
+                                 'is outside the radial physical model. All four planners reject it without deleting '
+                                 'edges or mandatory orders. No benefit metric is computed from blocked outputs. '
+                                 'Prior four internally feasible plans are historical under the superseded model boundary.'}
     _write(OUT / 'summary.json', summary)
     _figure(OUT / 'gis_public_reference.png')
     (OUT / 'RELATORIO_INGESTAO01.md').write_text(
-        '# REV05 — revalidação do GIS público e integração ao KGP\n\n'
+        '# REV06 — GIS público: conectividade preservada e domínio físico bloqueado\n\n'
         'Fonte real: BDGD/ANEEL EFLUL 31/12/2025, CTMT 002. Os 354 PACs e 358 registros de ligação '
         'foram preservados, incluindo paralelas e estados normais das 43 chaves (33 fechadas, 10 abertas). '
         'A exportação CSV/GeoJSON foi conferida contra a GDB original e tem licença/proveniência próprias.\n\n'
         'A referência de alcançabilidade por fase dos registros de origem coincide com BFS e Union-Find '
         'na configuração normal, no isolamento do ensaio e na restauração.\n\n'
-        'O importador produziu os contratos existentes e o mesmo núcleo executou B0/B1/B2/KGP. '
-        'Os quatro planos foram exportados, relidos e aprovados pelo verificador, com 2/2 serviços obrigatórios em cada um.\n\n'
+        'O importador produziu os contratos existentes. A rede energizada tem ciclos e caminhos paralelos '
+        'fora da aproximação radial. B0/B1/B2/KGP retornaram UNSUPPORTED_INPUT, preservando as duas ordens '
+        'obrigatórias como não programadas. As quatro saídas exportadas e relidas foram corretamente '
+        'reprovadas pelo verificador; nenhum ótimo ou benefício foi publicado. Nenhuma aresta foi removida '
+        'para fabricar uma rede radial. Os quatro planos anteriormente aprovados no modelo são históricos, '
+        'sem confirmação da admissibilidade física deste grafo.\n\n'
         '**Limite:** topologia pública real com overlay sintético de cargas, consumidores, carteira, recursos, '
         'parâmetros ausentes, cenário de manobra e coordenadas de agenda. O regulador é somente ligação passante. '
         'O estado normal das chaves foi assumido como estado do ensaio; não é telemetria histórica.\n\n'
@@ -149,8 +165,9 @@ def main():
              for base in (OUT, ROOT / 'data/gis_reference/eflul_2025_ctmt002/bundle')
              for p in sorted(base.rglob('*')) if p.is_file() and p.name != 'manifest_sha256.json'}
     _write(OUT / 'manifest_sha256.json', {'scope': summary['scope'], 'files': files})
-    print(json.dumps({'nodes': len(network.nodes), 'edges': len(network.branches), 'feasible_plans': 4,
-                      'mandatory_services_per_plan': 2, 'phase_reference_checks': 9,
+    print(json.dumps({'nodes': len(network.nodes), 'edges': len(network.branches), 'feasible_plans': 0,
+                      'blocked_planner_attempts': 4, 'mandatory_services_in_input': 2, 'phase_reference_checks': 9,
+                      'physical_domain_supported': False,
                       'operational_validation': False}, indent=2))
 
 
