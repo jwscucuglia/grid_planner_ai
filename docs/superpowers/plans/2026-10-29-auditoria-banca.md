@@ -12,12 +12,13 @@
 - [x] Fechar A-CODE-02, impedindo que número não zero vire zero na leitura/conversão; 51 regressões próprias.
 - [x] Reavaliar contraprovas: 58 + 105 + 143 controles; suíte REV05 com 342 testes aprovados.
 - [x] Congelar o checkpoint REV05/f49a8c6 e repetir 48 planos e quatro saídas GIS segundo as hipóteses então implementadas. Preservar como histórico após a revisão complementar.
-- [ ] Fechar CSV malformado, colisão implícita de campos, robustez de links simbólicos e fronteira física radial, conforme auditoria adicional do usuário.
-- [ ] Rodar suíte consolidada REV06, recongelar fonte e repetir os 48 casos sem alterar dados/sementes/pesos/raio.
-- [ ] Confirmar cadastro GIS e nove checks de conectividade, com bloqueio dos quatro planejadores no multigrafo fora do domínio físico. Preservar as duas obrigatórias; nenhum benefício da saída bloqueada.
-- [ ] Detalhar motores 2/3/4 com exemplo coerente; corrigir denominadores, dependências M1, escala e histórico empresarial.
-- [ ] Sincronizar Docs/Slides/PDFs nos próprios IDs, conferir fala, legibilidade, fatos e fontes.
-- [ ] Concluir matriz de fechamento privada, manifesto/ZIP/checkout/Drive e PR1 atualizada; principal preservada.
+- [x] Fechar CSV malformado, colisão implícita de campos, robustez de links simbólicos e fronteira física radial, conforme auditoria adicional do usuário.
+- [x] Rodar suíte consolidada REV06, recongelar fonte e repetir os 48 casos sem alterar dados/sementes/pesos/raio.
+- [x] Confirmar cadastro GIS e nove checks de conectividade, com bloqueio dos quatro planejadores no multigrafo fora do domínio físico. Preservar as duas obrigatórias; nenhum benefício da saída bloqueada.
+- [x] Detalhar motores 2/3/4 com exemplo coerente; corrigir denominadores, dependências M1, escala e histórico empresarial.
+- [x] Sincronizar Docs/Slides/PDFs nos próprios IDs, conferir fala, legibilidade, fatos e fontes.
+
+A etapa de entrega gera manifesto/ZIP e registra as verificações de checkout/Drive/PR separadamente, com a principal preservada. O relatório privado de fechamento e os manifestos documentam os resultados finais dessa etapa.
 
 ## Regras da revisão
 
