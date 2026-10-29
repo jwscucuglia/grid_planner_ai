@@ -1,18 +1,18 @@
-# RELATÓRIO DE EXECUÇÃO — KGP 0.3.0 / REV03
+# RELATÓRIO DE EXECUÇÃO — KGP 0.4.0 / REV04
 
 Reavaliação sintética de casos conhecidos — Desafio 07 Inova Cemig.Lab Ciclo 5.
 
-Execução UTC: 2026-10-29T12:46:49.486371+00:00. Código: `5adf593ad9168e61a4b4ceea62346db7402a3d4c`; SHA-256 por arquivo no protocolo.
+Execução UTC: 2026-10-29T14:09:22.548329+00:00. Código: `66e90ea783720ccd4dd1e9cda9eef288e0facb3d`; SHA-256 por arquivo no protocolo.
 48/48 planos factíveis após leitura do JSON exportado, 8 comparações EVAL admitidas. Carteira obrigatória e factibilidade são condições do benefício.
 
 ## Resultados descritivos — 8 casos EVAL conhecidos, uma rede de referência
 
 | Método | Factíveis | Janelas médias | Manobras médias | Acoplamento | Reincidentes médios | Clientes-hora médios | Tempo médio (s) |
 |---|---|---|---|---|---|---|---|
-| B0 | 8/8 | 3.8750 | 10.2500 | 0.0000 | 37.7500 | 318.7125 | 0.0481 |
-| B1 | 8/8 | 3.2500 | 8.5000 | 0.2083 | 35.0000 | 280.7424 | 0.0394 |
-| B2 | 8/8 | 2.5000 | 7.5000 | 0.4896 | 13.0000 | 255.6620 | 0.3537 |
-| KGP | 8/8 | 2.1250 | 6.2500 | 0.5833 | 0.0000 | 212.3526 | 3.7578 |
+| B0 | 8/8 | 3.8750 | 10.2500 | 0.0000 | 37.7500 | 318.7125 | 0.0729 |
+| B1 | 8/8 | 3.2500 | 8.5000 | 0.2083 | 35.0000 | 280.7424 | 0.0671 |
+| B2 | 8/8 | 2.5000 | 7.5000 | 0.4896 | 13.0000 | 255.6620 | 0.4326 |
+| KGP | 8/8 | 2.1250 | 6.2500 | 0.5833 | 0.0000 | 212.3526 | 10.2034 |
 
 ## Balanço KGP × B2 — valores menores são melhores
 
@@ -52,7 +52,12 @@ Execução UTC: 2026-10-29T12:46:49.486371+00:00. Código: `5adf593ad9168e61a4b4
 - TRL 3 é proposta restrita às funções demonstradas em laboratório; a plataforma não foi validada operacionalmente. Integrações Electric Office/GeoServiços/SAP e validação dos programadores dependem da Cemig, em leitura/sidecar e sem telecomandos.
 - Estudos históricos 0.1.0-d07-scoped e REV02 são preservados separadamente e não são somados a esta rodada.
 
+- REV04/A1: toda etapa elétrica com duração positiva deve ser admissível, incluindo isolamento e recomposição. A conferência dos campos de uma etapa inviável não equivale à sua aprovação.
+- REV04/A2: ilhamento por geração distribuída é explicitamente não suportado e bloqueado antes de planejar/auditar. A rede de referência mantém anti-ilhamento; não se anuncia fluxo de DG sem seus limites.
+- REV04/A3/A4: dias anteriores à decisão são excluídos; certificado exige auditoria do plano bruto e após JSON. Transferência obrigatória malsucedida rejeita a intervenção; na opcional abandonada, a chave permanece aberta e esse estado efetivamente executado é auditado.
+- REV04/A5: grade operacional de 0,0001 h (0,36 s), fronteiras/união em ticks inteiros e adjacência exata. Horários fora da grade são rejeitados; a tolerância de representação binária não apaga intervalos ou reduz requisitos de duração/agenda.
+- Baliza temporal adicional: o catálogo exige gap diário positivo de recomposição. Catálogos ininterruptos 0–24h são recusados antes de planejar/auditar; o objetivo de colunas diárias não certifica continuidade de uma interrupção através da meia-noite.
 ## Artefatos e reprodução
 
-`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `reports/revalidation_20261029/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.
+`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `reports/revalidation_REV04_20261029/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.
 Consulte também AUDITORIA_DOCUMENTAL_D07.md, MATRIZ_ADERENCIA_OFICIAL_D07.md, AUDITORIA_OTIMIZADOR_D07.md e REVISAO_INDEPENDENTE_NUCLEO_D07.md.

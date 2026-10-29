@@ -1,0 +1,3311 @@
+{
+  "scenario_id": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+  "split": "EVAL",
+  "seed": 202603,
+  "regime_description": "Serviços com liberação temporal defasada (ready_at=2) e precedência técnica; esperar pelo dia 2 permite acoplar os serviços em janela única sem reincidência.",
+  "decision_day": 0,
+  "network": {
+    "network_id": "CEMIG_D07_REF_MULTIFEEDER_13K8V",
+    "version": "2026.10.28-rev2",
+    "valid_from_day": 0,
+    "coordinate_system": "CARTESIAN_KM",
+    "origin": "Rede de Referência Sintética Multi-Alimentador 13,8 kV (3 alimentadores, 15 barras, 9 chaves NF/NA, 14 ativos em barras e trechos, 198 consumidores)",
+    "license": "CC-BY-4.0 (Demonstrador Científico Independente KGP - Desafio 07)",
+    "changelog": [
+      "2026-10-28 (rev1): Criação da rede multi-alimentador com interligação NA (SW_TIE_12) e ramal bifásico com GD.",
+      "2026-10-28 (rev2): Inclusão de ativo vinculado a trecho (AST_BR_A1_23 em BR_A1_23) e validação conservadora de extremidades."
+    ],
+    "nodes": {
+      "SUB_01": {
+        "node_id": "SUB_01",
+        "name": "Subestação SE-1 (Fonte F1)",
+        "feeder_id": "F1",
+        "x": 0.0,
+        "y": 1.0,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": true,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 0.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A1_1": {
+        "node_id": "N_A1_1",
+        "name": "Barra Tronco F1-1",
+        "feeder_id": "F1",
+        "x": 0.8,
+        "y": 1.0,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 120.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A1_2": {
+        "node_id": "N_A1_2",
+        "name": "Barra Tronco F1-2",
+        "feeder_id": "F1",
+        "x": 1.5,
+        "y": 1.0,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 180.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A1_3": {
+        "node_id": "N_A1_3",
+        "name": "Barra Meio F1-3",
+        "feeder_id": "F1",
+        "x": 3.4,
+        "y": 1.0,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 160.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A1_4": {
+        "node_id": "N_A1_4",
+        "name": "Barra Jusante F1-4",
+        "feeder_id": "F1",
+        "x": 4.2,
+        "y": 1.0,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 140.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A1_5": {
+        "node_id": "N_A1_5",
+        "name": "Barra Fim F1-5 (Ramal AB)",
+        "feeder_id": "F1",
+        "x": 4.9,
+        "y": 1.1,
+        "phases": [
+          "A",
+          "B"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 90.0,
+        "distributed_gen_kw": 45.0
+      },
+      "SUB_02": {
+        "node_id": "SUB_02",
+        "name": "Subestação SE-2 (Fonte F2)",
+        "feeder_id": "F2",
+        "x": 0.0,
+        "y": 1.25,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": true,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 0.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A2_1": {
+        "node_id": "N_A2_1",
+        "name": "Barra Tronco F2-1",
+        "feeder_id": "F2",
+        "x": 0.8,
+        "y": 1.22,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 130.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A2_2": {
+        "node_id": "N_A2_2",
+        "name": "Barra Paralela F2-2",
+        "feeder_id": "F2",
+        "x": 1.5,
+        "y": 1.2,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 170.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A2_3": {
+        "node_id": "N_A2_3",
+        "name": "Barra Meio F2-3",
+        "feeder_id": "F2",
+        "x": 2.9,
+        "y": 1.8,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 150.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A2_4": {
+        "node_id": "N_A2_4",
+        "name": "Barra Interligação F2-4",
+        "feeder_id": "F2",
+        "x": 4.1,
+        "y": 1.6,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 110.0,
+        "distributed_gen_kw": 0.0
+      },
+      "SUB_03": {
+        "node_id": "SUB_03",
+        "name": "Subestação SE-3 (Fonte F3)",
+        "feeder_id": "F3",
+        "x": 0.0,
+        "y": -1.5,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": true,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 0.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A3_1": {
+        "node_id": "N_A3_1",
+        "name": "Barra Tronco F3-1",
+        "feeder_id": "F3",
+        "x": 1.2,
+        "y": -1.5,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 140.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A3_2": {
+        "node_id": "N_A3_2",
+        "name": "Barra Meio F3-2",
+        "feeder_id": "F3",
+        "x": 2.8,
+        "y": -1.5,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 160.0,
+        "distributed_gen_kw": 0.0
+      },
+      "N_A3_3": {
+        "node_id": "N_A3_3",
+        "name": "Barra Fim F3-3",
+        "feeder_id": "F3",
+        "x": 4.4,
+        "y": -1.5,
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "is_source": false,
+        "in_service": true,
+        "nominal_voltage_kv": 13.8,
+        "load_kw": 100.0,
+        "distributed_gen_kw": 0.0
+      }
+    },
+    "branches": {
+      "BR_A1_01": {
+        "branch_id": "BR_A1_01",
+        "from_node": "SUB_01",
+        "to_node": "N_A1_1",
+        "feeder_id": "F1",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.08,
+        "x_ohm": 0.12,
+        "max_capacity_kw": 4500.0,
+        "length_km": 0.8
+      },
+      "BR_A1_12": {
+        "branch_id": "BR_A1_12",
+        "from_node": "N_A1_1",
+        "to_node": "N_A1_2",
+        "feeder_id": "F1",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.1,
+        "x_ohm": 0.15,
+        "max_capacity_kw": 4200.0,
+        "length_km": 0.7
+      },
+      "BR_A1_23": {
+        "branch_id": "BR_A1_23",
+        "from_node": "N_A1_2",
+        "to_node": "N_A1_3",
+        "feeder_id": "F1",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.22,
+        "x_ohm": 0.28,
+        "max_capacity_kw": 3800.0,
+        "length_km": 1.9
+      },
+      "BR_A1_34": {
+        "branch_id": "BR_A1_34",
+        "from_node": "N_A1_3",
+        "to_node": "N_A1_4",
+        "feeder_id": "F1",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.12,
+        "x_ohm": 0.16,
+        "max_capacity_kw": 3500.0,
+        "length_km": 0.8
+      },
+      "BR_A1_45": {
+        "branch_id": "BR_A1_45",
+        "from_node": "N_A1_4",
+        "to_node": "N_A1_5",
+        "feeder_id": "F1",
+        "phases": [
+          "A",
+          "B"
+        ],
+        "in_service": true,
+        "r_ohm": 0.18,
+        "x_ohm": 0.2,
+        "max_capacity_kw": 2200.0,
+        "length_km": 0.7
+      },
+      "BR_A2_01": {
+        "branch_id": "BR_A2_01",
+        "from_node": "SUB_02",
+        "to_node": "N_A2_1",
+        "feeder_id": "F2",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.08,
+        "x_ohm": 0.12,
+        "max_capacity_kw": 4500.0,
+        "length_km": 0.8
+      },
+      "BR_A2_12": {
+        "branch_id": "BR_A2_12",
+        "from_node": "N_A2_1",
+        "to_node": "N_A2_2",
+        "feeder_id": "F2",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.1,
+        "x_ohm": 0.14,
+        "max_capacity_kw": 4200.0,
+        "length_km": 0.7
+      },
+      "BR_A2_23": {
+        "branch_id": "BR_A2_23",
+        "from_node": "N_A2_2",
+        "to_node": "N_A2_3",
+        "feeder_id": "F2",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.18,
+        "x_ohm": 0.22,
+        "max_capacity_kw": 3800.0,
+        "length_km": 1.5
+      },
+      "BR_A2_34": {
+        "branch_id": "BR_A2_34",
+        "from_node": "N_A2_3",
+        "to_node": "N_A2_4",
+        "feeder_id": "F2",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.15,
+        "x_ohm": 0.19,
+        "max_capacity_kw": 3600.0,
+        "length_km": 1.3
+      },
+      "BR_TIE_12": {
+        "branch_id": "BR_TIE_12",
+        "from_node": "N_A2_4",
+        "to_node": "N_A1_4",
+        "feeder_id": "F1_F2",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.14,
+        "x_ohm": 0.18,
+        "max_capacity_kw": 3200.0,
+        "length_km": 0.6
+      },
+      "BR_A3_01": {
+        "branch_id": "BR_A3_01",
+        "from_node": "SUB_03",
+        "to_node": "N_A3_1",
+        "feeder_id": "F3",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.09,
+        "x_ohm": 0.13,
+        "max_capacity_kw": 4200.0,
+        "length_km": 1.2
+      },
+      "BR_A3_12": {
+        "branch_id": "BR_A3_12",
+        "from_node": "N_A3_1",
+        "to_node": "N_A3_2",
+        "feeder_id": "F3",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.16,
+        "x_ohm": 0.21,
+        "max_capacity_kw": 3800.0,
+        "length_km": 1.6
+      },
+      "BR_A3_23": {
+        "branch_id": "BR_A3_23",
+        "from_node": "N_A3_2",
+        "to_node": "N_A3_3",
+        "feeder_id": "F3",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "r_ohm": 0.18,
+        "x_ohm": 0.22,
+        "max_capacity_kw": 3200.0,
+        "length_km": 1.6
+      }
+    },
+    "switches": {
+      "SW_A1_1": {
+        "switch_id": "SW_A1_1",
+        "branch_id": "BR_A1_12",
+        "normal_state": "CLOSED",
+        "current_state": "CLOSED",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      },
+      "SW_A1_2": {
+        "switch_id": "SW_A1_2",
+        "branch_id": "BR_A1_23",
+        "normal_state": "CLOSED",
+        "current_state": "CLOSED",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      },
+      "SW_A1_3": {
+        "switch_id": "SW_A1_3",
+        "branch_id": "BR_A1_34",
+        "normal_state": "CLOSED",
+        "current_state": "CLOSED",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      },
+      "SW_A1_4": {
+        "switch_id": "SW_A1_4",
+        "branch_id": "BR_A1_45",
+        "normal_state": "CLOSED",
+        "current_state": "CLOSED",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      },
+      "SW_A2_1": {
+        "switch_id": "SW_A2_1",
+        "branch_id": "BR_A2_12",
+        "normal_state": "CLOSED",
+        "current_state": "CLOSED",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      },
+      "SW_A2_2": {
+        "switch_id": "SW_A2_2",
+        "branch_id": "BR_A2_23",
+        "normal_state": "CLOSED",
+        "current_state": "CLOSED",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      },
+      "SW_TIE_12": {
+        "switch_id": "SW_TIE_12",
+        "branch_id": "BR_TIE_12",
+        "normal_state": "OPEN",
+        "current_state": "OPEN",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      },
+      "SW_A3_1": {
+        "switch_id": "SW_A3_1",
+        "branch_id": "BR_A3_12",
+        "normal_state": "CLOSED",
+        "current_state": "CLOSED",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      },
+      "SW_A3_2": {
+        "switch_id": "SW_A3_2",
+        "branch_id": "BR_A3_23",
+        "normal_state": "CLOSED",
+        "current_state": "CLOSED",
+        "is_maneuverable": true,
+        "maneuver_duration_hours": 0.15,
+        "in_service": true
+      }
+    },
+    "assets": {
+      "AST_A1_2A": {
+        "asset_id": "AST_A1_2A",
+        "node_id": "N_A1_2",
+        "branch_id": null,
+        "feeder_id": "F1",
+        "asset_type": "ESTRUTURA_MT",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 1.5,
+        "y": 1.0
+      },
+      "AST_A1_2B": {
+        "asset_id": "AST_A1_2B",
+        "node_id": "N_A1_2",
+        "branch_id": null,
+        "feeder_id": "F1",
+        "asset_type": "TRANSFORMADOR",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 1.55,
+        "y": 1.02
+      },
+      "AST_BR_A1_23": {
+        "asset_id": "AST_BR_A1_23",
+        "node_id": null,
+        "branch_id": "BR_A1_23",
+        "feeder_id": "F1",
+        "asset_type": "VAO_REDE_PODA",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 2.45,
+        "y": 1.0
+      },
+      "AST_A1_3A": {
+        "asset_id": "AST_A1_3A",
+        "node_id": "N_A1_3",
+        "branch_id": null,
+        "feeder_id": "F1",
+        "asset_type": "ESTRUTURA_MT",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 3.4,
+        "y": 1.0
+      },
+      "AST_A1_3B": {
+        "asset_id": "AST_A1_3B",
+        "node_id": "N_A1_3",
+        "branch_id": null,
+        "feeder_id": "F1",
+        "asset_type": "TRANSFORMADOR",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 3.45,
+        "y": 0.98
+      },
+      "AST_A1_4A": {
+        "asset_id": "AST_A1_4A",
+        "node_id": "N_A1_4",
+        "branch_id": null,
+        "feeder_id": "F1",
+        "asset_type": "REGULADOR_TENSAO",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 4.2,
+        "y": 1.0
+      },
+      "AST_A1_5A": {
+        "asset_id": "AST_A1_5A",
+        "node_id": "N_A1_5",
+        "branch_id": null,
+        "feeder_id": "F1",
+        "asset_type": "VAO_REDE_PODA",
+        "phases": [
+          "A",
+          "B"
+        ],
+        "in_service": true,
+        "x": 4.9,
+        "y": 1.1
+      },
+      "AST_A1_5B": {
+        "asset_id": "AST_A1_5B",
+        "node_id": "N_A1_5",
+        "branch_id": null,
+        "feeder_id": "F1",
+        "asset_type": "TRANSFORMADOR",
+        "phases": [
+          "A",
+          "B"
+        ],
+        "in_service": true,
+        "x": 4.85,
+        "y": 1.08
+      },
+      "AST_A2_2A": {
+        "asset_id": "AST_A2_2A",
+        "node_id": "N_A2_2",
+        "branch_id": null,
+        "feeder_id": "F2",
+        "asset_type": "ESTRUTURA_MT",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 1.5,
+        "y": 1.2
+      },
+      "AST_A2_3A": {
+        "asset_id": "AST_A2_3A",
+        "node_id": "N_A2_3",
+        "branch_id": null,
+        "feeder_id": "F2",
+        "asset_type": "VAO_REDE_PODA",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 2.9,
+        "y": 1.8
+      },
+      "AST_A2_4A": {
+        "asset_id": "AST_A2_4A",
+        "node_id": "N_A2_4",
+        "branch_id": null,
+        "feeder_id": "F2",
+        "asset_type": "TRANSFORMADOR",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 4.1,
+        "y": 1.6
+      },
+      "AST_A3_2A": {
+        "asset_id": "AST_A3_2A",
+        "node_id": "N_A3_2",
+        "branch_id": null,
+        "feeder_id": "F3",
+        "asset_type": "ESTRUTURA_MT",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 2.8,
+        "y": -1.5
+      },
+      "AST_A3_3A": {
+        "asset_id": "AST_A3_3A",
+        "node_id": "N_A3_3",
+        "branch_id": null,
+        "feeder_id": "F3",
+        "asset_type": "TRANSFORMADOR",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 4.4,
+        "y": -1.5
+      },
+      "AST_A3_3B": {
+        "asset_id": "AST_A3_3B",
+        "node_id": "N_A3_3",
+        "branch_id": null,
+        "feeder_id": "F3",
+        "asset_type": "VAO_REDE_PODA",
+        "phases": [
+          "A",
+          "B",
+          "C"
+        ],
+        "in_service": true,
+        "x": 4.3,
+        "y": -1.48
+      }
+    },
+    "consumers": {
+      "CONS_N_A1_1_01": {
+        "consumer_id": "CONS_N_A1_1_01",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_02": {
+        "consumer_id": "CONS_N_A1_1_02",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_03": {
+        "consumer_id": "CONS_N_A1_1_03",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_04": {
+        "consumer_id": "CONS_N_A1_1_04",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_05": {
+        "consumer_id": "CONS_N_A1_1_05",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_06": {
+        "consumer_id": "CONS_N_A1_1_06",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_07": {
+        "consumer_id": "CONS_N_A1_1_07",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_08": {
+        "consumer_id": "CONS_N_A1_1_08",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_09": {
+        "consumer_id": "CONS_N_A1_1_09",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_1_10": {
+        "consumer_id": "CONS_N_A1_1_10",
+        "node_id": "N_A1_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_01": {
+        "consumer_id": "CONS_N_A1_2_01",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_02": {
+        "consumer_id": "CONS_N_A1_2_02",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_03": {
+        "consumer_id": "CONS_N_A1_2_03",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_04": {
+        "consumer_id": "CONS_N_A1_2_04",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_05": {
+        "consumer_id": "CONS_N_A1_2_05",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_06": {
+        "consumer_id": "CONS_N_A1_2_06",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_07": {
+        "consumer_id": "CONS_N_A1_2_07",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_08": {
+        "consumer_id": "CONS_N_A1_2_08",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_09": {
+        "consumer_id": "CONS_N_A1_2_09",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_10": {
+        "consumer_id": "CONS_N_A1_2_10",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_11": {
+        "consumer_id": "CONS_N_A1_2_11",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_12": {
+        "consumer_id": "CONS_N_A1_2_12",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_13": {
+        "consumer_id": "CONS_N_A1_2_13",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_14": {
+        "consumer_id": "CONS_N_A1_2_14",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_15": {
+        "consumer_id": "CONS_N_A1_2_15",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_16": {
+        "consumer_id": "CONS_N_A1_2_16",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_17": {
+        "consumer_id": "CONS_N_A1_2_17",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_18": {
+        "consumer_id": "CONS_N_A1_2_18",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_19": {
+        "consumer_id": "CONS_N_A1_2_19",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_20": {
+        "consumer_id": "CONS_N_A1_2_20",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_21": {
+        "consumer_id": "CONS_N_A1_2_21",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_2_22": {
+        "consumer_id": "CONS_N_A1_2_22",
+        "node_id": "N_A1_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_01": {
+        "consumer_id": "CONS_N_A1_3_01",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_02": {
+        "consumer_id": "CONS_N_A1_3_02",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_03": {
+        "consumer_id": "CONS_N_A1_3_03",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_04": {
+        "consumer_id": "CONS_N_A1_3_04",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_05": {
+        "consumer_id": "CONS_N_A1_3_05",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_06": {
+        "consumer_id": "CONS_N_A1_3_06",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_07": {
+        "consumer_id": "CONS_N_A1_3_07",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_08": {
+        "consumer_id": "CONS_N_A1_3_08",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_09": {
+        "consumer_id": "CONS_N_A1_3_09",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_10": {
+        "consumer_id": "CONS_N_A1_3_10",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_11": {
+        "consumer_id": "CONS_N_A1_3_11",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_12": {
+        "consumer_id": "CONS_N_A1_3_12",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_13": {
+        "consumer_id": "CONS_N_A1_3_13",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_14": {
+        "consumer_id": "CONS_N_A1_3_14",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_15": {
+        "consumer_id": "CONS_N_A1_3_15",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_16": {
+        "consumer_id": "CONS_N_A1_3_16",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_17": {
+        "consumer_id": "CONS_N_A1_3_17",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_18": {
+        "consumer_id": "CONS_N_A1_3_18",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_19": {
+        "consumer_id": "CONS_N_A1_3_19",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_3_20": {
+        "consumer_id": "CONS_N_A1_3_20",
+        "node_id": "N_A1_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_01": {
+        "consumer_id": "CONS_N_A1_4_01",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_02": {
+        "consumer_id": "CONS_N_A1_4_02",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_03": {
+        "consumer_id": "CONS_N_A1_4_03",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_04": {
+        "consumer_id": "CONS_N_A1_4_04",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_05": {
+        "consumer_id": "CONS_N_A1_4_05",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_06": {
+        "consumer_id": "CONS_N_A1_4_06",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_07": {
+        "consumer_id": "CONS_N_A1_4_07",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_08": {
+        "consumer_id": "CONS_N_A1_4_08",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_09": {
+        "consumer_id": "CONS_N_A1_4_09",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_10": {
+        "consumer_id": "CONS_N_A1_4_10",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_11": {
+        "consumer_id": "CONS_N_A1_4_11",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_12": {
+        "consumer_id": "CONS_N_A1_4_12",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_13": {
+        "consumer_id": "CONS_N_A1_4_13",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_14": {
+        "consumer_id": "CONS_N_A1_4_14",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_15": {
+        "consumer_id": "CONS_N_A1_4_15",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_16": {
+        "consumer_id": "CONS_N_A1_4_16",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_17": {
+        "consumer_id": "CONS_N_A1_4_17",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_4_18": {
+        "consumer_id": "CONS_N_A1_4_18",
+        "node_id": "N_A1_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_01": {
+        "consumer_id": "CONS_N_A1_5_01",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_02": {
+        "consumer_id": "CONS_N_A1_5_02",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_03": {
+        "consumer_id": "CONS_N_A1_5_03",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_04": {
+        "consumer_id": "CONS_N_A1_5_04",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_05": {
+        "consumer_id": "CONS_N_A1_5_05",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_06": {
+        "consumer_id": "CONS_N_A1_5_06",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_07": {
+        "consumer_id": "CONS_N_A1_5_07",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_08": {
+        "consumer_id": "CONS_N_A1_5_08",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_09": {
+        "consumer_id": "CONS_N_A1_5_09",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_10": {
+        "consumer_id": "CONS_N_A1_5_10",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_11": {
+        "consumer_id": "CONS_N_A1_5_11",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A1_5_12": {
+        "consumer_id": "CONS_N_A1_5_12",
+        "node_id": "N_A1_5",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_01": {
+        "consumer_id": "CONS_N_A2_1_01",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_02": {
+        "consumer_id": "CONS_N_A2_1_02",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_03": {
+        "consumer_id": "CONS_N_A2_1_03",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_04": {
+        "consumer_id": "CONS_N_A2_1_04",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_05": {
+        "consumer_id": "CONS_N_A2_1_05",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_06": {
+        "consumer_id": "CONS_N_A2_1_06",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_07": {
+        "consumer_id": "CONS_N_A2_1_07",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_08": {
+        "consumer_id": "CONS_N_A2_1_08",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_09": {
+        "consumer_id": "CONS_N_A2_1_09",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_10": {
+        "consumer_id": "CONS_N_A2_1_10",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_11": {
+        "consumer_id": "CONS_N_A2_1_11",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_1_12": {
+        "consumer_id": "CONS_N_A2_1_12",
+        "node_id": "N_A2_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_01": {
+        "consumer_id": "CONS_N_A2_2_01",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_02": {
+        "consumer_id": "CONS_N_A2_2_02",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_03": {
+        "consumer_id": "CONS_N_A2_2_03",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_04": {
+        "consumer_id": "CONS_N_A2_2_04",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_05": {
+        "consumer_id": "CONS_N_A2_2_05",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_06": {
+        "consumer_id": "CONS_N_A2_2_06",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_07": {
+        "consumer_id": "CONS_N_A2_2_07",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_08": {
+        "consumer_id": "CONS_N_A2_2_08",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_09": {
+        "consumer_id": "CONS_N_A2_2_09",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_10": {
+        "consumer_id": "CONS_N_A2_2_10",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_11": {
+        "consumer_id": "CONS_N_A2_2_11",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_12": {
+        "consumer_id": "CONS_N_A2_2_12",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_13": {
+        "consumer_id": "CONS_N_A2_2_13",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_14": {
+        "consumer_id": "CONS_N_A2_2_14",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_15": {
+        "consumer_id": "CONS_N_A2_2_15",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_16": {
+        "consumer_id": "CONS_N_A2_2_16",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_17": {
+        "consumer_id": "CONS_N_A2_2_17",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_18": {
+        "consumer_id": "CONS_N_A2_2_18",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_19": {
+        "consumer_id": "CONS_N_A2_2_19",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_20": {
+        "consumer_id": "CONS_N_A2_2_20",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_21": {
+        "consumer_id": "CONS_N_A2_2_21",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_22": {
+        "consumer_id": "CONS_N_A2_2_22",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_23": {
+        "consumer_id": "CONS_N_A2_2_23",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_2_24": {
+        "consumer_id": "CONS_N_A2_2_24",
+        "node_id": "N_A2_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_01": {
+        "consumer_id": "CONS_N_A2_3_01",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_02": {
+        "consumer_id": "CONS_N_A2_3_02",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_03": {
+        "consumer_id": "CONS_N_A2_3_03",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_04": {
+        "consumer_id": "CONS_N_A2_3_04",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_05": {
+        "consumer_id": "CONS_N_A2_3_05",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_06": {
+        "consumer_id": "CONS_N_A2_3_06",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_07": {
+        "consumer_id": "CONS_N_A2_3_07",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_08": {
+        "consumer_id": "CONS_N_A2_3_08",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_09": {
+        "consumer_id": "CONS_N_A2_3_09",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_10": {
+        "consumer_id": "CONS_N_A2_3_10",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_11": {
+        "consumer_id": "CONS_N_A2_3_11",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_12": {
+        "consumer_id": "CONS_N_A2_3_12",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_13": {
+        "consumer_id": "CONS_N_A2_3_13",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_14": {
+        "consumer_id": "CONS_N_A2_3_14",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_15": {
+        "consumer_id": "CONS_N_A2_3_15",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_16": {
+        "consumer_id": "CONS_N_A2_3_16",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_17": {
+        "consumer_id": "CONS_N_A2_3_17",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_3_18": {
+        "consumer_id": "CONS_N_A2_3_18",
+        "node_id": "N_A2_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_01": {
+        "consumer_id": "CONS_N_A2_4_01",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_02": {
+        "consumer_id": "CONS_N_A2_4_02",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_03": {
+        "consumer_id": "CONS_N_A2_4_03",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_04": {
+        "consumer_id": "CONS_N_A2_4_04",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_05": {
+        "consumer_id": "CONS_N_A2_4_05",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_06": {
+        "consumer_id": "CONS_N_A2_4_06",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_07": {
+        "consumer_id": "CONS_N_A2_4_07",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_08": {
+        "consumer_id": "CONS_N_A2_4_08",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_09": {
+        "consumer_id": "CONS_N_A2_4_09",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_10": {
+        "consumer_id": "CONS_N_A2_4_10",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_11": {
+        "consumer_id": "CONS_N_A2_4_11",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_12": {
+        "consumer_id": "CONS_N_A2_4_12",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_13": {
+        "consumer_id": "CONS_N_A2_4_13",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A2_4_14": {
+        "consumer_id": "CONS_N_A2_4_14",
+        "node_id": "N_A2_4",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_01": {
+        "consumer_id": "CONS_N_A3_1_01",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_02": {
+        "consumer_id": "CONS_N_A3_1_02",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_03": {
+        "consumer_id": "CONS_N_A3_1_03",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_04": {
+        "consumer_id": "CONS_N_A3_1_04",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_05": {
+        "consumer_id": "CONS_N_A3_1_05",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_06": {
+        "consumer_id": "CONS_N_A3_1_06",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_07": {
+        "consumer_id": "CONS_N_A3_1_07",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_08": {
+        "consumer_id": "CONS_N_A3_1_08",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_09": {
+        "consumer_id": "CONS_N_A3_1_09",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_10": {
+        "consumer_id": "CONS_N_A3_1_10",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_11": {
+        "consumer_id": "CONS_N_A3_1_11",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_1_12": {
+        "consumer_id": "CONS_N_A3_1_12",
+        "node_id": "N_A3_1",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_01": {
+        "consumer_id": "CONS_N_A3_2_01",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_02": {
+        "consumer_id": "CONS_N_A3_2_02",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_03": {
+        "consumer_id": "CONS_N_A3_2_03",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_04": {
+        "consumer_id": "CONS_N_A3_2_04",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_05": {
+        "consumer_id": "CONS_N_A3_2_05",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_06": {
+        "consumer_id": "CONS_N_A3_2_06",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_07": {
+        "consumer_id": "CONS_N_A3_2_07",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_08": {
+        "consumer_id": "CONS_N_A3_2_08",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_09": {
+        "consumer_id": "CONS_N_A3_2_09",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_10": {
+        "consumer_id": "CONS_N_A3_2_10",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_11": {
+        "consumer_id": "CONS_N_A3_2_11",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_12": {
+        "consumer_id": "CONS_N_A3_2_12",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_13": {
+        "consumer_id": "CONS_N_A3_2_13",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_14": {
+        "consumer_id": "CONS_N_A3_2_14",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_15": {
+        "consumer_id": "CONS_N_A3_2_15",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_16": {
+        "consumer_id": "CONS_N_A3_2_16",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_17": {
+        "consumer_id": "CONS_N_A3_2_17",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_18": {
+        "consumer_id": "CONS_N_A3_2_18",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_19": {
+        "consumer_id": "CONS_N_A3_2_19",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_2_20": {
+        "consumer_id": "CONS_N_A3_2_20",
+        "node_id": "N_A3_2",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_01": {
+        "consumer_id": "CONS_N_A3_3_01",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 2,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_02": {
+        "consumer_id": "CONS_N_A3_3_02",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_03": {
+        "consumer_id": "CONS_N_A3_3_03",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_04": {
+        "consumer_id": "CONS_N_A3_3_04",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_05": {
+        "consumer_id": "CONS_N_A3_3_05",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_06": {
+        "consumer_id": "CONS_N_A3_3_06",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_07": {
+        "consumer_id": "CONS_N_A3_3_07",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_08": {
+        "consumer_id": "CONS_N_A3_3_08",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_09": {
+        "consumer_id": "CONS_N_A3_3_09",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_10": {
+        "consumer_id": "CONS_N_A3_3_10",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_11": {
+        "consumer_id": "CONS_N_A3_3_11",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_12": {
+        "consumer_id": "CONS_N_A3_3_12",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_13": {
+        "consumer_id": "CONS_N_A3_3_13",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_14": {
+        "consumer_id": "CONS_N_A3_3_14",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "B",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_15": {
+        "consumer_id": "CONS_N_A3_3_15",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "C",
+        "consumer_class": "RESIDENCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 1.8,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      },
+      "CONS_N_A3_3_16": {
+        "consumer_id": "CONS_N_A3_3_16",
+        "node_id": "N_A3_3",
+        "asset_id": null,
+        "phase": "A",
+        "consumer_class": "COMERCIAL",
+        "criticality": 1,
+        "avg_demand_kw": 3.2,
+        "dic_limit_hours": null,
+        "fic_limit_count": null
+      }
+    },
+    "isolation_zones": {
+      "Z_F1_TRUNK_TRANSFER": {
+        "zone_id": "Z_F1_TRUNK_TRANSFER",
+        "name": "Isolamento Tronco F1 (N_A1_2 e N_A1_3) com socorro NA para N_A1_4/N_A1_5",
+        "feeder_id": "F1",
+        "open_switches": [
+          "SW_A1_1",
+          "SW_A1_3"
+        ],
+        "tie_switches_closed": [
+          "SW_TIE_12"
+        ],
+        "prep_duration_hours": 0.3,
+        "recomp_duration_hours": 0.25,
+        "requires_transfer_validation": true,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      },
+      "Z_F1_FULL_RADIAL": {
+        "zone_id": "Z_F1_FULL_RADIAL",
+        "name": "Desligamento Radial Completo F1 a jusante de SW_A1_1 (sem socorro)",
+        "feeder_id": "F1",
+        "open_switches": [
+          "SW_A1_1"
+        ],
+        "tie_switches_closed": [],
+        "prep_duration_hours": 0.2,
+        "recomp_duration_hours": 0.2,
+        "requires_transfer_validation": false,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      },
+      "Z_F1_MID_SECTION": {
+        "zone_id": "Z_F1_MID_SECTION",
+        "name": "Isolamento Seção Média F1 (N_A1_3) com socorro NA para N_A1_4/N_A1_5",
+        "feeder_id": "F1",
+        "open_switches": [
+          "SW_A1_2",
+          "SW_A1_3"
+        ],
+        "tie_switches_closed": [
+          "SW_TIE_12"
+        ],
+        "prep_duration_hours": 0.3,
+        "recomp_duration_hours": 0.25,
+        "requires_transfer_validation": true,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      },
+      "Z_F1_TAIL_ONLY": {
+        "zone_id": "Z_F1_TAIL_ONLY",
+        "name": "Isolamento Fim de Linha F1 (N_A1_5)",
+        "feeder_id": "F1",
+        "open_switches": [
+          "SW_A1_4"
+        ],
+        "tie_switches_closed": [],
+        "prep_duration_hours": 0.2,
+        "recomp_duration_hours": 0.2,
+        "requires_transfer_validation": false,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      },
+      "Z_F1_DISTAL": {
+        "zone_id": "Z_F1_DISTAL",
+        "name": "Isolamento Seção Distal F1 (N_A1_4 e N_A1_5)",
+        "feeder_id": "F1",
+        "open_switches": [
+          "SW_A1_3"
+        ],
+        "tie_switches_closed": [],
+        "prep_duration_hours": 0.2,
+        "recomp_duration_hours": 0.2,
+        "requires_transfer_validation": false,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      },
+      "Z_F2_TRUNK": {
+        "zone_id": "Z_F2_TRUNK",
+        "name": "Isolamento Tronco F2 (N_A2_2 a N_A2_4)",
+        "feeder_id": "F2",
+        "open_switches": [
+          "SW_A2_1"
+        ],
+        "tie_switches_closed": [],
+        "prep_duration_hours": 0.2,
+        "recomp_duration_hours": 0.2,
+        "requires_transfer_validation": false,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      },
+      "Z_F2_DISTAL": {
+        "zone_id": "Z_F2_DISTAL",
+        "name": "Isolamento Seção Distal F2 (N_A2_3 e N_A2_4)",
+        "feeder_id": "F2",
+        "open_switches": [
+          "SW_A2_2"
+        ],
+        "tie_switches_closed": [],
+        "prep_duration_hours": 0.2,
+        "recomp_duration_hours": 0.2,
+        "requires_transfer_validation": false,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      },
+      "Z_F3_MID_TAIL": {
+        "zone_id": "Z_F3_MID_TAIL",
+        "name": "Isolamento Tronco Médio/Fim F3 (N_A3_2 e N_A3_3)",
+        "feeder_id": "F3",
+        "open_switches": [
+          "SW_A3_1"
+        ],
+        "tie_switches_closed": [],
+        "prep_duration_hours": 0.2,
+        "recomp_duration_hours": 0.2,
+        "requires_transfer_validation": false,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      },
+      "Z_F3_TAIL_ONLY": {
+        "zone_id": "Z_F3_TAIL_ONLY",
+        "name": "Isolamento Fim de Linha F3 (N_A3_3)",
+        "feeder_id": "F3",
+        "open_switches": [
+          "SW_A3_2"
+        ],
+        "tie_switches_closed": [],
+        "prep_duration_hours": 0.2,
+        "recomp_duration_hours": 0.2,
+        "requires_transfer_validation": false,
+        "transfer_params_complete": true,
+        "max_transfer_voltage_drop_pct": 5.0
+      }
+    },
+    "allow_dg_islanding": false
+  },
+  "services": [
+    {
+      "service_id": "S31_F3_PREP",
+      "title": "Substituição de estrutura base em N_A3_2",
+      "service_type": "OBRA",
+      "target_assets": [
+        "AST_A3_2A"
+      ],
+      "mandatory": true,
+      "created_at_day": 0,
+      "ready_at_day": 1,
+      "deadline_day": 4,
+      "duration_hours": 2.0,
+      "required_skills": [
+        "MT_PESADA"
+      ],
+      "required_crews_count": 1,
+      "required_materials": {
+        "CRUZETA_CONCRETO": 2.0
+      },
+      "precedence_service_ids": [],
+      "requires_deenergized": true,
+      "compatible_zone_ids": [],
+      "allow_simultaneous_in_zone": true,
+      "prep_hours": 0.2,
+      "recomp_hours": 0.15,
+      "priority": 1,
+      "replaces_asset_ids": [],
+      "maintains_asset_ids": [],
+      "scope_status": "ACTIVE",
+      "x": 2.8,
+      "y": -1.5
+    },
+    {
+      "service_id": "S32_F3_TRAFO",
+      "title": "Reconexão e ajuste de transformador em N_A3_3 (liberado dia 2)",
+      "service_type": "TRANSFORMADOR",
+      "target_assets": [
+        "AST_A3_3A"
+      ],
+      "mandatory": true,
+      "created_at_day": 0,
+      "ready_at_day": 2,
+      "deadline_day": 4,
+      "duration_hours": 2.0,
+      "required_skills": [
+        "TRAFO"
+      ],
+      "required_crews_count": 1,
+      "required_materials": {
+        "KIT_TRAFO": 1.0
+      },
+      "precedence_service_ids": [
+        "S31_F3_PREP"
+      ],
+      "requires_deenergized": true,
+      "compatible_zone_ids": [],
+      "allow_simultaneous_in_zone": true,
+      "prep_hours": 0.2,
+      "recomp_hours": 0.15,
+      "priority": 2,
+      "replaces_asset_ids": [],
+      "maintains_asset_ids": [],
+      "scope_status": "ACTIVE",
+      "x": 4.4,
+      "y": -1.5
+    },
+    {
+      "service_id": "S33_F3_PODA",
+      "title": "Poda de segurança no vão N_A3_3 (liberado dia 2)",
+      "service_type": "PODA",
+      "target_assets": [
+        "AST_A3_3B"
+      ],
+      "mandatory": true,
+      "created_at_day": 0,
+      "ready_at_day": 2,
+      "deadline_day": 4,
+      "duration_hours": 1.8,
+      "required_skills": [
+        "PODA"
+      ],
+      "required_crews_count": 1,
+      "required_materials": {
+        "ELO_FUSIVEL": 2.0
+      },
+      "precedence_service_ids": [],
+      "requires_deenergized": true,
+      "compatible_zone_ids": [],
+      "allow_simultaneous_in_zone": true,
+      "prep_hours": 0.2,
+      "recomp_hours": 0.15,
+      "priority": 2,
+      "replaces_asset_ids": [],
+      "maintains_asset_ids": [],
+      "scope_status": "ACTIVE",
+      "x": 4.3,
+      "y": -1.48
+    },
+    {
+      "service_id": "S34_F1_TAIL",
+      "title": "Poda no ramal final de F1 (N_A1_5, liberado dia 2)",
+      "service_type": "PODA",
+      "target_assets": [
+        "AST_A1_5A"
+      ],
+      "mandatory": true,
+      "created_at_day": 0,
+      "ready_at_day": 2,
+      "deadline_day": 5,
+      "duration_hours": 1.5,
+      "required_skills": [
+        "PODA"
+      ],
+      "required_crews_count": 1,
+      "required_materials": {
+        "CONECTOR_CUNHA": 2.0
+      },
+      "precedence_service_ids": [],
+      "requires_deenergized": true,
+      "compatible_zone_ids": [],
+      "allow_simultaneous_in_zone": true,
+      "prep_hours": 0.2,
+      "recomp_hours": 0.15,
+      "priority": 3,
+      "replaces_asset_ids": [],
+      "maintains_asset_ids": [],
+      "scope_status": "ACTIVE",
+      "x": 4.9,
+      "y": 1.1
+    }
+  ],
+  "catalog": {
+    "crews": {
+      "EQ_PESADA_01": {
+        "crew_id": "EQ_PESADA_01",
+        "name": "Equipe Manutenção Pesada / Obras 01",
+        "skills": [
+          "MT_PESADA",
+          "TRAFO",
+          "MANUT_GERAL",
+          "PODA"
+        ],
+        "available_days": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "shift_start_hour": 8.0,
+        "shift_end_hour": 17.0,
+        "base_x": 0.0,
+        "base_y": 0.0,
+        "speed_kmh": 35.0,
+        "prep_hours": 0.2
+      },
+      "EQ_MANUT_02": {
+        "crew_id": "EQ_MANUT_02",
+        "name": "Equipe Manutenção e Poda 02",
+        "skills": [
+          "MANUT_GERAL",
+          "PODA",
+          "TRAFO",
+          "REGULADOR"
+        ],
+        "available_days": [
+          2,
+          3,
+          4,
+          5
+        ],
+        "shift_start_hour": 8.0,
+        "shift_end_hour": 17.0,
+        "base_x": 0.0,
+        "base_y": 0.0,
+        "speed_kmh": 35.0,
+        "prep_hours": 0.2
+      },
+      "EQ_ESPEC_03": {
+        "crew_id": "EQ_ESPEC_03",
+        "name": "Equipe Especializada Regulação / Obras 03",
+        "skills": [
+          "MT_PESADA",
+          "REGULADOR",
+          "MANUT_GERAL"
+        ],
+        "available_days": [
+          1,
+          3,
+          4,
+          5
+        ],
+        "shift_start_hour": 8.0,
+        "shift_end_hour": 17.0,
+        "base_x": 0.0,
+        "base_y": 0.0,
+        "speed_kmh": 35.0,
+        "prep_hours": 0.2
+      }
+    },
+    "materials_inventory": {
+      "ISOLADOR_15KV": 60.0,
+      "CRUZETA_CONCRETO": 25.0,
+      "CONECTOR_CUNHA": 120.0,
+      "KIT_TRAFO": 12.0,
+      "ELO_FUSIVEL": 80.0
+    },
+    "planning_days": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "window_start_hour": 8.0,
+    "window_end_hour": 17.0,
+    "max_window_duration_hours": 8.0
+  }
+}

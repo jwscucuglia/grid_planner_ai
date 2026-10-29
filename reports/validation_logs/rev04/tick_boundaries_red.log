@@ -1,0 +1,41 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+_____________ test_one_tick_missing_service_duration_is_rejected ______________
+
+    def test_one_tick_missing_service_duration_is_rejected():
+        n,jobs,c,p=timed_case(.1)
+        jobs=[replace(jobs[0],duration_hours=jobs[0].duration_hours+.0001),jobs[1]]
+>       assert not verify_plan_feasibility(n,jobs,c,p).is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='time', method_name='CUSTOM', scenario_id='time', is_feasible=True, mandatory_portfolio_comp...consumers=1, recalculated_total_interruptions=2, recalculated_completed_services=('S1', 'S2'), isolation_verified=True).is_feasible
+E        +    where FeasibilityReport(plan_id='time', method_name='CUSTOM', scenario_id='time', is_feasible=True, mandatory_portfolio_comp...consumers=1, recalculated_total_interruptions=2, recalculated_completed_services=('S1', 'S2'), isolation_verified=True) = verify_plan_feasibility(GridNetwork(network_id='time', version='test', valid_from_day=0, coordinate_system='CARTESIAN_KM', origin='Rede de Ref...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='S1', title='S1', service_type=<ServiceType.PODA: 'PODA'>, target_assets=('AS',), mandatory=T...0.0, recomp_hours=0.0, priority=1, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=0.0, y=0.0)], ResourceCatalog(crews={'S1': CrewResource(crew_id='S1', name='S1', skills=('S1',), available_days=(1,), shift_start_ho...materials_inventory={}, planning_days=(1,), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='time', method_name='CUSTOM', scenario_id='time', decision_day=0, windows=[PlannedInterruptionWi..., solver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.0, is_optimal_proven=False, metadata={}))
+
+tests\test_rev04_boundaries.py:10: AssertionError
+__________________ test_one_tick_window_overlap_is_rejected ___________________
+
+    def test_one_tick_window_overlap_is_rejected():
+        n,jobs,c,p=timed_case(-.0001)
+>       assert not verify_plan_feasibility(n,jobs,c,p).is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='time', method_name='CUSTOM', scenario_id='time', is_feasible=True, mandatory_portfolio_comp...consumers=1, recalculated_total_interruptions=1, recalculated_completed_services=('S1', 'S2'), isolation_verified=True).is_feasible
+E        +    where FeasibilityReport(plan_id='time', method_name='CUSTOM', scenario_id='time', is_feasible=True, mandatory_portfolio_comp...consumers=1, recalculated_total_interruptions=1, recalculated_completed_services=('S1', 'S2'), isolation_verified=True) = verify_plan_feasibility(GridNetwork(network_id='time', version='test', valid_from_day=0, coordinate_system='CARTESIAN_KM', origin='Rede de Ref...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='S1', title='S1', service_type=<ServiceType.PODA: 'PODA'>, target_assets=('AS',), mandatory=T...0.0, recomp_hours=0.0, priority=1, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=0.0, y=0.0)], ResourceCatalog(crews={'S1': CrewResource(crew_id='S1', name='S1', skills=('S1',), available_days=(1,), shift_start_ho...materials_inventory={}, planning_days=(1,), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='time', method_name='CUSTOM', scenario_id='time', decision_day=0, windows=[PlannedInterruptionWi..., solver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.0, is_optimal_proven=False, metadata={}))
+
+tests\test_rev04_boundaries.py:15: AssertionError
+_____________ test_one_tick_falsified_declared_travel_is_rejected _____________
+
+    def test_one_tick_falsified_declared_travel_is_rejected():
+        n,jobs,c,p=timed_case(.1)
+        w=p.windows[0]
+        iv=replace(w.crew_intervals[0],travel_hours=.0001)
+        p.windows[0]=replace(w,crew_intervals=(iv,))
+>       assert not verify_plan_feasibility(n,jobs,c,p).is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='time', method_name='CUSTOM', scenario_id='time', is_feasible=True, mandatory_portfolio_comp...consumers=1, recalculated_total_interruptions=2, recalculated_completed_services=('S1', 'S2'), isolation_verified=True).is_feasible
+E        +    where FeasibilityReport(plan_id='time', method_name='CUSTOM', scenario_id='time', is_feasible=True, mandatory_portfolio_comp...consumers=1, recalculated_total_interruptions=2, recalculated_completed_services=('S1', 'S2'), isolation_verified=True) = verify_plan_feasibility(GridNetwork(network_id='time', version='test', valid_from_day=0, coordinate_system='CARTESIAN_KM', origin='Rede de Ref...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='S1', title='S1', service_type=<ServiceType.PODA: 'PODA'>, target_assets=('AS',), mandatory=T...0.0, recomp_hours=0.0, priority=1, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=0.0, y=0.0)], ResourceCatalog(crews={'S1': CrewResource(crew_id='S1', name='S1', skills=('S1',), available_days=(1,), shift_start_ho...materials_inventory={}, planning_days=(1,), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='time', method_name='CUSTOM', scenario_id='time', decision_day=0, windows=[PlannedInterruptionWi..., solver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.0, is_optimal_proven=False, metadata={}))
+
+tests\test_rev04_boundaries.py:23: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_rev04_boundaries.py::test_one_tick_missing_service_duration_is_rejected
+FAILED tests/test_rev04_boundaries.py::test_one_tick_window_overlap_is_rejected
+FAILED tests/test_rev04_boundaries.py::test_one_tick_falsified_declared_travel_is_rejected
+3 failed in 1.54s

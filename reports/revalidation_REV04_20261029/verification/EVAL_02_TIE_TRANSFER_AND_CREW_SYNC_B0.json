@@ -1,0 +1,29 @@
+{
+  "plan_id": "PLAN_B0_EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+  "method_name": "B0",
+  "scenario_id": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 4,
+  "total_mandatory_count": 4,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "CRUZETA_CONCRETO": 2.0,
+    "KIT_TRAFO": 2.0,
+    "CONECTOR_CUNHA": 6.0
+  },
+  "recalculated_consumer_hours": 486.7,
+  "recalculated_windows_count": 4,
+  "recalculated_physical_maneuvers": 12,
+  "recalculated_repeat_consumers": 72,
+  "recalculated_unique_consumers": 88,
+  "recalculated_total_interruptions": 210,
+  "recalculated_completed_services": [
+    "S21_F1_STRUCT",
+    "S22_F1_TRAFO",
+    "S23_F1_MID",
+    "S24_F3_TAIL"
+  ],
+  "isolation_verified": true
+}

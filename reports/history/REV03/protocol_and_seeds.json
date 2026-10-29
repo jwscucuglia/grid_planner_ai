@@ -1,0 +1,91 @@
+{
+  "project": "KAPTUS GRID PLANNER — D07",
+  "package_version": "0.3.0",
+  "execution_timestamp": "2026-10-29T12:46:49.486371+00:00",
+  "source_commit": "5adf593ad9168e61a4b4ceea62346db7402a3d4c",
+  "source_sha256": {
+    "pyproject.toml": "f6abf9a834340978c45be7fe23b341c33373fabfefe885e0435d85bdd8023211",
+    "requirements.txt": "0a93ec637de7d3b492444cda84782013f48267481fe803a329cf631f33a683f4",
+    "src/kgp/__init__.py": "199b990719fceb0f51bee42e01d3bb7cb8ca3279ff6845d732da04f33a0d9d10",
+    "src/kgp/baselines.py": "b03a8ed82cbfb1ff84487b2d1ce572bb0f03d2b211059b4b5258b7cb48711c9f",
+    "src/kgp/contracts.py": "6e4a5954f118bfa2c7ebb7ec2f6a136f9c22c6ce2fd8a1f65b6e79ae17fca7e6",
+    "src/kgp/eligibility.py": "1ec6f0b19e1493bfa97ca76223a81c67c43dca377cd30380b9ba73f2d641ec87",
+    "src/kgp/experiment.py": "212e3e5919da9a679fd3ba1a6c47d9dfd49a4fdf515a7fd257ddda3b927c9474",
+    "src/kgp/feasibility.py": "d9b9873044ef179c251a266bfe110800637e6a719d30d520c459cb945a099d74",
+    "src/kgp/metrics.py": "91cb2ef7214a7d058d1f0824508709ad56529f29b2b404b5ed90ee5891ac0d6e",
+    "src/kgp/optimizer.py": "877ad8db8c24d891717b6fbade81e28335fb83dcfc9e521b12129ef57c751c16",
+    "src/kgp/revalidation.py": "21dbc8701347d426304cbf9a0ab4526e4e1ac8353a66afe583c18f4ea92fbd38",
+    "src/kgp/scheduling.py": "69350c8976dcfb696992211cbba4331275fa5ea0e0be87849593e1f384ba3630",
+    "src/kgp/topology.py": "fff1c7a6668a21fe16225f9ca025cf1f8c424c5d4435de6ba6b947cc3f53e1ef",
+    "src/kgp/validation.py": "f2b3ffcb1d0c42170b4c5991edecae18914939bc67499100fb4da7186d8ccddf",
+    "tests/test_baseline_local.py": "29c4fb95c3e2b1c125dc7a7585db10e12b10324513825e1899f0386d74c47a1b",
+    "tests/test_experiment_protocol.py": "1af07515c662a81118b6811d37d3972d9a12865b9fe11dd0d3b430c205144869",
+    "tests/test_independent_review.py": "213ca1cb98a41728d1be986c71436227240c96b84a11055eef013c1e29b4e458",
+    "tests/test_kgp_critical_cases.py": "e3803f2fd3ae1019f17f28bcc059bb3f4e5ea2dbb3c770412db6b74421d6a810",
+    "tests/test_optimizer_audit.py": "9b6d3a08944916c74378153930b30540d24f6f4d972e904c2c7b118b3d232153",
+    "tests/test_verifier_audit.py": "fe8acca4044220af866ebe1e721d9e43f46b3518bebf7fd81ed30f2c4c96238b"
+  },
+  "input_sha256": {
+    "reports/revalidation_20261029/inputs/DEV_101_STOCHASTIC_PORTFOLIO.json": "a1d55ba7b3984e4c22318fd28acafbca7f61700f2dd947ccb97cd978241c9137",
+    "reports/revalidation_20261029/inputs/DEV_102_STOCHASTIC_PORTFOLIO.json": "ccf66ba61c1960ebf9fab3dfe0eb9a74e5d5ebe5ce846438cc385552a63ac66d",
+    "reports/revalidation_20261029/inputs/DEV_103_STOCHASTIC_PORTFOLIO.json": "7a2cec4e1d0a40215363178b21e2064ad94af0b280f90a4b79cc2a87f0d6cb3a",
+    "reports/revalidation_20261029/inputs/DEV_104_STOCHASTIC_PORTFOLIO.json": "831aa0cbd17fc8d95e64da3477651f5dc10c9ade12bea919afa223ff51dac795",
+    "reports/revalidation_20261029/inputs/EVAL_01_TOPO_DISTANT_AND_PARALLEL.json": "89ed66fda46fc45a9532e8efcef592638062739d76b11c95070b3d38af181ce7",
+    "reports/revalidation_20261029/inputs/EVAL_02_TIE_TRANSFER_AND_CREW_SYNC.json": "2d524f568c027f233f40b5177359ea43623d3b19716da8160a2541d088719b88",
+    "reports/revalidation_20261029/inputs/EVAL_03_PRECEDENCE_AND_RELEASE_DATES.json": "e8c468281281431a0c851adda192978f34c4f84de48605d6b1e5030995d98979",
+    "reports/revalidation_20261029/inputs/EVAL_04_FREQ_VS_DURATION_TRADEOFF.json": "f55aad75915a474f603908a5c6394417ad3d498fb3a7b0509bd73b12cd68ebc0",
+    "reports/revalidation_20261029/inputs/EVAL_05_DISJOINT_NO_OPPORTUNITY.json": "c7d7748f3cc49e8790b9f35422a59461db9b19147aae1746dce68cae1dfbbcee",
+    "reports/revalidation_20261029/inputs/EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER.json": "cebd8905871ae5083fb9b2f60626b507f45a6f40343ece69e45c978a714be5db",
+    "reports/revalidation_20261029/inputs/EVAL_07_STOCHASTIC_PORTFOLIO.json": "e67f876bf47940708d4b2b8471c10b70b2cbf4a5b9fcdbf20ac6f34a4d0ffdf5",
+    "reports/revalidation_20261029/inputs/EVAL_08_STOCHASTIC_PORTFOLIO.json": "66815670fb55fd82b7ae7f70043922ee5c2b6d3c4a689c80e6fcaf64061abe09"
+  },
+  "python_version": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "dependencies": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.2",
+    "networkx": "3.6.1",
+    "pytest": "9.2.0"
+  },
+  "dev_seeds": [
+    101,
+    102,
+    103,
+    104
+  ],
+  "eval_seeds": [
+    202601,
+    202602,
+    202603,
+    202604,
+    202605,
+    202606,
+    202607,
+    202608
+  ],
+  "evaluation_design": "SYNTHETIC_REEVALUATION_OF_PREVIOUSLY_OBSERVED_CASES_NOT_BLIND",
+  "calibrated_b1_radius_km_on_dev": 0.75,
+  "b1_radius_origin": "Valor DEV documentado na REV02, mantido sem nova seleção nesta rodada.",
+  "objective_weights": {
+    "window_weight": 90.0,
+    "consumer_hour_weight": 1.0,
+    "repeat_consumer_weight": 12.0,
+    "physical_maneuver_weight": 2.5,
+    "crew_hour_weight": 0.6,
+    "unscheduled_penalty": 1000000.0,
+    "optional_unscheduled_penalty": 50.0
+  },
+  "electrical_window_policy": "SERIAL_WINDOWS_ONLY",
+  "initial_supply_policy": "All consumers initially supplied; preexisting outages rejected explicitly.",
+  "b2_local_search": "One pass, at most 30 alternative zones, packages/days fixed; rebuild all routes; accept only feasible lower default J.",
+  "solver_catalog_limits": {
+    "max_package_size": 5,
+    "max_windows_per_day": 5,
+    "max_states_per_depth": 120
+  },
+  "analysis_rule": "Parear somente cenários com os 4 métodos factíveis e 100% da mesma carteira obrigatória; excluir falhas do benefício e preservá-las nas saídas.",
+  "statistical_scope": "Descrição dos casos desenhados na mesma rede; bootstrap empírico não é inferência sobre desempenho Cemig.",
+  "freeze_rule": "Código, objetivo, dados e regra de análise gravados antes de executar os métodos; hashes conferidos após execução.",
+  "anti_calibration_statement": "Sem ajuste para 1,7% ou benefício desejado. Sementes conhecidas mantidas; não é nova avaliação retida."
+}

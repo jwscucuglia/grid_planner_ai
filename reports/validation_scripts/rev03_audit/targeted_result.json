@@ -1,0 +1,530 @@
+{
+  "optional_0": {
+    "feasible": true,
+    "violations": [],
+    "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+    "optimal": true,
+    "metrics_optimal": true,
+    "objective": 0.0,
+    "bound": 0.0,
+    "gap": 0.0,
+    "completed": [],
+    "omitted": [
+      "J"
+    ],
+    "windows": [],
+    "metadata": {
+      "candidate_columns_count": 1,
+      "milp_column_objective": 0.0,
+      "reconstructed_plan_objective": 0.0,
+      "objective_reconstruction_matches": true,
+      "missing_mandatory_service_ids": [],
+      "omitted_optional_service_ids": [
+        "J"
+      ],
+      "mandatory_coverage_rule": "HARD_CONSTRAINT",
+      "optimality_scope": "\u00d3timo global comprovado sobre o conjunto discreto de colunas di\u00e1rias fact\u00edveis geradas (incluindo encadeamento di\u00e1rio e sementes B0/B1/B2).",
+      "b1_seed_radius_km": 1.25,
+      "candidate_generation_limits": {
+        "max_package_size": 5,
+        "max_windows_per_day": 5,
+        "max_states_per_depth": 120,
+        "window_start_rule": "Primeiro in\u00edcio vi\u00e1vel por sequ\u00eancia, turno, preced\u00eancia e recursos; n\u00e3o enumera in\u00edcios cont\u00ednuos.",
+        "crew_allocation_rule": "Cat\u00e1logo completo e subcat\u00e1logos de uma equipe na primeira janela; escalonador construtivo.",
+        "sequence_rule": "Expans\u00e3o limitada, deduplica\u00e7\u00e3o e poda por custo; sementes B0/B1/B2 inclu\u00eddas."
+      },
+      "objective_weights": {
+        "window_weight": 90.0,
+        "consumer_hour_weight": 1.0,
+        "repeat_consumer_weight": 12.0,
+        "physical_maneuver_weight": 2.5,
+        "crew_hour_weight": 0.6,
+        "optional_unscheduled_penalty": 0.0
+      }
+    },
+    "recount": 0.0
+  },
+  "optional_50": {
+    "feasible": true,
+    "violations": [],
+    "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+    "optimal": true,
+    "metrics_optimal": true,
+    "objective": 50.0,
+    "bound": 50.0,
+    "gap": 0.0,
+    "completed": [],
+    "omitted": [
+      "J"
+    ],
+    "windows": [],
+    "metadata": {
+      "candidate_columns_count": 1,
+      "milp_column_objective": 50.0,
+      "reconstructed_plan_objective": 50.0,
+      "objective_reconstruction_matches": true,
+      "missing_mandatory_service_ids": [],
+      "omitted_optional_service_ids": [
+        "J"
+      ],
+      "mandatory_coverage_rule": "HARD_CONSTRAINT",
+      "optimality_scope": "\u00d3timo global comprovado sobre o conjunto discreto de colunas di\u00e1rias fact\u00edveis geradas (incluindo encadeamento di\u00e1rio e sementes B0/B1/B2).",
+      "b1_seed_radius_km": 1.25,
+      "candidate_generation_limits": {
+        "max_package_size": 5,
+        "max_windows_per_day": 5,
+        "max_states_per_depth": 120,
+        "window_start_rule": "Primeiro in\u00edcio vi\u00e1vel por sequ\u00eancia, turno, preced\u00eancia e recursos; n\u00e3o enumera in\u00edcios cont\u00ednuos.",
+        "crew_allocation_rule": "Cat\u00e1logo completo e subcat\u00e1logos de uma equipe na primeira janela; escalonador construtivo.",
+        "sequence_rule": "Expans\u00e3o limitada, deduplica\u00e7\u00e3o e poda por custo; sementes B0/B1/B2 inclu\u00eddas."
+      },
+      "objective_weights": {
+        "window_weight": 90.0,
+        "consumer_hour_weight": 1.0,
+        "repeat_consumer_weight": 12.0,
+        "physical_maneuver_weight": 2.5,
+        "crew_hour_weight": 0.6,
+        "optional_unscheduled_penalty": 50.0
+      }
+    },
+    "recount": 50.0
+  },
+  "optional_250": {
+    "feasible": true,
+    "violations": [],
+    "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+    "optimal": true,
+    "metrics_optimal": true,
+    "objective": 96.12,
+    "bound": 96.12,
+    "gap": 0.0,
+    "completed": [
+      "J"
+    ],
+    "omitted": [],
+    "windows": [
+      {
+        "day": 1,
+        "start": 8.0,
+        "end": 8.7,
+        "services": [
+          "J"
+        ]
+      }
+    ],
+    "metadata": {
+      "candidate_columns_count": 1,
+      "milp_column_objective": 96.12,
+      "reconstructed_plan_objective": 96.12,
+      "objective_reconstruction_matches": true,
+      "missing_mandatory_service_ids": [],
+      "omitted_optional_service_ids": [],
+      "mandatory_coverage_rule": "HARD_CONSTRAINT",
+      "optimality_scope": "\u00d3timo global comprovado sobre o conjunto discreto de colunas di\u00e1rias fact\u00edveis geradas (incluindo encadeamento di\u00e1rio e sementes B0/B1/B2).",
+      "b1_seed_radius_km": 1.25,
+      "candidate_generation_limits": {
+        "max_package_size": 5,
+        "max_windows_per_day": 5,
+        "max_states_per_depth": 120,
+        "window_start_rule": "Primeiro in\u00edcio vi\u00e1vel por sequ\u00eancia, turno, preced\u00eancia e recursos; n\u00e3o enumera in\u00edcios cont\u00ednuos.",
+        "crew_allocation_rule": "Cat\u00e1logo completo e subcat\u00e1logos de uma equipe na primeira janela; escalonador construtivo.",
+        "sequence_rule": "Expans\u00e3o limitada, deduplica\u00e7\u00e3o e poda por custo; sementes B0/B1/B2 inclu\u00eddas."
+      },
+      "objective_weights": {
+        "window_weight": 90.0,
+        "consumer_hour_weight": 1.0,
+        "repeat_consumer_weight": 12.0,
+        "physical_maneuver_weight": 2.5,
+        "crew_hour_weight": 0.6,
+        "optional_unscheduled_penalty": 250.0
+      }
+    },
+    "recount": 96.12
+  },
+  "decision_day_2_past_crew_only": {
+    "B0": {
+      "feasible": false,
+      "violations": [
+        "Estrutura/refer\u00eancia inv\u00e1lida: janela anterior \u00e0 decis\u00e3o B0_past_days_W01"
+      ],
+      "status": "HEURISTIC_INDIVIDUAL",
+      "optimal": false,
+      "metrics_optimal": false,
+      "objective": null,
+      "bound": null,
+      "gap": null,
+      "completed": [
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 1,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {}
+    },
+    "B1": {
+      "feasible": false,
+      "violations": [
+        "Estrutura/refer\u00eancia inv\u00e1lida: janela anterior \u00e0 decis\u00e3o B1_past_days_W01"
+      ],
+      "status": "HEURISTIC_GEOGRAPHIC",
+      "optimal": false,
+      "metrics_optimal": false,
+      "objective": null,
+      "bound": null,
+      "gap": null,
+      "completed": [
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 1,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {
+        "radius_km": 1.25
+      }
+    },
+    "B2": {
+      "feasible": false,
+      "violations": [
+        "Estrutura/refer\u00eancia inv\u00e1lida: janela anterior \u00e0 decis\u00e3o B2_past_days_W01"
+      ],
+      "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+      "optimal": false,
+      "metrics_optimal": false,
+      "objective": null,
+      "bound": null,
+      "gap": null,
+      "completed": [
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 1,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {}
+    },
+    "KGP": {
+      "feasible": false,
+      "violations": [
+        "Estrutura/refer\u00eancia inv\u00e1lida: janela anterior \u00e0 decis\u00e3o KGP_past_days_W01"
+      ],
+      "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+      "optimal": true,
+      "metrics_optimal": false,
+      "objective": 96.12,
+      "bound": 96.12,
+      "gap": 0.0,
+      "completed": [
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 1,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {
+        "candidate_columns_count": 1,
+        "milp_column_objective": 96.12,
+        "reconstructed_plan_objective": 96.12,
+        "objective_reconstruction_matches": true,
+        "missing_mandatory_service_ids": [],
+        "omitted_optional_service_ids": [],
+        "mandatory_coverage_rule": "HARD_CONSTRAINT",
+        "optimality_scope": "\u00d3timo global comprovado sobre o conjunto discreto de colunas di\u00e1rias fact\u00edveis geradas (incluindo encadeamento di\u00e1rio e sementes B0/B1/B2).",
+        "b1_seed_radius_km": 1.25,
+        "candidate_generation_limits": {
+          "max_package_size": 5,
+          "max_windows_per_day": 5,
+          "max_states_per_depth": 120,
+          "window_start_rule": "Primeiro in\u00edcio vi\u00e1vel por sequ\u00eancia, turno, preced\u00eancia e recursos; n\u00e3o enumera in\u00edcios cont\u00ednuos.",
+          "crew_allocation_rule": "Cat\u00e1logo completo e subcat\u00e1logos de uma equipe na primeira janela; escalonador construtivo.",
+          "sequence_rule": "Expans\u00e3o limitada, deduplica\u00e7\u00e3o e poda por custo; sementes B0/B1/B2 inclu\u00eddas."
+        },
+        "objective_weights": {
+          "window_weight": 90.0,
+          "consumer_hour_weight": 1.0,
+          "repeat_consumer_weight": 12.0,
+          "physical_maneuver_weight": 2.5,
+          "crew_hour_weight": 0.6,
+          "optional_unscheduled_penalty": 50.0
+        }
+      }
+    }
+  },
+  "decision_day_2_both_days_available": {
+    "B0": {
+      "feasible": false,
+      "violations": [
+        "Estrutura/refer\u00eancia inv\u00e1lida: janela anterior \u00e0 decis\u00e3o B0_past_days_both_W01"
+      ],
+      "status": "HEURISTIC_INDIVIDUAL",
+      "optimal": false,
+      "metrics_optimal": false,
+      "objective": null,
+      "bound": null,
+      "gap": null,
+      "completed": [
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 1,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {}
+    },
+    "B1": {
+      "feasible": false,
+      "violations": [
+        "Estrutura/refer\u00eancia inv\u00e1lida: janela anterior \u00e0 decis\u00e3o B1_past_days_both_W01"
+      ],
+      "status": "HEURISTIC_GEOGRAPHIC",
+      "optimal": false,
+      "metrics_optimal": false,
+      "objective": null,
+      "bound": null,
+      "gap": null,
+      "completed": [
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 1,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {
+        "radius_km": 1.25
+      }
+    },
+    "B2": {
+      "feasible": false,
+      "violations": [
+        "Estrutura/refer\u00eancia inv\u00e1lida: janela anterior \u00e0 decis\u00e3o B2_past_days_both_W01"
+      ],
+      "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+      "optimal": false,
+      "metrics_optimal": false,
+      "objective": null,
+      "bound": null,
+      "gap": null,
+      "completed": [
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 1,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {}
+    },
+    "KGP": {
+      "feasible": true,
+      "violations": [],
+      "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+      "optimal": true,
+      "metrics_optimal": true,
+      "objective": 96.12,
+      "bound": 96.12,
+      "gap": 0.0,
+      "completed": [
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 2,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {
+        "candidate_columns_count": 2,
+        "milp_column_objective": 96.12,
+        "reconstructed_plan_objective": 96.12,
+        "objective_reconstruction_matches": true,
+        "missing_mandatory_service_ids": [],
+        "omitted_optional_service_ids": [],
+        "mandatory_coverage_rule": "HARD_CONSTRAINT",
+        "optimality_scope": "\u00d3timo global comprovado sobre o conjunto discreto de colunas di\u00e1rias fact\u00edveis geradas (incluindo encadeamento di\u00e1rio e sementes B0/B1/B2).",
+        "b1_seed_radius_km": 1.25,
+        "candidate_generation_limits": {
+          "max_package_size": 5,
+          "max_windows_per_day": 5,
+          "max_states_per_depth": 120,
+          "window_start_rule": "Primeiro in\u00edcio vi\u00e1vel por sequ\u00eancia, turno, preced\u00eancia e recursos; n\u00e3o enumera in\u00edcios cont\u00ednuos.",
+          "crew_allocation_rule": "Cat\u00e1logo completo e subcat\u00e1logos de uma equipe na primeira janela; escalonador construtivo.",
+          "sequence_rule": "Expans\u00e3o limitada, deduplica\u00e7\u00e3o e poda por custo; sementes B0/B1/B2 inclu\u00eddas."
+        },
+        "objective_weights": {
+          "window_weight": 90.0,
+          "consumer_hour_weight": 1.0,
+          "repeat_consumer_weight": 12.0,
+          "physical_maneuver_weight": 2.5,
+          "crew_hour_weight": 0.6,
+          "optional_unscheduled_penalty": 50.0
+        }
+      }
+    }
+  },
+  "decision_day_2_past_bundle_beats_valid_future": {
+    "KGP": {
+      "feasible": false,
+      "violations": [
+        "Estrutura/refer\u00eancia inv\u00e1lida: janela anterior \u00e0 decis\u00e3o KGP_past_bundle_W01"
+      ],
+      "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+      "optimal": true,
+      "metrics_optimal": false,
+      "objective": 97.24,
+      "bound": 97.24,
+      "gap": 0.0,
+      "completed": [
+        "O",
+        "J"
+      ],
+      "omitted": [],
+      "windows": [
+        {
+          "day": 1,
+          "start": 8.0,
+          "end": 9.4,
+          "services": [
+            "O",
+            "J"
+          ]
+        }
+      ],
+      "metadata": {
+        "candidate_columns_count": 5,
+        "milp_column_objective": 97.24,
+        "reconstructed_plan_objective": 97.24,
+        "objective_reconstruction_matches": true,
+        "missing_mandatory_service_ids": [],
+        "omitted_optional_service_ids": [],
+        "mandatory_coverage_rule": "HARD_CONSTRAINT",
+        "optimality_scope": "\u00d3timo global comprovado sobre o conjunto discreto de colunas di\u00e1rias fact\u00edveis geradas (incluindo encadeamento di\u00e1rio e sementes B0/B1/B2).",
+        "b1_seed_radius_km": 1.25,
+        "candidate_generation_limits": {
+          "max_package_size": 5,
+          "max_windows_per_day": 5,
+          "max_states_per_depth": 120,
+          "window_start_rule": "Primeiro in\u00edcio vi\u00e1vel por sequ\u00eancia, turno, preced\u00eancia e recursos; n\u00e3o enumera in\u00edcios cont\u00ednuos.",
+          "crew_allocation_rule": "Cat\u00e1logo completo e subcat\u00e1logos de uma equipe na primeira janela; escalonador construtivo.",
+          "sequence_rule": "Expans\u00e3o limitada, deduplica\u00e7\u00e3o e poda por custo; sementes B0/B1/B2 inclu\u00eddas."
+        },
+        "objective_weights": {
+          "window_weight": 90.0,
+          "consumer_hour_weight": 1.0,
+          "repeat_consumer_weight": 12.0,
+          "physical_maneuver_weight": 2.5,
+          "crew_hour_weight": 0.6,
+          "optional_unscheduled_penalty": 50.0
+        }
+      }
+    },
+    "future_reference": {
+      "feasible": true,
+      "violations": [],
+      "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+      "optimal": true,
+      "metrics_optimal": true,
+      "objective": 146.12,
+      "bound": 146.12,
+      "gap": 0.0,
+      "completed": [
+        "J"
+      ],
+      "omitted": [
+        "O"
+      ],
+      "windows": [
+        {
+          "day": 2,
+          "start": 8.0,
+          "end": 8.7,
+          "services": [
+            "J"
+          ]
+        }
+      ],
+      "metadata": {
+        "candidate_columns_count": 1,
+        "milp_column_objective": 146.12,
+        "reconstructed_plan_objective": 146.12,
+        "objective_reconstruction_matches": true,
+        "missing_mandatory_service_ids": [],
+        "omitted_optional_service_ids": [
+          "O"
+        ],
+        "mandatory_coverage_rule": "HARD_CONSTRAINT",
+        "optimality_scope": "\u00d3timo global comprovado sobre o conjunto discreto de colunas di\u00e1rias fact\u00edveis geradas (incluindo encadeamento di\u00e1rio e sementes B0/B1/B2).",
+        "b1_seed_radius_km": 1.25,
+        "candidate_generation_limits": {
+          "max_package_size": 5,
+          "max_windows_per_day": 5,
+          "max_states_per_depth": 120,
+          "window_start_rule": "Primeiro in\u00edcio vi\u00e1vel por sequ\u00eancia, turno, preced\u00eancia e recursos; n\u00e3o enumera in\u00edcios cont\u00ednuos.",
+          "crew_allocation_rule": "Cat\u00e1logo completo e subcat\u00e1logos de uma equipe na primeira janela; escalonador construtivo.",
+          "sequence_rule": "Expans\u00e3o limitada, deduplica\u00e7\u00e3o e poda por custo; sementes B0/B1/B2 inclu\u00eddas."
+        },
+        "objective_weights": {
+          "window_weight": 90.0,
+          "consumer_hour_weight": 1.0,
+          "repeat_consumer_weight": 12.0,
+          "physical_maneuver_weight": 2.5,
+          "crew_hour_weight": 0.6,
+          "optional_unscheduled_penalty": 50.0
+        }
+      }
+    }
+  }
+}

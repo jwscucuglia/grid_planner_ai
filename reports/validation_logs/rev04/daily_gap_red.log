@@ -1,0 +1,72 @@
+FFFF.                                                                    [100%]
+================================== FAILURES ===================================
+_ test_catalog_without_positive_daily_gap_is_explicitly_unsupported[run_baseline_b0_individual] _
+
+method = <function run_baseline_b0_individual at 0x0000012DC8130220>
+
+    @pytest.mark.parametrize('method',METHODS)
+    def test_catalog_without_positive_daily_gap_is_explicitly_unsupported(method):
+        n,c,jobs=replanning_instance()
+        c=replace(c,window_start_hour=0.,window_end_hour=24.,max_window_duration_hours=24.)
+        p=method(n,jobs,c,'NO_GAP')
+>       assert p.solver_status=='UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_INDIVIDUAL' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_INDIVIDUAL
+
+tests\test_rev04_daily_gap.py:13: AssertionError
+_ test_catalog_without_positive_daily_gap_is_explicitly_unsupported[run_baseline_b1_geographic] _
+
+method = <function run_baseline_b1_geographic at 0x0000012DC81302C0>
+
+    @pytest.mark.parametrize('method',METHODS)
+    def test_catalog_without_positive_daily_gap_is_explicitly_unsupported(method):
+        n,c,jobs=replanning_instance()
+        c=replace(c,window_start_hour=0.,window_end_hour=24.,max_window_duration_hours=24.)
+        p=method(n,jobs,c,'NO_GAP')
+>       assert p.solver_status=='UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_GEOGRAPHIC' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_GEOGRAPHIC
+
+tests\test_rev04_daily_gap.py:13: AssertionError
+_ test_catalog_without_positive_daily_gap_is_explicitly_unsupported[run_baseline_b2_topological_greedy] _
+
+method = <function run_baseline_b2_topological_greedy at 0x0000012DC8130360>
+
+    @pytest.mark.parametrize('method',METHODS)
+    def test_catalog_without_positive_daily_gap_is_explicitly_unsupported(method):
+        n,c,jobs=replanning_instance()
+        c=replace(c,window_start_hour=0.,window_end_hour=24.,max_window_duration_hours=24.)
+        p=method(n,jobs,c,'NO_GAP')
+>       assert p.solver_status=='UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_TO...Y_LOCAL_ZONES' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES
+
+tests\test_rev04_daily_gap.py:13: AssertionError
+_ test_catalog_without_positive_daily_gap_is_explicitly_unsupported[run_kgp_optimizer] _
+
+method = <function run_kgp_optimizer at 0x0000012DF6677560>
+
+    @pytest.mark.parametrize('method',METHODS)
+    def test_catalog_without_positive_daily_gap_is_explicitly_unsupported(method):
+        n,c,jobs=replanning_instance()
+        c=replace(c,window_start_hour=0.,window_end_hour=24.,max_window_duration_hours=24.)
+        p=method(n,jobs,c,'NO_GAP')
+>       assert p.solver_status=='UNSUPPORTED_INPUT'
+E       AssertionError: assert 'OPTIMAL_ON_DISCRETE_COLUMNS' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + OPTIMAL_ON_DISCRETE_COLUMNS
+
+tests\test_rev04_daily_gap.py:13: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_rev04_daily_gap.py::test_catalog_without_positive_daily_gap_is_explicitly_unsupported[run_baseline_b0_individual]
+FAILED tests/test_rev04_daily_gap.py::test_catalog_without_positive_daily_gap_is_explicitly_unsupported[run_baseline_b1_geographic]
+FAILED tests/test_rev04_daily_gap.py::test_catalog_without_positive_daily_gap_is_explicitly_unsupported[run_baseline_b2_topological_greedy]
+FAILED tests/test_rev04_daily_gap.py::test_catalog_without_positive_daily_gap_is_explicitly_unsupported[run_kgp_optimizer]
+4 failed, 1 passed in 1.08s

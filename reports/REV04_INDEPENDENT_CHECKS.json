@@ -1,0 +1,227 @@
+{
+  "review_kind": "new_independent_computational_review",
+  "checks_count": 2085,
+  "passed": 2085,
+  "failed": [],
+  "source_sha256": {
+    "src/kgp/topology.py": "4f27b3f09c5b2704ceef0fbd4459ee4b603721bee720a200abd658f84952f11d",
+    "src/kgp/eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
+    "src/kgp/scheduling.py": "4c42121e11d1c5e64129d4ad17bc8dc32267e04bfae979133571530f7dbda1fd",
+    "src/kgp/feasibility.py": "469a03878a771260844df6d89ca362d78038cd72ee29f97bdda1c0816b3a2530",
+    "src/kgp/contracts.py": "acd1aec447c8bec1cc18ae7778f81de69aa3026ee0be44ad92f09a1244a352e5",
+    "src/kgp/metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
+    "src/kgp/validation.py": "015a0a88438fafe58a5368e976f30214ed9bbf612188333749c260fbb2403e79"
+  },
+  "original_fixture_sha256": "b1f6d2eaff641622dcd2570fd3bda7f8e3a07e2c20cda2417d37cdea3772e022",
+  "details": {
+    "A1_load_180_prep_0.25": {
+      "stages": [
+        {
+          "stage": "ISOLATION",
+          "duration": 0.125,
+          "feasible": false,
+          "loading": 180.0
+        },
+        {
+          "stage": "TRANSFER",
+          "duration": 0.125,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "EXECUTION",
+          "duration": 1.0,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "RECOMPOSITION",
+          "duration": 0.25,
+          "feasible": true,
+          "loading": 90.0
+        }
+      ],
+      "violations": [
+        "Etapa elétrica inviável na janela 'W', ISOLATION: carregamento=180.00%, queda=0.022%: Sobrecarga térmica por fase na transferência (180.0% > 100%)."
+      ],
+      "scheduler_error": "Etapa elétrica inviável na zona 'Z': ISOLATION: Barra 'L' parcialmente energizada (fases ativas: ['B'], fases sem tensão: ['A']). Não liberada para intervenção desenergizada.; Sobrecarga térmica em transferência (180.0% > 100%)."
+    },
+    "A1_load_90_prep_0.25": {
+      "stages": [
+        {
+          "stage": "ISOLATION",
+          "duration": 0.125,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "TRANSFER",
+          "duration": 0.125,
+          "feasible": true,
+          "loading": 45.0
+        },
+        {
+          "stage": "EXECUTION",
+          "duration": 1.0,
+          "feasible": true,
+          "loading": 45.0
+        },
+        {
+          "stage": "RECOMPOSITION",
+          "duration": 0.25,
+          "feasible": true,
+          "loading": 45.0
+        }
+      ],
+      "violations": [],
+      "scheduler_error": null
+    },
+    "A1_load_180_prep_0": {
+      "stages": [
+        {
+          "stage": "ISOLATION",
+          "duration": 0.0,
+          "feasible": false,
+          "loading": 180.0
+        },
+        {
+          "stage": "TRANSFER",
+          "duration": 0.0,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "EXECUTION",
+          "duration": 1.0,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "RECOMPOSITION",
+          "duration": 0.25,
+          "feasible": true,
+          "loading": 90.0
+        }
+      ],
+      "violations": [],
+      "scheduler_error": null
+    },
+    "A1_load_180_prep_0.0001": {
+      "stages": [
+        {
+          "stage": "ISOLATION",
+          "duration": 0.0,
+          "feasible": false,
+          "loading": 180.0
+        },
+        {
+          "stage": "TRANSFER",
+          "duration": 9.999999999976694e-05,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "EXECUTION",
+          "duration": 1.0,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "RECOMPOSITION",
+          "duration": 0.25,
+          "feasible": true,
+          "loading": 90.0
+        }
+      ],
+      "violations": [],
+      "scheduler_error": null
+    },
+    "A1_load_180_prep_0.0002": {
+      "stages": [
+        {
+          "stage": "ISOLATION",
+          "duration": 9.999999999976694e-05,
+          "feasible": false,
+          "loading": 180.0
+        },
+        {
+          "stage": "TRANSFER",
+          "duration": 9.999999999976694e-05,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "EXECUTION",
+          "duration": 1.0,
+          "feasible": true,
+          "loading": 90.0
+        },
+        {
+          "stage": "RECOMPOSITION",
+          "duration": 0.25,
+          "feasible": true,
+          "loading": 90.0
+        }
+      ],
+      "violations": [
+        "Etapa elétrica inviável na janela 'W', ISOLATION: carregamento=180.00%, queda=0.022%: Sobrecarga térmica por fase na transferência (180.0% > 100%)."
+      ],
+      "scheduler_error": "Etapa elétrica inviável na zona 'Z': ISOLATION: Barra 'L' parcialmente energizada (fases ativas: ['B'], fases sem tensão: ['A']). Não liberada para intervenção desenergizada.; Sobrecarga térmica em transferência (180.0% > 100%)."
+    },
+    "A1_voltage": {
+      "stages": [
+        {
+          "stage": "ISOLATION",
+          "loading": 18.0,
+          "drop": 7.561,
+          "feasible": false
+        },
+        {
+          "stage": "TRANSFER",
+          "loading": 9.0,
+          "drop": 3.781,
+          "feasible": true
+        },
+        {
+          "stage": "EXECUTION",
+          "loading": 9.0,
+          "drop": 3.781,
+          "feasible": true
+        },
+        {
+          "stage": "RECOMPOSITION",
+          "loading": 9.0,
+          "drop": 3.781,
+          "feasible": true
+        }
+      ],
+      "violations": [
+        "Etapa elétrica inviável na janela 'W', ISOLATION: carregamento=18.00%, queda=7.561%: Queda de tensão excessiva na transferência (7.56% > 5.00%)."
+      ]
+    },
+    "A4_overload_required_False": {
+      "eligibility_reason": "Ativos ['AX'] efetivamente isolados e desenergizados na zona 'Z'.",
+      "scheduler_error": null
+    },
+    "A4_overload_required_True": {
+      "eligibility_reason": "Transferência obrigatória inviável na zona 'Z': Sobrecarga térmica em transferência (1000.0% > 100%).",
+      "scheduler_error": "Transferência obrigatória inviável na zona 'Z': Sobrecarga térmica em transferência (1000.0% > 100%)."
+    },
+    "A4_permission_required_False": {
+      "eligibility_reason": "Ativos ['AX'] efetivamente isolados e desenergizados na zona 'Z'.",
+      "scheduler_error": null
+    },
+    "A4_permission_required_True": {
+      "eligibility_reason": "Transferência obrigatória inviável na zona 'Z': Chave 'ST' marcada como não manobrável (is_maneuverable=False).; Chave 'ST' marcada como não manobrável (is_maneuverable=False).",
+      "scheduler_error": "Transferência obrigatória inviável na zona 'Z': Chave 'ST' marcada como não manobrável (is_maneuverable=False).; Chave 'ST' marcada como não manobrável (is_maneuverable=False)."
+    },
+    "A4_missing_parameters_required_False": {
+      "eligibility_reason": "Ativos ['AX'] efetivamente isolados e desenergizados na zona 'Z'.",
+      "scheduler_error": null
+    },
+    "A4_missing_parameters_required_True": {
+      "eligibility_reason": "Transferência obrigatória inviável na zona 'Z': Zona 'Z' sem parâmetros elétricos completos para validar transferência.",
+      "scheduler_error": "Transferência obrigatória inviável na zona 'Z': Zona 'Z' sem parâmetros elétricos completos para validar transferência."
+    }
+  }
+}

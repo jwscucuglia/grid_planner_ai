@@ -1,0 +1,30 @@
+{
+  "plan_id": "PLAN_B2_EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+  "method_name": "B2",
+  "scenario_id": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 4,
+  "total_mandatory_count": 4,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "CRUZETA_CONCRETO": 2.0,
+    "KIT_TRAFO": 1.0,
+    "ELO_FUSIVEL": 2.0,
+    "CONECTOR_CUNHA": 2.0
+  },
+  "recalculated_consumer_hours": 147.6464,
+  "recalculated_windows_count": 3,
+  "recalculated_physical_maneuvers": 6,
+  "recalculated_repeat_consumers": 16,
+  "recalculated_unique_consumers": 48,
+  "recalculated_total_interruptions": 64,
+  "recalculated_completed_services": [
+    "S31_F3_PREP",
+    "S32_F3_TRAFO",
+    "S33_F3_PODA",
+    "S34_F1_TAIL"
+  ],
+  "isolation_verified": true
+}

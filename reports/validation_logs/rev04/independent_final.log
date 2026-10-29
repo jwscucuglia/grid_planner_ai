@@ -1,0 +1,7 @@
+{
+  "review_kind": "new_independent_computational_review",
+  "checks_count": 2085,
+  "passed": 2085,
+  "failed": [],
+  "original_fixture_sha256": "b1f6d2eaff641622dcd2570fd3bda7f8e3a07e2c20cda2417d37cdea3772e022"
+}
