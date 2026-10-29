@@ -1,0 +1,34 @@
+[
+  {
+    "crew_id": "SYN_CREW_1",
+    "name": "Synthetic electrical crew",
+    "skills": [
+      "ELEC"
+    ],
+    "available_days": [
+      1
+    ],
+    "shift_start_hour": 8.0,
+    "shift_end_hour": 17.0,
+    "base_x": 0.0,
+    "base_y": 0.0,
+    "speed_kmh": 35.0,
+    "prep_hours": 0.1
+  },
+  {
+    "crew_id": "SYN_CREW_2",
+    "name": "Synthetic pruning crew",
+    "skills": [
+      "PRUNE"
+    ],
+    "available_days": [
+      1
+    ],
+    "shift_start_hour": 8.0,
+    "shift_end_hour": 17.0,
+    "base_x": 0.0,
+    "base_y": 0.0,
+    "speed_kmh": 35.0,
+    "prep_hours": 0.1
+  }
+]

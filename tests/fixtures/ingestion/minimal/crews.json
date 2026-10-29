@@ -1,0 +1,1 @@
+[{"crew_id": "E1", "name": "Crew", "skills": ["ELEC"], "available_days": [1], "shift_start_hour": 8.0, "shift_end_hour": 17.0, "base_x": 1.0, "base_y": 0.0, "speed_kmh": 30.0, "prep_hours": 0.1}]

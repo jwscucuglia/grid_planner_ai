@@ -21,4 +21,5 @@ scripts/validate_budget.py
 reports/AUDITORIA_INTEGRAL_D07_REV04.md
 reports/SINCRONIZACAO_DRIVE_D07_REV04.json
 reports/validation_scripts/historical/reproduction/
+reports/SINCRONIZACAO_INGESTAO01_DOCS.json
 

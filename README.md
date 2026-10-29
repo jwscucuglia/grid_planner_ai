@@ -50,3 +50,19 @@ O manifesto preserva SHA-256 dos bytes e acrescenta SHA-256 canônico apenas par
 O catálogo exige intervalo diário positivo de recomposição; calendários contínuos de 0–24 h são explicitamente não suportados.
 
 A correção de portabilidade REV04-P1 preserva os bytes do JSON histórico não UTF-8 por uma regra específica em `.gitattributes`. A validação canônica permanece restrita a UTF-8; o original histórico continua sujeito a SHA-256 exato. Consulte [a conferência de portabilidade](reports/PORTABILIDADE_REV04_P1.md). O núcleo, os testes científicos, as entradas e os resultados da REV04 são preservados.
+
+## Incremento INGESTAO01 — arquivos externos e GIS público
+
+O importador `kgp.ingestion.import_bundle` recebe CSV/JSON e GeoJSON com propriedades topológicas explícitas. Ele mapeia campos, converte unidades declaradas, valida referências/fases/estados e entrega os contratos existentes, com diagnóstico por registro e proveniência. Erros críticos bloqueiam o planejamento; `scope_status` é explícito e somente `ACTIVE` no contrato v1. Transições de tensão sem conversor suportado são bloqueadas. Consulte o [contrato de importação](docs/CONTRATO_INGESTAO_KGP.md) e a [formulação elétrica e de programação](docs/MODELO_MATEMATICO_KGP.md).
+
+O ensaio adicional usa topologia GIS **real e pública**, BDGD/ANEEL EFLUL de 31/12/2025, CTMT 002: 354 PACs e 358 ligações, preservando paralelas. A fonte tem aviso/licença ODbL, extrator reproduzível e hashes em `data/gis_reference/eflul_2025_ctmt002/source/`. As 81 divergências de posição são registradas, sem reconstruir conexões por proximidade. O bundle de programação usa um **overlay sintético explícito** para cargas, consumidores, carteira, recursos, parâmetros ausentes e posições de agenda; não usa UCs reais nem dados Cemig.
+
+```text
+python scripts/prepare_gis_reference.py
+python scripts/import_kgp_bundle.py data/gis_reference/eflul_2025_ctmt002/bundle/manifest.json --report quality-public.json
+python scripts/validate_gis_ingestion.py
+```
+
+As evidências ficam em [reports/ingestion_20261029/](reports/ingestion_20261029/). A comparação fonte→grafo e os quatro planos exportados passaram pelo mesmo verificador, com 2/2 obrigatórias por método. É uma verificação funcional de ingestão/integração, separada do estudo REV04 conhecido e da validação operacional futura na Cemig. O adaptador corporativo depende da amostra e do contrato de dados da PoC; o incremento não muda a evidência histórica 130/48 nem amplia os limites físicos do núcleo.
+
+A suíte consolidada passou com **231 testes em 209,91 s**, incluindo os 130 anteriores, 94 de ingestão e 7 de integração. A [revisão do incremento](reports/REVISAO_INGESTAO01.md) registra contraprovas e limites; não equivale a homologação operacional ou auditoria por terceiro humano.

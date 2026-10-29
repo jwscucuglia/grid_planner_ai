@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "name": "ANEEL_EFLUL_2025_UNREMT_CTMT_002",
+  "source_crs": "EPSG:4674",
+  "geometry_crs": "EPSG:4326 (transformed from SIRGAS 2000 EPSG:4674)",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "0360",
+      "properties": {
+        "COD_ID": "0360",
+        "DIST": 86,
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "14",
+        "TIP_REGU": "DF",
+        "PAC_1": "S01B01A02P0000012451",
+        "PAC_2": "S01B01A02ER000000002",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "DAT_CON": "31/05/2022",
+        "BANC": 1,
+        "POS": "PD",
+        "DESCR": " "
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.315717658543065,
+          -28.530946828633205
+        ]
+      }
+    }
+  ]
+}

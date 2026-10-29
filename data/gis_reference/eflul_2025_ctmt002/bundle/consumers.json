@@ -1,0 +1,24 @@
+[
+  {
+    "consumer_id": "SYN_CONSUMER_1",
+    "node_id": "S01B01A02CH000000017",
+    "asset_id": "SYN_ASSET_1",
+    "phase": "A",
+    "consumer_class": "SYNTHETIC",
+    "criticality": 1,
+    "avg_demand_kw": 1.0,
+    "dic_limit_hours": null,
+    "fic_limit_count": null
+  },
+  {
+    "consumer_id": "SYN_CONSUMER_2",
+    "node_id": "S01B01A02P0000013282",
+    "asset_id": "SYN_ASSET_2",
+    "phase": "A",
+    "consumer_class": "SYNTHETIC",
+    "criticality": 1,
+    "avg_demand_kw": 1.0,
+    "dic_limit_hours": null,
+    "fic_limit_count": null
+  }
+]

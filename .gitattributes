@@ -1,3 +1,5 @@
 # Preserve the original non-UTF-8 audit evidence byte for byte on every platform.
 /.gitattributes -text
 reports/validation_scripts/rev03_audit/remaining_results.json -text
+# Public GIS source checksums refer to the original extracted bytes.
+/data/gis_reference/eflul_2025_ctmt002/source/** -text

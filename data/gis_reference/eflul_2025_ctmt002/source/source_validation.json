@@ -1,0 +1,32 @@
+{
+  "CTMT": {
+    "expected_count": 1,
+    "actual_count": 1,
+    "all_exported_attribute_values_match_raw_gdb": true,
+    "geojson_feature_count_matches": true
+  },
+  "SSDMT": {
+    "expected_count": 314,
+    "actual_count": 314,
+    "all_exported_attribute_values_match_raw_gdb": true,
+    "geojson_feature_count_matches": true
+  },
+  "UNSEMT": {
+    "expected_count": 43,
+    "actual_count": 43,
+    "all_exported_attribute_values_match_raw_gdb": true,
+    "geojson_feature_count_matches": true
+  },
+  "UNREMT": {
+    "expected_count": 1,
+    "actual_count": 1,
+    "all_exported_attribute_values_match_raw_gdb": true,
+    "geojson_feature_count_matches": true
+  },
+  "connectivity": {
+    "unique_edge_ids": 358,
+    "unique_pacs": 354,
+    "all_edge_endpoints_present": true,
+    "source_customer_layers_exported": false
+  }
+}

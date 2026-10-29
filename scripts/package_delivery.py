@@ -17,6 +17,7 @@ CANDIDATURE_FILES = {
     'reports/ORCAMENTO_VALIDACAO_ARITMETICA.json', 'reports/SINCRONIZACAO_ORCAMENTO_ANEXOS_D07.json',
     'reports/SINCRONIZACAO_DRIVE_D07_REV03.json', 'scripts/validate_budget.py',
     'reports/AUDITORIA_INTEGRAL_D07_REV04.md', 'reports/SINCRONIZACAO_DRIVE_D07_REV04.json',
+    'reports/SINCRONIZACAO_INGESTAO01_DOCS.json',
 }
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()

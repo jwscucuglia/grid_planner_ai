@@ -1,0 +1,2073 @@
+{
+  "feeder": "002",
+  "source_pac": "S01B01A02P0000002087",
+  "crs_native": "EPSG:4674",
+  "crs_display_projection": "EPSG:31982",
+  "node_count_all_declared_endpoints": 354,
+  "edge_count_all": 358,
+  "normal_energized_pac_count": 344,
+  "normal_unenergized_pacs": [
+    "S01B01A02CH000000059",
+    "S01B01A02CH000000124",
+    "S01B01A02CH000000150",
+    "S01B01A02CH000000187",
+    "S01B01A02CH000000241",
+    "S01B01A02CH000000251",
+    "S01B01A02CH000000326",
+    "S01B01A02CH000000328",
+    "S01B01A02CH000000330",
+    "S01B01A02CH000000348"
+  ],
+  "all_edges_component_sizes": [
+    354
+  ],
+  "normal_component_sizes": [
+    344,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "normal_closed_edge_count": 348,
+  "layer_counts": {
+    "CTMT": 1,
+    "SSDMT": 314,
+    "UNSEMT": 43,
+    "UNREMT": 1
+  },
+  "switch_states": {
+    "F": 33,
+    "A": 10
+  },
+  "phase_counts_by_layer": {
+    "SSDMT": {
+      "ABC": 308,
+      "A": 6
+    },
+    "UNSEMT": {
+      "ABC": 43
+    },
+    "UNREMT": {
+      "ABC": 1
+    }
+  },
+  "parallel_edge_groups": [
+    {
+      "PACs": [
+        "S01B01A02CH000000327",
+        "S01B01A02P0000007733"
+      ],
+      "edge_ids": [
+        "SSDMT:17439734",
+        "SSDMT:17439784"
+      ]
+    },
+    {
+      "PACs": [
+        "S01B01A02P0000007733",
+        "S01B01A02P0000007735"
+      ],
+      "edge_ids": [
+        "SSDMT:17439732",
+        "SSDMT:17439793"
+      ]
+    },
+    {
+      "PACs": [
+        "S01B01A02P0000012451",
+        "S01B01A02P0000012454"
+      ],
+      "edge_ids": [
+        "SSDMT:10033610",
+        "SSDMT:10893673"
+      ]
+    }
+  ],
+  "missing_declared_PN_CON_references": [],
+  "missing_display_position_PACs": [],
+  "PACs_with_multiple_source_coordinates_count": 81,
+  "maximum_coordinate_disagreement_m": 63.986772665540585,
+  "coordinate_conflicts": [
+    {
+      "PAC": "S01B01A02CH000000017",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.8805867331133836,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27252057216663,
+            -28.580220553135973
+          ],
+          "provenance": "SSDMT:1395168:PN_CON_2=1384512"
+        },
+        {
+          "coordinate": [
+            -49.272507497822744,
+            -28.580232993457855
+          ],
+          "provenance": "UNSEMT:0125:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000057",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.690896441219822,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31564453826479,
+            -28.530923378810826
+          ],
+          "provenance": "SSDMT:10033611:PN_CON_2=10030155"
+        },
+        {
+          "coordinate": [
+            -49.31565105745028,
+            -28.530956182481816
+          ],
+          "provenance": "UNSEMT:CH-219:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000069",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.1039405933440825,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29323292745761,
+            -28.5398678892916
+          ],
+          "provenance": "SSDMT:10033719:PN_CON_2=10030629"
+        },
+        {
+          "coordinate": [
+            -49.29323292745761,
+            -28.5398678892916
+          ],
+          "provenance": "SSDMT:12365260:PN_CON_2=10030629"
+        },
+        {
+          "coordinate": [
+            -49.29324896236966,
+            -28.53988053555821
+          ],
+          "provenance": "UNSEMT:0295:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000100",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.033560217680267,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.28575150332915,
+            -28.5453900189342
+          ],
+          "provenance": "SSDMT:10033811:PN_CON_2=10030680"
+        },
+        {
+          "coordinate": [
+            -49.28572911110956,
+            -28.545408948763907
+          ],
+          "provenance": "UNSEMT:CH-174:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000104",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.623983707980444,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.33130719217314,
+            -28.52745980812358
+          ],
+          "provenance": "SSDMT:1394173:PN_CON_2=1387476"
+        },
+        {
+          "coordinate": [
+            -49.331333571986704,
+            -28.527482756124243
+          ],
+          "provenance": "UNSEMT:CH-230:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000115",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.522788442807119,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.284809080374714,
+            -28.54407398612551
+          ],
+          "provenance": "SSDMT:9561068:PN_CON_2=1613612"
+        },
+        {
+          "coordinate": [
+            -49.28481417863139,
+            -28.544042518847107
+          ],
+          "provenance": "UNSEMT:0312:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000116",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.491927458048873,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27150668728376,
+            -28.56387680936723
+          ],
+          "provenance": "SSDMT:10033941:PN_CON_2=10030823"
+        },
+        {
+          "coordinate": [
+            -49.27150668728376,
+            -28.56387680936723
+          ],
+          "provenance": "SSDMT:10034071:PN_CON_2=10030823"
+        },
+        {
+          "coordinate": [
+            -49.27151519217233,
+            -28.56390741059846
+          ],
+          "provenance": "UNSEMT:0123:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000118",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.1907107747642818,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.2974920267356,
+            -28.548520227126744
+          ],
+          "provenance": "SSDMT:9726247:PN_CON_2=9726202"
+        },
+        {
+          "coordinate": [
+            -49.29746552101693,
+            -28.548536995885627
+          ],
+          "provenance": "UNSEMT:CH-209:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000126",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.3627699196638674,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27431118891019,
+            -28.5620386337759
+          ],
+          "provenance": "SSDMT:10033934:PN_CON_2=10030801"
+        },
+        {
+          "coordinate": [
+            -49.27431118891019,
+            -28.5620386337759
+          ],
+          "provenance": "SSDMT:10196328:PN_CON_2=10030801"
+        },
+        {
+          "coordinate": [
+            -49.27429285173366,
+            -28.56201296982266
+          ],
+          "provenance": "UNSEMT:0263:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000129",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.8872032730778372,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29546751161632,
+            -28.540959452216896
+          ],
+          "provenance": "SSDMT:1407917:PN_CON_2=1384974"
+        },
+        {
+          "coordinate": [
+            -49.29546751161632,
+            -28.540959452216896
+          ],
+          "provenance": "SSDMT:9910379:PN_CON_2=1384974"
+        },
+        {
+          "coordinate": [
+            -49.29548131531044,
+            -28.54094756048147
+          ],
+          "provenance": "UNSEMT:0173:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000140",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.661792596961294,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.295820624122484,
+            -28.541243641580763
+          ],
+          "provenance": "SSDMT:1619970:PN_CON_2=1384977"
+        },
+        {
+          "coordinate": [
+            -49.29583874096511,
+            -28.541261556975257
+          ],
+          "provenance": "UNSEMT:CH-208:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000165",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.3062833068278237,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.26376390937685,
+            -28.57267478791107
+          ],
+          "provenance": "SSDMT:1395147:PN_CON_2=1384495"
+        },
+        {
+          "coordinate": [
+            -49.26376390937685,
+            -28.57267478791107
+          ],
+          "provenance": "SSDMT:1408325:PN_CON_2=1384495"
+        },
+        {
+          "coordinate": [
+            -49.26376390937685,
+            -28.57267478791107
+          ],
+          "provenance": "SSDMT:1489666:PN_CON_2=1384495"
+        },
+        {
+          "coordinate": [
+            -49.263743575705405,
+            -28.572664258648558
+          ],
+          "provenance": "UNSEMT:0267:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000216",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.5532510913835926,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31064299737636,
+            -28.531770894511112
+          ],
+          "provenance": "SSDMT:10033632:PN_CON_2=11094565"
+        },
+        {
+          "coordinate": [
+            -49.31064299737636,
+            -28.531770894511112
+          ],
+          "provenance": "SSDMT:13253357:PN_CON_2=11094565"
+        },
+        {
+          "coordinate": [
+            -49.31064000443263,
+            -28.53180284832274
+          ],
+          "provenance": "UNSEMT:CH-096:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000237",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.5560110562382978,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.330930483255145,
+            -28.527450467764822
+          ],
+          "provenance": "SSDMT:1394172:PN_CON_2=1387480"
+        },
+        {
+          "coordinate": [
+            -49.33094638057099,
+            -28.527450635938067
+          ],
+          "provenance": "UNSEMT:RL-006:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000253",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.205194255781943,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.2780038510968,
+            -28.557080868287414
+          ],
+          "provenance": "SSDMT:17437680:PN_CON_2=9515959"
+        },
+        {
+          "coordinate": [
+            -49.277996330965834,
+            -28.557089481094636
+          ],
+          "provenance": "UNSEMT:RL-011:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000265",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.3846508423008874,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.26415699674794,
+            -28.57311945409947
+          ],
+          "provenance": "SSDMT:1395150:PN_CON_2=1384655"
+        },
+        {
+          "coordinate": [
+            -49.26417256041526,
+            -28.573136014215663
+          ],
+          "provenance": "UNSEMT:CH-110:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000266",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.0000214831806393,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.3183270108828,
+            -28.53084259181213
+          ],
+          "provenance": "SSDMT:1395898:PN_CON_2=1392829"
+        },
+        {
+          "coordinate": [
+            -49.31832718535128,
+            -28.530824545116616
+          ],
+          "provenance": "UNSEMT:CH-233:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000267",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.049348613840441,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.32139044261481,
+            -28.530945778225032
+          ],
+          "provenance": "SSDMT:1395845:PN_CON_2=1386063"
+        },
+        {
+          "coordinate": [
+            -49.32138937601883,
+            -28.530927309747483
+          ],
+          "provenance": "UNSEMT:CH-231:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000283",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.2431497352653078,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.281922253009554,
+            -28.55176908557479
+          ],
+          "provenance": "SSDMT:10033841:PN_CON_2=10030723"
+        },
+        {
+          "coordinate": [
+            -49.281922253009554,
+            -28.55176908557479
+          ],
+          "provenance": "SSDMT:18156320:PN_CON_2=10030723"
+        },
+        {
+          "coordinate": [
+            -49.28191977088068,
+            -28.551768982152737
+          ],
+          "provenance": "UNSEMT:CH-143:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000320",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.05864017880095478,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27538544528204,
+            -28.560514348558286
+          ],
+          "provenance": "SSDMT:10033927:PN_CON_2=10030792"
+        },
+        {
+          "coordinate": [
+            -49.27538534455795,
+            -28.560514870165093
+          ],
+          "provenance": "UNSEMT:CH-132:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000325",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 17.51516733295532,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.277555353796515,
+            -28.557616563853287
+          ],
+          "provenance": "SSDMT:10033901:PN_CON_2=17437673"
+        },
+        {
+          "coordinate": [
+            -49.27766095219113,
+            -28.55748894645768
+          ],
+          "provenance": "SSDMT:17439771:PN_CON_2=17437667"
+        },
+        {
+          "coordinate": [
+            -49.27757016473129,
+            -28.557610272196257
+          ],
+          "provenance": "UNSEMT:CH-282:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000327",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.193079577638027,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27779838029096,
+            -28.55732291901745
+          ],
+          "provenance": "SSDMT:17439734:PN_CON_2=17437655"
+        },
+        {
+          "coordinate": [
+            -49.27779838029096,
+            -28.55732291901745
+          ],
+          "provenance": "SSDMT:17439784:PN_CON_2=17437655"
+        },
+        {
+          "coordinate": [
+            -49.27779317231699,
+            -28.557332653279275
+          ],
+          "provenance": "UNSEMT:CH-280:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000329",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 6.015697257007255,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27766095219113,
+            -28.55748894645768
+          ],
+          "provenance": "SSDMT:17439783:PN_CON_2=17437667"
+        },
+        {
+          "coordinate": [
+            -49.27771193835525,
+            -28.557458613224355
+          ],
+          "provenance": "UNSEMT:CH-277:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000338",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.43086924587707964,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.270533190054664,
+            -28.564293438291486
+          ],
+          "provenance": "SSDMT:10033943:PN_CON_2=19776812"
+        },
+        {
+          "coordinate": [
+            -49.27052977622816,
+            -28.564295894340034
+          ],
+          "provenance": "UNSEMT:CH-133:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000350",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.9033900314840795,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29567589982287,
+            -28.538038045919052
+          ],
+          "provenance": "SSDMT:10033712:PN_CON_2=10030615"
+        },
+        {
+          "coordinate": [
+            -49.29567589982287,
+            -28.538038045919052
+          ],
+          "provenance": "SSDMT:14716137:PN_CON_2=10030615"
+        },
+        {
+          "coordinate": [
+            -49.295674187513725,
+            -28.53804605618052
+          ],
+          "provenance": "UNSEMT:0114:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000351",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.737527896644111,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.271036345450966,
+            -28.564056672877086
+          ],
+          "provenance": "SSDMT:14067840:PN_CON_2=10030827"
+        },
+        {
+          "coordinate": [
+            -49.271036345450966,
+            -28.564056672877086
+          ],
+          "provenance": "SSDMT:19776819:PN_CON_2=10030827"
+        },
+        {
+          "coordinate": [
+            -49.27102346356196,
+            -28.564024923211605
+          ],
+          "provenance": "UNSEMT:0331:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000365",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.1768833774654563,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31324893409101,
+            -28.53170221598441
+          ],
+          "provenance": "SSDMT:10033622:PN_CON_2=10030165"
+        },
+        {
+          "coordinate": [
+            -49.31323711070405,
+            -28.53170415312411
+          ],
+          "provenance": "UNSEMT:RL-008:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000371",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.74330671095151,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27486091120204,
+            -28.561261302067408
+          ],
+          "provenance": "SSDMT:10033932:PN_CON_2=3040763"
+        },
+        {
+          "coordinate": [
+            -49.27486091120204,
+            -28.561261302067408
+          ],
+          "provenance": "SSDMT:14161795:PN_CON_2=3040763"
+        },
+        {
+          "coordinate": [
+            -49.27483509616269,
+            -28.561251642449292
+          ],
+          "provenance": "UNSEMT:0120:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000376",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.7485944002910943,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.298079789450696,
+            -28.536684569837007
+          ],
+          "provenance": "SSDMT:10033706:PN_CON_2=17893713"
+        },
+        {
+          "coordinate": [
+            -49.298079789450696,
+            -28.536684569837007
+          ],
+          "provenance": "SSDMT:19481689:PN_CON_2=17893713"
+        },
+        {
+          "coordinate": [
+            -49.29808670163993,
+            -28.536687462956024
+          ],
+          "provenance": "UNSEMT:CH-299:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000381",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.49878000158603086,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29407364518255,
+            -28.539245846218762
+          ],
+          "provenance": "SSDMT:16733953:PN_CON_2=16733960"
+        },
+        {
+          "coordinate": [
+            -49.29406961532044,
+            -28.53924860174152
+          ],
+          "provenance": "UNSEMT:CH-274:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000382",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.6977155712420241,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29361548106954,
+            -28.53961519598448
+          ],
+          "provenance": "SSDMT:10033718:PN_CON_2=16733946"
+        },
+        {
+          "coordinate": [
+            -49.29361548106954,
+            -28.53961519598448
+          ],
+          "provenance": "SSDMT:16733997:PN_CON_2=16733946"
+        },
+        {
+          "coordinate": [
+            -49.29362250477476,
+            -28.539616276969582
+          ],
+          "provenance": "UNSEMT:CH-275:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02CH000000384",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.3862128331124708,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.28539660027286,
+            -28.545689838515216
+          ],
+          "provenance": "SSDMT:10033819:PN_CON_2=10030682"
+        },
+        {
+          "coordinate": [
+            -49.28539660027286,
+            -28.545689838515216
+          ],
+          "provenance": "SSDMT:18461662:PN_CON_2=10030682"
+        },
+        {
+          "coordinate": [
+            -49.28539403630566,
+            -28.54568718911247
+          ],
+          "provenance": "UNSEMT:CH-205:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000000314",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 18.57180268801115,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29919718899902,
+            -28.547350383613264
+          ],
+          "provenance": "SSDMT:9726228:PN_CON_1=9726170"
+        },
+        {
+          "coordinate": [
+            -49.299225555415035,
+            -28.54751608370026
+          ],
+          "provenance": "SSDMT:9726235:PN_CON_2=9726234"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000000321",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.1907107747642818,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.2974920267356,
+            -28.548520227126744
+          ],
+          "provenance": "SSDMT:9726243:PN_CON_1=9726202"
+        },
+        {
+          "coordinate": [
+            -49.29746552101693,
+            -28.548536995885627
+          ],
+          "provenance": "UNSEMT:CH-209:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000000401",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.049348613840441,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.32139044261481,
+            -28.530945778225032
+          ],
+          "provenance": "SSDMT:1395844:PN_CON_1=1386063"
+        },
+        {
+          "coordinate": [
+            -49.32138937601883,
+            -28.530927309747483
+          ],
+          "provenance": "UNSEMT:CH-231:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000001012",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.3846508423008874,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.26415699674794,
+            -28.57311945409947
+          ],
+          "provenance": "SSDMT:1408325:PN_CON_1=1384655"
+        },
+        {
+          "coordinate": [
+            -49.26417256041526,
+            -28.573136014215663
+          ],
+          "provenance": "UNSEMT:CH-110:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000001109",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 63.986772665540585,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.32697429632668,
+            -28.53114110287953
+          ],
+          "provenance": "SSDMT:1395832:PN_CON_1=1387420"
+        },
+        {
+          "coordinate": [
+            -49.32632064298326,
+            -28.531128752489906
+          ],
+          "provenance": "SSDMT:1395833:PN_CON_2=1387415"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000001110",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 63.986772665540585,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.32697429632668,
+            -28.53114110287953
+          ],
+          "provenance": "SSDMT:1394189:PN_CON_1=1387420"
+        },
+        {
+          "coordinate": [
+            -49.32632064298326,
+            -28.531128752489906
+          ],
+          "provenance": "SSDMT:1395832:PN_CON_2=1387415"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000001130",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.623983707980444,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.33130719217314,
+            -28.52745980812358
+          ],
+          "provenance": "SSDMT:1394172:PN_CON_1=1387476"
+        },
+        {
+          "coordinate": [
+            -49.331333571986704,
+            -28.527482756124243
+          ],
+          "provenance": "UNSEMT:CH-230:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000001131",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 1.6387959471316298,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.330930483255145,
+            -28.527450467764822
+          ],
+          "provenance": "SSDMT:1394105:PN_CON_1=1387480"
+        },
+        {
+          "coordinate": [
+            -49.33094024629531,
+            -28.527462481808072
+          ],
+          "provenance": "UNSEMT:CH-323:declared_point_geometry"
+        },
+        {
+          "coordinate": [
+            -49.33094638057099,
+            -28.527450635938067
+          ],
+          "provenance": "UNSEMT:RL-006:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000001360",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.74330671095151,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27486091120204,
+            -28.561261302067408
+          ],
+          "provenance": "SSDMT:10033928:PN_CON_1=3040763"
+        },
+        {
+          "coordinate": [
+            -49.27483509616269,
+            -28.561251642449292
+          ],
+          "provenance": "UNSEMT:0120:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000002222",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.0000214831806393,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.3183270108828,
+            -28.53084259181213
+          ],
+          "provenance": "SSDMT:1395855:PN_CON_1=1392829"
+        },
+        {
+          "coordinate": [
+            -49.31832718535128,
+            -28.530824545116616
+          ],
+          "provenance": "UNSEMT:CH-233:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000003249",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 1.8365264347071348,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27779838029096,
+            -28.55732291901745
+          ],
+          "provenance": "SSDMT:17437680:PN_CON_1=17437655"
+        },
+        {
+          "coordinate": [
+            -49.277787246684056,
+            -28.557336260460033
+          ],
+          "provenance": "UNSEMT:CH-279:declared_point_geometry"
+        },
+        {
+          "coordinate": [
+            -49.27779317231699,
+            -28.557332653279275
+          ],
+          "provenance": "UNSEMT:CH-280:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000004758",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.397125529715737,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31958672005106,
+            -28.530877669868516
+          ],
+          "provenance": "SSDMT:1395850:PN_CON_1=1392803"
+        },
+        {
+          "coordinate": [
+            -49.31958672005106,
+            -28.530877669868516
+          ],
+          "provenance": "SSDMT:1407093:PN_CON_2=1392803"
+        },
+        {
+          "coordinate": [
+            -49.31956618313279,
+            -28.530865882454464
+          ],
+          "provenance": "UNSEMT:CH-232:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000005225",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.8872032730778372,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29546751161632,
+            -28.540959452216896
+          ],
+          "provenance": "SSDMT:1407916:PN_CON_1=1384974"
+        },
+        {
+          "coordinate": [
+            -49.29548131531044,
+            -28.54094756048147
+          ],
+          "provenance": "UNSEMT:0173:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000005226",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.661792596961294,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.295820624122484,
+            -28.541243641580763
+          ],
+          "provenance": "SSDMT:1407917:PN_CON_1=1384977"
+        },
+        {
+          "coordinate": [
+            -49.29583874096511,
+            -28.541261556975257
+          ],
+          "provenance": "UNSEMT:CH-208:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000006160",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 27.048097931126946,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.33038901943763,
+            -28.52779398990066
+          ],
+          "provenance": "SSDMT:1394092:PN_CON_1=1394082"
+        },
+        {
+          "coordinate": [
+            -49.3305272245517,
+            -28.527582629434733
+          ],
+          "provenance": "UNSEMT:RL-USA06:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000006692",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.114786423484822,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.28723359685296,
+            -28.544269391719013
+          ],
+          "provenance": "SSDMT:10033806:PN_CON_1=10030668"
+        },
+        {
+          "coordinate": [
+            -49.28723359685296,
+            -28.544269391719013
+          ],
+          "provenance": "SSDMT:10033807:PN_CON_2=10030668"
+        },
+        {
+          "coordinate": [
+            -49.287244899532425,
+            -28.54426813536611
+          ],
+          "provenance": "UNSEMT:CH-313:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000006696",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.033560217680267,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.28575150332915,
+            -28.5453900189342
+          ],
+          "provenance": "SSDMT:10033810:PN_CON_1=10030680"
+        },
+        {
+          "coordinate": [
+            -49.28572911110956,
+            -28.545408948763907
+          ],
+          "provenance": "UNSEMT:CH-174:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000006697",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.3862128331124708,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.28539660027286,
+            -28.545689838515216
+          ],
+          "provenance": "SSDMT:10033811:PN_CON_1=10030682"
+        },
+        {
+          "coordinate": [
+            -49.28539403630566,
+            -28.54568718911247
+          ],
+          "provenance": "UNSEMT:CH-205:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000006889",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.2431497352653078,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.281922253009554,
+            -28.55176908557479
+          ],
+          "provenance": "SSDMT:10033840:PN_CON_1=10030723"
+        },
+        {
+          "coordinate": [
+            -49.28191977088068,
+            -28.551768982152737
+          ],
+          "provenance": "UNSEMT:CH-143:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000006911",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.05864017880095478,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27538544528204,
+            -28.560514348558286
+          ],
+          "provenance": "SSDMT:10033926:PN_CON_1=10030792"
+        },
+        {
+          "coordinate": [
+            -49.27538534455795,
+            -28.560514870165093
+          ],
+          "provenance": "UNSEMT:CH-132:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000006914",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.3627699196638674,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27431118891019,
+            -28.5620386337759
+          ],
+          "provenance": "SSDMT:10033933:PN_CON_1=10030801"
+        },
+        {
+          "coordinate": [
+            -49.27429285173366,
+            -28.56201296982266
+          ],
+          "provenance": "UNSEMT:0263:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000007030",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.522788442807119,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.284809080374714,
+            -28.54407398612551
+          ],
+          "provenance": "SSDMT:1620327:PN_CON_1=1613612"
+        },
+        {
+          "coordinate": [
+            -49.28481417863139,
+            -28.544042518847107
+          ],
+          "provenance": "UNSEMT:0312:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000007733",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 6.015697257007255,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27766095219113,
+            -28.55748894645768
+          ],
+          "provenance": "SSDMT:17439732:PN_CON_1=17437667"
+        },
+        {
+          "coordinate": [
+            -49.27769709504486,
+            -28.557446837501516
+          ],
+          "provenance": "SSDMT:17439734:PN_CON_1=17437661"
+        },
+        {
+          "coordinate": [
+            -49.27769709504486,
+            -28.557446837501516
+          ],
+          "provenance": "SSDMT:17439784:PN_CON_1=17437661"
+        },
+        {
+          "coordinate": [
+            -49.27766095219113,
+            -28.55748894645768
+          ],
+          "provenance": "SSDMT:17439793:PN_CON_1=17437667"
+        },
+        {
+          "coordinate": [
+            -49.27771193835525,
+            -28.557458613224355
+          ],
+          "provenance": "UNSEMT:CH-277:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000007735",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 23.369741475103435,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27769709504486,
+            -28.557446837501516
+          ],
+          "provenance": "SSDMT:17439732:PN_CON_2=17437661"
+        },
+        {
+          "coordinate": [
+            -49.277555353796515,
+            -28.557616563853287
+          ],
+          "provenance": "SSDMT:17439771:PN_CON_1=17437673"
+        },
+        {
+          "coordinate": [
+            -49.277555353796515,
+            -28.557616563853287
+          ],
+          "provenance": "SSDMT:17439782:PN_CON_2=17437673"
+        },
+        {
+          "coordinate": [
+            -49.27769709504486,
+            -28.557446837501516
+          ],
+          "provenance": "SSDMT:17439783:PN_CON_1=17437661"
+        },
+        {
+          "coordinate": [
+            -49.27769709504486,
+            -28.557446837501516
+          ],
+          "provenance": "SSDMT:17439793:PN_CON_2=17437661"
+        },
+        {
+          "coordinate": [
+            -49.27768801728814,
+            -28.55749397366793
+          ],
+          "provenance": "UNSEMT:CH-278:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000007736",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 16.115134595302184,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27766095219113,
+            -28.55748894645768
+          ],
+          "provenance": "SSDMT:17439782:PN_CON_1=17437667"
+        },
+        {
+          "coordinate": [
+            -49.27756303040951,
+            -28.557604595675514
+          ],
+          "provenance": "UNSEMT:CH-281:declared_point_geometry"
+        },
+        {
+          "coordinate": [
+            -49.27757016473129,
+            -28.557610272196257
+          ],
+          "provenance": "UNSEMT:CH-282:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000007748",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 2.6933621215820747,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.2780038510968,
+            -28.557080868287414
+          ],
+          "provenance": "SSDMT:10033899:PN_CON_1=9515959"
+        },
+        {
+          "coordinate": [
+            -49.277976367815086,
+            -28.55707950851246
+          ],
+          "provenance": "UNSEMT:CH-326:declared_point_geometry"
+        },
+        {
+          "coordinate": [
+            -49.277996330965834,
+            -28.557089481094636
+          ],
+          "provenance": "UNSEMT:RL-011:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000009171",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 48.79211219576431,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.30517717878371,
+            -28.53382592632539
+          ],
+          "provenance": "SSDMT:10033672:PN_CON_2=10030566"
+        },
+        {
+          "coordinate": [
+            -49.30554620209551,
+            -28.53352988299764
+          ],
+          "provenance": "SSDMT:10681530:PN_CON_1=10030564"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000009259",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.5532510913835926,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31064299737636,
+            -28.531770894511112
+          ],
+          "provenance": "SSDMT:11094613:PN_CON_1=11094565"
+        },
+        {
+          "coordinate": [
+            -49.31064000443263,
+            -28.53180284832274
+          ],
+          "provenance": "UNSEMT:CH-096:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000009278",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.491927458048873,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27150668728376,
+            -28.56387680936723
+          ],
+          "provenance": "SSDMT:10033940:PN_CON_1=10030823"
+        },
+        {
+          "coordinate": [
+            -49.27151519217233,
+            -28.56390741059846
+          ],
+          "provenance": "UNSEMT:0123:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000009279",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.737527896644111,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.271036345450966,
+            -28.564056672877086
+          ],
+          "provenance": "SSDMT:10033941:PN_CON_1=10030827"
+        },
+        {
+          "coordinate": [
+            -49.27102346356196,
+            -28.564024923211605
+          ],
+          "provenance": "UNSEMT:0331:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000009357",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 62.61882484800727,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.30147490554242,
+            -28.53495241532164
+          ],
+          "provenance": "SSDMT:10033689:PN_CON_1=10030586"
+        },
+        {
+          "coordinate": [
+            -49.30095300467741,
+            -28.53527930179831
+          ],
+          "provenance": "SSDMT:10033693:PN_CON_2=1612862"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000009382",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.9033900314840795,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29567589982287,
+            -28.538038045919052
+          ],
+          "provenance": "SSDMT:10033711:PN_CON_1=10030615"
+        },
+        {
+          "coordinate": [
+            -49.295674187513725,
+            -28.53804605618052
+          ],
+          "provenance": "UNSEMT:0114:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000009391",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.1039405933440825,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29323292745761,
+            -28.5398678892916
+          ],
+          "provenance": "SSDMT:10033718:PN_CON_1=10030629"
+        },
+        {
+          "coordinate": [
+            -49.29324896236966,
+            -28.53988053555821
+          ],
+          "provenance": "UNSEMT:0295:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000009529",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 18.57180268801115,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.299225555415035,
+            -28.54751608370026
+          ],
+          "provenance": "SSDMT:9726226:PN_CON_2=9726234"
+        },
+        {
+          "coordinate": [
+            -49.29919718899902,
+            -28.547350383613264
+          ],
+          "provenance": "SSDMT:9726235:PN_CON_1=9726170"
+        },
+        {
+          "coordinate": [
+            -49.299225555415035,
+            -28.54751608370026
+          ],
+          "provenance": "SSDMT:9726237:PN_CON_2=9726234"
+        },
+        {
+          "coordinate": [
+            -49.299225555415035,
+            -28.54751608370026
+          ],
+          "provenance": "SSDMT:9726239:PN_CON_2=9726234"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000010823",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.616243614174241,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31623325246261,
+            -28.53082803538547
+          ],
+          "provenance": "SSDMT:10034018:PN_CON_2=9561101"
+        },
+        {
+          "coordinate": [
+            -49.31623325246261,
+            -28.53082803538547
+          ],
+          "provenance": "SSDMT:10034020:PN_CON_1=9561101"
+        },
+        {
+          "coordinate": [
+            -49.31623972758132,
+            -28.530805130552267
+          ],
+          "provenance": "UNSEMT:CH-204:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000011293",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.43086924587707964,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.270533190054664,
+            -28.564293438291486
+          ],
+          "provenance": "SSDMT:19776819:PN_CON_1=19776812"
+        },
+        {
+          "coordinate": [
+            -49.27052977622816,
+            -28.564295894340034
+          ],
+          "provenance": "UNSEMT:CH-133:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000011404",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 48.79211219576431,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.30554620209551,
+            -28.53352988299764
+          ],
+          "provenance": "SSDMT:10033668:PN_CON_1=10030564"
+        },
+        {
+          "coordinate": [
+            -49.30517717878371,
+            -28.53382592632539
+          ],
+          "provenance": "SSDMT:10681530:PN_CON_2=10030566"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000011417",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 62.61882484800727,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.30147490554242,
+            -28.53495241532164
+          ],
+          "provenance": "SSDMT:10033693:PN_CON_1=10030586"
+        },
+        {
+          "coordinate": [
+            -49.30095300467741,
+            -28.53527930179831
+          ],
+          "provenance": "SSDMT:10033694:PN_CON_2=1612862"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000011960",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 2.3062833068278237,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.26376390937685,
+            -28.57267478791107
+          ],
+          "provenance": "SSDMT:1395146:PN_CON_1=1384495"
+        },
+        {
+          "coordinate": [
+            -49.263743575705405,
+            -28.572664258648558
+          ],
+          "provenance": "UNSEMT:0267:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000011964",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 1.8805867331133836,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.27252057216663,
+            -28.580220553135973
+          ],
+          "provenance": "SSDMT:1395167:PN_CON_1=1384512"
+        },
+        {
+          "coordinate": [
+            -49.272507497822744,
+            -28.580232993457855
+          ],
+          "provenance": "UNSEMT:0125:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000012451",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 3.474659943854581,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31571189029148,
+            -28.5309182041118
+          ],
+          "provenance": "SSDMT:10033610:PN_CON_2=10030153"
+        },
+        {
+          "coordinate": [
+            -49.31571189029148,
+            -28.5309182041118
+          ],
+          "provenance": "SSDMT:10034018:PN_CON_1=10030153"
+        },
+        {
+          "coordinate": [
+            -49.31571189029148,
+            -28.5309182041118
+          ],
+          "provenance": "SSDMT:10893673:PN_CON_2=10030153"
+        },
+        {
+          "coordinate": [
+            -49.315717658543065,
+            -28.530946828633205
+          ],
+          "provenance": "UNREMT:0360:declared_point_geometry"
+        },
+        {
+          "coordinate": [
+            -49.31570114699031,
+            -28.530919071957555
+          ],
+          "provenance": "UNSEMT:CH-218:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000012454",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 3.690896441219822,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31564453826479,
+            -28.530923378810826
+          ],
+          "provenance": "SSDMT:10033610:PN_CON_1=10030155"
+        },
+        {
+          "coordinate": [
+            -49.31564453826479,
+            -28.530923378810826
+          ],
+          "provenance": "SSDMT:10893673:PN_CON_1=10030155"
+        },
+        {
+          "coordinate": [
+            -49.31565105745028,
+            -28.530956182481816
+          ],
+          "provenance": "UNSEMT:CH-219:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000012769",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 13.417546288222503,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.33158285416533,
+            -28.530609298680133
+          ],
+          "provenance": "SSDMT:16733895:PN_CON_1=16733879"
+        },
+        {
+          "coordinate": [
+            -49.33147248486722,
+            -28.53068112213606
+          ],
+          "provenance": "SSDMT:16733896:PN_CON_2=15756546"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000013081",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 13.417546288222503,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.33158285416533,
+            -28.530609298680133
+          ],
+          "provenance": "SSDMT:16733894:PN_CON_1=16733879"
+        },
+        {
+          "coordinate": [
+            -49.33147248486722,
+            -28.53068112213606
+          ],
+          "provenance": "SSDMT:16733895:PN_CON_2=15756546"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000013091",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.6977155712420241,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29361548106954,
+            -28.53961519598448
+          ],
+          "provenance": "SSDMT:16733953:PN_CON_1=16733946"
+        },
+        {
+          "coordinate": [
+            -49.29362250477476,
+            -28.539616276969582
+          ],
+          "provenance": "UNSEMT:CH-275:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000013094",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 46.51445271015849,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29394716722794,
+            -28.53964931716223
+          ],
+          "provenance": "SSDMT:1407913:PN_CON_2=16733954"
+        },
+        {
+          "coordinate": [
+            -49.293557800352175,
+            -28.539408598328123
+          ],
+          "provenance": "SSDMT:16733986:PN_CON_2=1384828"
+        },
+        {
+          "coordinate": [
+            -49.29394716722794,
+            -28.53964931716223
+          ],
+          "provenance": "SSDMT:16733997:PN_CON_1=16733954"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000013281",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.49878000158603086,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.29407364518255,
+            -28.539245846218762
+          ],
+          "provenance": "SSDMT:16733971:PN_CON_1=16733960"
+        },
+        {
+          "coordinate": [
+            -49.29406961532044,
+            -28.53924860174152
+          ],
+          "provenance": "UNSEMT:CH-274:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000013444",
+      "unique_coordinate_count": 3,
+      "max_disagreement_m": 2.0425546405084916,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.31324893409101,
+            -28.53170221598441
+          ],
+          "provenance": "SSDMT:10033621:PN_CON_1=10030165"
+        },
+        {
+          "coordinate": [
+            -49.313239425559004,
+            -28.531685835732674
+          ],
+          "provenance": "UNSEMT:CH-131:declared_point_geometry"
+        },
+        {
+          "coordinate": [
+            -49.31323711070405,
+            -28.53170415312411
+          ],
+          "provenance": "UNSEMT:RL-008:declared_point_geometry"
+        }
+      ]
+    },
+    {
+      "PAC": "S01B01A02P0000013526",
+      "unique_coordinate_count": 2,
+      "max_disagreement_m": 0.7485944002910943,
+      "source_candidates": [
+        {
+          "coordinate": [
+            -49.298079789450696,
+            -28.536684569837007
+          ],
+          "provenance": "SSDMT:17893726:PN_CON_1=17893713"
+        },
+        {
+          "coordinate": [
+            -49.29808670163993,
+            -28.536687462956024
+          ],
+          "provenance": "UNSEMT:CH-299:declared_point_geometry"
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Electrical connectivity exclusively follows declared PAC_1/PAC_2 identifiers; no snapping/proximity joins.",
+    "The voltage regulator is represented as a pass-through edge solely for connectivity, not voltage regulation.",
+    "Open switch boundary stubs remain declared but normally unenergized. No cross-feeder continuation was fabricated.",
+    "Source geometry has inconsistent repeated PAC positions. Representative coordinates are display-only and not homologated for routing/travel.",
+    "No customer, LV, jobs, scheduling resources or capacities have been included in this MV excerpt.",
+    "Normal reachability is a topological data check, not operational feasibility, protection or power-flow validation."
+  ]
+}
