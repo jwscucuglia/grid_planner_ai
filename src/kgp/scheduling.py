@@ -37,11 +37,12 @@ def compute_travel_hours(
     speed_kmh: float,
 ) -> float:
     """Calcula o tempo de deslocamento em horas entre duas coordenadas em km."""
+    if not math.isfinite(speed_kmh) or speed_kmh <= 0.0:
+        raise ValueError("Velocidade de deslocamento deve ser positiva e finita.")
     dist_km = math.hypot(x2 - x1, y2 - y1)
     if dist_km <= 1e-6:
         return 0.0
-    effective_speed = max(5.0, speed_kmh)
-    return round(dist_km / effective_speed, 4)
+    return round(dist_km / speed_kmh, 4)
 
 
 def crew_has_skills(crew: CrewResource, required_skills: Tuple[str, ...]) -> bool:

@@ -604,6 +604,11 @@ def test_adversarial_5_phase_blind_transfer_rejected() -> None:
 
 
 def test_adversarial_6_spoofed_travel_coordinates_rejected() -> None:
+    # A positive speed below 5 km/h must not be silently increased: 10/2 = 5 h.
+    from kgp.scheduling import compute_travel_hours
+    from kgp.feasibility import _canonical_travel_hours
+    assert compute_travel_hours(0., 0., 10., 0., 2.) == 5.0
+    assert _canonical_travel_hours(0., 0., 10., 0., 2.) == 5.0
     """Regressão adversarial 6: adulterar (iv.x, iv.y) para zerar deslocamento da base distante é reprovado."""
     scen = generate_scenario_instance(202601, "EVAL")
     # Move a base de EQ_PESADA_01 para (350.0, 350.0) km:
