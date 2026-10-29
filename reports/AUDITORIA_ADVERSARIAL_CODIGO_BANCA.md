@@ -6,9 +6,9 @@ Esta é uma revisão técnica por agente de IA com contraprovas executáveis. N�
 
 ## Conclusão desta passagem
 
-Foi reproduzido **um achado científico de falsa factibilidade**, relativo à conservação de materiais, com efeito nos quatro motores e no verificador comum. No estado inicial examinado, o KGP também publicava prova de ótimo sobre esse plano incorretamente aceito. **O achado foi corrigido e a correção passou pela reavaliação adversarial independente desta passagem. Não há achado reproduzido aberto no alcance abaixo.**
+Foram reproduzidos **dois achados distintos**: perda de material em saldos arredondados (A-CODE-01) e apagamento de quantidade não zero antes de formar o contrato de entrada (A-CODE-02). Ambos afetavam os dados usados pelos quatro motores. No estado inicial de cada caso, o KGP publicava prova de ótimo sobre o problema já aceito incorretamente ou alterado pela ingestão. **Os dois achados foram corrigidos e reavaliados independentemente. Não há achado reproduzido aberto no alcance abaixo.**
 
-A passagem própria foi limitada a **12 classes estratégicas, 58 sondagens pequenas, com controles positivos**. Resultado inicial: 50 sondagens passaram; as oito falhas correspondem a duas variantes do mesmo achado nos quatro métodos. Na reexecução após a correção, **58/58 passaram**. Uma extensão da mesma classe de materiais acrescentou **105/105 verificações com resultado esperado**. Isso não é uma estimativa de taxa de defeitos nem uma prova geral de correção. A suíte completa não foi executada por esta revisão.
+A passagem própria foi limitada a **12 classes estratégicas, 58 sondagens pequenas, com controles positivos**. Resultado inicial: 50 sondagens passaram; as oito falhas correspondiam a duas variantes de A-CODE-01 nos quatro métodos. Após as duas correções, **58/58 passaram**, além de **105/105 verificações de materiais** e **143/143 verificações da fronteira numérica** nas mesmas classes 02 e 12. Isso não é uma estimativa de taxa de defeitos nem uma prova geral de correção. A suíte completa não foi executada por esta revisão.
 
 ## A-CODE-01 — Quantidade positiva de material desaparece por arredondamento
 
@@ -62,6 +62,30 @@ As 105 verificações usam um oráculo separado com aritmética decimal de 2.000
 
 O MILP continua usando double. Nos dois casos extremos — uma obrigatória consumindo todo o estoque e uma opcional acrescentando `1e-28` ou `5e-324` — o candidato numérico não conserva o estoque exato. A barreira final o rejeita e retorna um plano realmente factível com `FEASIBLE_FALLBACK_NO_BOUND`, sem transportar prova de ótimo ou bound do candidato rejeitado. Isso é uma limitação numérica observada e contida; não é certificado exato do MILP em aritmética racional.
 
+## A-CODE-02 — Literal não zero desaparece na leitura ou conversão de unidades
+
+**Estado: corrigido e reavaliado; evidência RED anterior ao guard numérico preservada.** A investigação adicional foi solicitada após A-CODE-01 e examinou os bytes de entrada, em vez de começar somente pelo float já decodificado.
+
+Antes da correção, JSON com `"required_materials": {"M": 1e-400}` e a célula CSV equivalente (`"{""M"": 1e-400}"`) eram importados como `M=0.0`, com `is_valid=True` e nenhum diagnóstico. Um leitor independente `json.loads(..., parse_float=Decimal)` recuperou `Decimal('1e-400') > 0` dos bytes efetivamente escritos. Com estoque vazio, B0/B1/B2/KGP concluíam a obrigatória e passavam pelo verificador. O KGP certificava o modelo que já havia recebido quantidade zero; a discrepância estava na transformação origem→contrato.
+
+A variante negativa `-1e-400` também era admitida como `-0.0`. Os controles separaram a falha do comportamento correto: zero legítimo era aceito, `5e-324` permanecia não zero e impedia executar sem estoque, e `1e400` era rejeitado por produzir float não finito. A evidência inicial está em [baseline_RED_underflow_pre_parser.json](validation_scripts/banca_rev05/baseline_RED_underflow_pre_parser.json), com SHA-256 dos arquivos e dos módulos observados antes da correção. Esses módulos correspondem à base `e2a72e993ec13cac5304fe04d9e3800578e17a80`; o hash de `contracts.py` registra os bytes CRLF daquele checkout, enquanto o blob Git usa LF.
+
+O domínio de quantidades canônicas é float finito; não é necessário admitir números arbitrariamente pequenos. Um literal não zero que só pode virar zero nesse domínio precisa ser bloqueado. A documentação anterior não autorizava apagar esse valor silenciosamente. Essa falha antecedia os saldos racionais corrigidos em A-CODE-01, que preservavam corretamente o requisito canônico recebido.
+
+O novo leitor estrito rejeita um literal cuja mantissa é não zero quando sua conversão float produz zero. Zeros reais com expoente, inclusive negativos, continuam válidos; subnormais suportados continuam não zero. A conversão de unidades também rejeita um valor representável não zero quando o produto pelo fator declarado vira zero. A política não exige representação binária exata de decimais comuns como `0.1` e não amplia o núcleo para aritmética arbitrária nas entradas.
+
+Reprodução pública:
+
+```powershell
+.\.venv\Scripts\python.exe reports/validation_scripts/banca_rev05/numeric_underflow_reaudit.py
+```
+
+Resultado: **143/143 verificações passaram em 3,152 s**, código de saída 0, registradas em [final_GREEN_numeric_underflow.json](validation_scripts/banca_rev05/final_GREEN_numeric_underflow.json). O runner não depende de testes ou pytest e contém oráculo decimal a partir dos bytes de JSON, CSV e GeoJSON.
+
+O alcance dessas 143 verificações é: oito controles do leitor estrito; 27 importações (três formatos × nove combinações de literal/estoque); 18 conferências de preservação de zero/não zero; 72 execuções dos quatro motores sobre os controles admitidos, após JSON e verificador; 18 conversões de unidades de coordenadas e potência nos três formatos, com subnormal que causaria underflow, zero legítimo e valor normal. Entradas rejeitadas retêm erro estruturado e não liberam rede/catálogo ao planejamento. `5e-324` com estoque exatamente suficiente continua executável pelos quatro métodos; sem estoque, continua corretamente inviável.
+
+Após os guards, as 58 sondagens iniciais e as 105 de materiais foram novamente executadas e passaram. Os arquivos `pre_parser_GREEN_*` preservam a reavaliação anterior; os `final_GREEN_*` vinculados neste relatório contêm os hashes do código após ambas as correções. Esta revisão não substituiu nem declarou atuais os 48 planos gerados antes do novo parser; a rodada consolidada posterior é uma verificação separada.
+
 ## Alcance e controles
 
 | Classe | Sondagens | Resultado inicial |
@@ -93,6 +117,6 @@ Resultado observado na inspeção inicial: **27 testes passaram em 4,45 s**, có
 
 Esta passagem examinou `contracts`, `validation`, `ingestion`, `topology`, `eligibility`, `scheduling`, `baselines`, `optimizer`, `feasibility`, `metrics`, o novo `materials` e as evidências técnicas públicas relacionadas. Exercitou B0/B1/B2/KGP, contratos importados e planos após JSON; não repetiu a experiência completa de 48 planos, nem o ensaio GIS completo nesta execução.
 
-As entradas de contraprova respeitam o domínio admitido e os tempos de 0,0001 h. Não se exigiu ilhamento DG, calendário contínuo de 24 horas, fluxo AC/proteção, transformação de tensão, consumidor multifásico ou simultaneidade elétrica entre janelas. A aproximação radial, etapas agregadas de manobra, deslocamentos euclidianos, limites construtivos de colunas e validade dos parâmetros sintéticos permanecem limites declarados. A aprovação dos controles não demonstra segurança de campo nem benefício real na Cemig.
+Os controles de planejamento respeitam o domínio admitido e os tempos de 0,0001 h. As contraprovas da fronteira também incluem entradas não representáveis que devem ser rejeitadas; não exigem que o núcleo passe a suportá-las. Não se exigiu ilhamento DG, calendário contínuo de 24 horas, fluxo AC/proteção, transformação de tensão, consumidor multifásico ou simultaneidade elétrica entre janelas. A aproximação radial, etapas agregadas de manobra, deslocamentos euclidianos, limites construtivos de colunas e validade dos parâmetros sintéticos permanecem limites declarados. A aprovação dos controles não demonstra segurança de campo nem benefício real na Cemig.
 
-Não restou achado reproduzido aberto nesta passagem. O fechamento refere-se à correção de A-CODE-01 e aos casos efetivamente executados; não substitui a rodada consolidada do estudo, a avaliação de desempenho em instâncias maiores ou a validação por engenharia humana.
+Não restou achado reproduzido aberto nesta passagem. O fechamento refere-se às correções de A-CODE-01/A-CODE-02 e aos casos efetivamente executados; não substitui a rodada consolidada do estudo, a avaliação de desempenho em instâncias maiores ou a validação por engenharia humana.

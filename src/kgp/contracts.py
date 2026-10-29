@@ -150,8 +150,24 @@ def _decode_typed(value: Any, expected: Any, path: str) -> Any:
 
 
 def strict_json_loads(raw: str) -> Any:
+    """Read canonical finite floats without silently erasing nonzero inputs.
+
+    Decimal literals use ordinary binary-float rounding, including supported
+    subnormals. A nonzero literal that rounds to zero is outside this domain;
+    actual zero mantissas remain valid regardless of exponent or sign.
+    """
     def reject_constant(value: str) -> None:
         raise ValueError(f"JSON não finito: {value}")
+
+    def canonical_float(token: str) -> float:
+        value = float(token)
+        # The JSON parser has already validated the numeric grammar. Inspect
+        # only the mantissa: exponent digits cannot make an actual zero nonzero.
+        if value == 0.0 and any(digit in '123456789' for digit in token.lower().partition('e')[0]):
+            raise ValueError(
+                f"JSON numeric underflow: '{token}' não zero fora do domínio de floats canônicos; conversão produziria zero."
+            )
+        return value
 
     def unique_keys(pairs: list) -> dict:
         result = {}
@@ -161,7 +177,8 @@ def strict_json_loads(raw: str) -> Any:
             result[key] = value
         return result
 
-    data = json.loads(raw, parse_constant=reject_constant, object_pairs_hook=unique_keys)
+    data = json.loads(raw, parse_float=canonical_float,
+                      parse_constant=reject_constant, object_pairs_hook=unique_keys)
     errors = nonfinite_paths(data)
     if errors:
         raise ValueError("; ".join(errors))

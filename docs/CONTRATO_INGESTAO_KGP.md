@@ -1,4 +1,4 @@
-# Contrato de importação KGP — INGESTAO01
+# Contrato de importação KGP — INGESTAO01 / fronteira numérica REV05
 
 ## Interface e responsabilidade
 
@@ -33,6 +33,8 @@ Identificação, fases, ligações, fontes, condições em serviço, estados das
 - Uma aresta conecta nós do mesmo nível nominal (tolerância relativa `1e-9` para ruído de representação). Mudança de tensão sem modelo de conversor é bloqueada. O exemplo público inclui somente MV; o regulador passante não certifica regulação ou tap.
 - Conexões são identificadores. Arestas paralelas e nós sem alimentação permanecem no cadastro; não são colapsados para facilitar os resultados.
 - Tempo operacional respeita `0.0001 h` e o domínio já auditado: DG ilhada e catálogo diário contínuo 24h sem recomposição positiva bloqueados.
+- Números decimais são normalizados para floats binários finitos, com arredondamento usual nessa precisão; o contrato não oferece precisão decimal arbitrária. Subnormais representáveis, como `5e-324`, são preservados. Literais não zero que virariam zero, como `1e-400` ou `-1e-400`, são bloqueados na leitura JSON, inclusive em células CSV e propriedades GeoJSON. Zero verdadeiro, mesmo com sinal ou expoente, continua válido onde o campo permite zero.
+- Conversões de unidades também bloqueiam valor não zero cujo produto viraria zero, com diagnóstico de campo/linha. Os saldos exatos de materiais usam os valores decimais canônicos dos floats já admitidos; não recuperam algarismos além da precisão da entrada normalizada. A rejeição evita apagar um requisito antes de planejar.
 
 Cada erro tem código, severidade, tabela, linha de dado (iniciando em 1), ID quando disponível e mensagem. O diagnóstico inclui hashes dos arquivos lidos e decodificados com sucesso, unidades, mapeamento, contagens e IDs. Um lote estruturalmente válido ainda pode produzir uma carteira operacionalmente inviável; o verificador comum continua obrigatório.
 

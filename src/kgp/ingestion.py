@@ -14,6 +14,8 @@ reference is a same-level topology, not an MV/LV transformer simulation.
 CSV respects the standard-library parser's field_size_limit (131072 characters
 by default). The effective limit is recorded and a parser limit error is returned
 as a structured INVALID_FILE diagnostic without changing global parser settings.
+The numeric domain is canonical finite floats: supported subnormals are retained,
+and nonzero literals or unit conversions that underflow to zero are rejected.
 """
 from __future__ import annotations
 
@@ -166,6 +168,11 @@ def _convert(raw: dict, factors: dict) -> dict:
         if type(value) not in (int, float):
             raise _InputError("INVALID_VALUE", f"{name}: expected a finite number, without implicit coercion")
         converted[name] = value * factors.get(dimension, 1.)
+        if value != 0 and converted[name] == 0:
+            raise _InputError(
+                "INVALID_VALUE",
+                f"{name}: numeric underflow during unit conversion; nonzero input is outside the canonical float domain after conversion",
+            )
         if dimension == "duration":
             try:
                 operational_time_ticks(converted[name], name)

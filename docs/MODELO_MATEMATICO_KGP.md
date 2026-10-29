@@ -44,7 +44,7 @@ Para cada material a, com uso m(a,k) e estoque M(a):
 
 `soma(k) m(a,k)*y(k) <= M(a)`.
 
-Materiais não têm grade de quatro casas decimais. O planejador conserva os totais e saldos por frações exatas dos valores decimais canônicos de entrada (`Fraction(str(q))`); debita requisitos dos serviços, sem usar o total float de apresentação das janelas. O verificador reconstrói a soma independentemente e compara o estoque sem tolerância que autorize consumo excedente. O relatório inclui os totais racionais em `recalculated_materials_exact`.
+Materiais não têm grade de quatro casas decimais. O planejador conserva os totais e saldos por frações exatas dos valores decimais canônicos de entrada (`Fraction(str(q))`); debita requisitos dos serviços, sem usar o total float de apresentação das janelas. Esses valores pertencem ao domínio de floats finitos admitidos: o parser e a conversão de unidades rejeitam um valor não zero que viraria zero; o contrato usa a precisão usual do float, sem prometer preservar todos os algarismos do literal decimal original. O verificador reconstrói a soma independentemente e compara o estoque sem tolerância que autorize consumo excedente. O relatório inclui os totais racionais em `recalculated_materials_exact`.
 
 O MILP continua em precisão dupla: linhas com estoque positivo são normalizadas para lado direito 1 e a demanda obrigatória total exata é uma condição necessária adicional. A auditoria exata final bloqueia qualquer solução com falta de estoque, mesmo quando a diferença fica abaixo da precisão do solver. Essa barreira pode recusar uma solução numérica; não garante encontrar outra solução factível no catálogo. Totais que excedem o maior float finito são rejeitados para exportação, com diagnóstico, sem `Inf` no JSON.
 

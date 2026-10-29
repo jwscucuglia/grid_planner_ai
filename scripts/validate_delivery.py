@@ -46,5 +46,6 @@ failed = integrity['failures']
 assert not failed, failed
 result = {'plans_verified_from_frozen_inputs': len(checks), 'kgp_objectives_recalculated_independently': sum(c['independent_objective'] is not None for c in checks),
           'manifest_hashes_checked': len(manifest['files']), 'hash_failures': failed, 'line_ending_only_matches': integrity['line_ending_only_matches'], 'checks': checks}
+(ROOT / '.audit_cache').mkdir(exist_ok=True)
 (ROOT / '.audit_cache/delivery_validation.json').write_text(json.dumps(result, indent=2), encoding='utf-8')
 print(json.dumps({k: v for k, v in result.items() if k != 'checks'}, indent=2))

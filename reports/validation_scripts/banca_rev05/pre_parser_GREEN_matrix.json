@@ -1,0 +1,873 @@
+{
+  "head": "e4f9dd78e9ef0065a87f40b31889bfcb07da4ade",
+  "source_sha256_at_start": {
+    "src\\kgp\\__init__.py": "3a32c2a1e7dabea9ed4664e48e60d6634afc0124bc6734754478f4487f965a95",
+    "src\\kgp\\baselines.py": "e3162fb8e44f8c5fee39a066574ee91b22987441db70b505da531461ccfed2d0",
+    "src\\kgp\\contracts.py": "3061b3ed8e963c68d5922b81d7060904db9f61f5ac83acf66fc37555544ad750",
+    "src\\kgp\\eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
+    "src\\kgp\\experiment.py": "212e3e5919da9a679fd3ba1a6c47d9dfd49a4fdf515a7fd257ddda3b927c9474",
+    "src\\kgp\\feasibility.py": "a657b4e82891ffcade376c2752849bfebc6d35b63f15ecdd637580f80dd746b9",
+    "src\\kgp\\ingestion.py": "f3b17053012a9bc3e4e4cba841174a1e16bb2f0e2c5949b407b4bed90e926497",
+    "src\\kgp\\integrity.py": "cc34687ad9bfad4ccb9ed023c0961cf7239198eab840b1eca2483d48b45177e5",
+    "src\\kgp\\materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda",
+    "src\\kgp\\metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
+    "src\\kgp\\optimizer.py": "4f27ad9da19b81f32c61f6877017090cd2223d9260949f163e6ede1b44ee0088",
+    "src\\kgp\\planning_policy.py": "369ba7887626c4497a7e2d35ef764e73a1191462b604eb72f298e3fd172e8194",
+    "src\\kgp\\revalidation.py": "f9f044384715ac09328c873d4e87562f033edaa0aa4e700ffb2721f4832204e5",
+    "src\\kgp\\scheduling.py": "ffa223c6c3b1f119548e6a6d964f19e0b7247820637259f08b3d18cc91cbc78e",
+    "src\\kgp\\topology.py": "4f27b3f09c5b2704ceef0fbd4459ee4b603721bee720a200abd658f84952f11d",
+    "src\\kgp\\validation.py": "83a66b8e1ae20ddb2e8d9015c5c73e58492079aff9a8925bd234fe970e620cdb"
+  },
+  "elapsed_seconds": 2.256,
+  "classes": 12,
+  "probes": 58,
+  "passed": 58,
+  "failed": 0,
+  "results": [
+    {
+      "class": "01_control_all_engines",
+      "probe": "B0",
+      "passed": true,
+      "evidence": {
+        "plan_id": "PLAN_B0_audit_control",
+        "method_name": "B0",
+        "scenario_id": "audit_control",
+        "is_feasible": true,
+        "mandatory_portfolio_complete": true,
+        "completed_mandatory_count": 1,
+        "total_mandatory_count": 1,
+        "violations": [],
+        "warnings": [],
+        "recalculated_materials": {},
+        "recalculated_consumer_hours": 1.2,
+        "recalculated_windows_count": 1,
+        "recalculated_physical_maneuvers": 2,
+        "recalculated_repeat_consumers": 0,
+        "recalculated_unique_consumers": 1,
+        "recalculated_total_interruptions": 1,
+        "recalculated_completed_services": [
+          "S1"
+        ],
+        "isolation_verified": true,
+        "recalculated_materials_exact": {}
+      }
+    },
+    {
+      "class": "01_control_all_engines",
+      "probe": "B1",
+      "passed": true,
+      "evidence": {
+        "plan_id": "PLAN_B1_audit_control",
+        "method_name": "B1",
+        "scenario_id": "audit_control",
+        "is_feasible": true,
+        "mandatory_portfolio_complete": true,
+        "completed_mandatory_count": 1,
+        "total_mandatory_count": 1,
+        "violations": [],
+        "warnings": [],
+        "recalculated_materials": {},
+        "recalculated_consumer_hours": 1.2,
+        "recalculated_windows_count": 1,
+        "recalculated_physical_maneuvers": 2,
+        "recalculated_repeat_consumers": 0,
+        "recalculated_unique_consumers": 1,
+        "recalculated_total_interruptions": 1,
+        "recalculated_completed_services": [
+          "S1"
+        ],
+        "isolation_verified": true,
+        "recalculated_materials_exact": {}
+      }
+    },
+    {
+      "class": "01_control_all_engines",
+      "probe": "B2",
+      "passed": true,
+      "evidence": {
+        "plan_id": "PLAN_B2_audit_control",
+        "method_name": "B2",
+        "scenario_id": "audit_control",
+        "is_feasible": true,
+        "mandatory_portfolio_complete": true,
+        "completed_mandatory_count": 1,
+        "total_mandatory_count": 1,
+        "violations": [],
+        "warnings": [],
+        "recalculated_materials": {},
+        "recalculated_consumer_hours": 1.2,
+        "recalculated_windows_count": 1,
+        "recalculated_physical_maneuvers": 2,
+        "recalculated_repeat_consumers": 0,
+        "recalculated_unique_consumers": 1,
+        "recalculated_total_interruptions": 1,
+        "recalculated_completed_services": [
+          "S1"
+        ],
+        "isolation_verified": true,
+        "recalculated_materials_exact": {}
+      }
+    },
+    {
+      "class": "01_control_all_engines",
+      "probe": "KGP",
+      "passed": true,
+      "evidence": {
+        "plan_id": "PLAN_KGP_audit_control",
+        "method_name": "KGP",
+        "scenario_id": "audit_control",
+        "is_feasible": true,
+        "mandatory_portfolio_complete": true,
+        "completed_mandatory_count": 1,
+        "total_mandatory_count": 1,
+        "violations": [],
+        "warnings": [],
+        "recalculated_materials": {},
+        "recalculated_consumer_hours": 1.2,
+        "recalculated_windows_count": 1,
+        "recalculated_physical_maneuvers": 2,
+        "recalculated_repeat_consumers": 0,
+        "recalculated_unique_consumers": 1,
+        "recalculated_total_interruptions": 1,
+        "recalculated_completed_services": [
+          "S1"
+        ],
+        "isolation_verified": true,
+        "recalculated_materials_exact": {}
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B0: required=4e-05, stock=0.0",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": false,
+        "feasible": false,
+        "recalculated": {},
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B1: required=4e-05, stock=0.0",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": false,
+        "feasible": false,
+        "recalculated": {},
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B2: required=4e-05, stock=0.0",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": false,
+        "feasible": false,
+        "recalculated": {},
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "KGP: required=4e-05, stock=0.0",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": false,
+        "feasible": false,
+        "recalculated": {},
+        "optimal_proven": false,
+        "solver_status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B0: required=0.33333, stock=0.3333",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": false,
+        "feasible": false,
+        "recalculated": {},
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B1: required=0.33333, stock=0.3333",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": false,
+        "feasible": false,
+        "recalculated": {},
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B2: required=0.33333, stock=0.3333",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": false,
+        "feasible": false,
+        "recalculated": {},
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "KGP: required=0.33333, stock=0.3333",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": false,
+        "feasible": false,
+        "recalculated": {},
+        "optimal_proven": false,
+        "solver_status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B0: required=1.0, stock=1.0",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": true,
+        "feasible": true,
+        "recalculated": {
+          "M": 1.0
+        },
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B1: required=1.0, stock=1.0",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": true,
+        "feasible": true,
+        "recalculated": {
+          "M": 1.0
+        },
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "B2: required=1.0, stock=1.0",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": true,
+        "feasible": true,
+        "recalculated": {
+          "M": 1.0
+        },
+        "optimal_proven": false,
+        "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "class": "02_material_conservation",
+      "probe": "KGP: required=1.0, stock=1.0",
+      "passed": true,
+      "evidence": {
+        "exact_stock_ok": true,
+        "feasible": true,
+        "recalculated": {
+          "M": 1.0
+        },
+        "optimal_proven": true,
+        "solver_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "class": "03_portfolio_integrity",
+      "probe": "claim completion after erasing window",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Estrutura/referência inválida: completed_service_ids diverge das janelas",
+          "Estrutura/referência inválida: unscheduled_service_ids diverge da carteira"
+        ]
+      }
+    },
+    {
+      "class": "03_portfolio_integrity",
+      "probe": "consistent fields still cannot omit mandatory",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+        ]
+      }
+    },
+    {
+      "class": "04_crews_in_time",
+      "probe": "duration_tick",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Violação de simultaneidade de equipes no serviço 'S1': interseção temporal entre as 1 equipes alocadas (1.00h) é inferior à duração exigida (1.00h).",
+          "Duração de execução insuficiente para 'S1' na equipe 'E1' (1.00h < 1.00h)."
+        ]
+      }
+    },
+    {
+      "class": "04_crews_in_time",
+      "probe": "prep_tick",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Preparação insuficiente da equipe 'E1' no serviço 'S1' (0.10h < 0.10h)."
+        ]
+      }
+    },
+    {
+      "class": "04_crews_in_time",
+      "probe": "recomp_tick",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Recomposição de equipe insuficiente para 'S1' na equipe 'E1'."
+        ]
+      }
+    },
+    {
+      "class": "04_crews_in_time",
+      "probe": "second_crew",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Serviço 'S1' exige 2 equipe(s), mas recebeu 1."
+        ]
+      }
+    },
+    {
+      "class": "04_crews_in_time",
+      "probe": "skill",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Equipe 'E1' (('ELEC',)) não possui todas as competências exigidas por 'S1' (('UNAVAILABLE',))."
+        ]
+      }
+    },
+    {
+      "class": "04_crews_in_time",
+      "probe": "shift",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Equipe 'E1' encerra atividades (9.20h) após o fim do turno (9.20h)."
+        ]
+      }
+    },
+    {
+      "class": "05_temporal_eligibility",
+      "probe": "created_after_decision",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Vazamento temporal: serviço 'S1' criado após a decisão."
+        ]
+      }
+    },
+    {
+      "class": "05_temporal_eligibility",
+      "probe": "not_ready",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Serviço 'S1' agendado no dia 1 antes de ready_at (2)."
+        ]
+      }
+    },
+    {
+      "class": "05_temporal_eligibility",
+      "probe": "past_deadline",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Serviço 'S1' agendado no dia 1 após o prazo (0)."
+        ]
+      }
+    },
+    {
+      "class": "05_temporal_eligibility",
+      "probe": "crew_unavailable",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Equipe 'E1' indisponível no calendário para o dia 1."
+        ]
+      }
+    },
+    {
+      "class": "05_temporal_eligibility",
+      "probe": "day_outside_catalog",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Janela 'B0_audit_control_W01' agendada em dia inválido (1)."
+        ]
+      }
+    },
+    {
+      "class": "06_precedence",
+      "probe": "ordered control",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "class": "06_precedence",
+      "probe": "reverse same-day cycle",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Precedência violada no mesmo dia (1): 'S2' termina às 11.10h após início de 'S1' às 9.00h."
+        ]
+      }
+    },
+    {
+      "class": "06_precedence",
+      "probe": "optional predecessor omitted",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Precedência violada: serviço 'S1' executado sem que seu predecessor 'P' tenha sido programado."
+        ]
+      }
+    },
+    {
+      "class": "07_post_maneuver_connectivity",
+      "probe": "unopened source backfeed",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Violação de integridade na etapa 1 (ISOLATION) da janela 'B0_audit_control_W01': dados exportados divergem do recálculo.",
+          "Violação de integridade na etapa 2 (EXECUTION) da janela 'B0_audit_control_W01': dados exportados divergem do recálculo.",
+          "Violação de integridade na etapa 3 (RECOMPOSITION) da janela 'B0_audit_control_W01': dados exportados divergem do recálculo.",
+          "Violação de integridade na janela 'B0_audit_control_W01': lista de consumidores interrompidos exportada (1) diverge do recálculo (0).",
+          "Violação de isolamento elétrico: ativo 'A1' do serviço 'S1' permanece energizado (ou com extremidade de trecho energizada) na zona 'Z1'.",
+          "Violação de isolamento elétrico global: A1 do serviço S1 energizado no dia 1, 8.1000h–9.1000h.",
+          "Violação de integridade de impacto: clientes-hora exportados nas etapas (1.2000) divergem do recálculo do verificador (0.0000)."
+        ]
+      }
+    },
+    {
+      "class": "07_post_maneuver_connectivity",
+      "probe": "branch asset has live upstream endpoint",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Violação de integridade na etapa 1 (ISOLATION) da janela 'B0_audit_control_W01': dados exportados divergem do recálculo.",
+          "Violação de integridade na etapa 2 (EXECUTION) da janela 'B0_audit_control_W01': dados exportados divergem do recálculo.",
+          "Violação de integridade na etapa 3 (RECOMPOSITION) da janela 'B0_audit_control_W01': dados exportados divergem do recálculo.",
+          "Violação de isolamento elétrico: ativo 'A1' do serviço 'S1' permanece energizado (ou com extremidade de trecho energizada) na zona 'Z1'.",
+          "Violação de isolamento elétrico global: A1 do serviço S1 energizado no dia 1, 8.1000h–9.1000h."
+        ]
+      }
+    },
+    {
+      "class": "08_global_time_conflicts",
+      "probe": "exact adjacency control",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "class": "08_global_time_conflicts",
+      "probe": "one-tick overlap across distinct crews",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Conflito entre janelas sobrepostas no dia 1: janelas 'W1' (9.00h-10.00h, zona 'Z') e 'W2' (10.00h-11.00h, zona 'Z') têm sobreposição elétrica não admitida: a composição global de manobras simultâneas não é certificada neste catálogo, inclusive em zonas disjuntas."
+        ]
+      }
+    },
+    {
+      "class": "09_export_evidence",
+      "probe": "consumer_set",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Violação de integridade na janela 'B0_audit_control_W01': lista de consumidores interrompidos exportada (0) diverge do recálculo (1)."
+        ]
+      }
+    },
+    {
+      "class": "09_export_evidence",
+      "probe": "maneuver_count",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Violação de integridade na janela 'B0_audit_control_W01': manobras físicas exportadas (1) divergem do recálculo (2)."
+        ]
+      }
+    },
+    {
+      "class": "09_export_evidence",
+      "probe": "phase_evidence",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Violação de integridade na etapa 2 (EXECUTION) da janela 'B0_audit_control_W01': dados exportados divergem do recálculo."
+        ]
+      }
+    },
+    {
+      "class": "09_export_evidence",
+      "probe": "stage_clock",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Violação de integridade na etapa 2 (EXECUTION) da janela 'B0_audit_control_W01': dados exportados divergem do recálculo."
+        ]
+      }
+    },
+    {
+      "class": "10_exact_consumer_intervals",
+      "probe": "gap=0.0",
+      "passed": true,
+      "evidence": {
+        "oracle_hours": 2.0,
+        "oracle_components": 1,
+        "reported_hours": 2.0,
+        "reported_components": 1
+      }
+    },
+    {
+      "class": "10_exact_consumer_intervals",
+      "probe": "gap=0.0001",
+      "passed": true,
+      "evidence": {
+        "oracle_hours": 2.0,
+        "oracle_components": 2,
+        "reported_hours": 2.0,
+        "reported_components": 2
+      }
+    },
+    {
+      "class": "10_exact_consumer_intervals",
+      "probe": "gap=0.1",
+      "passed": true,
+      "evidence": {
+        "oracle_hours": 2.0,
+        "oracle_components": 2,
+        "reported_hours": 2.0,
+        "reported_components": 2
+      }
+    },
+    {
+      "class": "11_solver_certificate_tiny_catalog",
+      "probe": "penalty=0.0",
+      "passed": true,
+      "evidence": {
+        "objective": 0.0,
+        "bound": 0.0,
+        "expected": "0.0",
+        "complete": []
+      }
+    },
+    {
+      "class": "11_solver_certificate_tiny_catalog",
+      "probe": "penalty=50.0",
+      "passed": true,
+      "evidence": {
+        "objective": 50.0,
+        "bound": 50.0,
+        "expected": "50.0",
+        "complete": []
+      }
+    },
+    {
+      "class": "11_solver_certificate_tiny_catalog",
+      "probe": "penalty=96.0",
+      "passed": true,
+      "evidence": {
+        "objective": 96.0,
+        "bound": 96.0,
+        "expected": "96.0",
+        "complete": []
+      }
+    },
+    {
+      "class": "11_solver_certificate_tiny_catalog",
+      "probe": "penalty=97.0",
+      "passed": true,
+      "evidence": {
+        "objective": 96.92,
+        "bound": 96.92,
+        "expected": "96.92",
+        "complete": [
+          "S1"
+        ]
+      }
+    },
+    {
+      "class": "11_solver_certificate_tiny_catalog",
+      "probe": "penalty=250.0",
+      "passed": true,
+      "evidence": {
+        "objective": 96.92,
+        "bound": 96.92,
+        "expected": "96.92",
+        "complete": [
+          "S1"
+        ]
+      }
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "json",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "csv",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "geojson",
+      "passed": true,
+      "evidence": null
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "unknown_status",
+      "passed": true,
+      "evidence": {
+        "issues": [
+          {
+            "code": "INVALID_SCOPE_STATUS",
+            "table": "services",
+            "row": 1,
+            "record_id": "S1",
+            "message": "v1 accepts only explicit scope_status='ACTIVE'; external/inactive/cancelled codes have no supported mapping",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "orphan_asset",
+      "passed": true,
+      "evidence": {
+        "issues": [
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "services",
+            "row": 1,
+            "record_id": "S1",
+            "message": "assets references missing assets ID ABSENT",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: ativos de S1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "wrong_phase",
+      "passed": true,
+      "evidence": {
+        "issues": [
+          {
+            "code": "INCOMPATIBLE_PHASES",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "phases are absent from the explicitly referenced endpoint/asset",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INCOMPATIBLE_PHASES",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "phases are absent from the explicitly referenced endpoint/asset",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "voltage_transition",
+      "passed": true,
+      "evidence": {
+        "issues": [
+          {
+            "code": "UNSUPPORTED_VOLTAGE_TRANSITION",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "branch connects 13.8 kV to 0.22 kV without a supported transformer/converter model",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "escaped_path",
+      "passed": true,
+      "evidence": {
+        "issues": [
+          {
+            "code": "UNSAFE_PATH",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "table path escapes the manifest directory",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID SRC",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "MISSING_SOURCE",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "network requires at least one explicitly active source",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "duplicate_id",
+      "passed": true,
+      "evidence": {
+        "issues": [
+          {
+            "code": "DUPLICATE_ID",
+            "table": "services",
+            "row": 2,
+            "record_id": "S1",
+            "message": "duplicate record ID; no row was overwritten",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "class": "12_ingestion_boundary",
+      "probe": "off_grid_duration",
+      "passed": true,
+      "evidence": {
+        "issues": [
+          {
+            "code": "OFF_GRID_TIME",
+            "table": "services",
+            "row": 1,
+            "record_id": "S1",
+            "message": "duration_hours: tempo fora da resolução operacional 0.0001 h (0.36 s)",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    }
+  ]
+}

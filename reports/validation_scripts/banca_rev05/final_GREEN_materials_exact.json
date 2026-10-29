@@ -3,11 +3,11 @@
   "source_sha256": {
     "src\\kgp\\__init__.py": "3a32c2a1e7dabea9ed4664e48e60d6634afc0124bc6734754478f4487f965a95",
     "src\\kgp\\baselines.py": "e3162fb8e44f8c5fee39a066574ee91b22987441db70b505da531461ccfed2d0",
-    "src\\kgp\\contracts.py": "3061b3ed8e963c68d5922b81d7060904db9f61f5ac83acf66fc37555544ad750",
+    "src\\kgp\\contracts.py": "2e429791167dfa7fdd1d05f16d9b915f8acadc9b309c274fc2605963a37e46b4",
     "src\\kgp\\eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
     "src\\kgp\\experiment.py": "212e3e5919da9a679fd3ba1a6c47d9dfd49a4fdf515a7fd257ddda3b927c9474",
     "src\\kgp\\feasibility.py": "a657b4e82891ffcade376c2752849bfebc6d35b63f15ecdd637580f80dd746b9",
-    "src\\kgp\\ingestion.py": "f3b17053012a9bc3e4e4cba841174a1e16bb2f0e2c5949b407b4bed90e926497",
+    "src\\kgp\\ingestion.py": "d2b33675621e13e4fe5a33bf1404515bd4d19477436845d4cfe7a74d7e63e935",
     "src\\kgp\\integrity.py": "cc34687ad9bfad4ccb9ed023c0961cf7239198eab840b1eca2483d48b45177e5",
     "src\\kgp\\materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda",
     "src\\kgp\\metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
@@ -18,7 +18,7 @@
     "src\\kgp\\topology.py": "4f27b3f09c5b2704ceef0fbd4459ee4b603721bee720a200abd658f84952f11d",
     "src\\kgp\\validation.py": "83a66b8e1ae20ddb2e8d9015c5c73e58492079aff9a8925bd234fe970e620cdb"
   },
-  "elapsed_seconds": 6.823,
+  "elapsed_seconds": 6.943,
   "probes": 105,
   "passed": 105,
   "failed": 0,
