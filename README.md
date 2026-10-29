@@ -1,51 +1,41 @@
-# KAPTUS GRID PLANNER (KGP v0.2.0 / REV02) — Desafio 07 Inova Cemig.Lab Ciclo 5
+# KAPTUS GRID PLANNER — KGP 0.3.0 / REV03
 
-Demonstrador computacional independente, auditado e reproduzível para programação conjunta de serviços de manutenção e obras na rede elétrica de distribuição sob restrições topológicas pós-manobra por fase, temporais e de recursos operacionais.
+Demonstrador computacional do Desafio 07 Inova Cemig.Lab Ciclo 5. Investiga a programação conjunta de serviços em uma rede de referência e carteiras sintéticas. Projeto independente do D06/GTA; operação exclusivamente sidecar, sem telecomandos ou alteração de ordens em produção.
 
-- **Isolamento de Escopo:** Este repositório (`grid_planner_ai`) é 100% independente do Desafio 06 (GTA). Não compartilha nem importa código, dados ou resultados do D06.
-- **Modo de Operação:** *Sidecar / Out-of-Band* — sem telecomandos, operando sobre rede elétrica de referência multi-alimentador (`13,8 kV`) e carteira sintética documentada.
-- **Rigor de Verificação (`v0.2.0`):** Fluxo radial trifásico separado por fase (`A`, `B`, `C`), desenergização conservadora de ativos em trechos (ambas as barras extremas desenergizadas), colunas diárias completas encadeadas no MILP com igualdade exata entre objetivo do solver e plano exportado, e verificador independente com reconstrução autônoma pós-serialização JSON e 20 testes automatizados (`tests/test_kgp_critical_cases.py`).
+O núcleo representa conectividade por fase, isolamento de ativos nodais e de trechos, transferência radial aproximada, elegibilidade temporal, equipes no tempo, precedências, materiais e impactos por consumidor. B0, B1, B2 e KGP usam os mesmos dados e restrições e passam pelo mesmo verificador depois da leitura do JSON exportado.
 
----
+## Escopo verificado
 
-## 1. Arquitetura de Módulos (`src/kgp/`)
+- Todas as janelas elétricas são seriais, inclusive em zonas disjuntas. Equipes podem executar serviços em paralelo dentro de uma janela. O bloqueio conservador evita supor independência elétrica por conjuntos estáticos de chaves/ativos.
+- `feasibility.py` reconstrói conectividade por Union-Find por fase, etapas e impacto sem chamar o simulador do planejador, que usa BFS. A cronologia global verifica os alvos em todos os intervalos de eventos. Compartilha contratos e validações cadastrais; a transferência conserva hipóteses físicas comuns e simplificadas.
+- Os contratos rejeitam não finitos; o JSON estrito rejeita `NaN`, infinito, chaves duplicadas e conversões silenciosas de tipos. O verificador revalida objetos e referências, inclusive após mutação.
+- Carteira obrigatória é restrição rígida. Omissão opcional custa 50 nos pesos padrão. Objetivo, bound e gap descrevem o mesmo problema, inclusive no fallback factível ao limite de tempo.
+- B2 tem um passe local de até 30 trocas de zona, com pacotes/dias preservados, reconstrução das rotas e aceitação somente de plano factível com menor objetivo padrão.
+- `OPTIMAL_ON_DISCRETE_COLUMNS` limita o certificado às colunas geradas: pacotes até 5 ordens, até 5 janelas/dia e 120 estados por profundidade; inícios e alocações são construtivos. Inviabilidade desse catálogo não prova inviabilidade operacional geral.
 
-| Módulo | Responsabilidade Técnica |
-| :--- | :--- |
-| `src/kgp/contracts.py` | Entidades tipadas de entrada e saída: `GridNetwork`, `GridNode`, `GridBranch`, `GridSwitch`, `GridAsset`, `ConsumerUnit`, `IsolationZoneSpec`, `ServiceOrder` (com `created_at_day`, `ready_at_day`, `deadline_day`, competências, materiais e precedências), `CrewResource`, `ExecutionPlan`, `FeasibilityReport` e `PlanMetrics`. |
-| `src/kgp/topology.py` | Cálculo de conectividade elétrica pós-manobra por fase (`A`, `B`, `C`), componentes conectados às fontes ativas, barras e ativos efetivamente desenergizados por etapa (`ISOLATION`, `TRANSFER`, `EXECUTION`, `RECOMPOSITION`), anti-ilhamento de GD e validação elétrica de transferência por chave NA (carregamento térmico e queda de tensão). |
-| `src/kgp/eligibility.py` | Filtro temporal anti-vazamento na data da decisão (`created_at_day <= decision_day`), elegibilidade de ativos na zona de isolamento pós-manobra, precedências e detecção de conflitos de ciclo de vida (`manutenção vs. substituição`) sem eliminar ordens obrigatórias. |
-| `src/kgp/scheduling.py` | Sequenciamento contínuo no tempo de cada equipe operacional (deslocamento euclidiano, preparação, execução, recomposição, competências, turno e restrições de simultaneidade), fazendo a duração da janela emergir do *makespan* real das equipes e manobras. |
-| `src/kgp/baselines.py` | Comparadores competentes submetidos às mesmas restrições: `B0` (Individual por prioridade e prazo), `B1` (Geográfico por raio em km submetido ao verificador elétrico e de recursos) e `B2` (Topológico guloso por compatibilidade elétrica, prioridade e prazo). |
-| `src/kgp/optimizer.py` | Otimizador combinatório `KGP` (MILP via `scipy.optimize.milp` / HiGHS) selecionando pacotes, zonas, datas e alocação de equipes com reporte de status, objetivo, limite dual (*bound*), *gap* e tempo computacional. |
-| `src/kgp/feasibility.py` | Verificador independente em módulo separado que recalcula do zero a carteira obrigatória concluída, datas, isolamento elétrico, agenda das equipes, precedências, estoque de materiais e impacto a partir do plano exportado. |
-| `src/kgp/metrics.py` | Apuração exata de janelas de interrupção vs. manobras físicas de chaves, taxa de acoplamento (`2+` serviços/janela), reincidência por consumidor (respeitando recomposição) e clientes-hora pela soma da união disjunta dos intervalos sem alimentação. |
-| `src/kgp/experiment.py` | Geração reprodutível dos cenários de desenvolvimento (`DEV`) e avaliação cega retida (`EVAL`), geração de CSV/JSON, figura comparativa `16:9` em fundo branco, manifesto `SHA-256` e relatório técnico (`reports/RELATORIO_EXECUCAO_KGP.md`). |
-
----
-
-## 2. Instruções de Reprodução
+## Reprodução no Windows
 
 ```powershell
-# 1. Instalar dependências no ambiente virtual local (.venv)
-.\.venv\Scripts\pip.exe install -r requirements.txt
-
-# 2. Executar a bateria completa de testes automatizados (topologia, programação e planos inválidos)
-.\.venv\Scripts\pytest.exe -v
-
-# 3. Executar a avaliação experimental completa (DEV + EVAL) e gerar artefatos auditados
-$env:PYTHONPATH = "src"
-.\.venv\Scripts\python.exe -m kgp.experiment
+python -m venv .venv
+./.venv/Scripts/python.exe -m pip install -r requirements.txt
+$env:PYTHONPATH = Join-Path (Get-Location) 'src'
+./.venv/Scripts/python.exe -m pytest -q
+./.venv/Scripts/python.exe -u -m kgp.experiment
 ```
 
----
+As versões efetivamente usadas constam de `configs/protocol_and_seeds.json`. A execução congela código, entradas, pesos e análise antes de rodar os métodos e confere os hashes ao final. As sementes DEV/EVAL já eram conhecidas: esta rodada é reavaliação sintética, sem novo cegamento ou inferência sobre desempenho na Cemig. O raio B1 de 0,75 km foi mantido da REV02; não houve ajuste para obter benefício desejado.
 
-## 3. Artefatos Gerados
+## Evidências
 
-- `configs/protocol_and_seeds.json`: Configuração congelada do protocolo, pesos da função objetivo e sementes separadas (`DEV` e `EVAL`).
-- `data/reference_network.json`: Rede elétrica de referência multi-alimentador exportada com origem, licença e metadados.
-- `reports/kgp_evaluation_results.csv`: Tabela completa de métricas por cenário e método (`B0`, `B1`, `B2`, `KGP`).
-- `reports/kgp_evaluation_summary.json`: Resultados detalhados, intervalos de confiança Bootstrap 95%, comparações pareadas e planos completos auditados pelo verificador independente.
-- `reports/comparativo_kgp_desafio07.png`: Painel visual comparativo `16:9` (`1920x1080`) em fundo branco.
-- `reports/RELATORIO_EXECUCAO_KGP.md`: Relatório técnico-científico detalhado com análise das hipóteses `H1`, `H2` e `H3`, ganhos, empates e limitações.
-- `reports/manifest_sha256.json`: Manifesto criptográfico `SHA-256` de todos os arquivos de código, dados, configurações e relatórios.
+- Relatório, CSV, JSON detalhado, figura branca 16:9 e manifesto SHA-256 em `reports/`.
+- Entradas, planos efetivamente lidos e verificações em `reports/revalidation_20261029/`. Falhas e carteira incompleta são preservadas e excluídas das comparações de benefício.
+- [Requisitos oficiais](reports/MATRIZ_ADERENCIA_OFICIAL_D07.md), [revisão documental](reports/AUDITORIA_DOCUMENTAL_D07.md), [otimizador](reports/AUDITORIA_OTIMIZADOR_D07.md), [revisão do núcleo](reports/REVISAO_INDEPENDENTE_NUCLEO_D07.md) e [revisão final](reports/REVISAO_FINAL_BRANCH_D07.md).
+- `reports/history/REV02/` preserva resultados anteriores. O estudo separado `0.1.0-d07-scoped` continua histórico no Drive; os estudos não são somados.
+
+## Limitações e prontidão
+
+As manobras são representadas em etapas agregadas: abertura no início do isolamento, transferência no meio da preparação e restauração do estado inicial ao fim da recomposição. Não se certificam operações individuais de campo, proteção, aterramento ou LOTO. Consumidores inicialmente sem alimentação são rejeitados explicitamente por escopo. Viagens são euclidianas e as durações são sintéticas.
+
+Janelas, manobras físicas, interrupções, reincidência e clientes-hora são métricas diferentes. Clientes-hora usam a união de intervalos de cada consumidor. Não se convertem estes resultados em economia financeira ou compensações regulatórias comprovadas.
+
+TRL 3 é proposto somente para as funções demonstradas em laboratório. Integrações de leitura com Electric Office, GeoServiços e SAP, dados reais e critérios com os programadores dependem da Cemig. Revisões por agentes de IA separados não equivalem a auditoria por terceiro humano. A entrega se destina à revisão interna; submissão exige dados e comprovações empresariais, disponibilidade da equipe e assinaturas humanas indicadas na matriz.

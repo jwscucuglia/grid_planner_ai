@@ -903,6 +903,7 @@ def evaluate_scenario_all_methods(
         scenario.catalog,
         scenario.scenario_id,
         scenario.decision_day,
+        b1_radius_km=b1_radius_km,
     )
 
     results: Dict[str, Tuple[ExecutionPlan, FeasibilityReport, PlanMetrics]] = {}

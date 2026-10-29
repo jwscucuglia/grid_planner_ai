@@ -531,6 +531,7 @@ def run_kgp_optimizer(
     decision_day: int = 0,
     weights: Optional[ObjectiveWeights] = None,
     time_limit_sec: float = 15.0,
+    b1_radius_km: float = 1.25,
 ) -> ExecutionPlan:
     """Executa o otimizador combinatório KGP (MILP via SciPy/HiGHS sobre colunas diárias)."""
     t0 = time.perf_counter()
@@ -565,7 +566,7 @@ def run_kgp_optimizer(
         network, all_services, catalog, scenario_id, decision_day
     )
     seed_b1 = run_baseline_b1_geographic(
-        network, all_services, catalog, scenario_id, decision_day
+        network, all_services, catalog, scenario_id, decision_day, radius_km=b1_radius_km
     )
     seed_b2 = run_baseline_b2_topological_greedy(
         network, all_services, catalog, scenario_id, decision_day
@@ -747,10 +748,34 @@ def run_kgp_optimizer(
         fallback.solver_bound = None
         fallback.solver_gap = None
         fallback.is_optimal_proven = False
+        from .feasibility import verify_plan_feasibility
+        fallback_report = verify_plan_feasibility(network, all_services, catalog, fallback)
+        if fallback_report.is_feasible:
+            fallback.solver_objective = compute_exact_plan_objective(fallback, w, known_services)
+            raw_bound = getattr(res, 'mip_dual_bound', None)
+            if (res.status in (0, 1) and raw_bound is not None and math.isfinite(raw_bound)
+                    and raw_bound <= fallback.solver_objective + 1e-4):
+                fallback.solver_bound = round(float(raw_bound), 4)
+                fallback.solver_gap = round(abs(fallback.solver_objective - fallback.solver_bound) /
+                                            max(abs(fallback.solver_objective), 1e-10), 6)
+            fallback.solver_status = ('FEASIBLE_FALLBACK_BOUNDED' if fallback.solver_bound is not None
+                                      else 'FEASIBLE_FALLBACK_NO_BOUND')
+        fallback.solver_time_sec = round(time.perf_counter() - t0, 6)
         fallback.metadata = {
             "candidate_columns_count": num_cols,
             "solver_raw_status": int(res.status),
-            "optimality_scope": "Inviabilidade restrita às colunas geradas; não prova inviabilidade operacional geral.",
+            "optimality_scope": (
+                "Plano fallback factível verificado; limite conhecido nas colunas geradas quando disponível, sem prova de ótimo."
+                if fallback_report.is_feasible else
+                ("Inviabilidade restrita às colunas geradas; não prova inviabilidade operacional geral."
+                 if res.status == 2 else "Solver interrompido/sem solução; fallback não factível, sem prova de inviabilidade.")
+            ),
+            "objective_weights": {
+                "window_weight": w.window_weight, "consumer_hour_weight": w.consumer_hour_weight,
+                "repeat_consumer_weight": w.repeat_consumer_weight, "physical_maneuver_weight": w.physical_maneuver_weight,
+                "crew_hour_weight": w.crew_hour_weight, "optional_unscheduled_penalty": w.optional_unscheduled_penalty,
+            },
+            "fallback_verified_feasible": fallback_report.is_feasible,
             "missing_mandatory_service_ids": [
                 s.service_id for s in known_services
                 if s.mandatory and s.service_id not in fallback.completed_service_ids
@@ -879,7 +904,10 @@ def run_kgp_optimizer(
         "optimality_scope": (
             "Ótimo global comprovado sobre o conjunto discreto de colunas "
             "diárias factíveis geradas (incluindo encadeamento diário e sementes B0/B1/B2)."
+            if plan_out.is_optimal_proven else
+            "Melhor plano factível nas colunas geradas, com bound/gap quando disponíveis; sem prova de ótimo."
         ),
+        "b1_seed_radius_km": b1_radius_km,
         "candidate_generation_limits": {
             "max_package_size": 5,
             "max_windows_per_day": 5,

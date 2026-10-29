@@ -79,6 +79,7 @@ def run_revalidation(base_dir):
     _write_json(config_path, config)
     frozen_hash = compute_sha256(config_path)
     rows, details, paired = [], {}, []
+    current_artifacts = []
     for sc in scenarios:
         print('RUN ' + sc.scenario_id, flush=True)
         outputs = evaluate_scenario_all_methods(sc, b1_radius_km=0.75)
@@ -86,10 +87,13 @@ def run_revalidation(base_dir):
         for method, (plan, _, _) in outputs.items():
             plan_path = evidence / 'plans' / f'{sc.scenario_id}_{method}.json'
             _write_json(plan_path, asdict(plan))
+            current_artifacts.append(plan_path)
             exported = plan_from_json(plan_path.read_text(encoding='utf-8'))
             feasible = verify_plan_feasibility(sc.network, sc.services, sc.catalog, exported)
             metrics = compute_plan_metrics(sc.network, sc.services, exported, feasible)
-            _write_json(evidence / 'verification' / f'{sc.scenario_id}_{method}.json', asdict(feasible))
+            verification_path = evidence / 'verification' / f'{sc.scenario_id}_{method}.json'
+            _write_json(verification_path, asdict(feasible))
+            current_artifacts.append(verification_path)
             row = {'scenario_id': sc.scenario_id, 'split': sc.split, 'seed': sc.seed, **asdict(metrics),
                    'violations_count': len(feasible.violations), 'warnings_count': len(feasible.warnings)}
             rows.append(row)
@@ -142,6 +146,14 @@ def run_revalidation(base_dir):
     eligible_figure_rows = [r for r in rows if r['scenario_id'] in comparable]
     if any(r['split'] == 'EVAL' for r in eligible_figure_rows):
         generate_comparative_figure(eligible_figure_rows, reports / 'comparativo_kgp_desafio07.png')
+    else:
+        import matplotlib.pyplot as plt
+        fig, ax = plt.subplots(figsize=(16, 9), dpi=120, facecolor='white')
+        ax.axis('off')
+        ax.text(0.5, 0.5, 'Sem comparações factíveis nesta rodada\nFalhas preservadas; sem benefício calculado.',
+                ha='center', va='center', fontsize=22, transform=ax.transAxes)
+        fig.savefig(reports / 'comparativo_kgp_desafio07.png', dpi=120, facecolor='white')
+        plt.close(fig)
     _write_report(reports / 'RELATORIO_EXECUCAO_KGP.md', summary, rows)
     for p in source_paths:
         if source_hashes[p.relative_to(source_root).as_posix()] != compute_sha256(p):
@@ -152,7 +164,7 @@ def run_revalidation(base_dir):
     if frozen_hash != compute_sha256(config_path):
         raise RuntimeError('Protocolo alterado durante a execução')
     tracked = sorted(source_paths + [base_dir / relative for relative in inputs] +
-                     list((evidence / 'plans').glob('*.json')) + list((evidence / 'verification').glob('*.json')) +
+                     current_artifacts +
                      [config_path, base_dir / 'data/reference_network.json', reports / 'kgp_evaluation_results.csv',
                       reports / 'kgp_evaluation_summary.json', reports / 'RELATORIO_EXECUCAO_KGP.md',
                       reports / 'comparativo_kgp_desafio07.png', reports / 'pytest_execution.log'])

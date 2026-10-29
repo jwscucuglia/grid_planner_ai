@@ -150,3 +150,34 @@ def test_time_limit_preserves_incumbent_and_zero_dual_bound(monkeypatch):
     assert plan.solver_bound == 0.
     assert plan.solver_gap == 1.
     assert not plan.is_optimal_proven
+    assert 'Ótimo global comprovado' not in plan.metadata['optimality_scope']
+
+
+def test_time_limit_without_incumbent_preserves_feasible_fallback_and_known_bound(monkeypatch):
+    from types import SimpleNamespace
+    net, cat, jobs = small_instance(mandatory=True)
+    monkeypatch.setattr(optimizer_module, 'milp', lambda **kwargs:
+                        SimpleNamespace(x=None, status=1, mip_dual_bound=0., mip_gap=None, fun=None))
+    plan = run_kgp_optimizer(net, jobs, cat, 'fallback_known_bound')
+    assert verify_plan_feasibility(net, jobs, cat, plan).is_feasible
+    assert plan.solver_objective == compute_exact_plan_objective(plan, ObjectiveWeights(), jobs)
+    assert plan.solver_bound == 0.
+    assert plan.solver_gap == 1.
+    assert plan.solver_status == 'FEASIBLE_FALLBACK_BOUNDED'
+    assert 'Inviabilidade' not in plan.metadata['optimality_scope']
+    assert not plan.is_optimal_proven
+
+
+def test_kgp_seeds_use_the_same_b1_radius_as_evaluated_comparator(monkeypatch):
+    import kgp.experiment as experiment
+    net, cat, jobs = small_instance(mandatory=True)
+    scenario = experiment.ScenarioInstance('RADIUS', 'EVAL', 1, 'radius', 0, net, jobs, cat)
+    real_b1 = optimizer_module.run_baseline_b1_geographic
+    observed = []
+    def spy(*args, **kwargs):
+        observed.append(kwargs.get('radius_km', 1.25))
+        return real_b1(*args, **kwargs)
+    monkeypatch.setattr(experiment, 'run_baseline_b1_geographic', spy)
+    monkeypatch.setattr(optimizer_module, 'run_baseline_b1_geographic', spy)
+    experiment.evaluate_scenario_all_methods(scenario, b1_radius_km=0.75)
+    assert observed == [0.75, 0.75]
