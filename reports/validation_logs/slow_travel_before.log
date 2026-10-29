@@ -1,0 +1,16 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+___________ test_adversarial_6_spoofed_travel_coordinates_rejected ____________
+
+    def test_adversarial_6_spoofed_travel_coordinates_rejected() -> None:
+        # A positive speed below 5 km/h must not be silently increased: 10/2 = 5 h.
+        from kgp.scheduling import compute_travel_hours
+        from kgp.feasibility import _canonical_travel_hours
+>       assert compute_travel_hours(0., 0., 10., 0., 2.) == 5.0
+E       assert 2.0 == 5.0
+E        +  where 2.0 = <function compute_travel_hours at 0x000001EB69F02AC0>(0.0, 0.0, 10.0, 0.0, 2.0)
+
+tests\test_kgp_critical_cases.py:610: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_kgp_critical_cases.py::test_adversarial_6_spoofed_travel_coordinates_rejected
+1 failed in 6.29s

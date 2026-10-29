@@ -1,0 +1,290 @@
+[
+  {
+    "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+    "method": "B0",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+    "method": "B1",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+    "method": "B2",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  },
+  {
+    "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+    "method": "KGP",
+    "same_metrics_excluding_runtime": true,
+    "differences": {}
+  }
+]

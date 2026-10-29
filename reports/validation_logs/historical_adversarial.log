@@ -1,0 +1,11 @@
+./.venv/Scripts/python.exe : Traceback (most recent call last):
+No linha:2 caractere:224
++ ... g -Tail 12; ./.venv/Scripts/python.exe '.audit_cache/reauditoria/D07_ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\scucuglia\Documents\P&D 2026\P&D Cemig 
+2026\grid_planner_ai\.audit_cache\reauditoria\D07_REAUDITORIA_REV02\reproduce_adversarial.py", line 57, in <module>
+    assert out['empty_exported_impact']['accepted'] and out['empty_exported_impact']['metric_customer_hours']==0
+AssertionError

@@ -1,0 +1,192 @@
+{
+  "archive_sha256": "68ae206dda346239120b56f71349f919f947db496fa67c69830bc328bdd8d648",
+  "base_commit": "84340636c6d3877eacf44d4e19a1b802451057c1",
+  "git_matches": 23,
+  "git_total": 23,
+  "manifest_matches": 22,
+  "manifest_total": 22,
+  "file_comparison": [
+    {
+      "path": "src/kgp/baselines.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/contracts.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/eligibility.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/experiment.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/feasibility.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/metrics.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/optimizer.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/scheduling.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/topology.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "src/kgp/__init__.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "tests/test_kgp_critical_cases.py",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "configs/protocol_and_seeds.json",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "data/reference_network.json",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "reports/comparativo_kgp_desafio07.png",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "reports/kgp_evaluation_results.csv",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "reports/kgp_evaluation_summary.json",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "reports/manifest_sha256.json",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "reports/pytest_execution.log",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "reports/RELATORIO_EXECUCAO_KGP.md",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "README.md",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "AGENTS.md",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "pyproject.toml",
+      "matches_historical_git_after_newline_normalization": true
+    },
+    {
+      "path": "requirements.txt",
+      "matches_historical_git_after_newline_normalization": true
+    }
+  ],
+  "hash_checks": [
+    {
+      "path": "AGENTS.md",
+      "matches": true
+    },
+    {
+      "path": "configs/protocol_and_seeds.json",
+      "matches": true
+    },
+    {
+      "path": "data/reference_network.json",
+      "matches": true
+    },
+    {
+      "path": "pyproject.toml",
+      "matches": true
+    },
+    {
+      "path": "README.md",
+      "matches": true
+    },
+    {
+      "path": "reports/comparativo_kgp_desafio07.png",
+      "matches": true
+    },
+    {
+      "path": "reports/kgp_evaluation_results.csv",
+      "matches": true
+    },
+    {
+      "path": "reports/kgp_evaluation_summary.json",
+      "matches": true
+    },
+    {
+      "path": "reports/pytest_execution.log",
+      "matches": true
+    },
+    {
+      "path": "reports/RELATORIO_EXECUCAO_KGP.md",
+      "matches": true
+    },
+    {
+      "path": "requirements.txt",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/__init__.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/baselines.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/contracts.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/eligibility.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/experiment.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/feasibility.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/metrics.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/optimizer.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/scheduling.py",
+      "matches": true
+    },
+    {
+      "path": "src/kgp/topology.py",
+      "matches": true
+    },
+    {
+      "path": "tests/test_kgp_critical_cases.py",
+      "matches": true
+    }
+  ]
+}

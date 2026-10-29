@@ -1,0 +1,475 @@
+FFFFFF                                                                   [100%]
+================================== FAILURES ===================================
+__ test_invalid_root_structure_returns_rejection_without_crash[null_window] ___
+
+core_case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.050831, is_optimal_proven=False, metadata={}))
+mutation = 'null_window'
+
+    @pytest.mark.parametrize("mutation", ["null_window", "wrong_decision_type", "null_service"])
+    def test_invalid_root_structure_returns_rejection_without_crash(core_case, mutation):
+        s, p = core_case
+        if mutation == "null_window":
+            p.windows = [None]
+        elif mutation == "wrong_decision_type":
+            p.decision_day = "0"
+        else:
+            s.services = [None]
+>       report = verify_plan_feasibility(s.network, s.services, s.catalog, p)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_independent_review.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\kgp\feasibility.py:418: in verify_plan_feasibility
+    scheduled = {sid for w in plan.windows for sid in w.service_ids}
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <list_iterator object at 0x0000014272648EE0>
+
+>   scheduled = {sid for w in plan.windows for sid in w.service_ids}
+                                                      ^^^^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'service_ids'
+
+src\kgp\feasibility.py:418: AttributeError
+_ test_invalid_root_structure_returns_rejection_without_crash[wrong_decision_type] _
+
+core_case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.049536, is_optimal_proven=False, metadata={}))
+mutation = 'wrong_decision_type'
+
+    @pytest.mark.parametrize("mutation", ["null_window", "wrong_decision_type", "null_service"])
+    def test_invalid_root_structure_returns_rejection_without_crash(core_case, mutation):
+        s, p = core_case
+        if mutation == "null_window":
+            p.windows = [None]
+        elif mutation == "wrong_decision_type":
+            p.decision_day = "0"
+        else:
+            s.services = [None]
+>       report = verify_plan_feasibility(s.network, s.services, s.catalog, p)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_independent_review.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\kgp\feasibility.py:417: in verify_plan_feasibility
+    mandatory = [s for s in services if s.mandatory and s.scope_status == 'ACTIVE' and s.created_at_day <= plan.decision_day]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <list_iterator object at 0x00000142727755D0>
+
+>   mandatory = [s for s in services if s.mandatory and s.scope_status == 'ACTIVE' and s.created_at_day <= plan.decision_day]
+                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E   TypeError: '<=' not supported between instances of 'int' and 'str'
+
+src\kgp\feasibility.py:417: TypeError
+__ test_invalid_root_structure_returns_rejection_without_crash[null_service] __
+
+core_case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.048526, is_optimal_proven=False, metadata={}))
+mutation = 'null_service'
+
+    @pytest.mark.parametrize("mutation", ["null_window", "wrong_decision_type", "null_service"])
+    def test_invalid_root_structure_returns_rejection_without_crash(core_case, mutation):
+        s, p = core_case
+        if mutation == "null_window":
+            p.windows = [None]
+        elif mutation == "wrong_decision_type":
+            p.decision_day = "0"
+        else:
+            s.services = [None]
+>       report = verify_plan_feasibility(s.network, s.services, s.catalog, p)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_independent_review.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\kgp\feasibility.py:417: in verify_plan_feasibility
+    mandatory = [s for s in services if s.mandatory and s.scope_status == 'ACTIVE' and s.created_at_day <= plan.decision_day]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+.0 = <list_iterator object at 0x000001427264AD40>
+
+>   mandatory = [s for s in services if s.mandatory and s.scope_status == 'ACTIVE' and s.created_at_day <= plan.decision_day]
+                                        ^^^^^^^^^^^
+E   AttributeError: 'NoneType' object has no attribute 'mandatory'
+
+src\kgp\feasibility.py:417: AttributeError
+_ test_string_enum_in_direct_object_never_crashes_audit[network_switch_state] _
+
+core_case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...lver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.0495, is_optimal_proven=False, metadata={}))
+field = 'network_switch_state'
+
+    @pytest.mark.parametrize("field", ["network_switch_state", "exported_stage"])
+    def test_string_enum_in_direct_object_never_crashes_audit(core_case, field):
+        s, p = core_case
+        if field == "network_switch_state":
+            switch = next(iter(s.network.switches.values()))
+            s.network.switches[switch.switch_id] = replace(switch, current_state=switch.current_state.value)
+        else:
+            w = p.windows[0]
+            bad = replace(w.maneuver_steps[0], stage="EXECUTION")
+            p.windows[0] = replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])
+>       report = verify_plan_feasibility(s.network, s.services, s.catalog, p)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_independent_review.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\kgp\feasibility.py:415: in verify_plan_feasibility
+    structural_errors = validate_problem_and_plan(network, services, catalog, plan)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+network = GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False)
+services = [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)]
+catalog = ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)
+plan = ExecutionPlan(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DISTANT...olver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.0495, is_optimal_proven=False, metadata={})
+
+    def validate_problem_and_plan(network, services, catalog, plan):
+        errors = []
+        for name, value, kind in [('network', network, GridNetwork), ('catalog', catalog, ResourceCatalog),
+                                   ('plan', plan, ExecutionPlan)]:
+            try:
+                _decode_typed(value, kind, name)
+            except (ValueError, TypeError, AttributeError) as exc:
+                errors.append(f'Contrato inv�lido: {exc}')
+        for svc in services:
+            try:
+                _decode_typed(svc, ServiceOrder, 'service')
+            except (ValueError, TypeError, AttributeError) as exc:
+                errors.append(f'Contrato inv�lido: {exc}')
+        if errors:
+            return errors
+    
+        def check(condition, message):
+            if not condition:
+                errors.append(f'Estrutura/refer�ncia inv�lida: {message}')
+    
+        for collection, id_field in [(network.nodes, 'node_id'), (network.branches, 'branch_id'),
+                                      (network.switches, 'switch_id'), (network.assets, 'asset_id'),
+                                      (network.consumers, 'consumer_id'), (network.isolation_zones, 'zone_id'),
+                                      (catalog.crews, 'crew_id')]:
+            for key, item in collection.items():
+                check(bool(key) and key == getattr(item, id_field), f'chave {key} diverge de {id_field}')
+        for item in list(network.nodes.values()) + list(network.branches.values()) + list(network.assets.values()):
+            check(bool(item.phases) and len(set(item.phases)) == len(item.phases) and
+                  set(item.phases) <= {'A', 'B', 'C'}, f'fases de {item}')
+        for node in network.nodes.values():
+            check(node.load_kw >= 0 and node.distributed_gen_kw >= 0 and node.nominal_voltage_kv > 0,
+                  f'par�metros da barra {node.node_id}')
+        for branch in network.branches.values():
+            check(branch.from_node in network.nodes and branch.to_node in network.nodes and branch.from_node != branch.to_node,
+                  f'extremidades de {branch.branch_id}')
+            check(branch.max_capacity_kw > 0 and branch.r_ohm >= 0 and branch.x_ohm >= 0 and branch.length_km >= 0,
+                  f'par�metros de {branch.branch_id}')
+        for switch in network.switches.values():
+            check(switch.branch_id in network.branches, f'trecho da chave {switch.switch_id}')
+            check(switch.maneuver_duration_hours >= 0, f'dura��o de manobra {switch.switch_id}')
+        for asset in network.assets.values():
+            check(asset.node_id is not None or asset.branch_id is not None, f'ativo �rf�o {asset.asset_id}')
+            check(asset.node_id is None or asset.node_id in network.nodes, f'barra de {asset.asset_id}')
+            check(asset.branch_id is None or asset.branch_id in network.branches, f'trecho de {asset.asset_id}')
+        for consumer in network.consumers.values():
+            check(consumer.node_id in network.nodes and consumer.phase in {'A', 'B', 'C'}, f'consumidor {consumer.consumer_id}')
+            check(consumer.asset_id is None or consumer.asset_id in network.assets, f'ativo de {consumer.consumer_id}')
+            check(consumer.avg_demand_kw >= 0, f'demanda de {consumer.consumer_id}')
+        for zone in network.isolation_zones.values():
+            check(not (set(zone.open_switches) & set(zone.tie_switches_closed)), f'comandos contradit�rios {zone.zone_id}')
+            for seq in (zone.open_switches, zone.tie_switches_closed):
+                check(len(seq) == len(set(seq)) and set(seq) <= network.switches.keys(), f'chaves de {zone.zone_id}')
+            check(zone.prep_duration_hours >= 0 and zone.recomp_duration_hours >= 0 and zone.max_transfer_voltage_drop_pct >= 0,
+                  f'dura��o/limites da zona {zone.zone_id}')
+            # Catalog assumes opening NF, closing NA, and restoring initial state at window end.
+            for sid in zone.open_switches:
+                if sid in network.switches:
+>                   check(network.switches[sid].current_state.value == 'CLOSED', f'abertura sem mudan�a de estado {sid}')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E                   AttributeError: 'str' object has no attribute 'value'
+
+src\kgp\validation.py:66: AttributeError
+____ test_string_enum_in_direct_object_never_crashes_audit[exported_stage] ____
+
+core_case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.050069, is_optimal_proven=False, metadata={}))
+field = 'exported_stage'
+
+    @pytest.mark.parametrize("field", ["network_switch_state", "exported_stage"])
+    def test_string_enum_in_direct_object_never_crashes_audit(core_case, field):
+        s, p = core_case
+        if field == "network_switch_state":
+            switch = next(iter(s.network.switches.values()))
+            s.network.switches[switch.switch_id] = replace(switch, current_state=switch.current_state.value)
+        else:
+            w = p.windows[0]
+            bad = replace(w.maneuver_steps[0], stage="EXECUTION")
+            p.windows[0] = replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])
+>       report = verify_plan_feasibility(s.network, s.services, s.catalog, p)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_independent_review.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+network = GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False)
+services = [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)]
+catalog = ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)
+plan = ExecutionPlan(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DISTANT...ver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.050069, is_optimal_proven=False, metadata={})
+
+    def verify_plan_feasibility(
+        network: GridNetwork,
+        services: Iterable[ServiceOrder],
+        catalog: ResourceCatalog,
+        plan: ExecutionPlan,
+    ) -> FeasibilityReport:
+        """Audita integralmente um plano exportado contra todas as restri��es do problema."""
+        services = list(services)
+        structural_errors = validate_problem_and_plan(network, services, catalog, plan)
+        if structural_errors:
+            mandatory = [s for s in services if s.mandatory and s.scope_status == 'ACTIVE' and s.created_at_day <= plan.decision_day]
+            scheduled = {sid for w in plan.windows for sid in w.service_ids}
+            completed = sum(s.service_id in scheduled for s in mandatory)
+            return FeasibilityReport(
+                plan_id=plan.plan_id, method_name=plan.method_name, scenario_id=plan.scenario_id,
+                is_feasible=False, mandatory_portfolio_complete=completed == len(mandatory),
+                completed_mandatory_count=completed, total_mandatory_count=len(mandatory),
+                violations=structural_errors, isolation_verified=False,
+            )
+        svc_map: Dict[str, ServiceOrder] = {s.service_id: s for s in services}
+        violations: List[str] = []
+        warnings: List[str] = []
+    
+        known_mandatory = [
+            s.service_id
+            for s in svc_map.values()
+            if s.mandatory
+            and s.scope_status == "ACTIVE"
+            and s.created_at_day <= plan.decision_day
+        ]
+    
+        scheduled_service_occurrences: Dict[str, int] = {}
+        service_exec_times: Dict[str, Tuple[int, float, float]] = {}
+    
+        for win in plan.windows:
+            if not win.service_ids:
+                violations.append(f"Janela '{win.window_id}' vazia (sem servi�os).")
+            for sid in win.service_ids:
+                scheduled_service_occurrences[sid] = (
+                    scheduled_service_occurrences.get(sid, 0) + 1
+                )
+    
+        for sid, count in scheduled_service_occurrences.items():
+            if count > 1:
+                violations.append(
+                    f"Servi�o '{sid}' programado em duplicidade ({count} vezes)."
+                )
+            if sid not in svc_map:
+                violations.append(
+                    f"Servi�o '{sid}' no plano n�o existe no cat�logo da carteira."
+                )
+            elif svc_map[sid].scope_status != "ACTIVE":
+                violations.append(
+                    f"Servi�o '{sid}' programado com status inv�lido '{svc_map[sid].scope_status}'."
+                )
+    
+        completed_mandatory_count = sum(
+            1 for sid in known_mandatory if sid in scheduled_service_occurrences
+        )
+        missing_mandatory = [
+            sid for sid in known_mandatory if sid not in scheduled_service_occurrences
+        ]
+        mandatory_complete = len(missing_mandatory) == 0
+        if not mandatory_complete:
+            violations.append(
+                f"Carteira obrigat�ria incompleta: faltam {len(missing_mandatory)} "
+                f"servi�o(s) obrigat�rio(s): {missing_mandatory}."
+            )
+    
+        recalculated_materials: Dict[str, float] = {}
+        recalculated_maneuvers = 0
+        recalc_consumer_intervals: Dict[str, List[Tuple[float, float]]] = {}
+        exported_consumer_intervals: Dict[str, List[Tuple[float, float]]] = {}
+    
+        all_crew_intervals_by_day: Dict[int, Dict[str, List[CrewScheduleInterval]]] = {}
+        windows_by_day: Dict[int, List[PlannedInterruptionWindow]] = {}
+        window_deenergized_assets: Dict[str, Set[str]] = {}
+    
+        for win in plan.windows:
+            windows_by_day.setdefault(win.day, []).append(win)
+    
+            if win.day not in catalog.planning_days:
+                violations.append(
+                    f"Janela '{win.window_id}' agendada em dia inv�lido ({win.day})."
+                )
+            if win.zone_id not in network.isolation_zones:
+                violations.append(
+                    f"Janela '{win.window_id}' referencia zona inexistente '{win.zone_id}'."
+                )
+                continue
+    
+            zone = network.isolation_zones[win.zone_id]
+    
+            # Valida��o de permiss�o operacional de todas as chaves da zona e da janela:
+            sw_errors = validate_switch_maneuverability(
+                network,
+                set(zone.open_switches),
+                set(zone.tie_switches_closed),
+            )
+            if sw_errors:
+                for err in sw_errors:
+                    violations.append(
+                        f"Viola��o de permiss�o de manobra na janela '{win.window_id}' (zona '{win.zone_id}'): {err}"
+                    )
+    
+            if win.start_hour < catalog.window_start_hour - 1e-4:
+                violations.append(
+                    f"Janela '{win.window_id}' inicia �s {win.start_hour:.2f}h antes do "
+                    f"permitido ({catalog.window_start_hour:.2f}h)."
+                )
+            if win.end_hour > catalog.window_end_hour + 1e-4:
+                violations.append(
+                    f"Janela '{win.window_id}' termina �s {win.end_hour:.2f}h ap�s o "
+                    f"limite ({catalog.window_end_hour:.2f}h)."
+                )
+            if (win.end_hour - win.start_hour) > catalog.max_window_duration_hours + 1e-4:
+                violations.append(
+                    f"Janela '{win.window_id}' excede dura��o m�xima "
+                    f"({win.end_hour - win.start_hour:.2f}h > {catalog.max_window_duration_hours:.2f}h)."
+                )
+    
+            if win.work_start_hour - win.start_hour < zone.prep_duration_hours - 1e-4:
+                violations.append(
+                    f"Janela '{win.window_id}' n�o respeita tempo de manobra de isolamento "
+                    f"da zona '{win.zone_id}' ({zone.prep_duration_hours:.2f}h)."
+                )
+            if win.end_hour - win.work_end_hour < zone.recomp_duration_hours - 1e-4:
+                violations.append(
+                    f"Janela '{win.window_id}' n�o respeita tempo de recomposi��o "
+                    f"da zona '{win.zone_id}' ({zone.recomp_duration_hours:.2f}h)."
+                )
+    
+            recalc_steps, recalc_phys = _reference_zone_intervention(
+                network=network,
+                zone_id=win.zone_id,
+                work_start_hour=win.work_start_hour,
+                work_end_hour=win.work_end_hour,
+            )
+            recalculated_maneuvers += recalc_phys
+            if abs(win.start_hour - recalc_steps[0].start_hour) > 1e-4 or abs(win.end_hour - recalc_steps[-1].end_hour) > 1e-4:
+                violations.append(f"Viola��o de integridade: limites da janela '{win.window_id}' divergem da cronologia el�trica.")
+    
+            if not win.maneuver_steps:
+                violations.append(
+                    f"Viola��o de integridade na janela '{win.window_id}': `maneuver_steps` "
+                    "ausente ou vazio no plano exportado."
+                )
+            elif len(win.maneuver_steps) != len(recalc_steps):
+                violations.append(
+                    f"Viola��o de integridade na janela '{win.window_id}': quantidade de etapas "
+                    f"exportadas ({len(win.maneuver_steps)}) diverge do rec�lculo ({len(recalc_steps)})."
+                )
+            else:
+                for exp_st, rec_st in zip(win.maneuver_steps, recalc_steps):
+                    if (
+                        exp_st.stage != rec_st.stage
+                        or exp_st.step_order != rec_st.step_order
+                        or abs(exp_st.start_hour - rec_st.start_hour) > 1e-3
+                        or abs(exp_st.end_hour - rec_st.end_hour) > 1e-3
+                        or set(exp_st.open_switches) != set(rec_st.open_switches)
+                        or set(exp_st.closed_switches) != set(rec_st.closed_switches)
+                        or set(exp_st.interrupted_consumers)
+                        != set(rec_st.interrupted_consumers)
+                        or set(exp_st.energized_nodes) != set(rec_st.energized_nodes)
+                        or set(exp_st.deenergized_nodes) != set(rec_st.deenergized_nodes)
+                        or set(exp_st.deenergized_assets) != set(rec_st.deenergized_assets)
+                        or set(exp_st.active_sources) != set(rec_st.active_sources)
+                        or exp_st.transfer_feasible != rec_st.transfer_feasible
+                        or abs(exp_st.max_loading_pct - rec_st.max_loading_pct) > 0.011
+                        or abs(exp_st.estimated_voltage_drop_pct - rec_st.estimated_voltage_drop_pct) > 0.0011
+                    ):
+                        violations.append(
+>                           f"Viola��o de integridade na etapa {exp_st.step_order} ({exp_st.stage.value}) "
+                                                                                     ^^^^^^^^^^^^^^^^^^
+                            f"da janela '{win.window_id}': dados exportados divergem do rec�lculo."
+                        )
+E                       AttributeError: 'str' object has no attribute 'value'
+
+src\kgp\feasibility.py:579: AttributeError
+_______ test_unrepresentable_float_integer_is_rejected_by_json_contract _______
+
+    def test_unrepresentable_float_integer_is_rejected_by_json_contract():
+        with pytest.raises(ValueError):
+>           plan_from_json(json.dumps({"plan_id": "P", "method_name": "X", "scenario_id": "S",
+                                      "decision_day": 0, "solver_time_sec": 10 ** 400}))
+
+tests\test_independent_review.py:55: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\kgp\contracts.py:115: in plan_from_json
+    return _decode_typed(strict_json_loads(raw), ExecutionPlan, "plan")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\kgp\contracts.py:69: in _decode_typed
+    return expected(**{k: _decode_typed(v, hints[k], f"{path}.{k}") for k, v in raw.items()})
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\kgp\contracts.py:69: in <dictcomp>
+    return expected(**{k: _decode_typed(v, hints[k], f"{path}.{k}") for k, v in raw.items()})
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+value = 100000000000000000...0000000000000000000, expected = <class 'float'>
+path = 'plan.solver_time_sec'
+
+    def _decode_typed(value: Any, expected: Any, path: str) -> Any:
+        """Strict contract reader: no coercion of bools, strings or fractional days."""
+        if expected is Any:
+            errors = nonfinite_paths(value, path)
+            if errors:
+                raise ValueError("; ".join(errors))
+            return value
+        origin, args = get_origin(expected), get_args(expected)
+        if origin is Union:
+            for kind in args:
+                try:
+                    return _decode_typed(value, kind, path)
+                except (ValueError, TypeError):
+                    pass
+            raise ValueError(f"{path}: tipo inv�lido")
+        if expected is type(None):
+            if value is not None:
+                raise ValueError(f"{path}: esperado null")
+            return None
+        if isinstance(expected, type) and issubclass(expected, Enum):
+            return expected(value)
+        if isinstance(expected, type) and is_dataclass(expected):
+            raw = {f.name: getattr(value, f.name) for f in fields(value)} if is_dataclass(value) else value
+            if not isinstance(raw, dict):
+                raise ValueError(f"{path}: esperado objeto")
+            known = {f.name for f in fields(expected)}
+            if set(raw) - known:
+                raise ValueError(f"{path}: campos desconhecidos {sorted(set(raw) - known)}")
+            hints = get_type_hints(expected)
+            try:
+                return expected(**{k: _decode_typed(v, hints[k], f"{path}.{k}") for k, v in raw.items()})
+            except TypeError as exc:
+                raise ValueError(f"{path}: estrutura inv�lida: {exc}") from exc
+        if origin in (list, tuple, set):
+            if not isinstance(value, (list, tuple, set)):
+                raise ValueError(f"{path}: esperado sequ�ncia")
+            if origin is tuple and args and args[-1] is not Ellipsis:
+                if len(value) != len(args):
+                    raise ValueError(f"{path}: comprimento inv�lido")
+                return tuple(_decode_typed(v, t, path) for v, t in zip(value, args))
+            decoded = [_decode_typed(v, args[0], f"{path}[{i}]") for i, v in enumerate(value)]
+            return origin(decoded)
+        if origin is dict:
+            if not isinstance(value, dict):
+                raise ValueError(f"{path}: esperado objeto")
+            return {_decode_typed(k, args[0], path): _decode_typed(v, args[1], f"{path}.{k}") for k, v in value.items()}
+        if expected is float:
+>           if type(value) not in (int, float) or not math.isfinite(value):
+                                                      ^^^^^^^^^^^^^^^^^^^^
+E           OverflowError: int too large to convert to float
+
+src\kgp\contracts.py:86: OverflowError
+=========================== short test summary info ===========================
+FAILED tests/test_independent_review.py::test_invalid_root_structure_returns_rejection_without_crash[null_window]
+FAILED tests/test_independent_review.py::test_invalid_root_structure_returns_rejection_without_crash[wrong_decision_type]
+FAILED tests/test_independent_review.py::test_invalid_root_structure_returns_rejection_without_crash[null_service]
+FAILED tests/test_independent_review.py::test_string_enum_in_direct_object_never_crashes_audit[network_switch_state]
+FAILED tests/test_independent_review.py::test_string_enum_in_direct_object_never_crashes_audit[exported_stage]
+FAILED tests/test_independent_review.py::test_unrepresentable_float_integer_is_rejected_by_json_contract
+6 failed in 2.52s

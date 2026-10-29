@@ -1,0 +1,66 @@
+{
+  "spoofed_travel_coordinates": {
+    "service_id": "S01_F1_NEAR",
+    "actual_service_xy": [
+      1.5,
+      1.0
+    ],
+    "crew_base_xy": [
+      350,
+      350
+    ],
+    "accepted_interval_xy": [
+      350.0,
+      350.0
+    ],
+    "expected_hours_from_base": 14.0916,
+    "allocated_travel_hours": 0.0,
+    "feasible": false,
+    "violations": [
+      "Estrutura/refer�ncia inv�lida: completed_service_ids diverge das janelas"
+    ]
+  },
+  "immovable_switch": {
+    "switch_id": "SW_A1_1",
+    "used_by_windows": [
+      "B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01"
+    ],
+    "feasible": false,
+    "violations": [
+      "Viola��o de permiss�o de manobra na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01' (zona 'Z_F1_FULL_RADIAL'): Chave 'SW_A1_1' marcada como n�o manobr�vel (is_maneuverable=False).",
+      "Viola��o de integridade na etapa 1 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec�lculo.",
+      "Viola��o de integridade na etapa 2 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec�lculo.",
+      "Viola��o de integridade na etapa 3 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec�lculo.",
+      "Viola��o de integridade na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': lista de consumidores interrompidos exportada (72) diverge do rec�lculo (0).",
+      "Viola��o de isolamento el�trico: ativo 'AST_A1_2A' do servi�o 'S01_F1_NEAR' permanece energizado (ou com extremidade de trecho energizada) na zona 'Z_F1_FULL_RADIAL'.",
+      "Viola��o de isolamento el�trico global: AST_A1_2A do servi�o S01_F1_NEAR energizado no dia 1, 8.2515h�10.4515h.",
+      "Viola��o de integridade de impacto: clientes-hora exportados nas etapas (429.9000) divergem do rec�lculo do verificador (242.7000)."
+    ]
+  },
+  "phase_blind_transfer": {
+    "transfer_feasible": false,
+    "reported_max_loading_pct": 1000.0,
+    "required_A_path_loading_pct": 1000.0,
+    "energized_nodes": [
+      "S",
+      "X",
+      "Y"
+    ],
+    "interrupted_consumers": [],
+    "notes": "Sobrecarga t�rmica em transfer�ncia (1000.0% > 100%)."
+  },
+  "no_target_assets": {
+    "service_id": "S01_F1_NEAR",
+    "target_assets": [],
+    "feasible": false,
+    "violations": [
+      "Viola��o de permiss�o de manobra na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01' (zona 'Z_F1_FULL_RADIAL'): Chave 'SW_A1_1' marcada como n�o manobr�vel (is_maneuverable=False).",
+      "Viola��o de integridade na etapa 1 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec�lculo.",
+      "Viola��o de integridade na etapa 2 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec�lculo.",
+      "Viola��o de integridade na etapa 3 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec�lculo.",
+      "Viola��o de integridade na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': lista de consumidores interrompidos exportada (72) diverge do rec�lculo (0).",
+      "Viola��o cadastral: servi�o 'S01_F1_NEAR' na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01' n�o possui ativos-alvo definidos (target_assets vazio).",
+      "Viola��o de integridade de impacto: clientes-hora exportados nas etapas (429.9000) divergem do rec�lculo do verificador (242.7000)."
+    ]
+  }
+}

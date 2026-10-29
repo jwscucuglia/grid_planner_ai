@@ -1,0 +1,6 @@
+TIMEOUT_FALLBACK {'feasible': True, 'objective': 96.12, 'bound': 0.0, 'gap': 1.0, 'status': 'FEASIBLE_FALLBACK_BOUNDED', 'true_objective': 96.12, 'optimality_scope': 'Plano fallback fact�vel verificado; limite conhecido nas colunas geradas quando dispon�vel, sem prova de �timo.'}
+RUN FINAL_REVIEW_INVALID
+VERIFIED FINAL_REVIEW_INVALID 0/4
+END 0/4 feasible; 0 EVAL pairs
+STALE_FIGURE {'comparable': 0, 'old_figure_unchanged': False, 'figure_in_new_manifest': True}
+B1_RADIUS_COMPARATOR_THEN_SEED [0.75, 0.75]

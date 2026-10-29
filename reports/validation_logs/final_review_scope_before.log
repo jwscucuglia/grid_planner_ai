@@ -1,0 +1,62 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+___________ test_time_limit_preserves_incumbent_and_zero_dual_bound ___________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002226F562B50>
+
+    def test_time_limit_preserves_incumbent_and_zero_dual_bound(monkeypatch):
+        net, cat, jobs = small_instance(mandatory=True)
+        real_milp = optimizer_module.milp
+    
+        def stopped_milp(**kwargs):
+            result = real_milp(**kwargs)
+            assert result.x is not None
+            result.status = 1
+            result.success = False
+            result.mip_dual_bound = 0.
+            result.mip_gap = 1.
+            return result
+    
+        monkeypatch.setattr(optimizer_module, "milp", stopped_milp)
+        plan = run_kgp_optimizer(net, jobs, cat, "bounded_incumbent")
+        assert verify_plan_feasibility(net, jobs, cat, plan).is_feasible
+        assert plan.solver_status == "FEASIBLE_BOUNDED"
+        assert plan.solver_objective > 0.
+        assert plan.solver_bound == 0.
+        assert plan.solver_gap == 1.
+        assert not plan.is_optimal_proven
+>       assert '�timo global comprovado' not in plan.metadata['optimality_scope']
+E       AssertionError: assert '�timo global comprovado' not in '�timo globa...s B0/B1/B2).'
+E         
+E         '�timo global comprovado' is contained here:
+E           �timo global comprovado sobre o conjunto discreto de colunas di�rias fact�veis geradas (incluindo encadeamento di�rio e sementes B0/B1/B2).
+E         ? +++++++++++++++++++++++
+
+tests\test_optimizer_audit.py:153: AssertionError
+________ test_kgp_seeds_use_the_same_b1_radius_as_evaluated_comparator ________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002226F32E950>
+
+    def test_kgp_seeds_use_the_same_b1_radius_as_evaluated_comparator(monkeypatch):
+        import kgp.experiment as experiment
+        net, cat, jobs = small_instance(mandatory=True)
+        scenario = experiment.ScenarioInstance('RADIUS', 'EVAL', 1, 'radius', 0, net, jobs, cat)
+        real_b1 = optimizer_module.run_baseline_b1_geographic
+        observed = []
+        def spy(*args, **kwargs):
+            observed.append(kwargs.get('radius_km', 1.25))
+            return real_b1(*args, **kwargs)
+        monkeypatch.setattr(experiment, 'run_baseline_b1_geographic', spy)
+        monkeypatch.setattr(optimizer_module, 'run_baseline_b1_geographic', spy)
+        experiment.evaluate_scenario_all_methods(scenario, b1_radius_km=0.75)
+>       assert observed == [0.75, 0.75]
+E       assert [0.75, 1.25] == [0.75, 0.75]
+E         
+E         At index 1 diff: 1.25 != 0.75
+E         Use -v to get more diff
+
+tests\test_optimizer_audit.py:183: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_optimizer_audit.py::test_time_limit_preserves_incumbent_and_zero_dual_bound
+FAILED tests/test_optimizer_audit.py::test_kgp_seeds_use_the_same_b1_radius_as_evaluated_comparator
+2 failed in 1.56s

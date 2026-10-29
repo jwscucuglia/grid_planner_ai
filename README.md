@@ -29,7 +29,8 @@ As versões efetivamente usadas constam de `configs/protocol_and_seeds.json`. A 
 
 - Relatório, CSV, JSON detalhado, figura branca 16:9 e manifesto SHA-256 em `reports/`.
 - Entradas, planos efetivamente lidos e verificações em `reports/revalidation_20261029/`. Falhas e carteira incompleta são preservadas e excluídas das comparações de benefício.
-- [Requisitos oficiais](reports/MATRIZ_ADERENCIA_OFICIAL_D07.md), [revisão documental](reports/AUDITORIA_DOCUMENTAL_D07.md), [otimizador](reports/AUDITORIA_OTIMIZADOR_D07.md), [revisão do núcleo](reports/REVISAO_INDEPENDENTE_NUCLEO_D07.md) e [revisão final](reports/REVISAO_FINAL_BRANCH_D07.md).
+- [Resumo de validação](reports/RESUMO_VALIDACAO_REV03.md), [otimizador](reports/AUDITORIA_OTIMIZADOR_D07.md), [revisão do núcleo](reports/REVISAO_INDEPENDENTE_NUCLEO_D07.md) e [revisão final](reports/REVISAO_FINAL_BRANCH_D07.md).
+- Matrizes oficiais/documentais, inventário do Drive e orçamento ficam no pacote restrito da candidatura no Drive do projeto. O relatório de execução também os referencia; não integram este repositório público.
 - `reports/history/REV02/` preserva resultados anteriores. O estudo separado `0.1.0-d07-scoped` continua histórico no Drive; os estudos não são somados.
 
 ## Limitações e prontidão

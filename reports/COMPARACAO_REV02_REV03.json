@@ -1,0 +1,466 @@
+{
+  "description": "Cross-version differences; separate from repeatability of two REV03 runs",
+  "changed_records": 27,
+  "total_records": 48,
+  "records": [
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences_excluding_runtime": {
+        "total_crew_travel_hours": {
+          "REV02": 0.4625,
+          "REV03": 0.3638
+        }
+      }
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences_excluding_runtime": {
+        "total_crew_travel_hours": {
+          "REV02": 0.4625,
+          "REV03": 0.3625
+        }
+      }
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.4625,
+          "REV03": 0.3625
+        }
+      }
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences_excluding_runtime": {
+        "solver_bound": {
+          "REV02": 642.2626,
+          "REV03": 642.2487
+        },
+        "solver_objective": {
+          "REV02": 642.2626,
+          "REV03": 642.2487
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.3377,
+          "REV03": 0.3145
+        }
+      }
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences_excluding_runtime": {
+        "total_crew_travel_hours": {
+          "REV02": 0.4684,
+          "REV03": 0.444
+        }
+      }
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences_excluding_runtime": {
+        "consumer_hours_total": {
+          "REV02": 260.1504,
+          "REV03": 257.112
+        },
+        "solver_bound": {
+          "REV02": 455.6514,
+          "REV03": 452.5556
+        },
+        "solver_objective": {
+          "REV02": 455.6514,
+          "REV03": 452.5556
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.4684,
+          "REV03": 0.3727
+        }
+      }
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences_excluding_runtime": {
+        "solver_bound": {
+          "REV02": 511.7446,
+          "REV03": 511.7319
+        },
+        "solver_objective": {
+          "REV02": 511.7446,
+          "REV03": 511.7319
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.2744,
+          "REV03": 0.2531
+        }
+      }
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences_excluding_runtime": {
+        "total_crew_travel_hours": {
+          "REV02": 0.3417,
+          "REV03": 0.2925
+        }
+      }
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences_excluding_runtime": {
+        "solver_bound": {
+          "REV02": 618.3919,
+          "REV03": 618.323
+        },
+        "solver_objective": {
+          "REV02": 618.3919,
+          "REV03": 618.323
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.3532,
+          "REV03": 0.2384
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B1",
+      "differences_excluding_runtime": {
+        "total_crew_travel_hours": {
+          "REV02": 0.1879,
+          "REV03": 0.2572
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "consumer_hours_total": {
+          "REV02": 253.0,
+          "REV03": 243.2
+        },
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "KGP",
+      "differences_excluding_runtime": {
+        "solver_bound": {
+          "REV02": 448.7528,
+          "REV03": 448.7118
+        },
+        "solver_objective": {
+          "REV02": 448.7528,
+          "REV03": 448.7118
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.2546,
+          "REV03": 0.1863
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B1",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "KGP",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B1",
+      "differences_excluding_runtime": {
+        "total_crew_travel_hours": {
+          "REV02": 0.4292,
+          "REV03": 0.4291
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.4292,
+          "REV03": 0.4291
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "KGP",
+      "differences_excluding_runtime": {
+        "total_crew_travel_hours": {
+          "REV02": 0.4292,
+          "REV03": 0.4291
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B1",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "KGP",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B1",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "KGP",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B1",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "KGP",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences_excluding_runtime": {
+        "total_crew_travel_hours": {
+          "REV02": 0.3684,
+          "REV03": 0.3726
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.4077,
+          "REV03": 0.4016
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences_excluding_runtime": {
+        "consumer_hours_total": {
+          "REV02": 291.2076,
+          "REV03": 289.8
+        },
+        "solver_bound": {
+          "REV02": 593.4083,
+          "REV03": 591.9831
+        },
+        "solver_objective": {
+          "REV02": 593.4083,
+          "REV03": 591.9831
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.4511,
+          "REV03": 0.4219
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences_excluding_runtime": {}
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences_excluding_runtime": {
+        "solver_status": {
+          "REV02": "HEURISTIC_TOPOLOGICAL_GREEDY",
+          "REV03": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES"
+        }
+      }
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences_excluding_runtime": {
+        "consumer_hours_total": {
+          "REV02": 288.512,
+          "REV03": 287.0
+        },
+        "solver_bound": {
+          "REV02": 580.5535,
+          "REV03": 579.0048
+        },
+        "solver_objective": {
+          "REV02": 580.5535,
+          "REV03": 579.0048
+        },
+        "total_crew_travel_hours": {
+          "REV02": 0.4858,
+          "REV03": 0.4247
+        }
+      }
+    }
+  ]
+}

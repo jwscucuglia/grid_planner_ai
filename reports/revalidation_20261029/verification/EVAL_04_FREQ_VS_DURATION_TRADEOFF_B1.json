@@ -1,0 +1,28 @@
+{
+  "plan_id": "PLAN_B1_EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+  "method_name": "B1",
+  "scenario_id": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 3,
+  "total_mandatory_count": 3,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "ISOLADOR_15KV": 3.0,
+    "CRUZETA_CONCRETO": 2.0,
+    "KIT_TRAFO": 2.0
+  },
+  "recalculated_consumer_hours": 285.9,
+  "recalculated_windows_count": 3,
+  "recalculated_physical_maneuvers": 10,
+  "recalculated_repeat_consumers": 50,
+  "recalculated_unique_consumers": 72,
+  "recalculated_total_interruptions": 134,
+  "recalculated_completed_services": [
+    "S41_F1_MID_A",
+    "S42_F1_TRUNK_B",
+    "S43_F1_TAIL_LONG"
+  ],
+  "isolation_verified": true
+}
