@@ -1,7 +1,7 @@
 {
   "package_version": "0.6.0",
   "source_commit": "bdd6ab6be7593c906d80261c916eb9874676240a",
-  "generated_at_utc": "2026-10-29T22:05:17.953023+00:00",
+  "generated_at_utc": "2026-10-29T22:15:37.741676+00:00",
   "scope": "Public technical release files; candidature and budget remain in the private Drive bundle. Excludes this manifest itself.",
   "files": {
     ".gitattributes": "8bcd1048d201a4479f33d031c9ec6713600f4249aa2f4bd8a4172dbe34c10f0d",
