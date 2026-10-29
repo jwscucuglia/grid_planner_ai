@@ -34,6 +34,7 @@ from .eligibility import (
 )
 from .scheduling import build_window_schedule, topological_sort_services
 from .topology import simulate_zone_intervention
+from .planning_policy import unsupported_input_plan
 
 
 def _rank_zones_by_impact(
@@ -172,6 +173,9 @@ def run_baseline_b0_individual(
     """B0 — Programação individual por prioridade e prazo (1 serviço por janela)."""
     t0 = time.perf_counter()
     all_services = list(services)
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B0")
+    if unsupported is not None:
+        return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
@@ -200,7 +204,7 @@ def run_baseline_b0_individual(
             )
             continue
 
-        min_day = svc.ready_at_day
+        min_day = max(decision_day, svc.ready_at_day)
         for pred_id in svc.precedence_service_ids:
             if pred_id in service_scheduled_day:
                 min_day = max(min_day, service_scheduled_day[pred_id])
@@ -306,6 +310,9 @@ def run_baseline_b1_geographic(
     """
     t0 = time.perf_counter()
     all_services = list(services)
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B1")
+    if unsupported is not None:
+        return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
@@ -350,7 +357,7 @@ def run_baseline_b1_geographic(
             if dist <= radius_km:
                 geo_neighbors.append(cand)
 
-        min_seed_day = seed_svc.ready_at_day
+        min_seed_day = max(decision_day, seed_svc.ready_at_day)
         for pred_id in seed_svc.precedence_service_ids:
             if pred_id in service_scheduled_day:
                 min_seed_day = max(min_seed_day, service_scheduled_day[pred_id])
@@ -509,6 +516,9 @@ def run_baseline_b2_topological_greedy(
     """
     t0 = time.perf_counter()
     all_services = list(services)
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B2")
+    if unsupported is not None:
+        return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
@@ -542,7 +552,7 @@ def run_baseline_b2_topological_greedy(
             )
             continue
 
-        min_seed_day = seed_svc.ready_at_day
+        min_seed_day = max(decision_day, seed_svc.ready_at_day)
         for pred_id in seed_svc.precedence_service_ids:
             if pred_id in service_scheduled_day:
                 min_seed_day = max(min_seed_day, service_scheduled_day[pred_id])

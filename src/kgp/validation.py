@@ -2,7 +2,7 @@
 from collections import Counter
 from .contracts import (
     GridNetwork, ResourceCatalog, ServiceOrder, ExecutionPlan, _decode_typed,
-    nonfinite_paths,
+    TICKS_PER_HOUR, operational_time_ticks,
 )
 
 
@@ -21,6 +21,11 @@ def validate_problem_and_plan(network, services, catalog, plan):
             errors.append(f'Contrato inválido: {exc}')
     if errors:
         return errors
+    if network.allow_dg_islanding:
+        errors.append('Entrada não suportada: allow_dg_islanding=True exige modelo elétrico de ilhamento de GD não implementado.')
+        return errors
+    ticks = operational_time_ticks
+    day_end = 24 * TICKS_PER_HOUR
 
     def check(condition, message):
         if not condition:
@@ -45,7 +50,7 @@ def validate_problem_and_plan(network, services, catalog, plan):
               f'parâmetros de {branch.branch_id}')
     for switch in network.switches.values():
         check(switch.branch_id in network.branches, f'trecho da chave {switch.switch_id}')
-        check(switch.maneuver_duration_hours >= 0, f'duração de manobra {switch.switch_id}')
+        check(ticks(switch.maneuver_duration_hours) >= 0, f'duração de manobra {switch.switch_id}')
     for asset in network.assets.values():
         check(asset.node_id is not None or asset.branch_id is not None, f'ativo órfão {asset.asset_id}')
         check(asset.node_id is None or asset.node_id in network.nodes, f'barra de {asset.asset_id}')
@@ -58,7 +63,7 @@ def validate_problem_and_plan(network, services, catalog, plan):
         check(not (set(zone.open_switches) & set(zone.tie_switches_closed)), f'comandos contraditórios {zone.zone_id}')
         for seq in (zone.open_switches, zone.tie_switches_closed):
             check(len(seq) == len(set(seq)) and set(seq) <= network.switches.keys(), f'chaves de {zone.zone_id}')
-        check(zone.prep_duration_hours >= 0 and zone.recomp_duration_hours >= 0 and zone.max_transfer_voltage_drop_pct >= 0,
+        check(ticks(zone.prep_duration_hours) >= 0 and ticks(zone.recomp_duration_hours) >= 0 and zone.max_transfer_voltage_drop_pct >= 0,
               f'duração/limites da zona {zone.zone_id}')
         # Catalog assumes opening NF, closing NA, and restoring initial state at window end.
         for sid in zone.open_switches:
@@ -71,7 +76,7 @@ def validate_problem_and_plan(network, services, catalog, plan):
     check(len(svc_map) == len(services), 'IDs de serviços duplicados')
     for svc in services:
         check(svc.created_at_day <= svc.ready_at_day <= svc.deadline_day, f'datas de {svc.service_id}')
-        check(svc.duration_hours > 0 and svc.prep_hours >= 0 and svc.recomp_hours >= 0 and svc.required_crews_count >= 1,
+        check(ticks(svc.duration_hours) > 0 and ticks(svc.prep_hours) >= 0 and ticks(svc.recomp_hours) >= 0 and svc.required_crews_count >= 1,
               f'duração/equipes de {svc.service_id}')
         check(set(svc.precedence_service_ids) <= svc_map.keys() and svc.service_id not in svc.precedence_service_ids,
               f'precedências de {svc.service_id}')
@@ -79,10 +84,12 @@ def validate_problem_and_plan(network, services, catalog, plan):
         check(set(svc.target_assets) <= network.assets.keys(), f'ativos de {svc.service_id}')
         check(all(q >= 0 for q in svc.required_materials.values()), f'materiais de {svc.service_id}')
     for crew in catalog.crews.values():
-        check(0 <= crew.shift_start_hour < crew.shift_end_hour <= 24 and crew.speed_kmh > 0 and crew.prep_hours >= 0,
+        check(0 <= ticks(crew.shift_start_hour) < ticks(crew.shift_end_hour) <= day_end
+              and crew.speed_kmh > 0 and ticks(crew.prep_hours) >= 0,
               f'turno/velocidade de {crew.crew_id}')
     check(len(set(catalog.planning_days)) == len(catalog.planning_days), 'dias duplicados')
-    check(0 <= catalog.window_start_hour < catalog.window_end_hour <= 24 and catalog.max_window_duration_hours > 0,
+    check(0 <= ticks(catalog.window_start_hour) < ticks(catalog.window_end_hour) <= day_end
+          and ticks(catalog.max_window_duration_hours) > 0,
           'horizonte de horas')
     check(all(q >= 0 for q in catalog.materials_inventory.values()), 'estoque negativo')
     check(network.valid_from_day <= plan.decision_day, 'rede posterior à decisão')
@@ -100,14 +107,15 @@ def validate_problem_and_plan(network, services, catalog, plan):
     check(set(plan.unscheduled_service_ids) == eligible - set(scheduled) and
           len(set(plan.unscheduled_service_ids)) == len(plan.unscheduled_service_ids), 'unscheduled_service_ids diverge da carteira')
     for win in plan.windows:
-        check(0 <= win.start_hour <= win.work_start_hour < win.work_end_hour <= win.end_hour <= 24,
+        check(0 <= ticks(win.start_hour) <= ticks(win.work_start_hour) < ticks(win.work_end_hour) <= ticks(win.end_hour) <= day_end,
               f'cronologia da janela {win.window_id}')
         check(win.day >= plan.decision_day, f'janela anterior à decisão {win.window_id}')
         for iv in win.crew_intervals:
             check(iv.service_id in win.service_ids and iv.crew_id in catalog.crews and
                   iv.window_id == win.window_id and iv.day == win.day, f'intervalo órfão em {win.window_id}')
-            check(0 <= iv.travel_start_hour <= iv.prep_start_hour <= iv.exec_start_hour < iv.exec_end_hour <= iv.recomp_end_hour <= 24
-                  and iv.travel_hours >= 0, f'cronologia de equipe {iv.crew_id}')
+            check(0 <= ticks(iv.travel_start_hour) <= ticks(iv.prep_start_hour) <= ticks(iv.exec_start_hour)
+                  < ticks(iv.exec_end_hour) <= ticks(iv.recomp_end_hour) <= day_end
+                  and ticks(iv.travel_hours) >= 0, f'cronologia de equipe {iv.crew_id}')
         pairs = [(iv.crew_id, iv.service_id) for iv in win.crew_intervals]
         check(len(set(pairs)) == len(pairs), f'alocações duplicadas em {win.window_id}')
         expected_materials = {}
@@ -119,7 +127,7 @@ def validate_problem_and_plan(network, services, catalog, plan):
               all(abs(win.materials_used[k] - v) <= 1e-4 for k, v in expected_materials.items()),
               f'materiais exportados de {win.window_id}')
         for step in win.maneuver_steps:
-            check(0 <= step.start_hour <= step.end_hour <= 24 and step.max_loading_pct >= 0 and
+            check(0 <= ticks(step.start_hour) <= ticks(step.end_hour) <= day_end and step.max_loading_pct >= 0 and
                   step.estimated_voltage_drop_pct >= 0, f'etapa elétrica {win.window_id}')
             for name in ('open_switches', 'closed_switches', 'energized_nodes', 'deenergized_nodes',
                          'deenergized_assets', 'interrupted_consumers', 'active_sources'):

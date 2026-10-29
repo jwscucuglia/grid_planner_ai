@@ -21,6 +21,7 @@ from .topology import (
     simulate_zone_intervention,
     validate_asset_registration,
     validate_switch_maneuverability,
+    TopologyValidationError,
 )
 
 
@@ -54,20 +55,23 @@ def get_zone_deenergized_assets(
     """Obtém o conjunto de ativos efetivamente desenergizados na etapa EXECUTION da zona."""
     if zone_id not in network.isolation_zones:
         return set(), False, f"Zona '{zone_id}' inexistente na rede."
+    if network.allow_dg_islanding:
+        return set(), False, "Ilhamento por GD não suportado nesta versão."
 
     zone = network.isolation_zones[zone_id]
     sw_issues = validate_switch_maneuverability(
-        network, set(zone.open_switches), set(zone.tie_switches_closed)
+        network, set(zone.open_switches), set()
     )
     if sw_issues:
         return set(), False, "; ".join(sw_issues)
 
-    steps, _ = simulate_zone_intervention(
-        network=network,
-        zone_id=zone_id,
-        work_start_hour=9.0,
-        work_end_hour=12.0,
-    )
+    try:
+        steps, _ = simulate_zone_intervention(network, zone_id, 9.0, 12.0)
+    except TopologyValidationError as error:
+        return set(), False, str(error)
+    invalid_steps = [s for s in steps if s.end_hour > s.start_hour and not s.transfer_feasible]
+    if invalid_steps:
+        return set(), False, f"Etapa elétrica inviável na zona '{zone_id}': {invalid_steps[0].stage.value}: {invalid_steps[0].notes}"
     exec_steps = [s for s in steps if s.stage == ManeuverStage.EXECUTION]
     if not exec_steps:
         return set(), False, f"Zona '{zone_id}' sem etapa de execução válida."

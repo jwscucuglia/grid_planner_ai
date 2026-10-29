@@ -20,6 +20,8 @@ from .contracts import (
     ManeuverStage,
     ManeuverStepResult,
     SwitchState,
+    operational_time_ticks,
+    TICKS_PER_HOUR,
 )
 
 
@@ -230,8 +232,8 @@ def verify_transfer_electrical_feasibility(
     dos trechos ativos que possuem a respectiva fase `ph`, impedindo que cargas
     de uma fase sejam roteadas por atalhos de outra fase.
     """
-    if not closed_switches and not zone.requires_transfer_validation:
-        return True, 0.0, 0.0, "Sem transferência por chave NA."
+    if network.allow_dg_islanding:
+        return False, 0.0, 0.0, "Ilhamento por GD não suportado: faltam limites e modelo de despacho das fontes DG."
 
     sw_issues = validate_switch_maneuverability(
         network, open_switches, closed_switches
@@ -239,7 +241,7 @@ def verify_transfer_electrical_feasibility(
     if sw_issues:
         return False, 0.0, 0.0, "; ".join(sw_issues)
 
-    if not zone.transfer_params_complete:
+    if (closed_switches or zone.requires_transfer_validation) and not zone.transfer_params_complete:
         return (
             False,
             0.0,
@@ -488,7 +490,7 @@ def evaluate_maneuver_step(
     if sw_issues:
         transfer_ok = False
         topo_notes.extend(sw_issues)
-    elif zone is not None and (closed_set or zone.requires_transfer_validation):
+    elif zone is not None:
         transfer_ok, max_loading, max_vdrop, tr_note = (
             verify_transfer_electrical_feasibility(
                 network,
@@ -504,8 +506,8 @@ def evaluate_maneuver_step(
     return ManeuverStepResult(
         step_order=step_order,
         stage=stage,
-        start_hour=round(start_hour, 4),
-        end_hour=round(end_hour, 4),
+        start_hour=operational_time_ticks(start_hour) / TICKS_PER_HOUR,
+        end_hour=operational_time_ticks(end_hour) / TICKS_PER_HOUR,
         open_switches=tuple(sorted(open_set)),
         closed_switches=tuple(sorted(closed_set)),
         energized_nodes=tuple(energized_nodes),
@@ -529,10 +531,16 @@ def simulate_zone_intervention(
     """Simula todas as etapas de uma intervenção em uma zona de isolamento."""
     if zone_id not in network.isolation_zones:
         raise TopologyValidationError(f"Zona de isolamento '{zone_id}' inexistente.")
+    if network.allow_dg_islanding:
+        raise TopologyValidationError("Ilhamento por GD não suportado nesta versão.")
 
     zone = network.isolation_zones[zone_id]
-    prep_start = work_start_hour - zone.prep_duration_hours
-    recomp_end = work_end_hour + zone.recomp_duration_hours
+    ws = operational_time_ticks(work_start_hour)
+    we = operational_time_ticks(work_end_hour)
+    prep = operational_time_ticks(zone.prep_duration_hours)
+    recomp = operational_time_ticks(zone.recomp_duration_hours)
+    prep_start = (ws - prep) / TICKS_PER_HOUR
+    recomp_end = (we + recomp) / TICKS_PER_HOUR
 
     steps: List[ManeuverStepResult] = []
 
@@ -548,7 +556,7 @@ def simulate_zone_intervention(
             zone=zone,
         )
         if probe_step.transfer_feasible:
-            mid_prep = prep_start + (zone.prep_duration_hours * 0.5)
+            mid_prep = (ws - prep + prep // 2) / TICKS_PER_HOUR
             step1 = evaluate_maneuver_step(
                 network=network,
                 step_order=1,
@@ -594,6 +602,8 @@ def simulate_zone_intervention(
                 len(zone.open_switches) + len(zone.tie_switches_closed)
             )
             return tuple(steps), physical_maneuvers
+        if zone.requires_transfer_validation:
+            raise TopologyValidationError(f"Transferência obrigatória inviável na zona '{zone_id}': {probe_step.notes}")
 
     step1 = evaluate_maneuver_step(
         network=network,

@@ -25,7 +25,7 @@ from .contracts import (
     ResourceCatalog,
     ServiceOrder,
 )
-from .eligibility import detect_lifecycle_conflicts
+from .eligibility import detect_lifecycle_conflicts, check_service_zone_eligibility
 from .topology import simulate_zone_intervention, validate_switch_maneuverability
 
 
@@ -127,8 +127,14 @@ def build_window_schedule(
         )
 
     zone: IsolationZoneSpec = network.isolation_zones[zone_id]
+    if network.allow_dg_islanding:
+        return None, "Ilhamento por GD não suportado nesta versão."
+    for service in services:
+        eligible, reason = check_service_zone_eligibility(network, service, zone_id)
+        if not eligible:
+            return None, reason
     sw_issues = validate_switch_maneuverability(
-        network, set(zone.open_switches), set(zone.tie_switches_closed)
+        network, set(zone.open_switches), set()
     )
     if sw_issues:
         return None, "; ".join(sw_issues)
@@ -405,6 +411,8 @@ def build_window_schedule(
         work_start_hour=work_start_hour,
         work_end_hour=work_end_hour,
     )
+    if any(st.end_hour > st.start_hour and not st.transfer_feasible for st in maneuver_steps):
+        return None, "Etapa elétrica inviável no isolamento, transferência, execução ou recomposição."
 
     all_interrupted: Set[str] = set()
     for step in maneuver_steps:

@@ -1,4 +1,4 @@
-# KAPTUS GRID PLANNER — KGP 0.3.0 / REV03
+# KAPTUS GRID PLANNER — KGP 0.4.0 / REV04
 
 Demonstrador computacional do Desafio 07 Inova Cemig.Lab Ciclo 5. Investiga a programação conjunta de serviços em uma rede de referência e carteiras sintéticas. Projeto independente do D06/GTA; operação exclusivamente sidecar, sem telecomandos ou alteração de ordens em produção.
 
@@ -28,8 +28,8 @@ As versões efetivamente usadas constam de `configs/protocol_and_seeds.json`. A 
 ## Evidências
 
 - Relatório, CSV, JSON detalhado, figura branca 16:9 e manifesto SHA-256 em `reports/`.
-- Entradas, planos efetivamente lidos e verificações em `reports/revalidation_20261029/`. Falhas e carteira incompleta são preservadas e excluídas das comparações de benefício.
-- [Resumo de validação](reports/RESUMO_VALIDACAO_REV03.md), [otimizador](reports/AUDITORIA_OTIMIZADOR_D07.md), [revisão do núcleo](reports/REVISAO_INDEPENDENTE_NUCLEO_D07.md) e [revisão final](reports/REVISAO_FINAL_BRANCH_D07.md).
+- Entradas, planos efetivamente lidos e verificações em `reports/revalidation_REV04_20261029/`. Falhas e carteira incompleta são preservadas e excluídas das comparações de benefício.
+- [Achados e validação REV04](reports/AUDITORIA_A1_A5_REV04.md), [otimizador](reports/AUDITORIA_OTIMIZADOR_D07.md), [revisão do núcleo](reports/REVISAO_INDEPENDENTE_NUCLEO_D07.md) e [revisão final](reports/REVISAO_FINAL_BRANCH_D07.md).
 - Matrizes oficiais/documentais, inventário do Drive e orçamento ficam no pacote restrito da candidatura no Drive do projeto. O relatório de execução também os referencia; não integram este repositório público.
 - `reports/history/REV02/` preserva resultados anteriores. O estudo separado `0.1.0-d07-scoped` continua histórico no Drive; os estudos não são somados.
 
@@ -40,3 +40,9 @@ As manobras são representadas em etapas agregadas: abertura no início do isola
 Janelas, manobras físicas, interrupções, reincidência e clientes-hora são métricas diferentes. Clientes-hora usam a união de intervalos de cada consumidor. Não se convertem estes resultados em economia financeira ou compensações regulatórias comprovadas.
 
 TRL 3 é proposto somente para as funções demonstradas em laboratório. Integrações de leitura com Electric Office, GeoServiços e SAP, dados reais e critérios com os programadores dependem da Cemig. Revisões por agentes de IA separados não equivalem a auditoria por terceiro humano. A entrega se destina à revisão interna; submissão exige dados e comprovações empresariais, disponibilidade da equipe e assinaturas humanas indicadas na matriz.
+
+## Fechamento da auditoria A1-A5
+
+A REV04 rejeita qualquer etapa elétrica positiva inviável e ilhamento por DG não suportado. Transferência obrigatória malsucedida rejeita a intervenção; na opcional abandonada, a tie permanece aberta e o estado executado é auditado. Datas anteriores à decisão são excluídas; o certificado bruto do KGP exige auditoria antes/depois do JSON. Horários operacionais usam ticks de0,0001h (0,36s), adjacência exata e rejeição de valores fora da grade.
+
+O manifesto preserva SHA-256 dos bytes e acrescenta SHA-256 canônico apenas para texto UTF-8 com CRLF/LF. `validate_delivery.py` identifica equivalência de finais de linha separadamente; binários e arquivos de origem continuam verificados por bytes exatos. As evidências REV03 em `reports/revalidation_20261029/` e `reports/history/REV03/` são históricas; a rodada corrente está no diretório REV04 acima.

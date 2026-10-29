@@ -22,26 +22,35 @@ from .contracts import (
     GridNetwork,
     PlanMetrics,
     ServiceOrder,
+    TICKS_PER_HOUR,
+    operational_time_ticks,
 )
 
 
 def merge_intervals(
     intervals: Sequence[Tuple[float, float]],
-    tol: float = 1e-5,
 ) -> List[Tuple[float, float]]:
-    """Calcula a união disjunta de intervalos [inicio, fim], fundindo sobreposições e adjacências."""
-    valid = [(float(s), float(e)) for s, e in intervals if e > s + 1e-9]
+    """Union of half-open operational intervals, with exact tick adjacency.
+
+    A positive gap of even one tick is a separate interruption. Endpoints
+    outside the published 0.0001 h resolution are rejected, never rounded
+    into a different physical plan. This planner implementation is separate
+    from the independent verifier's own interval-union implementation.
+    """
+    tick_intervals = [(operational_time_ticks(s, 'interval.start'),
+                       operational_time_ticks(e, 'interval.end')) for s, e in intervals]
+    valid = [(s, e) for s, e in tick_intervals if e > s]
     if not valid:
         return []
     valid.sort(key=lambda x: (x[0], x[1]))
-    merged: List[Tuple[float, float]] = [valid[0]]
+    merged: List[Tuple[int, int]] = [valid[0]]
     for curr_s, curr_e in valid[1:]:
         prev_s, prev_e = merged[-1]
-        if curr_s <= prev_e + tol:
+        if curr_s <= prev_e:
             merged[-1] = (prev_s, max(prev_e, curr_e))
         else:
             merged.append((curr_s, curr_e))
-    return merged
+    return [(s / TICKS_PER_HOUR, e / TICKS_PER_HOUR) for s, e in merged]
 
 
 def compute_consumer_interruption_unions(

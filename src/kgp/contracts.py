@@ -14,6 +14,51 @@ import math
 from typing import Any, Dict, List, Optional, Set, Tuple, Union, get_args, get_origin, get_type_hints
 
 
+# Operational schedules use the scheduler's existing four-decimal-hour grid.
+# Binary float ULP noise is representation error, never an outage-joining epsilon.
+TICKS_PER_HOUR = 10_000
+HOURS_PER_TICK = 1 / TICKS_PER_HOUR  # 0.0001 h = 0.36 s
+_OPERATIONAL_TIME_FIELDS = {
+    'GridSwitch': ('maneuver_duration_hours',),
+    'IsolationZoneSpec': ('prep_duration_hours', 'recomp_duration_hours'),
+    'ServiceOrder': ('duration_hours', 'prep_hours', 'recomp_hours'),
+    'CrewResource': ('shift_start_hour', 'shift_end_hour', 'prep_hours'),
+    'ResourceCatalog': ('window_start_hour', 'window_end_hour', 'max_window_duration_hours'),
+    'ManeuverStepResult': ('start_hour', 'end_hour'),
+    'CrewScheduleInterval': ('travel_start_hour', 'prep_start_hour', 'exec_start_hour',
+                             'exec_end_hour', 'recomp_end_hour', 'travel_hours'),
+    'PlannedInterruptionWindow': ('start_hour', 'end_hour', 'work_start_hour', 'work_end_hour'),
+}
+
+
+def operational_time_ticks(value: float, path: str = 'time') -> int:
+    """Validate hours on the 0.0001 h grid and return the exact integer tick.
+
+    At most four binary ULPs are accepted to accommodate arithmetic such as
+    ``0.1 + 0.2``. The allowance is capped at 1/16 tick, so it cannot bridge
+    a tick even for unusually large absolute timestamps. No input is mutated.
+    Constructors remain permissive for finite floats; typed reads and the
+    independent audit boundary enforce this operational precision contract.
+    Coordinates, material quantities, solver statistics and metadata have no
+    operational time-grid restriction.
+    """
+    if type(value) not in (int, float):
+        raise ValueError(f'{path}: esperado tempo finito na resolução 0.0001 h (0.36 s)')
+    try:
+        hours = float(value)
+        scaled = hours * TICKS_PER_HOUR
+        if not math.isfinite(scaled):
+            raise ValueError
+        tick = round(scaled)
+        canonical = tick / TICKS_PER_HOUR
+        representation_error = min(4 * max(math.ulp(hours), math.ulp(canonical)), HOURS_PER_TICK / 16)
+        if abs(hours - canonical) > representation_error:
+            raise ValueError
+    except (OverflowError, ValueError):
+        raise ValueError(f'{path}: tempo fora da resolução operacional 0.0001 h (0.36 s)') from None
+    return tick
+
+
 def nonfinite_paths(value: Any, path: str = "contract") -> List[str]:
     """Find non-finite numbers, including nested metadata and mutated objects."""
     if isinstance(value, float):
@@ -72,9 +117,12 @@ def _decode_typed(value: Any, expected: Any, path: str) -> Any:
             raise ValueError(f"{path}: campos desconhecidos {sorted(set(raw) - known)}")
         hints = get_type_hints(expected)
         try:
-            return expected(**{k: _decode_typed(v, hints[k], f"{path}.{k}") for k, v in raw.items()})
+            decoded = expected(**{k: _decode_typed(v, hints[k], f"{path}.{k}") for k, v in raw.items()})
         except TypeError as exc:
             raise ValueError(f"{path}: estrutura inválida: {exc}") from exc
+        for name in _OPERATIONAL_TIME_FIELDS.get(expected.__name__, ()):
+            operational_time_ticks(getattr(decoded, name), f'{path}.{name}')
+        return decoded
     if origin in (list, tuple, set):
         if not isinstance(value, (list, tuple, set)):
             raise ValueError(f"{path}: esperado sequência")

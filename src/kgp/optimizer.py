@@ -22,8 +22,9 @@ avaliado pelo solver e o custo do plano final exportado.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, fields
+from dataclasses import asdict, dataclass, fields, replace
 from itertools import combinations
+import json
 import math
 import time
 from typing import Dict, FrozenSet, Iterable, List, Optional, Sequence, Set, Tuple
@@ -54,6 +55,7 @@ from .eligibility import (
 )
 from .metrics import compute_consumer_interruption_unions, merge_intervals
 from .scheduling import build_window_schedule
+from .planning_policy import unsupported_input_plan
 
 
 @dataclass(frozen=True)
@@ -162,6 +164,7 @@ def _generate_day_schedule_columns(
     max_package_size: int = 5,
     max_windows_per_day: int = 5,
     max_states_per_depth: int = 120,
+    decision_day: int = 0,
 ) -> List[_DayScheduleColumn]:
     """Gera colunas diárias completas (1 a N janelas encadeadas por dia com deslocamento exato)."""
     svc_map: Dict[str, ServiceOrder] = {s.service_id: s for s in known_services}
@@ -169,6 +172,8 @@ def _generate_day_schedule_columns(
     all_day_columns: List[_DayScheduleColumn] = []
 
     for day in catalog.planning_days:
+        if day < decision_day:
+            continue
         day_svcs = [
             s
             for s in known_services
@@ -523,6 +528,78 @@ def compute_exact_plan_objective(
     return round(obj, 4)
 
 
+def _audit_plan_export(
+    network: GridNetwork,
+    services: Sequence[ServiceOrder],
+    catalog: ResourceCatalog,
+    plan: ExecutionPlan,
+) -> Tuple[ExecutionPlan, bool]:
+    """Audita o objeto e sua exportação JSON antes de publicar qualquer certificado."""
+    from .contracts import plan_from_json
+    from .feasibility import verify_plan_feasibility
+
+    raw_report = verify_plan_feasibility(network, services, catalog, plan)
+    raw_violations = list(raw_report.violations)
+    exported_report = None
+    export_error = None
+    try:
+        exported = plan_from_json(json.dumps(asdict(plan), ensure_ascii=False, allow_nan=False))
+        exported_report = verify_plan_feasibility(network, services, catalog, exported)
+        plan = exported
+    except (TypeError, ValueError, OverflowError) as exc:
+        export_error = f"Exportação JSON rejeitada: {exc}"
+
+    violations = raw_violations + (
+        list(exported_report.violations) if exported_report is not None else [export_error]
+    )
+    audit = {
+        "raw_is_feasible": raw_report.is_feasible,
+        "json_roundtrip_succeeded": exported_report is not None,
+        "exported_is_feasible": exported_report.is_feasible if exported_report is not None else False,
+        "violations": list(dict.fromkeys(violations)),
+    }
+    plan.metadata = dict(plan.metadata)
+    plan.metadata["independent_verification"] = audit
+    return plan, bool(raw_report.is_feasible and exported_report is not None and exported_report.is_feasible)
+
+
+def _reject_plan_certificate(plan: ExecutionPlan) -> ExecutionPlan:
+    """Um candidato rejeitado não tem objetivo factível nem certificado publicável."""
+    plan.solver_status = "INVALID_PLAN_REJECTED"
+    plan.solver_objective = None
+    plan.solver_bound = None
+    plan.solver_gap = None
+    plan.is_optimal_proven = False
+    plan.metadata["optimality_scope"] = (
+        "Plano rejeitado pelo verificador independente ou pela exportação JSON; "
+        "sem objetivo factível, bound, gap ou prova de ótimo publicáveis."
+    )
+    return plan
+
+
+def _verified_seed_fallback(
+    network: GridNetwork,
+    services: Sequence[ServiceOrder],
+    catalog: ResourceCatalog,
+    seeds: Sequence[ExecutionPlan],
+    weights: ObjectiveWeights,
+    plan_id: str,
+) -> Optional[ExecutionPlan]:
+    """Escolhe a melhor semente que passa pela mesma auditoria da saída MILP."""
+    feasible_seeds = []
+    for seed in seeds:
+        candidate = replace(
+            seed, plan_id=plan_id, method_name="KGP", solver_status="PENDING_VERIFICATION",
+            solver_objective=None, solver_bound=None, solver_gap=None,
+            is_optimal_proven=False, metadata=dict(seed.metadata),
+        )
+        candidate, feasible = _audit_plan_export(network, services, catalog, candidate)
+        if feasible:
+            candidate.solver_objective = compute_exact_plan_objective(candidate, weights, services)
+            feasible_seeds.append(candidate)
+    return min(feasible_seeds, key=lambda p: p.solver_objective) if feasible_seeds else None
+
+
 def run_kgp_optimizer(
     network: GridNetwork,
     services: Iterable[ServiceOrder],
@@ -538,11 +615,14 @@ def run_kgp_optimizer(
     w = weights if weights is not None else ObjectiveWeights()
 
     all_services = list(services)
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "KGP")
+    if unsupported is not None:
+        return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
     lc_alerts = detect_lifecycle_conflicts(known_services)
 
     if not known_services:
-        return ExecutionPlan(
+        empty_plan = ExecutionPlan(
             plan_id=f"PLAN_KGP_{scenario_id}",
             method_name="KGP",
             scenario_id=scenario_id,
@@ -552,13 +632,18 @@ def run_kgp_optimizer(
             unscheduled_service_ids=(),
             exclusion_justifications=excluded,
             lifecycle_alerts=lc_alerts,
-            solver_status="OPTIMAL_ON_DISCRETE_COLUMNS",
-            solver_objective=0.0,
-            solver_bound=0.0,
-            solver_gap=0.0,
+            solver_status="PENDING_VERIFICATION",
             solver_time_sec=round(time.perf_counter() - t0, 6),
-            is_optimal_proven=True,
         )
+        empty_plan, feasible = _audit_plan_export(network, all_services, catalog, empty_plan)
+        empty_plan.solver_time_sec = round(time.perf_counter() - t0, 6)
+        if not feasible:
+            return _reject_plan_certificate(empty_plan)
+        empty_plan.solver_status = "OPTIMAL_ON_DISCRETE_COLUMNS"
+        empty_plan.solver_objective = empty_plan.solver_bound = empty_plan.solver_gap = 0.0
+        empty_plan.is_optimal_proven = True
+        empty_plan.solver_time_sec = round(time.perf_counter() - t0, 6)
+        return empty_plan
 
     # Gera planos sementes de B0, B1 e B2 para garantir que o espaço de colunas do KGP
     # contenha todas as alternativas construtivas dos comparadores:
@@ -585,6 +670,7 @@ def run_kgp_optimizer(
         consumer_groups=consumer_groups,
         weights=w,
         seed_plans=(seed_b0, seed_b1, seed_b2),
+        decision_day=decision_day,
     )
 
     num_cols = len(columns)
@@ -734,23 +820,25 @@ def run_kgp_optimizer(
 
     elapsed = time.perf_counter() - t0
     if res.x is None or res.status not in (0, 1):
-        fallback = run_baseline_b2_topological_greedy(
-            network, all_services, catalog, scenario_id, decision_day
+        fallback = _verified_seed_fallback(
+            network, all_services, catalog, (seed_b2, seed_b1, seed_b0), w,
+            f"PLAN_KGP_{scenario_id}",
         )
-        fallback.plan_id = f"PLAN_KGP_{scenario_id}"
-        fallback.method_name = "KGP"
+        fallback_is_feasible = fallback is not None
+        if fallback is None:
+            fallback = replace(seed_b2, plan_id=f"PLAN_KGP_{scenario_id}", method_name="KGP")
+            fallback, _ = _audit_plan_export(network, all_services, catalog, fallback)
+            _reject_plan_certificate(fallback)
         fallback.solver_status = (
             "INFEASIBLE_ON_DISCRETE_COLUMNS" if res.status == 2
-            else f"FALLBACK_AFTER_SOLVER_STATUS_{res.status}"
+            else "INVALID_PLAN_REJECTED"
         )
         fallback.solver_time_sec = round(elapsed, 6)
         fallback.solver_objective = None
         fallback.solver_bound = None
         fallback.solver_gap = None
         fallback.is_optimal_proven = False
-        from .feasibility import verify_plan_feasibility
-        fallback_report = verify_plan_feasibility(network, all_services, catalog, fallback)
-        if fallback_report.is_feasible:
+        if fallback_is_feasible:
             fallback.solver_objective = compute_exact_plan_objective(fallback, w, known_services)
             raw_bound = getattr(res, 'mip_dual_bound', None)
             if (res.status in (0, 1) and raw_bound is not None and math.isfinite(raw_bound)
@@ -762,11 +850,12 @@ def run_kgp_optimizer(
                                       else 'FEASIBLE_FALLBACK_NO_BOUND')
         fallback.solver_time_sec = round(time.perf_counter() - t0, 6)
         fallback.metadata = {
+            **fallback.metadata,
             "candidate_columns_count": num_cols,
             "solver_raw_status": int(res.status),
             "optimality_scope": (
                 "Plano fallback factível verificado; limite conhecido nas colunas geradas quando disponível, sem prova de ótimo."
-                if fallback_report.is_feasible else
+                if fallback_is_feasible else
                 ("Inviabilidade restrita às colunas geradas; não prova inviabilidade operacional geral."
                  if res.status == 2 else "Solver interrompido/sem solução; fallback não factível, sem prova de inviabilidade.")
             ),
@@ -775,7 +864,7 @@ def run_kgp_optimizer(
                 "repeat_consumer_weight": w.repeat_consumer_weight, "physical_maneuver_weight": w.physical_maneuver_weight,
                 "crew_hour_weight": w.crew_hour_weight, "optional_unscheduled_penalty": w.optional_unscheduled_penalty,
             },
-            "fallback_verified_feasible": fallback_report.is_feasible,
+            "fallback_verified_feasible": fallback_is_feasible,
             "missing_mandatory_service_ids": [
                 s.service_id for s in known_services
                 if s.mandatory and s.service_id not in fallback.completed_service_ids
@@ -856,18 +945,6 @@ def run_kgp_optimizer(
     omitted_optional = [s.service_id for s in known_services
                         if not s.mandatory and s.service_id in unscheduled_ids]
 
-    is_optimal = (
-        res.status == 0
-        and mip_gap <= 1e-4
-        and dual_bound is not None
-        and len(missing_mandatory) == 0
-    )
-    status_str = (
-        "OPTIMAL_ON_DISCRETE_COLUMNS"
-        if is_optimal
-        else ("INCOMPLETE_MANDATORY_PORTFOLIO" if missing_mandatory else "FEASIBLE_BOUNDED")
-    )
-
     plan_out = ExecutionPlan(
         plan_id=f"PLAN_KGP_{scenario_id}",
         method_name="KGP",
@@ -878,22 +955,81 @@ def run_kgp_optimizer(
         unscheduled_service_ids=tuple(unscheduled_ids),
         exclusion_justifications=excluded,
         lifecycle_alerts=lc_alerts,
-        solver_status=status_str,
-        solver_objective=round(milp_obj_val, 4),
-        solver_bound=round(dual_bound, 4) if dual_bound is not None else None,
-        solver_gap=round(max(0.0, mip_gap), 6),
+        solver_status="PENDING_VERIFICATION",
         solver_time_sec=round(elapsed, 6),
-        is_optimal_proven=is_optimal,
     )
+    plan_out, feasible = _audit_plan_export(network, all_services, catalog, plan_out)
+    if not feasible:
+        rejected_verification = plan_out.metadata["independent_verification"]
+        fallback = _verified_seed_fallback(
+            network, all_services, catalog, (seed_b2, seed_b1, seed_b0), w,
+            plan_out.plan_id,
+        )
+        if fallback is not None:
+            # A certificate for the rejected MILP output must not migrate to
+            # a different feasible plan. Its catalog result is diagnostic only.
+            plan_out = fallback
+            plan_out.solver_status = "FEASIBLE_FALLBACK_NO_BOUND"
+        else:
+            _reject_plan_certificate(plan_out)
+        plan_out.metadata.update({
+            "candidate_columns_count": num_cols,
+            "solver_raw_status": int(res.status),
+            "rejected_candidate_verification": rejected_verification,
+            "rejected_solver_catalog_result": {
+                "objective": round(milp_obj_val, 4),
+                "bound": round(dual_bound, 4) if dual_bound is not None else None,
+                "gap": round(max(0.0, mip_gap), 6),
+            },
+            "fallback_verified_feasible": fallback is not None,
+            "mandatory_coverage_rule": "HARD_CONSTRAINT",
+            "b1_seed_radius_km": b1_radius_km,
+            "objective_weights": {
+                "window_weight": w.window_weight, "consumer_hour_weight": w.consumer_hour_weight,
+                "repeat_consumer_weight": w.repeat_consumer_weight, "physical_maneuver_weight": w.physical_maneuver_weight,
+                "crew_hour_weight": w.crew_hour_weight, "optional_unscheduled_penalty": w.optional_unscheduled_penalty,
+            },
+            "missing_mandatory_service_ids": [
+                s.service_id for s in known_services
+                if s.mandatory and s.service_id not in plan_out.completed_service_ids
+            ],
+            "omitted_optional_service_ids": [
+                s.service_id for s in known_services
+                if not s.mandatory and s.service_id not in plan_out.completed_service_ids
+            ],
+        })
+        if fallback is not None:
+            plan_out.metadata["optimality_scope"] = (
+                "Fallback factível auditado após rejeição do candidato MILP; "
+                "resultado do catálogo rejeitado é apenas diagnóstico, sem bound/gap ou prova de ótimo."
+            )
+        plan_out.solver_time_sec = round(time.perf_counter() - t0, 6)
+        return plan_out
+
     exact_reconstructed_obj = compute_exact_plan_objective(plan_out, w, known_services)
     plan_out.solver_objective = exact_reconstructed_obj
     objective_matches = abs(exact_reconstructed_obj - milp_obj_val) <= 1e-3
+    bound_valid = dual_bound is not None and dual_bound <= exact_reconstructed_obj + 1e-4
+    plan_out.solver_bound = round(dual_bound, 4) if bound_valid else None
+    plan_out.solver_gap = (
+        round(abs(exact_reconstructed_obj - dual_bound) / max(abs(exact_reconstructed_obj), 1e-10), 6)
+        if bound_valid else None
+    )
+    plan_out.is_optimal_proven = bool(
+        res.status == 0 and mip_gap <= 1e-4 and objective_matches and bound_valid
+        and abs(exact_reconstructed_obj - dual_bound) <= 1e-4
+    )
+    plan_out.solver_status = (
+        "OPTIMAL_ON_DISCRETE_COLUMNS" if plan_out.is_optimal_proven else
+        ("FEASIBLE_BOUNDED" if bound_valid else "FEASIBLE_NO_BOUND")
+    )
     if not objective_matches:
         plan_out.solver_status = "OBJECTIVE_INTEGRITY_FAILURE"
         plan_out.is_optimal_proven = False
         plan_out.solver_bound = None
         plan_out.solver_gap = None
     plan_out.metadata = {
+        **plan_out.metadata,
         "candidate_columns_count": num_cols,
         "milp_column_objective": round(milp_obj_val, 4),
         "reconstructed_plan_objective": exact_reconstructed_obj,
@@ -905,7 +1041,9 @@ def run_kgp_optimizer(
             "Ótimo global comprovado sobre o conjunto discreto de colunas "
             "diárias factíveis geradas (incluindo encadeamento diário e sementes B0/B1/B2)."
             if plan_out.is_optimal_proven else
-            "Melhor plano factível nas colunas geradas, com bound/gap quando disponíveis; sem prova de ótimo."
+            ("Plano factível auditado, mas objetivo reconstruído diverge do MILP; sem bound/gap ou prova de ótimo."
+             if not objective_matches else
+             "Melhor plano factível nas colunas geradas, com bound/gap quando disponíveis; sem prova de ótimo.")
         ),
         "b1_seed_radius_km": b1_radius_km,
         "candidate_generation_limits": {
@@ -925,4 +1063,5 @@ def run_kgp_optimizer(
             "optional_unscheduled_penalty": w.optional_unscheduled_penalty,
         },
     }
+    plan_out.solver_time_sec = round(time.perf_counter() - t0, 6)
     return plan_out
