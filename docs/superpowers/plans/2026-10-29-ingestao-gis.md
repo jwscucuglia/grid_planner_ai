@@ -32,11 +32,11 @@
 **Consumes:** contratos e validador existentes; manifesto da spec.
 **Produces:** `import_bundle(...) -> IngestionResult` e CLI com JSON de qualidade, código 0 no sucesso, não zero no bloqueio.
 
-- [ ] Escrever regressões e observar RED antes do módulo.
-- [ ] Implementar leitura, campos/unidades, conversão e validação.
-- [ ] Testar mapeamento CSV/JSON/GeoJSON e equivalência com instância conhecida.
-- [ ] Testar classes de erro do Review Focus e reportar linhas sem descarte.
-- [ ] Rodar testes de ingestão e revisar o diff.
+- [x] Escrever regressões e observar RED antes do módulo.
+- [x] Implementar leitura, campos/unidades, conversão e validação.
+- [x] Testar mapeamento CSV/JSON/GeoJSON e equivalência com instância conhecida.
+- [x] Testar classes de erro do Review Focus e reportar linhas sem descarte.
+- [x] Rodar testes de ingestão e revisar o diff.
 
 ## Task 2 — Referência GIS pública e integração
 
@@ -44,12 +44,12 @@
 **Consumes:** fonte primária real e importador Task 1.
 **Produces:** bundle reproduzível, relatório de reconciliação, quatro planos exportados e auditorias.
 
-- [ ] Identificar/baixar fonte primária pequena; conferir licença/hash/esquema.
-- [ ] Selecionar recorte determinístico e preservar IDs elétricos, fases e CRS.
-- [ ] Declarar em overlay cada parâmetro ou carteira sintética necessária.
-- [ ] Importar e comparar nós/arestas/conexões com referência independente do extrator.
-- [ ] Executar B0/B1/B2/KGP; exportar/ler/verificar 100% da carteira obrigatória sem exigir benefício.
-- [ ] Exercitar corrupção de conexão/fase/estado e comprovar bloqueio.
+- [x] Identificar/baixar fonte primária pequena; conferir licença/hash/esquema.
+- [x] Selecionar recorte determinístico e preservar IDs elétricos, fases e CRS.
+- [x] Declarar em overlay cada parâmetro ou carteira sintética necessária.
+- [x] Importar e comparar nós/arestas/conexões com referência independente do extrator.
+- [x] Executar B0/B1/B2/KGP; exportar/ler/verificar 100% da carteira obrigatória sem exigir benefício.
+- [x] Exercitar corrupção de conexão/fase/estado e comprovar bloqueio.
 
 ## Task 3 — Proposta, slide 3 e entrega
 
@@ -57,8 +57,8 @@
 **Consumes:** contratos e resultados realmente observados nas Tasks 1/2.
 **Produces:** Q1/Q6 e plano de dados/metodologia claros; slide 3 entrada→algoritmo→saída, notas e PDFs conferidos.
 
-- [ ] Preparar texto/composição preservando núcleo histórico e limites.
-- [ ] Publicar correções delimitadas, reler e conferir PDFs afetados.
-- [ ] Rodar suíte completa, revisão independente e validação dos 48 planos conhecidos.
-- [ ] Atualizar manifestos, preservar pacotes anteriores e verificar ZIP/checkout/Drive.
-- [ ] Publicar na PR1 e conferir HEAD remoto, rascunho e principal preservada.
+- [x] Preparar texto/composição preservando núcleo histórico e limites.
+- [x] Publicar correções delimitadas, reler e conferir PDFs afetados.
+- [x] Rodar suíte completa, revisão independente e validação dos 48 planos conhecidos.
+- [x] Atualizar manifestos, preservar pacotes anteriores e verificar ZIP/checkout/Drive.
+- [x] Publicar na PR1 e conferir HEAD remoto, rascunho e principal preservada.
