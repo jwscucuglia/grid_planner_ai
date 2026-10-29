@@ -47,4 +47,6 @@ A REV04 rejeita qualquer etapa elétrica positiva inviável e ilhamento por DG n
 
 O manifesto preserva SHA-256 dos bytes e acrescenta SHA-256 canônico apenas para texto UTF-8 com CRLF/LF. `validate_delivery.py` identifica equivalência de finais de linha separadamente; binários e arquivos de origem continuam verificados por bytes exatos. As evidências REV03 em `reports/revalidation_20261029/` e `reports/history/REV03/` são históricas; a rodada corrente está no diretório REV04 acima.
 
-O cat?logo exige intervalo di?rio positivo de recomposi??o; calend?rios cont?nuos0?24h s?o explicitamente n?o suportados.
+O catálogo exige intervalo diário positivo de recomposição; calendários contínuos de 0–24 h são explicitamente não suportados.
+
+A correção de portabilidade REV04-P1 preserva os bytes do JSON histórico não UTF-8 por uma regra específica em `.gitattributes`. A validação canônica permanece restrita a UTF-8; o original histórico continua sujeito a SHA-256 exato. Consulte [a conferência de portabilidade](reports/PORTABILIDADE_REV04_P1.md). O núcleo, os testes científicos, as entradas e os resultados da REV04 são preservados.

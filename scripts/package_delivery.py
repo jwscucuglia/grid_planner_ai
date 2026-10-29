@@ -25,7 +25,7 @@ sources = []
 for directory in ('src', 'tests', 'configs', 'data', 'reports', 'docs', 'scripts'):
     sources.extend(p for p in (ROOT / directory).rglob('*') if p.is_file() and '__pycache__' not in p.parts
                    and p.suffix not in ('.pyc', '.pyo') and p != ROOT / 'reports/manifest_sha256.json')
-sources += [ROOT / name for name in ('.gitignore', 'README.md', 'AGENTS.md', 'pyproject.toml', 'requirements.txt', 'requirements-reproducibility.txt')]
+sources += [ROOT / name for name in ('.gitignore', '.gitattributes', 'README.md', 'AGENTS.md', 'pyproject.toml', 'requirements.txt', 'requirements-reproducibility.txt')]
 config = json.loads((ROOT / 'configs/protocol_and_seeds.json').read_text(encoding='utf-8'))
 manifest = {'package_version': __version__, 'source_commit': config['source_commit'],
             'generated_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
