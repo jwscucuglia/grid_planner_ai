@@ -61,15 +61,20 @@ def operational_time_ticks(value: float, path: str = 'time') -> int:
 
 def nonfinite_paths(value: Any, path: str = "contract") -> List[str]:
     """Find non-finite numbers, including nested metadata and mutated objects."""
-    if isinstance(value, float):
-        return [] if math.isfinite(value) else [f"{path}: valor não finito"]
-    if is_dataclass(value):
-        return [e for f in fields(value) for e in nonfinite_paths(getattr(value, f.name), f"{path}.{f.name}")]
-    if isinstance(value, dict):
-        return [e for k, v in value.items() for e in nonfinite_paths(v, f"{path}.{k}")]
-    if isinstance(value, (list, tuple, set)):
-        return [e for i, v in enumerate(value) for e in nonfinite_paths(v, f"{path}[{i}]")]
-    return []
+    errors = []
+    pending = [(value, path)]
+    while pending:
+        item, item_path = pending.pop()
+        if isinstance(item, float):
+            if not math.isfinite(item):
+                errors.append(f"{item_path}: valor não finito")
+        elif is_dataclass(item):
+            pending.extend(reversed([(getattr(item, f.name), f"{item_path}.{f.name}") for f in fields(item)]))
+        elif isinstance(item, dict):
+            pending.extend(reversed([(v, f"{item_path}.{k}") for k, v in item.items()]))
+        elif isinstance(item, (list, tuple, set)):
+            pending.extend(reversed([(v, f"{item_path}[{i}]") for i, v in enumerate(item)]))
+    return errors
 
 
 class FiniteContract:
@@ -149,12 +154,47 @@ def _decode_typed(value: Any, expected: Any, path: str) -> Any:
     return value
 
 
+MAX_JSON_DEPTH = 512
+
+
+class JSONDepthError(ValueError):
+    """Input-domain error shared by all raw JSON entry points."""
+
+    code = "JSON_DEPTH_EXCEEDED"
+
+
+def _check_json_depth(raw: str) -> None:
+    """Bound containers before the stdlib parser; quoted text is not structure."""
+    depth = 0
+    quoted = False
+    escaped = False
+    for char in raw:
+        if quoted:
+            if escaped:
+                escaped = False
+            elif char == '\\':
+                escaped = True
+            elif char == '"':
+                quoted = False
+        elif char == '"':
+            quoted = True
+        elif char in '{[':
+            depth += 1
+            if depth > MAX_JSON_DEPTH:
+                raise JSONDepthError(f"JSON depth exceeds the supported maximum of {MAX_JSON_DEPTH} containers.")
+        elif char in '}]':
+            depth -= 1
+    # Grammar, balancing and complete strings remain the JSON parser's job.
+
+
 def strict_json_loads(raw: str) -> Any:
     """Read canonical finite floats without silently erasing nonzero inputs.
 
     Decimal literals use ordinary binary-float rounding, including supported
     subnormals. A nonzero literal that rounds to zero is outside this domain;
     actual zero mantissas remain valid regardless of exponent or sign.
+    Raw objects/arrays may nest at most MAX_JSON_DEPTH levels; the lexical
+    boundary runs before parsing so excessive input returns a domain error.
     """
     def reject_constant(value: str) -> None:
         raise ValueError(f"JSON não finito: {value}")
@@ -177,6 +217,7 @@ def strict_json_loads(raw: str) -> Any:
             result[key] = value
         return result
 
+    _check_json_depth(raw)
     data = json.loads(raw, parse_float=canonical_float,
                       parse_constant=reject_constant, object_pairs_hook=unique_keys)
     errors = nonfinite_paths(data)

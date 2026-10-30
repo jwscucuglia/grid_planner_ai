@@ -1,8 +1,10 @@
-# KAPTUS GRID PLANNER — KGP 0.6.0 / REV06
+# KAPTUS GRID PLANNER — KGP 0.6.1 / REV06-P1
 
 Demonstrador computacional do Desafio 07 Inova Cemig.Lab Ciclo 5. Investiga a programação conjunta de serviços em uma rede de referência e carteiras sintéticas. Projeto independente do D06/GTA; operação exclusivamente sidecar, sem telecomandos ou alteração de ordens em produção.
 
 O núcleo representa conectividade por fase, isolamento de ativos nodais e de trechos, transferência radial aproximada, elegibilidade temporal, equipes no tempo, precedências, materiais e impactos por consumidor. B0, B1, B2 e KGP usam os mesmos dados e restrições e passam pelo mesmo verificador depois da leitura do JSON exportado.
+
+A manutenção REV06-P1 fecha os três casos residuais de robustez apontados na revisão independente de `cf386439`: limite explícito de profundidade JSON, razão distância/velocidade antes do arredondamento temporal e diagnóstico de deslocamento derivado não representável. A evidência científica REV06 e seu pacote auditado permanecem preservados; o suplemento identifica separadamente a fonte da manutenção. A candidatura continua baseada no demonstrador REV06, com pequenos ajustes de precisão no roteiro e nos slides.
 
 ## Escopo verificado
 

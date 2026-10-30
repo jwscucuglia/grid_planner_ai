@@ -78,8 +78,7 @@ def _canonical_travel_hours(
     if not math.isfinite(speed_kmh) or speed_kmh <= 0.0:
         raise ValueError("Velocidade de deslocamento deve ser positiva e finita.")
     dist_km = math.hypot(x2 - x1, y2 - y1)
-    if dist_km <= 1e-6:
-        return 0.0
+    # Independently reconstruct the ratio before applying the time grid.
     return round(dist_km / speed_kmh, 4)
 
 
@@ -952,10 +951,18 @@ def verify_plan_feasibility(
                 expected_travel = _canonical_travel_hours(
                     from_x, from_y, to_x, to_y, crew.speed_kmh
                 )
+                try:
+                    expected_travel_ticks = operational_time_ticks(expected_travel)
+                except ValueError:
+                    violations.append(
+                        f"Tempo de deslocamento canônico não representável para a equipe '{crew_id}' "
+                        f"no serviço '{iv.service_id}'; o plano não pode ser certificado."
+                    )
+                    continue
                 actual_travel_window = iv.prep_start_hour - iv.travel_start_hour
                 if (
-                    operational_time_ticks(iv.prep_start_hour) - operational_time_ticks(iv.travel_start_hour) < operational_time_ticks(expected_travel)
-                    or operational_time_ticks(iv.travel_hours) != operational_time_ticks(expected_travel)
+                    operational_time_ticks(iv.prep_start_hour) - operational_time_ticks(iv.travel_start_hour) < expected_travel_ticks
+                    or operational_time_ticks(iv.travel_hours) != expected_travel_ticks
                 ):
                     violations.append(
                         f"Tempo de deslocamento canônico violado para a equipe '{crew_id}' "

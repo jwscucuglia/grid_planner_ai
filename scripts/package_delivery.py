@@ -30,7 +30,11 @@ for directory in ('src', 'tests', 'configs', 'data', 'reports', 'docs', 'scripts
                    and p.suffix not in ('.pyc', '.pyo') and p != ROOT / 'reports/manifest_sha256.json')
 sources += [ROOT / name for name in ('.gitignore', '.gitattributes', 'README.md', 'AGENTS.md', 'pyproject.toml', 'requirements.txt', 'requirements-reproducibility.txt')]
 config = json.loads((ROOT / 'configs/protocol_and_seeds.json').read_text(encoding='utf-8'))
-manifest = {'package_version': __version__, 'source_commit': config['source_commit'],
+# Delivery metadata is independent of the immutable scientific protocol.
+# A maintenance release must not overwrite the externally audited archive.
+delivery_path = ROOT / 'configs/delivery_revision.json'
+delivery = json.loads(delivery_path.read_text(encoding='utf-8')) if delivery_path.exists() else config
+manifest = {'package_version': __version__, 'source_commit': delivery['source_commit'],
             'generated_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
             'scope': 'Public technical release files; candidature and budget remain in the private Drive bundle. Excludes this manifest itself.',
             'files': {p.relative_to(ROOT).as_posix(): digest(p) for p in sorted(set(sources))
@@ -41,7 +45,8 @@ manifest['canonical_text_sha256'] = {p.relative_to(ROOT).as_posix(): canonical_t
 manifest['canonical_policy'] = 'Only UTF-8 text CRLF to LF; exact hashes remain mandatory for original archive bytes and binary files.'
 target = ROOT / 'reports/manifest_sha256.json'
 target.write_text(json.dumps(manifest, indent=2, ensure_ascii=False), encoding='utf-8', newline='\n')
-archive = ROOT / ('dist/KGP_D07_PACOTE_AUDITADO_' + config.get('release_revision', 'REV04') + '_20261029.zip')
+archive = ROOT / ('dist/KGP_D07_PACOTE_AUDITADO_' + delivery.get('release_revision', 'REV04') +
+                  '_' + delivery.get('delivery_date', '20261029') + '.zip')
 archive.parent.mkdir(exist_ok=True)
 complete = dict(manifest)
 complete['scope'] = 'Complete private Drive bundle, including candidature review; do not publish this bundle in the public repository.'

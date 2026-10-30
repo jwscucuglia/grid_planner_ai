@@ -42,8 +42,8 @@ def compute_travel_hours(
     if not math.isfinite(speed_kmh) or speed_kmh <= 0.0:
         raise ValueError("Velocidade de deslocamento deve ser positiva e finita.")
     dist_km = math.hypot(x2 - x1, y2 - y1)
-    if dist_km <= 1e-6:
-        return 0.0
+    # Round the duration, not the distance: tiny finite ratios can still
+    # represent hours. Nonrepresentable durations cannot fit a finite shift.
     return round(dist_km / speed_kmh, 4)
 
 
