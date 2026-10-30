@@ -31,22 +31,22 @@
 Files: src/kgp/contracts.py; tests/test_review_residuals.py; docs/CONTRATO_DADOS_INGESTAO.md if present.
 Interface: strict_json_loads(str) -> Any, JSONDepthError(ValueError).code = JSON_DEPTH_EXCEEDED; maximum 512 containers.
 
-- [ ] Add direct, plan-reader, four import-location and CLI regression tests; run RED.
-- [ ] Add a string-aware lexical depth bound and iterative nonfinite_paths scan; no generic exception catch.
-- [ ] Run JSON regressions GREEN, retaining duplicate-key/nonfinite/underflow checks.
+- [x] Add direct, plan-reader, four import-location and CLI regression tests; run RED.
+- [x] Add a string-aware lexical depth bound and iterative nonfinite_paths scan; no generic exception catch.
+- [x] Run JSON regressions GREEN, retaining duplicate-key/nonfinite/underflow checks.
 
 ## Task 2: Travel arithmetic
 
 Files: src/kgp/scheduling.py; src/kgp/feasibility.py; tests/test_review_residuals.py.
 Interfaces: compute_travel_hours and independent _canonical_travel_hours retain existing signatures and 0.0001 h resolution.
 
-- [ ] Test four engines for 10 h / 1 h ratios, normal-speed controls and overflowing travel; test forged complete plans and finite serialization; run RED.
-- [ ] Remove distance epsilon in both implementations; catch only rejected derived operational time at the verifier calculation site.
-- [ ] Run GREEN and the full suite; independently replay all 48 frozen plans/objectives and compare reproduction metrics.
+- [x] Test four engines for 10 h / 1 h ratios, normal-speed controls and overflowing travel; test forged complete plans and finite serialization; run RED.
+- [x] Remove distance epsilon in both implementations; catch only rejected derived operational time at the verifier calculation site.
+- [x] Run GREEN and the full suite; independently replay all 48 frozen plans/objectives and compare reproduction metrics.
 
 ## Task 3: Documents and delivery
 
-- [ ] Replace the exact overclaim in the spoken script and slide 3 notes; correct the protocol label; qualify slide 5 comparison as synthetic.
-- [ ] Read back native edits; export changed PDFs and inspect affected pages/slides.
-- [ ] Record access metadata and prepare a local attachment set; preserve private sharing and user-owned company/team/accounting fields.
-- [ ] Publish maintenance evidence and update the existing draft PR, preserving the immutable audited REV06 ZIP and main branch.
+- [x] Replace the exact overclaim in the spoken script and slide 3 notes; correct the protocol label; qualify slide 5 comparison as synthetic.
+- [x] Read back native edits; export changed PDFs and inspect affected pages/slides.
+- [x] Record access metadata and prepare a local attachment set; preserve private sharing and user-owned company/team/accounting fields.
+- [x] Publish maintenance evidence and update the existing draft PR, preserving the immutable audited REV06 ZIP and main branch.

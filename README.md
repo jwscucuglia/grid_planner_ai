@@ -6,6 +6,8 @@ O núcleo representa conectividade por fase, isolamento de ativos nodais e de tr
 
 A manutenção REV06-P1 fecha os três casos residuais de robustez apontados na revisão independente de `cf386439`: limite explícito de profundidade JSON, razão distância/velocidade antes do arredondamento temporal e diagnóstico de deslocamento derivado não representável. A evidência científica REV06 e seu pacote auditado permanecem preservados; o suplemento identifica separadamente a fonte da manutenção. A candidatura continua baseada no demonstrador REV06, com pequenos ajustes de precisão no roteiro e nos slides.
 
+A [evidência REV06-P1](reports/MANUTENCAO_REV06_P1_20261030.md) registra **441 testes aprovados + 1 ignorado**, os 45 novos testes RED/GREEN e os **48 planos reproduzidos**, com as mesmas 12 entradas e métricas/status preservadas. `configs/delivery_revision.json` separa a entrega atual do protocolo científico original. Os testes de symlink mantêm a limitação de privilégio do Windows; a revisão externa executou todos os 397 casos da entrega anterior em outro ambiente.
+
 ## Escopo verificado
 
 - Todas as janelas elétricas são seriais, inclusive em zonas disjuntas. Equipes podem executar serviços em paralelo dentro de uma janela. O bloqueio conservador evita supor independência elétrica por conjuntos estáticos de chaves/ativos.

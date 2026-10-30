@@ -20,6 +20,7 @@ CANDIDATURE_FILES = {
     'reports/SINCRONIZACAO_INGESTAO01_DOCS.json',
     'reports/AUDITORIA_BANCA_CANDIDATURA_20261029.md',
     'reports/SINCRONIZACAO_BANCA_20261029.json', 'reports/FECHAMENTO_BANCA_20261029.md',
+    'reports/SINCRONIZACAO_REV06_P1_20261030.json', 'reports/FECHAMENTO_REV06_P1_20261030.md',
 }
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
@@ -66,6 +67,6 @@ with zipfile.ZipFile(archive) as package:
         assert hashlib.sha256(package.read(name)).hexdigest() == expected, name
     assert json.loads(package.read('reports/manifest_sha256.json')) == manifest
     assert json.loads(package.read('manifest_completo_sha256.json')) == complete
-print(json.dumps({'archive': str(archive), 'source_commit': config['source_commit'], 'files_hashed': len(manifest['files']),
+print(json.dumps({'archive': str(archive), 'source_commit': delivery['source_commit'], 'files_hashed': len(manifest['files']),
                   'complete_private_bundle_hashes': len(complete['files']), 'archive_entries': len(complete['files']) + 1,
                   'archive_sha256': digest(archive)}, indent=2))
