@@ -1,0 +1,33 @@
+{
+  "plan_id": "PLAN_B2_EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+  "method_name": "B2",
+  "scenario_id": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 3,
+  "total_mandatory_count": 3,
+  "violations": [],
+  "warnings": [
+    "Conflito de ciclo de vida no ativo 'AST_A1_3B': manutenção 'S61_MAINT_TRAFO' (PREVENTIVA) concorre com substituição 'S62_REPL_TRAFO'. Ambas as ordens obrigatórias foram preservadas na carteira; recomenda-se acoplamento na mesma janela ou revisão formal de escopo pela Cemig."
+  ],
+  "recalculated_materials": {
+    "CRUZETA_CONCRETO": 1.0,
+    "KIT_TRAFO": 3.0
+  },
+  "recalculated_consumer_hours": 183.2394,
+  "recalculated_windows_count": 1,
+  "recalculated_physical_maneuvers": 6,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 72,
+  "recalculated_total_interruptions": 72,
+  "recalculated_completed_services": [
+    "S63_F1_STRUCT",
+    "S62_REPL_TRAFO",
+    "S61_MAINT_TRAFO"
+  ],
+  "isolation_verified": true,
+  "recalculated_materials_exact": {
+    "CRUZETA_CONCRETO": "1",
+    "KIT_TRAFO": "3"
+  }
+}

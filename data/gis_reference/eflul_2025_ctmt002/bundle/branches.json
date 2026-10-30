@@ -1,0 +1,5718 @@
+[
+  {
+    "branch_id": "SSDMT:10033600",
+    "from_node": "S01B01A02P0000012446",
+    "to_node": "S01B01A02P0000002333",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005463000000000001,
+    "x_ohm": 0.005463000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.054630000000000005
+  },
+  {
+    "branch_id": "SSDMT:10033601",
+    "from_node": "S01B01A02P0000012449",
+    "to_node": "S01B01A02P0000012446",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00453,
+    "x_ohm": 0.00453,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0453
+  },
+  {
+    "branch_id": "SSDMT:10033602",
+    "from_node": "S01B01A02P0000012450",
+    "to_node": "S01B01A02P0000012449",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003334,
+    "x_ohm": 0.003334,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03334
+  },
+  {
+    "branch_id": "SSDMT:10033610",
+    "from_node": "S01B01A02P0000012454",
+    "to_node": "S01B01A02P0000012451",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.000504,
+    "x_ohm": 0.000504,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.00504
+  },
+  {
+    "branch_id": "SSDMT:10033611",
+    "from_node": "S01B01A02P0000012455",
+    "to_node": "S01B01A02CH000000057",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006105,
+    "x_ohm": 0.006105,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06105
+  },
+  {
+    "branch_id": "SSDMT:10033612",
+    "from_node": "S01B01A02P0000012456",
+    "to_node": "S01B01A02P0000012455",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004514,
+    "x_ohm": 0.004514,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04514
+  },
+  {
+    "branch_id": "SSDMT:10033613",
+    "from_node": "S01B01A02P0000012457",
+    "to_node": "S01B01A02P0000012456",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004505,
+    "x_ohm": 0.004505,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04505
+  },
+  {
+    "branch_id": "SSDMT:10033614",
+    "from_node": "S01B01A02P0000012458",
+    "to_node": "S01B01A02P0000012457",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004941,
+    "x_ohm": 0.004941,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.049409999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033621",
+    "from_node": "S01B01A02P0000013444",
+    "to_node": "S01B01A02P0000012458",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005691,
+    "x_ohm": 0.005691,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.056909999999999995
+  },
+  {
+    "branch_id": "SSDMT:10033622",
+    "from_node": "S01B01A02P0000013445",
+    "to_node": "S01B01A02CH000000365",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00524,
+    "x_ohm": 0.00524,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.052399999999999995
+  },
+  {
+    "branch_id": "SSDMT:10033623",
+    "from_node": "S01B01A02P0000013446",
+    "to_node": "S01B01A02P0000013445",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004239,
+    "x_ohm": 0.004239,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04239
+  },
+  {
+    "branch_id": "SSDMT:10033624",
+    "from_node": "S01B01A02P0000013447",
+    "to_node": "S01B01A02P0000013446",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0032140000000000003,
+    "x_ohm": 0.0032140000000000003,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03214
+  },
+  {
+    "branch_id": "SSDMT:10033625",
+    "from_node": "S01B01A02P0000013452",
+    "to_node": "S01B01A02P0000013447",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0032340000000000003,
+    "x_ohm": 0.0032340000000000003,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03234
+  },
+  {
+    "branch_id": "SSDMT:10033631",
+    "from_node": "S01B01A02P0000013453",
+    "to_node": "S01B01A02P0000011784",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0030050000000000003,
+    "x_ohm": 0.0030050000000000003,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03005
+  },
+  {
+    "branch_id": "SSDMT:10033632",
+    "from_node": "S01B01A02P0000013454",
+    "to_node": "S01B01A02CH000000216",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003935,
+    "x_ohm": 0.003935,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03935
+  },
+  {
+    "branch_id": "SSDMT:10033633",
+    "from_node": "S01B01A02P0000013455",
+    "to_node": "S01B01A02P0000013454",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0027480000000000004,
+    "x_ohm": 0.0027480000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02748
+  },
+  {
+    "branch_id": "SSDMT:10033634",
+    "from_node": "S01B01A02P0000013456",
+    "to_node": "S01B01A02P0000013455",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004665,
+    "x_ohm": 0.004665,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04665
+  },
+  {
+    "branch_id": "SSDMT:10033635",
+    "from_node": "S01B01A02P0000011812",
+    "to_node": "S01B01A02P0000013456",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005064,
+    "x_ohm": 0.005064,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05064
+  },
+  {
+    "branch_id": "SSDMT:10033636",
+    "from_node": "S01B01A02P0000010321",
+    "to_node": "S01B01A02P0000011812",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004113,
+    "x_ohm": 0.004113,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04113
+  },
+  {
+    "branch_id": "SSDMT:10033637",
+    "from_node": "S01B01A02P0000010329",
+    "to_node": "S01B01A02P0000010321",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003914,
+    "x_ohm": 0.003914,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03914
+  },
+  {
+    "branch_id": "SSDMT:10033638",
+    "from_node": "S01B01A02P0000010330",
+    "to_node": "S01B01A02P0000010329",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0046500000000000005,
+    "x_ohm": 0.0046500000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0465
+  },
+  {
+    "branch_id": "SSDMT:10033639",
+    "from_node": "S01B01A02P0000010331",
+    "to_node": "S01B01A02P0000010330",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005511,
+    "x_ohm": 0.005511,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05511
+  },
+  {
+    "branch_id": "SSDMT:10033657",
+    "from_node": "S01B01A02P0000010973",
+    "to_node": "S01B01A02P0000010331",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005194000000000001,
+    "x_ohm": 0.005194000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05194
+  },
+  {
+    "branch_id": "SSDMT:10033658",
+    "from_node": "S01B01A02P0000010974",
+    "to_node": "S01B01A02P0000010973",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0037079999999999995,
+    "x_ohm": 0.0037079999999999995,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.037079999999999995
+  },
+  {
+    "branch_id": "SSDMT:10033659",
+    "from_node": "S01B01A02P0000011821",
+    "to_node": "S01B01A02P0000010974",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003887,
+    "x_ohm": 0.003887,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.038869999999999995
+  },
+  {
+    "branch_id": "SSDMT:10033660",
+    "from_node": "S01B01A02P0000011401",
+    "to_node": "S01B01A02P0000011821",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003836,
+    "x_ohm": 0.003836,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03836
+  },
+  {
+    "branch_id": "SSDMT:10033668",
+    "from_node": "S01B01A02P0000011404",
+    "to_node": "S01B01A02P0000011401",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0044280000000000005,
+    "x_ohm": 0.0044280000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04428
+  },
+  {
+    "branch_id": "SSDMT:10033672",
+    "from_node": "S01B01A02P0000009212",
+    "to_node": "S01B01A02P0000009171",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004667,
+    "x_ohm": 0.004667,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04667
+  },
+  {
+    "branch_id": "SSDMT:10033673",
+    "from_node": "S01B01A02P0000009213",
+    "to_node": "S01B01A02P0000009212",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005645000000000001,
+    "x_ohm": 0.005645000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05645
+  },
+  {
+    "branch_id": "SSDMT:10033674",
+    "from_node": "S01B01A02P0000009214",
+    "to_node": "S01B01A02P0000009213",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00425,
+    "x_ohm": 0.00425,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0425
+  },
+  {
+    "branch_id": "SSDMT:10033675",
+    "from_node": "S01B01A02P0000009215",
+    "to_node": "S01B01A02P0000009214",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.009187,
+    "x_ohm": 0.009187,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.09187000000000001
+  },
+  {
+    "branch_id": "SSDMT:10033688",
+    "from_node": "S01B01A02P0000009352",
+    "to_node": "S01B01A02P0000009356",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0035499999999999998,
+    "x_ohm": 0.0035499999999999998,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0355
+  },
+  {
+    "branch_id": "SSDMT:10033689",
+    "from_node": "S01B01A02P0000009357",
+    "to_node": "S01B01A02P0000009352",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004146,
+    "x_ohm": 0.004146,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.041460000000000004
+  },
+  {
+    "branch_id": "SSDMT:10033693",
+    "from_node": "S01B01A02P0000011417",
+    "to_node": "S01B01A02P0000009357",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006249000000000001,
+    "x_ohm": 0.006249000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.062490000000000004
+  },
+  {
+    "branch_id": "SSDMT:10033694",
+    "from_node": "S01B01A02P0000011419",
+    "to_node": "S01B01A02P0000011417",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005195000000000001,
+    "x_ohm": 0.005195000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05195
+  },
+  {
+    "branch_id": "SSDMT:10033699",
+    "from_node": "S01B01A02P0000009358",
+    "to_node": "S01B01A02P0000011419",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005699,
+    "x_ohm": 0.005699,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05699
+  },
+  {
+    "branch_id": "SSDMT:10033701",
+    "from_node": "S01B01A02P0000009372",
+    "to_node": "S01B01A02P0000009358",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004556,
+    "x_ohm": 0.004556,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04556
+  },
+  {
+    "branch_id": "SSDMT:10033702",
+    "from_node": "S01B01A02P0000009373",
+    "to_node": "S01B01A02P0000009372",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004226,
+    "x_ohm": 0.004226,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04226
+  },
+  {
+    "branch_id": "SSDMT:10033703",
+    "from_node": "S01B01A02P0000009374",
+    "to_node": "S01B01A02P0000009373",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0049830000000000004,
+    "x_ohm": 0.0049830000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04983
+  },
+  {
+    "branch_id": "SSDMT:10033706",
+    "from_node": "S01B01A02P0000009377",
+    "to_node": "S01B01A02CH000000376",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004575999999999999,
+    "x_ohm": 0.004575999999999999,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.045759999999999995
+  },
+  {
+    "branch_id": "SSDMT:10033707",
+    "from_node": "S01B01A02P0000009378",
+    "to_node": "S01B01A02P0000009377",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004665,
+    "x_ohm": 0.004665,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04665
+  },
+  {
+    "branch_id": "SSDMT:10033708",
+    "from_node": "S01B01A02P0000009379",
+    "to_node": "S01B01A02P0000009378",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005005,
+    "x_ohm": 0.005005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05005
+  },
+  {
+    "branch_id": "SSDMT:10033709",
+    "from_node": "S01B01A02P0000009380",
+    "to_node": "S01B01A02P0000009379",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003986,
+    "x_ohm": 0.003986,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03986
+  },
+  {
+    "branch_id": "SSDMT:10033710",
+    "from_node": "S01B01A02P0000009381",
+    "to_node": "S01B01A02P0000009380",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004466,
+    "x_ohm": 0.004466,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04466
+  },
+  {
+    "branch_id": "SSDMT:10033711",
+    "from_node": "S01B01A02P0000009382",
+    "to_node": "S01B01A02P0000009381",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005433,
+    "x_ohm": 0.005433,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.054329999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033712",
+    "from_node": "S01B01A02P0000009383",
+    "to_node": "S01B01A02CH000000350",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0036899999999999997,
+    "x_ohm": 0.0036899999999999997,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.036899999999999995
+  },
+  {
+    "branch_id": "SSDMT:10033713",
+    "from_node": "S01B01A02P0000009384",
+    "to_node": "S01B01A02P0000009383",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006023000000000001,
+    "x_ohm": 0.006023000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06023
+  },
+  {
+    "branch_id": "SSDMT:10033714",
+    "from_node": "S01B01A02P0000009385",
+    "to_node": "S01B01A02P0000009384",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004436,
+    "x_ohm": 0.004436,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04436
+  },
+  {
+    "branch_id": "SSDMT:10033718",
+    "from_node": "S01B01A02P0000009391",
+    "to_node": "S01B01A02CH000000382",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004955,
+    "x_ohm": 0.004955,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04955
+  },
+  {
+    "branch_id": "SSDMT:10033719",
+    "from_node": "S01B01A02P0000009393",
+    "to_node": "S01B01A02CH000000069",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004845,
+    "x_ohm": 0.004845,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04845
+  },
+  {
+    "branch_id": "SSDMT:10033720",
+    "from_node": "S01B01A02P0000009394",
+    "to_node": "S01B01A02P0000009393",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004895,
+    "x_ohm": 0.004895,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04895
+  },
+  {
+    "branch_id": "SSDMT:10033721",
+    "from_node": "S01B01A02P0000006816",
+    "to_node": "S01B01A02P0000009394",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004785000000000001,
+    "x_ohm": 0.004785000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.047850000000000004
+  },
+  {
+    "branch_id": "SSDMT:10033722",
+    "from_node": "S01B01A02P0000006823",
+    "to_node": "S01B01A02P0000006816",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003131,
+    "x_ohm": 0.003131,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03131
+  },
+  {
+    "branch_id": "SSDMT:10033723",
+    "from_node": "S01B01A02P0000006825",
+    "to_node": "S01B01A02P0000006823",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0049700000000000005,
+    "x_ohm": 0.0049700000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0497
+  },
+  {
+    "branch_id": "SSDMT:10033786",
+    "from_node": "S01B01A02P0000006826",
+    "to_node": "S01B01A02P0000006825",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005622,
+    "x_ohm": 0.005622,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05622
+  },
+  {
+    "branch_id": "SSDMT:10033788",
+    "from_node": "S01B01A02P0000006686",
+    "to_node": "S01B01A02P0000010453",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004723,
+    "x_ohm": 0.004723,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.047229999999999994
+  },
+  {
+    "branch_id": "SSDMT:10033789",
+    "from_node": "S01B01A02P0000008077",
+    "to_node": "S01B01A02P0000006686",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004961,
+    "x_ohm": 0.004961,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04961
+  },
+  {
+    "branch_id": "SSDMT:10033790",
+    "from_node": "S01B01A02P0000008078",
+    "to_node": "S01B01A02P0000008077",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004932000000000001,
+    "x_ohm": 0.004932000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04932
+  },
+  {
+    "branch_id": "SSDMT:10033796",
+    "from_node": "S01B01A02P0000006687",
+    "to_node": "S01B01A02P0000008078",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0049310000000000005,
+    "x_ohm": 0.0049310000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04931
+  },
+  {
+    "branch_id": "SSDMT:10033797",
+    "from_node": "S01B01A02P0000006688",
+    "to_node": "S01B01A02P0000006687",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004861000000000001,
+    "x_ohm": 0.004861000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04861
+  },
+  {
+    "branch_id": "SSDMT:10033798",
+    "from_node": "S01B01A02P0000006689",
+    "to_node": "S01B01A02P0000006688",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004719,
+    "x_ohm": 0.004719,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.047189999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033799",
+    "from_node": "S01B01A02P0000006690",
+    "to_node": "S01B01A02P0000006689",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004939000000000001,
+    "x_ohm": 0.004939000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04939
+  },
+  {
+    "branch_id": "SSDMT:10033805",
+    "from_node": "S01B01A02P0000006691",
+    "to_node": "S01B01A02P0000006690",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0046170000000000004,
+    "x_ohm": 0.0046170000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04617
+  },
+  {
+    "branch_id": "SSDMT:10033806",
+    "from_node": "S01B01A02P0000006692",
+    "to_node": "S01B01A02P0000006691",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0044150000000000005,
+    "x_ohm": 0.0044150000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04415
+  },
+  {
+    "branch_id": "SSDMT:10033807",
+    "from_node": "S01B01A02P0000006693",
+    "to_node": "S01B01A02P0000006692",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0033320000000000003,
+    "x_ohm": 0.0033320000000000003,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03332
+  },
+  {
+    "branch_id": "SSDMT:10033808",
+    "from_node": "S01B01A02P0000006694",
+    "to_node": "S01B01A02P0000006693",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0039700000000000004,
+    "x_ohm": 0.0039700000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.039700000000000006
+  },
+  {
+    "branch_id": "SSDMT:10033809",
+    "from_node": "S01B01A02P0000006695",
+    "to_node": "S01B01A02P0000006694",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00511,
+    "x_ohm": 0.00511,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0511
+  },
+  {
+    "branch_id": "SSDMT:10033810",
+    "from_node": "S01B01A02P0000006696",
+    "to_node": "S01B01A02P0000006695",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006987,
+    "x_ohm": 0.006987,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06987
+  },
+  {
+    "branch_id": "SSDMT:10033811",
+    "from_node": "S01B01A02P0000006697",
+    "to_node": "S01B01A02CH000000100",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004542,
+    "x_ohm": 0.004542,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04542
+  },
+  {
+    "branch_id": "SSDMT:10033819",
+    "from_node": "S01B01A02P0000006698",
+    "to_node": "S01B01A02CH000000384",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004926,
+    "x_ohm": 0.004926,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04926
+  },
+  {
+    "branch_id": "SSDMT:10033821",
+    "from_node": "S01B01A02P0000006700",
+    "to_node": "S01B01A02P0000010190",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003936,
+    "x_ohm": 0.003936,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03936
+  },
+  {
+    "branch_id": "SSDMT:10033823",
+    "from_node": "S01B01A02P0000006701",
+    "to_node": "S01B01A02P0000011299",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004685000000000001,
+    "x_ohm": 0.004685000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04685
+  },
+  {
+    "branch_id": "SSDMT:10033824",
+    "from_node": "S01B01A02P0000006702",
+    "to_node": "S01B01A02P0000006701",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004515,
+    "x_ohm": 0.004515,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.045149999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033831",
+    "from_node": "S01B01A02P0000006703",
+    "to_node": "S01B01A02P0000006702",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0051400000000000005,
+    "x_ohm": 0.0051400000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0514
+  },
+  {
+    "branch_id": "SSDMT:10033832",
+    "from_node": "S01B01A02P0000006704",
+    "to_node": "S01B01A02P0000006703",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004832,
+    "x_ohm": 0.004832,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04832
+  },
+  {
+    "branch_id": "SSDMT:10033833",
+    "from_node": "S01B01A02P0000006705",
+    "to_node": "S01B01A02P0000006704",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004451,
+    "x_ohm": 0.004451,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04451
+  },
+  {
+    "branch_id": "SSDMT:10033834",
+    "from_node": "S01B01A02P0000006706",
+    "to_node": "S01B01A02P0000006705",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004837,
+    "x_ohm": 0.004837,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.048369999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033835",
+    "from_node": "S01B01A02P0000007043",
+    "to_node": "S01B01A02P0000006706",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005178,
+    "x_ohm": 0.005178,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05178
+  },
+  {
+    "branch_id": "SSDMT:10033836",
+    "from_node": "S01B01A02P0000006886",
+    "to_node": "S01B01A02P0000007043",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005869,
+    "x_ohm": 0.005869,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05869
+  },
+  {
+    "branch_id": "SSDMT:10033837",
+    "from_node": "S01B01A02P0000006887",
+    "to_node": "S01B01A02P0000006886",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004522,
+    "x_ohm": 0.004522,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.045219999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033838",
+    "from_node": "S01B01A02P0000006888",
+    "to_node": "S01B01A02P0000006887",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00433,
+    "x_ohm": 0.00433,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0433
+  },
+  {
+    "branch_id": "SSDMT:10033839",
+    "from_node": "S01B01A02P0000007045",
+    "to_node": "S01B01A02P0000006888",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005128000000000001,
+    "x_ohm": 0.005128000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05128
+  },
+  {
+    "branch_id": "SSDMT:10033840",
+    "from_node": "S01B01A02P0000006889",
+    "to_node": "S01B01A02P0000007045",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0038979999999999996,
+    "x_ohm": 0.0038979999999999996,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.038979999999999994
+  },
+  {
+    "branch_id": "SSDMT:10033841",
+    "from_node": "S01B01A02P0000006890",
+    "to_node": "S01B01A02CH000000283",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004514,
+    "x_ohm": 0.004514,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04514
+  },
+  {
+    "branch_id": "SSDMT:10033842",
+    "from_node": "S01B01A02P0000006891",
+    "to_node": "S01B01A02P0000006890",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005453,
+    "x_ohm": 0.005453,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05453
+  },
+  {
+    "branch_id": "SSDMT:10033843",
+    "from_node": "S01B01A02P0000006892",
+    "to_node": "S01B01A02P0000006891",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0038060000000000004,
+    "x_ohm": 0.0038060000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.038060000000000004
+  },
+  {
+    "branch_id": "SSDMT:10033882",
+    "from_node": "S01B01A02P0000006893",
+    "to_node": "S01B01A02P0000006892",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004055,
+    "x_ohm": 0.004055,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.040549999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033883",
+    "from_node": "S01B01A02P0000006894",
+    "to_node": "S01B01A02P0000006893",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004747,
+    "x_ohm": 0.004747,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04747
+  },
+  {
+    "branch_id": "SSDMT:10033884",
+    "from_node": "S01B01A02P0000006895",
+    "to_node": "S01B01A02P0000006894",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003912,
+    "x_ohm": 0.003912,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.039119999999999995
+  },
+  {
+    "branch_id": "SSDMT:10033885",
+    "from_node": "S01B01A02P0000006896",
+    "to_node": "S01B01A02P0000006895",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004989,
+    "x_ohm": 0.004989,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.049890000000000004
+  },
+  {
+    "branch_id": "SSDMT:10033894",
+    "from_node": "S01B01A02P0000006898",
+    "to_node": "S01B01A02P0000006897",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004893000000000001,
+    "x_ohm": 0.004893000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04893
+  },
+  {
+    "branch_id": "SSDMT:10033895",
+    "from_node": "S01B01A02P0000006899",
+    "to_node": "S01B01A02P0000006898",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005063000000000001,
+    "x_ohm": 0.005063000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05063
+  },
+  {
+    "branch_id": "SSDMT:10033896",
+    "from_node": "S01B01A02P0000006900",
+    "to_node": "S01B01A02P0000006899",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004332,
+    "x_ohm": 0.004332,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04332
+  },
+  {
+    "branch_id": "SSDMT:10033897",
+    "from_node": "S01B01A02P0000006901",
+    "to_node": "S01B01A02P0000006900",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004429,
+    "x_ohm": 0.004429,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.044289999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033898",
+    "from_node": "S01B01A02P0000006902",
+    "to_node": "S01B01A02P0000006901",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005198,
+    "x_ohm": 0.005198,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05198
+  },
+  {
+    "branch_id": "SSDMT:10033899",
+    "from_node": "S01B01A02P0000007748",
+    "to_node": "S01B01A02P0000006902",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005961,
+    "x_ohm": 0.005961,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.059609999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033901",
+    "from_node": "S01B01A02P0000006904",
+    "to_node": "S01B01A02CH000000325",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003816,
+    "x_ohm": 0.003816,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03816
+  },
+  {
+    "branch_id": "SSDMT:10033911",
+    "from_node": "S01B01A02P0000006905",
+    "to_node": "S01B01A02P0000006904",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005928,
+    "x_ohm": 0.005928,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05928
+  },
+  {
+    "branch_id": "SSDMT:10033912",
+    "from_node": "S01B01A02P0000006906",
+    "to_node": "S01B01A02P0000006905",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005220000000000001,
+    "x_ohm": 0.005220000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0522
+  },
+  {
+    "branch_id": "SSDMT:10033913",
+    "from_node": "S01B01A02P0000006907",
+    "to_node": "S01B01A02P0000006906",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004818,
+    "x_ohm": 0.004818,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04818
+  },
+  {
+    "branch_id": "SSDMT:10033914",
+    "from_node": "S01B01A02P0000006908",
+    "to_node": "S01B01A02P0000006907",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004058,
+    "x_ohm": 0.004058,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04058
+  },
+  {
+    "branch_id": "SSDMT:10033915",
+    "from_node": "S01B01A02P0000006909",
+    "to_node": "S01B01A02P0000006908",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0043040000000000005,
+    "x_ohm": 0.0043040000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04304
+  },
+  {
+    "branch_id": "SSDMT:10033916",
+    "from_node": "S01B01A02P0000006910",
+    "to_node": "S01B01A02P0000006909",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005437,
+    "x_ohm": 0.005437,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.054369999999999995
+  },
+  {
+    "branch_id": "SSDMT:10033926",
+    "from_node": "S01B01A02P0000006911",
+    "to_node": "S01B01A02P0000006910",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0052060000000000006,
+    "x_ohm": 0.0052060000000000006,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05206
+  },
+  {
+    "branch_id": "SSDMT:10033927",
+    "from_node": "S01B01A02P0000006912",
+    "to_node": "S01B01A02CH000000320",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004909,
+    "x_ohm": 0.004909,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04909
+  },
+  {
+    "branch_id": "SSDMT:10033928",
+    "from_node": "S01B01A02P0000001360",
+    "to_node": "S01B01A02P0000006912",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005104000000000001,
+    "x_ohm": 0.005104000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05104
+  },
+  {
+    "branch_id": "SSDMT:10033932",
+    "from_node": "S01B01A02P0000006913",
+    "to_node": "S01B01A02CH000000371",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005218,
+    "x_ohm": 0.005218,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05218
+  },
+  {
+    "branch_id": "SSDMT:10033933",
+    "from_node": "S01B01A02P0000006914",
+    "to_node": "S01B01A02P0000006913",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005273,
+    "x_ohm": 0.005273,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05273
+  },
+  {
+    "branch_id": "SSDMT:10033934",
+    "from_node": "S01B01A02P0000006915",
+    "to_node": "S01B01A02CH000000126",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004898,
+    "x_ohm": 0.004898,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.048979999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033935",
+    "from_node": "S01B01A02P0000009273",
+    "to_node": "S01B01A02P0000006915",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004935,
+    "x_ohm": 0.004935,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04935
+  },
+  {
+    "branch_id": "SSDMT:10033936",
+    "from_node": "S01B01A02P0000009274",
+    "to_node": "S01B01A02P0000009273",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005159,
+    "x_ohm": 0.005159,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.051590000000000004
+  },
+  {
+    "branch_id": "SSDMT:10033937",
+    "from_node": "S01B01A02P0000009275",
+    "to_node": "S01B01A02P0000009274",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004815,
+    "x_ohm": 0.004815,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04815
+  },
+  {
+    "branch_id": "SSDMT:10033939",
+    "from_node": "S01B01A02P0000009277",
+    "to_node": "S01B01A02P0000011301",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005609,
+    "x_ohm": 0.005609,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05609
+  },
+  {
+    "branch_id": "SSDMT:10033940",
+    "from_node": "S01B01A02P0000009278",
+    "to_node": "S01B01A02P0000009277",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005239000000000001,
+    "x_ohm": 0.005239000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05239
+  },
+  {
+    "branch_id": "SSDMT:10033941",
+    "from_node": "S01B01A02P0000009279",
+    "to_node": "S01B01A02CH000000116",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0053890000000000006,
+    "x_ohm": 0.0053890000000000006,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05389
+  },
+  {
+    "branch_id": "SSDMT:10033943",
+    "from_node": "S01B01A02P0000009281",
+    "to_node": "S01B01A02CH000000338",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005729000000000001,
+    "x_ohm": 0.005729000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05729
+  },
+  {
+    "branch_id": "SSDMT:10033944",
+    "from_node": "S01B01A02P0000009282",
+    "to_node": "S01B01A02P0000009281",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005561,
+    "x_ohm": 0.005561,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05561
+  },
+  {
+    "branch_id": "SSDMT:10033945",
+    "from_node": "S01B01A02P0000009283",
+    "to_node": "S01B01A02P0000009282",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004987,
+    "x_ohm": 0.004987,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04987
+  },
+  {
+    "branch_id": "SSDMT:10033946",
+    "from_node": "S01B01A02P0000009284",
+    "to_node": "S01B01A02P0000009283",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005008,
+    "x_ohm": 0.005008,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05008
+  },
+  {
+    "branch_id": "SSDMT:10033947",
+    "from_node": "S01B01A02P0000009285",
+    "to_node": "S01B01A02P0000009284",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0053170000000000005,
+    "x_ohm": 0.0053170000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05317
+  },
+  {
+    "branch_id": "SSDMT:10033948",
+    "from_node": "S01B01A02P0000009286",
+    "to_node": "S01B01A02P0000009285",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005508,
+    "x_ohm": 0.005508,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05508
+  },
+  {
+    "branch_id": "SSDMT:10033949",
+    "from_node": "S01B01A02P0000009287",
+    "to_node": "S01B01A02P0000009286",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005044,
+    "x_ohm": 0.005044,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05044
+  },
+  {
+    "branch_id": "SSDMT:10033950",
+    "from_node": "S01B01A02P0000009288",
+    "to_node": "S01B01A02P0000009287",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0052899999999999996,
+    "x_ohm": 0.0052899999999999996,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.052899999999999996
+  },
+  {
+    "branch_id": "SSDMT:10033951",
+    "from_node": "S01B01A02P0000009289",
+    "to_node": "S01B01A02P0000009288",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00512,
+    "x_ohm": 0.00512,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0512
+  },
+  {
+    "branch_id": "SSDMT:10033952",
+    "from_node": "S01B01A02P0000009290",
+    "to_node": "S01B01A02P0000009289",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005475000000000001,
+    "x_ohm": 0.005475000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05475
+  },
+  {
+    "branch_id": "SSDMT:10033975",
+    "from_node": "S01B01A02P0000009473",
+    "to_node": "S01B01A02P0000010194",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005241,
+    "x_ohm": 0.005241,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05241
+  },
+  {
+    "branch_id": "SSDMT:10034018",
+    "from_node": "S01B01A02P0000012451",
+    "to_node": "S01B01A02P0000010823",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005627,
+    "x_ohm": 0.005627,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05627
+  },
+  {
+    "branch_id": "SSDMT:10034020",
+    "from_node": "S01B01A02P0000010823",
+    "to_node": "S01B01A02P0000012450",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003851,
+    "x_ohm": 0.003851,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.038509999999999996
+  },
+  {
+    "branch_id": "SSDMT:10034046",
+    "from_node": "S01B01A02P0000006897",
+    "to_node": "S01B01A02P0000007743",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005273,
+    "x_ohm": 0.005273,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05273
+  },
+  {
+    "branch_id": "SSDMT:10034051",
+    "from_node": "S01B01A02P0000007743",
+    "to_node": "S01B01A02P0000006896",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004388,
+    "x_ohm": 0.004388,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04388
+  },
+  {
+    "branch_id": "SSDMT:10034071",
+    "from_node": "S01B01A02P0000009821",
+    "to_node": "S01B01A02CH000000116",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001469,
+    "x_ohm": 0.001469,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01469
+  },
+  {
+    "branch_id": "SSDMT:10034072",
+    "from_node": "S01B01A02P0000009642",
+    "to_node": "S01B01A02P0000009821",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001773,
+    "x_ohm": 0.001773,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01773
+  },
+  {
+    "branch_id": "SSDMT:10034075",
+    "from_node": "S01B01A02P0000009822",
+    "to_node": "S01B01A02P0000009642",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004588000000000001,
+    "x_ohm": 0.004588000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.045880000000000004
+  },
+  {
+    "branch_id": "SSDMT:10034077",
+    "from_node": "S01B01A02P0000009823",
+    "to_node": "S01B01A02P0000009822",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004502000000000001,
+    "x_ohm": 0.004502000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.045020000000000004
+  },
+  {
+    "branch_id": "SSDMT:10034078",
+    "from_node": "S01B01A02P0000009824",
+    "to_node": "S01B01A02P0000009823",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002424,
+    "x_ohm": 0.002424,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.024239999999999998
+  },
+  {
+    "branch_id": "SSDMT:10034891",
+    "from_node": "S01B01A02P0000012217",
+    "to_node": "S01B01A02P0000007743",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001933,
+    "x_ohm": 0.001933,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01933
+  },
+  {
+    "branch_id": "SSDMT:10196328",
+    "from_node": "S01B01A02P0000008533",
+    "to_node": "S01B01A02CH000000126",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004273,
+    "x_ohm": 0.004273,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04273
+  },
+  {
+    "branch_id": "SSDMT:10681530",
+    "from_node": "S01B01A02P0000009171",
+    "to_node": "S01B01A02P0000011404",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004877,
+    "x_ohm": 0.004877,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04877
+  },
+  {
+    "branch_id": "SSDMT:10893673",
+    "from_node": "S01B01A02P0000012454",
+    "to_node": "S01B01A02P0000012451",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00066,
+    "x_ohm": 0.00066,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0066
+  },
+  {
+    "branch_id": "SSDMT:11094611",
+    "from_node": "S01B01A02P0000011784",
+    "to_node": "S01B01A02P0000013452",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0036,
+    "x_ohm": 0.0036,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.036
+  },
+  {
+    "branch_id": "SSDMT:11094613",
+    "from_node": "S01B01A02P0000009259",
+    "to_node": "S01B01A02P0000013453",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003274000000000001,
+    "x_ohm": 0.003274000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.032740000000000005
+  },
+  {
+    "branch_id": "SSDMT:11094684",
+    "from_node": "S01B01A02P0000009356",
+    "to_node": "S01B01A02P0000009216",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004277,
+    "x_ohm": 0.004277,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04277
+  },
+  {
+    "branch_id": "SSDMT:11094686",
+    "from_node": "S01B01A02P0000009216",
+    "to_node": "S01B01A02P0000009215",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003535,
+    "x_ohm": 0.003535,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03535
+  },
+  {
+    "branch_id": "SSDMT:12365260",
+    "from_node": "S01B01A02P0000001226",
+    "to_node": "S01B01A02CH000000069",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001962,
+    "x_ohm": 0.001962,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.019620000000000002
+  },
+  {
+    "branch_id": "SSDMT:13253357",
+    "from_node": "S01B01A02P0000000379",
+    "to_node": "S01B01A02CH000000216",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0014410000000000002,
+    "x_ohm": 0.0014410000000000002,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.014410000000000001
+  },
+  {
+    "branch_id": "SSDMT:1394092",
+    "from_node": "S01B01A02P0000006160",
+    "to_node": "S01B01A02P0000002087",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0027050000000000004,
+    "x_ohm": 0.0027050000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02705
+  },
+  {
+    "branch_id": "SSDMT:1394104",
+    "from_node": "S01B01A02P0000001132",
+    "to_node": "S01B01A02CH000000034",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001444,
+    "x_ohm": 0.001444,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01444
+  },
+  {
+    "branch_id": "SSDMT:1394105",
+    "from_node": "S01B01A02P0000001131",
+    "to_node": "S01B01A02P0000001132",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004288,
+    "x_ohm": 0.004288,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04288
+  },
+  {
+    "branch_id": "SSDMT:1394172",
+    "from_node": "S01B01A02P0000001130",
+    "to_node": "S01B01A02CH000000237",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003943,
+    "x_ohm": 0.003943,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03943
+  },
+  {
+    "branch_id": "SSDMT:1394173",
+    "from_node": "S01B01A02P0000011235",
+    "to_node": "S01B01A02CH000000104",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001167,
+    "x_ohm": 0.001167,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01167
+  },
+  {
+    "branch_id": "SSDMT:1394174",
+    "from_node": "S01B01A02P0000011236",
+    "to_node": "S01B01A02P0000011235",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005821,
+    "x_ohm": 0.005821,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05821
+  },
+  {
+    "branch_id": "SSDMT:1394175",
+    "from_node": "S01B01A02P0000001129",
+    "to_node": "S01B01A02P0000011236",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004771000000000001,
+    "x_ohm": 0.004771000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04771
+  },
+  {
+    "branch_id": "SSDMT:1394176",
+    "from_node": "S01B01A02P0000001128",
+    "to_node": "S01B01A02P0000001129",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004747,
+    "x_ohm": 0.004747,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04747
+  },
+  {
+    "branch_id": "SSDMT:1394177",
+    "from_node": "S01B01A02P0000001127",
+    "to_node": "S01B01A02P0000001128",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0044080000000000005,
+    "x_ohm": 0.0044080000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04408
+  },
+  {
+    "branch_id": "SSDMT:1394178",
+    "from_node": "S01B01A02P0000001126",
+    "to_node": "S01B01A02P0000001127",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004720000000000001,
+    "x_ohm": 0.004720000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.047200000000000006
+  },
+  {
+    "branch_id": "SSDMT:1394179",
+    "from_node": "S01B01A02P0000001125",
+    "to_node": "S01B01A02P0000001126",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00322,
+    "x_ohm": 0.00322,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0322
+  },
+  {
+    "branch_id": "SSDMT:1394186",
+    "from_node": "S01B01A02P0000001118",
+    "to_node": "S01B01A02P0000013088",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.009282,
+    "x_ohm": 0.009282,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.09282
+  },
+  {
+    "branch_id": "SSDMT:1394187",
+    "from_node": "S01B01A02P0000001117",
+    "to_node": "S01B01A02P0000001118",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006388000000000001,
+    "x_ohm": 0.006388000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06388
+  },
+  {
+    "branch_id": "SSDMT:1394188",
+    "from_node": "S01B01A02P0000001116",
+    "to_node": "S01B01A02P0000001117",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006036,
+    "x_ohm": 0.006036,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06036
+  },
+  {
+    "branch_id": "SSDMT:1394189",
+    "from_node": "S01B01A02P0000001110",
+    "to_node": "S01B01A02P0000001116",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004541,
+    "x_ohm": 0.004541,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04541
+  },
+  {
+    "branch_id": "SSDMT:1395141",
+    "from_node": "S01B01A02P0000001007",
+    "to_node": "S01B01A02P0000012501",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007873999999999999,
+    "x_ohm": 0.007873999999999999,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07873999999999999
+  },
+  {
+    "branch_id": "SSDMT:1395142",
+    "from_node": "S01B01A02P0000001008",
+    "to_node": "S01B01A02P0000001007",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006318000000000001,
+    "x_ohm": 0.006318000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06318
+  },
+  {
+    "branch_id": "SSDMT:1395143",
+    "from_node": "S01B01A02P0000001009",
+    "to_node": "S01B01A02P0000001008",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006999,
+    "x_ohm": 0.006999,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06999
+  },
+  {
+    "branch_id": "SSDMT:1395144",
+    "from_node": "S01B01A02P0000001010",
+    "to_node": "S01B01A02P0000001009",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007988,
+    "x_ohm": 0.007988,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07987999999999999
+  },
+  {
+    "branch_id": "SSDMT:1395145",
+    "from_node": "S01B01A02P0000001011",
+    "to_node": "S01B01A02P0000001010",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0077989999999999995,
+    "x_ohm": 0.0077989999999999995,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07798999999999999
+  },
+  {
+    "branch_id": "SSDMT:1395146",
+    "from_node": "S01B01A02P0000011960",
+    "to_node": "S01B01A02P0000001011",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007253,
+    "x_ohm": 0.007253,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07253
+  },
+  {
+    "branch_id": "SSDMT:1395147",
+    "from_node": "S01B01A02P0000011961",
+    "to_node": "S01B01A02CH000000165",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002961,
+    "x_ohm": 0.002961,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02961
+  },
+  {
+    "branch_id": "SSDMT:1395148",
+    "from_node": "S01B01A02P0000011962",
+    "to_node": "S01B01A02P0000011961",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0034470000000000004,
+    "x_ohm": 0.0034470000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03447
+  },
+  {
+    "branch_id": "SSDMT:1395150",
+    "from_node": "S01B01A02P0000001013",
+    "to_node": "S01B01A02CH000000265",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006770999999999999,
+    "x_ohm": 0.006770999999999999,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06770999999999999
+  },
+  {
+    "branch_id": "SSDMT:1395151",
+    "from_node": "S01B01A02P0000001014",
+    "to_node": "S01B01A02P0000001013",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006902,
+    "x_ohm": 0.006902,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06902
+  },
+  {
+    "branch_id": "SSDMT:1395152",
+    "from_node": "S01B01A02P0000001015",
+    "to_node": "S01B01A02P0000001014",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00727,
+    "x_ohm": 0.00727,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0727
+  },
+  {
+    "branch_id": "SSDMT:1395153",
+    "from_node": "S01B01A02P0000001016",
+    "to_node": "S01B01A02P0000001015",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007074,
+    "x_ohm": 0.007074,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07074
+  },
+  {
+    "branch_id": "SSDMT:1395154",
+    "from_node": "S01B01A02P0000001017",
+    "to_node": "S01B01A02P0000001016",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0067810000000000014,
+    "x_ohm": 0.0067810000000000014,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06781000000000001
+  },
+  {
+    "branch_id": "SSDMT:1395155",
+    "from_node": "S01B01A02P0000001018",
+    "to_node": "S01B01A02P0000001017",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007109000000000001,
+    "x_ohm": 0.007109000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07109
+  },
+  {
+    "branch_id": "SSDMT:1395156",
+    "from_node": "S01B01A02P0000001019",
+    "to_node": "S01B01A02P0000001018",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005002,
+    "x_ohm": 0.005002,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05002
+  },
+  {
+    "branch_id": "SSDMT:1395158",
+    "from_node": "S01B01A02P0000005625",
+    "to_node": "S01B01A02P0000005547",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004966,
+    "x_ohm": 0.004966,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.049659999999999996
+  },
+  {
+    "branch_id": "SSDMT:1395159",
+    "from_node": "S01B01A02P0000005626",
+    "to_node": "S01B01A02P0000005200",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0050290000000000005,
+    "x_ohm": 0.0050290000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05029
+  },
+  {
+    "branch_id": "SSDMT:1395160",
+    "from_node": "S01B01A02P0000005627",
+    "to_node": "S01B01A02P0000005626",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005083000000000001,
+    "x_ohm": 0.005083000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05083
+  },
+  {
+    "branch_id": "SSDMT:1395161",
+    "from_node": "S01B01A02P0000005628",
+    "to_node": "S01B01A02P0000005627",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005131,
+    "x_ohm": 0.005131,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05131
+  },
+  {
+    "branch_id": "SSDMT:1395162",
+    "from_node": "S01B01A02P0000005629",
+    "to_node": "S01B01A02P0000005628",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006360000000000001,
+    "x_ohm": 0.006360000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0636
+  },
+  {
+    "branch_id": "SSDMT:1395163",
+    "from_node": "S01B01A02P0000004975",
+    "to_node": "S01B01A02P0000005629",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007529999999999999,
+    "x_ohm": 0.007529999999999999,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07529999999999999
+  },
+  {
+    "branch_id": "SSDMT:1395164",
+    "from_node": "S01B01A02P0000004976",
+    "to_node": "S01B01A02P0000004975",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005471,
+    "x_ohm": 0.005471,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05471
+  },
+  {
+    "branch_id": "SSDMT:1395165",
+    "from_node": "S01B01A02P0000004977",
+    "to_node": "S01B01A02P0000004976",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007881999999999998,
+    "x_ohm": 0.007881999999999998,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07881999999999999
+  },
+  {
+    "branch_id": "SSDMT:1395166",
+    "from_node": "S01B01A02P0000004978",
+    "to_node": "S01B01A02P0000004977",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005148,
+    "x_ohm": 0.005148,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05148
+  },
+  {
+    "branch_id": "SSDMT:1395167",
+    "from_node": "S01B01A02P0000011964",
+    "to_node": "S01B01A02P0000004978",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00398,
+    "x_ohm": 0.00398,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.039799999999999995
+  },
+  {
+    "branch_id": "SSDMT:1395168",
+    "from_node": "S01B01A02P0000011965",
+    "to_node": "S01B01A02CH000000017",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004331000000000001,
+    "x_ohm": 0.004331000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04331
+  },
+  {
+    "branch_id": "SSDMT:1395832",
+    "from_node": "S01B01A02P0000001109",
+    "to_node": "S01B01A02P0000001110",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006396000000000001,
+    "x_ohm": 0.006396000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06396
+  },
+  {
+    "branch_id": "SSDMT:1395833",
+    "from_node": "S01B01A02P0000001107",
+    "to_node": "S01B01A02P0000001109",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003002,
+    "x_ohm": 0.003002,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.030019999999999998
+  },
+  {
+    "branch_id": "SSDMT:1395834",
+    "from_node": "S01B01A02P0000001108",
+    "to_node": "S01B01A02P0000001107",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0030830000000000002,
+    "x_ohm": 0.0030830000000000002,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03083
+  },
+  {
+    "branch_id": "SSDMT:1395835",
+    "from_node": "S01B01A02P0000002069",
+    "to_node": "S01B01A02P0000001108",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00299,
+    "x_ohm": 0.00299,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0299
+  },
+  {
+    "branch_id": "SSDMT:1395836",
+    "from_node": "S01B01A02P0000011134",
+    "to_node": "S01B01A02P0000002069",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002782,
+    "x_ohm": 0.002782,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02782
+  },
+  {
+    "branch_id": "SSDMT:1395837",
+    "from_node": "S01B01A02P0000011133",
+    "to_node": "S01B01A02P0000011134",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002955,
+    "x_ohm": 0.002955,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02955
+  },
+  {
+    "branch_id": "SSDMT:1395838",
+    "from_node": "S01B01A02P0000011121",
+    "to_node": "S01B01A02P0000011133",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003045,
+    "x_ohm": 0.003045,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.030449999999999998
+  },
+  {
+    "branch_id": "SSDMT:1395839",
+    "from_node": "S01B01A02P0000011120",
+    "to_node": "S01B01A02P0000011121",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002761,
+    "x_ohm": 0.002761,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02761
+  },
+  {
+    "branch_id": "SSDMT:1395840",
+    "from_node": "S01B01A02P0000011119",
+    "to_node": "S01B01A02P0000011120",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0028770000000000002,
+    "x_ohm": 0.0028770000000000002,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02877
+  },
+  {
+    "branch_id": "SSDMT:1395841",
+    "from_node": "S01B01A02P0000005049",
+    "to_node": "S01B01A02P0000011119",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0032280000000000004,
+    "x_ohm": 0.0032280000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03228
+  },
+  {
+    "branch_id": "SSDMT:1395842",
+    "from_node": "S01B01A02P0000005048",
+    "to_node": "S01B01A02P0000005049",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0037670000000000004,
+    "x_ohm": 0.0037670000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03767
+  },
+  {
+    "branch_id": "SSDMT:1395843",
+    "from_node": "S01B01A02P0000005047",
+    "to_node": "S01B01A02P0000005048",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003966,
+    "x_ohm": 0.003966,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.039659999999999994
+  },
+  {
+    "branch_id": "SSDMT:1395844",
+    "from_node": "S01B01A02P0000000401",
+    "to_node": "S01B01A02P0000000402",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004488000000000001,
+    "x_ohm": 0.004488000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04488
+  },
+  {
+    "branch_id": "SSDMT:1395845",
+    "from_node": "S01B01A02P0000000399",
+    "to_node": "S01B01A02CH000000267",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003786,
+    "x_ohm": 0.003786,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03786
+  },
+  {
+    "branch_id": "SSDMT:1395846",
+    "from_node": "S01B01A02P0000005878",
+    "to_node": "S01B01A02P0000000399",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003106,
+    "x_ohm": 0.003106,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.031059999999999997
+  },
+  {
+    "branch_id": "SSDMT:1395847",
+    "from_node": "S01B01A02P0000005877",
+    "to_node": "S01B01A02P0000005878",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0031160000000000003,
+    "x_ohm": 0.0031160000000000003,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03116
+  },
+  {
+    "branch_id": "SSDMT:1395848",
+    "from_node": "S01B01A02P0000003411",
+    "to_node": "S01B01A02P0000005877",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002497,
+    "x_ohm": 0.002497,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02497
+  },
+  {
+    "branch_id": "SSDMT:1395849",
+    "from_node": "S01B01A02P0000005383",
+    "to_node": "S01B01A02P0000003411",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0026690000000000004,
+    "x_ohm": 0.0026690000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.026690000000000002
+  },
+  {
+    "branch_id": "SSDMT:1395850",
+    "from_node": "S01B01A02P0000004758",
+    "to_node": "S01B01A02P0000005383",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002694,
+    "x_ohm": 0.002694,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.026940000000000002
+  },
+  {
+    "branch_id": "SSDMT:1395852",
+    "from_node": "S01B01A02P0000004760",
+    "to_node": "S01B01A02P0000004759",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002245,
+    "x_ohm": 0.002245,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.022449999999999998
+  },
+  {
+    "branch_id": "SSDMT:1395853",
+    "from_node": "S01B01A02P0000004761",
+    "to_node": "S01B01A02P0000004760",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0023399999999999996,
+    "x_ohm": 0.0023399999999999996,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.023399999999999997
+  },
+  {
+    "branch_id": "SSDMT:1395854",
+    "from_node": "S01B01A02P0000004762",
+    "to_node": "S01B01A02P0000004761",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00225,
+    "x_ohm": 0.00225,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0225
+  },
+  {
+    "branch_id": "SSDMT:1395855",
+    "from_node": "S01B01A02P0000002222",
+    "to_node": "S01B01A02P0000004762",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0031260000000000003,
+    "x_ohm": 0.0031260000000000003,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03126
+  },
+  {
+    "branch_id": "SSDMT:1395898",
+    "from_node": "S01B01A02P0000002333",
+    "to_node": "S01B01A02CH000000266",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0035440000000000003,
+    "x_ohm": 0.0035440000000000003,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03544
+  },
+  {
+    "branch_id": "SSDMT:1395942",
+    "from_node": "S01B01A02P0000000402",
+    "to_node": "S01B01A02P0000005046",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004797,
+    "x_ohm": 0.004797,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04797
+  },
+  {
+    "branch_id": "SSDMT:1406064",
+    "from_node": "S01B01A02P0000000380",
+    "to_node": "S01B01A02P0000000379",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.010905,
+    "x_ohm": 0.010905,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.10905
+  },
+  {
+    "branch_id": "SSDMT:1406065",
+    "from_node": "S01B01A02P0000000381",
+    "to_node": "S01B01A02P0000000380",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005915,
+    "x_ohm": 0.005915,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05915
+  },
+  {
+    "branch_id": "SSDMT:1406066",
+    "from_node": "S01B01A02P0000000382",
+    "to_node": "S01B01A02P0000000381",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006381000000000001,
+    "x_ohm": 0.006381000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06381
+  },
+  {
+    "branch_id": "SSDMT:1406149",
+    "from_node": "S01B01A02P0000000375",
+    "to_node": "S01B01A02P0000000382",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.013864,
+    "x_ohm": 0.013864,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.13863999999999999
+  },
+  {
+    "branch_id": "SSDMT:14067840",
+    "from_node": "S01B01A02P0000004541",
+    "to_node": "S01B01A02CH000000351",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002211,
+    "x_ohm": 0.002211,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.022109999999999998
+  },
+  {
+    "branch_id": "SSDMT:1407093",
+    "from_node": "S01B01A02P0000004759",
+    "to_node": "S01B01A02P0000004758",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0025920000000000006,
+    "x_ohm": 0.0025920000000000006,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.025920000000000002
+  },
+  {
+    "branch_id": "SSDMT:1407913",
+    "from_node": "S01B01A02P0000005222",
+    "to_node": "S01B01A02P0000013094",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002935,
+    "x_ohm": 0.002935,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02935
+  },
+  {
+    "branch_id": "SSDMT:1407914",
+    "from_node": "S01B01A02P0000005223",
+    "to_node": "S01B01A02P0000005222",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004633,
+    "x_ohm": 0.004633,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.046329999999999996
+  },
+  {
+    "branch_id": "SSDMT:1407915",
+    "from_node": "S01B01A02P0000005224",
+    "to_node": "S01B01A02P0000012468",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0051660000000000005,
+    "x_ohm": 0.0051660000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05166
+  },
+  {
+    "branch_id": "SSDMT:1407916",
+    "from_node": "S01B01A02P0000005225",
+    "to_node": "S01B01A02P0000005224",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004508,
+    "x_ohm": 0.004508,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.045079999999999995
+  },
+  {
+    "branch_id": "SSDMT:1407917",
+    "from_node": "S01B01A02P0000005226",
+    "to_node": "S01B01A02CH000000129",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004941,
+    "x_ohm": 0.004941,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.049409999999999996
+  },
+  {
+    "branch_id": "SSDMT:1408325",
+    "from_node": "S01B01A02P0000001012",
+    "to_node": "S01B01A02CH000000165",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006720000000000001,
+    "x_ohm": 0.006720000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06720000000000001
+  },
+  {
+    "branch_id": "SSDMT:1408334",
+    "from_node": "S01B01A02P0000005200",
+    "to_node": "S01B01A02P0000005625",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0051080000000000006,
+    "x_ohm": 0.0051080000000000006,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05108
+  },
+  {
+    "branch_id": "SSDMT:1410491",
+    "from_node": "S01B01A02P0000005319",
+    "to_node": "S01B01A02P0000000375",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.028431,
+    "x_ohm": 0.028431,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.28431
+  },
+  {
+    "branch_id": "SSDMT:14161795",
+    "from_node": "S01B01A02P0000001367",
+    "to_node": "S01B01A02CH000000371",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007006,
+    "x_ohm": 0.007006,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07006
+  },
+  {
+    "branch_id": "SSDMT:14608849",
+    "from_node": "S01B01A02P0000009702",
+    "to_node": "S01B01A02P0000009473",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0047610000000000005,
+    "x_ohm": 0.0047610000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04761
+  },
+  {
+    "branch_id": "SSDMT:14608850",
+    "from_node": "S01B01A02P0000012501",
+    "to_node": "S01B01A02P0000009702",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003347,
+    "x_ohm": 0.003347,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03347
+  },
+  {
+    "branch_id": "SSDMT:14716137",
+    "from_node": "S01B01A02P0000006963",
+    "to_node": "S01B01A02CH000000350",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0027620000000000006,
+    "x_ohm": 0.0027620000000000006,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.027620000000000002
+  },
+  {
+    "branch_id": "SSDMT:1471797",
+    "from_node": "S01B01A02P0000006976",
+    "to_node": "S01B01A02P0000011962",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0037380000000000004,
+    "x_ohm": 0.0037380000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.037380000000000004
+  },
+  {
+    "branch_id": "SSDMT:1489666",
+    "from_node": "S01B01A02P0000003749",
+    "to_node": "S01B01A02CH000000165",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003369,
+    "x_ohm": 0.003369,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03369
+  },
+  {
+    "branch_id": "SSDMT:1489667",
+    "from_node": "S01B01A02P0000003750",
+    "to_node": "S01B01A02P0000003749",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003629,
+    "x_ohm": 0.003629,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.036289999999999996
+  },
+  {
+    "branch_id": "SSDMT:1489668",
+    "from_node": "S01B01A02P0000003751",
+    "to_node": "S01B01A02P0000003750",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0036249999999999998,
+    "x_ohm": 0.0036249999999999998,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03625
+  },
+  {
+    "branch_id": "SSDMT:1489669",
+    "from_node": "S01B01A02P0000003752",
+    "to_node": "S01B01A02P0000003751",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0036650000000000003,
+    "x_ohm": 0.0036650000000000003,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03665
+  },
+  {
+    "branch_id": "SSDMT:1619970",
+    "from_node": "S01B01A02P0000006827",
+    "to_node": "S01B01A02CH000000140",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004404,
+    "x_ohm": 0.004404,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.044039999999999996
+  },
+  {
+    "branch_id": "SSDMT:1619971",
+    "from_node": "S01B01A02P0000006828",
+    "to_node": "S01B01A02P0000006827",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004469,
+    "x_ohm": 0.004469,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04469
+  },
+  {
+    "branch_id": "SSDMT:1619972",
+    "from_node": "S01B01A02P0000006829",
+    "to_node": "S01B01A02P0000006828",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.025613999999999998,
+    "x_ohm": 0.025613999999999998,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.25614
+  },
+  {
+    "branch_id": "SSDMT:1619973",
+    "from_node": "S01B01A02P0000007009",
+    "to_node": "S01B01A02P0000006829",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.013163999999999999,
+    "x_ohm": 0.013163999999999999,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.13163999999999998
+  },
+  {
+    "branch_id": "SSDMT:1619974",
+    "from_node": "S01B01A02P0000007010",
+    "to_node": "S01B01A02P0000007009",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006723,
+    "x_ohm": 0.006723,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06723
+  },
+  {
+    "branch_id": "SSDMT:1619975",
+    "from_node": "S01B01A02P0000007011",
+    "to_node": "S01B01A02P0000007010",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006239000000000001,
+    "x_ohm": 0.006239000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06239
+  },
+  {
+    "branch_id": "SSDMT:1619976",
+    "from_node": "S01B01A02P0000007012",
+    "to_node": "S01B01A02P0000007011",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006831,
+    "x_ohm": 0.006831,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06831
+  },
+  {
+    "branch_id": "SSDMT:1619977",
+    "from_node": "S01B01A02P0000007013",
+    "to_node": "S01B01A02P0000007012",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005220000000000001,
+    "x_ohm": 0.005220000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0522
+  },
+  {
+    "branch_id": "SSDMT:1619978",
+    "from_node": "S01B01A02P0000007014",
+    "to_node": "S01B01A02P0000007013",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0072840000000000005,
+    "x_ohm": 0.0072840000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07284
+  },
+  {
+    "branch_id": "SSDMT:1620325",
+    "from_node": "S01B01A02P0000007035",
+    "to_node": "S01B01A02P0000012374",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0050810000000000004,
+    "x_ohm": 0.0050810000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05081
+  },
+  {
+    "branch_id": "SSDMT:1620326",
+    "from_node": "S01B01A02P0000007029",
+    "to_node": "S01B01A02P0000007035",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005482000000000001,
+    "x_ohm": 0.005482000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05482
+  },
+  {
+    "branch_id": "SSDMT:1620327",
+    "from_node": "S01B01A02P0000007030",
+    "to_node": "S01B01A02P0000007029",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0029000000000000002,
+    "x_ohm": 0.0029000000000000002,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.029
+  },
+  {
+    "branch_id": "SSDMT:1628874",
+    "from_node": "S01B01A02P0000011564",
+    "to_node": "S01B01A02P0000011563",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002983,
+    "x_ohm": 0.002983,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02983
+  },
+  {
+    "branch_id": "SSDMT:1651745",
+    "from_node": "S01B01A02P0000007686",
+    "to_node": "S01B01A02P0000006828",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002104,
+    "x_ohm": 0.002104,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02104
+  },
+  {
+    "branch_id": "SSDMT:16733894",
+    "from_node": "S01B01A02P0000013081",
+    "to_node": "S01B01A02P0000001125",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.007142,
+    "x_ohm": 0.007142,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.07142
+  },
+  {
+    "branch_id": "SSDMT:16733895",
+    "from_node": "S01B01A02P0000012769",
+    "to_node": "S01B01A02P0000013081",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001324,
+    "x_ohm": 0.001324,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01324
+  },
+  {
+    "branch_id": "SSDMT:16733896",
+    "from_node": "S01B01A02P0000012768",
+    "to_node": "S01B01A02P0000012769",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0030030000000000005,
+    "x_ohm": 0.0030030000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03003
+  },
+  {
+    "branch_id": "SSDMT:16733897",
+    "from_node": "S01B01A02P0000012767",
+    "to_node": "S01B01A02P0000012768",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0030260000000000005,
+    "x_ohm": 0.0030260000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.030260000000000002
+  },
+  {
+    "branch_id": "SSDMT:16733898",
+    "from_node": "S01B01A02P0000012766",
+    "to_node": "S01B01A02P0000012767",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003037,
+    "x_ohm": 0.003037,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03037
+  },
+  {
+    "branch_id": "SSDMT:16733899",
+    "from_node": "S01B01A02P0000012765",
+    "to_node": "S01B01A02P0000012766",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0031170000000000004,
+    "x_ohm": 0.0031170000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.031170000000000003
+  },
+  {
+    "branch_id": "SSDMT:16733900",
+    "from_node": "S01B01A02P0000012764",
+    "to_node": "S01B01A02P0000012765",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002608,
+    "x_ohm": 0.002608,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02608
+  },
+  {
+    "branch_id": "SSDMT:16733903",
+    "from_node": "S01B01A02P0000012762",
+    "to_node": "S01B01A02P0000012764",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003951,
+    "x_ohm": 0.003951,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.039509999999999997
+  },
+  {
+    "branch_id": "SSDMT:16733905",
+    "from_node": "S01B01A02P0000013088",
+    "to_node": "S01B01A02P0000012762",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0020460000000000005,
+    "x_ohm": 0.0020460000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.020460000000000002
+  },
+  {
+    "branch_id": "SSDMT:16733953",
+    "from_node": "S01B01A02P0000013091",
+    "to_node": "S01B01A02CH000000381",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006022,
+    "x_ohm": 0.006022,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.060219999999999996
+  },
+  {
+    "branch_id": "SSDMT:16733970",
+    "from_node": "S01B01A02P0000013282",
+    "to_node": "S01B01A02P0000009385",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0032329999999999998,
+    "x_ohm": 0.0032329999999999998,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03233
+  },
+  {
+    "branch_id": "SSDMT:16733971",
+    "from_node": "S01B01A02P0000013281",
+    "to_node": "S01B01A02P0000013282",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0033070000000000005,
+    "x_ohm": 0.0033070000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03307
+  },
+  {
+    "branch_id": "SSDMT:16733986",
+    "from_node": "S01B01A02P0000000802",
+    "to_node": "S01B01A02P0000013094",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004079,
+    "x_ohm": 0.004079,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04079
+  },
+  {
+    "branch_id": "SSDMT:16733997",
+    "from_node": "S01B01A02P0000013094",
+    "to_node": "S01B01A02CH000000382",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003095,
+    "x_ohm": 0.003095,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03095
+  },
+  {
+    "branch_id": "SSDMT:1742620",
+    "from_node": "S01B01A02P0000008445",
+    "to_node": "S01B01A02P0000000317",
+    "feeder_id": "002",
+    "phases": [
+      "A"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003297,
+    "x_ohm": 0.003297,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03297
+  },
+  {
+    "branch_id": "SSDMT:1742621",
+    "from_node": "S01B01A02P0000008446",
+    "to_node": "S01B01A02P0000008445",
+    "feeder_id": "002",
+    "phases": [
+      "A"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00495,
+    "x_ohm": 0.00495,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0495
+  },
+  {
+    "branch_id": "SSDMT:1742622",
+    "from_node": "S01B01A02P0000011396",
+    "to_node": "S01B01A02P0000008446",
+    "feeder_id": "002",
+    "phases": [
+      "A"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004144,
+    "x_ohm": 0.004144,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04144
+  },
+  {
+    "branch_id": "SSDMT:1742623",
+    "from_node": "S01B01A02P0000008447",
+    "to_node": "S01B01A02P0000011396",
+    "feeder_id": "002",
+    "phases": [
+      "A"
+    ],
+    "in_service": true,
+    "r_ohm": 0.008194,
+    "x_ohm": 0.008194,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.08194
+  },
+  {
+    "branch_id": "SSDMT:1742624",
+    "from_node": "S01B01A02P0000008448",
+    "to_node": "S01B01A02P0000008447",
+    "feeder_id": "002",
+    "phases": [
+      "A"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0063560000000000005,
+    "x_ohm": 0.0063560000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06356
+  },
+  {
+    "branch_id": "SSDMT:1742625",
+    "from_node": "S01B01A02P0000008449",
+    "to_node": "S01B01A02P0000008448",
+    "feeder_id": "002",
+    "phases": [
+      "A"
+    ],
+    "in_service": true,
+    "r_ohm": 0.008515,
+    "x_ohm": 0.008515,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.08515
+  },
+  {
+    "branch_id": "SSDMT:17437680",
+    "from_node": "S01B01A02P0000003249",
+    "to_node": "S01B01A02CH000000253",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003539,
+    "x_ohm": 0.003539,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03539
+  },
+  {
+    "branch_id": "SSDMT:17439732",
+    "from_node": "S01B01A02P0000007733",
+    "to_node": "S01B01A02P0000007735",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.000597,
+    "x_ohm": 0.000597,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.00597
+  },
+  {
+    "branch_id": "SSDMT:17439734",
+    "from_node": "S01B01A02P0000007733",
+    "to_node": "S01B01A02CH000000327",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001704,
+    "x_ohm": 0.001704,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01704
+  },
+  {
+    "branch_id": "SSDMT:17439771",
+    "from_node": "S01B01A02P0000007735",
+    "to_node": "S01B01A02CH000000325",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.001693,
+    "x_ohm": 0.001693,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01693
+  },
+  {
+    "branch_id": "SSDMT:17439782",
+    "from_node": "S01B01A02P0000007736",
+    "to_node": "S01B01A02P0000007735",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0016,
+    "x_ohm": 0.0016,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.016
+  },
+  {
+    "branch_id": "SSDMT:17439783",
+    "from_node": "S01B01A02P0000007735",
+    "to_node": "S01B01A02CH000000329",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0005860000000000001,
+    "x_ohm": 0.0005860000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.005860000000000001
+  },
+  {
+    "branch_id": "SSDMT:17439784",
+    "from_node": "S01B01A02P0000007733",
+    "to_node": "S01B01A02CH000000327",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0014600000000000001,
+    "x_ohm": 0.0014600000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0146
+  },
+  {
+    "branch_id": "SSDMT:17439793",
+    "from_node": "S01B01A02P0000007733",
+    "to_node": "S01B01A02P0000007735",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0004290000000000001,
+    "x_ohm": 0.0004290000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.00429
+  },
+  {
+    "branch_id": "SSDMT:17893725",
+    "from_node": "S01B01A02P0000013527",
+    "to_node": "S01B01A02P0000009374",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002899,
+    "x_ohm": 0.002899,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02899
+  },
+  {
+    "branch_id": "SSDMT:17893726",
+    "from_node": "S01B01A02P0000013526",
+    "to_node": "S01B01A02P0000013527",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004601,
+    "x_ohm": 0.004601,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.046009999999999995
+  },
+  {
+    "branch_id": "SSDMT:17970764",
+    "from_node": "S01B01A02P0000010190",
+    "to_node": "S01B01A02P0000006698",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005126,
+    "x_ohm": 0.005126,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05126
+  },
+  {
+    "branch_id": "SSDMT:17970782",
+    "from_node": "S01B01A02P0000010194",
+    "to_node": "S01B01A02P0000009290",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005129000000000001,
+    "x_ohm": 0.005129000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05129
+  },
+  {
+    "branch_id": "SSDMT:18156320",
+    "from_node": "S01B01A02P0000011563",
+    "to_node": "S01B01A02CH000000283",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004248,
+    "x_ohm": 0.004248,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04248
+  },
+  {
+    "branch_id": "SSDMT:18461661",
+    "from_node": "S01B01A02P0000011680",
+    "to_node": "S01B01A02P0000011679",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002974,
+    "x_ohm": 0.002974,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02974
+  },
+  {
+    "branch_id": "SSDMT:18461662",
+    "from_node": "S01B01A02P0000011679",
+    "to_node": "S01B01A02CH000000384",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004171,
+    "x_ohm": 0.004171,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.041710000000000004
+  },
+  {
+    "branch_id": "SSDMT:18461670",
+    "from_node": "S01B01A02P0000012374",
+    "to_node": "S01B01A02P0000011680",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0031820000000000004,
+    "x_ohm": 0.0031820000000000004,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03182
+  },
+  {
+    "branch_id": "SSDMT:18884069",
+    "from_node": "S01B01A02P0000010453",
+    "to_node": "S01B01A02P0000006826",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005239000000000001,
+    "x_ohm": 0.005239000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05239
+  },
+  {
+    "branch_id": "SSDMT:19481689",
+    "from_node": "S01B01A02P0000000122",
+    "to_node": "S01B01A02CH000000376",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002252,
+    "x_ohm": 0.002252,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02252
+  },
+  {
+    "branch_id": "SSDMT:19481690",
+    "from_node": "S01B01A02P0000000138",
+    "to_node": "S01B01A02P0000000122",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003399,
+    "x_ohm": 0.003399,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03399
+  },
+  {
+    "branch_id": "SSDMT:19481691",
+    "from_node": "S01B01A02P0000000162",
+    "to_node": "S01B01A02P0000000138",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.002095,
+    "x_ohm": 0.002095,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.02095
+  },
+  {
+    "branch_id": "SSDMT:19481692",
+    "from_node": "S01B01A02P0000000170",
+    "to_node": "S01B01A02P0000000162",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004296,
+    "x_ohm": 0.004296,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04296
+  },
+  {
+    "branch_id": "SSDMT:19481693",
+    "from_node": "S01B01A02P0000005216",
+    "to_node": "S01B01A02P0000000170",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003599,
+    "x_ohm": 0.003599,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03599
+  },
+  {
+    "branch_id": "SSDMT:19776819",
+    "from_node": "S01B01A02P0000011293",
+    "to_node": "S01B01A02CH000000351",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005622,
+    "x_ohm": 0.005622,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05622
+  },
+  {
+    "branch_id": "SSDMT:19780852",
+    "from_node": "S01B01A02P0000011299",
+    "to_node": "S01B01A02P0000006700",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004868000000000001,
+    "x_ohm": 0.004868000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04868
+  },
+  {
+    "branch_id": "SSDMT:19840661",
+    "from_node": "S01B01A02P0000011301",
+    "to_node": "S01B01A02P0000009275",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004681,
+    "x_ohm": 0.004681,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.046810000000000004
+  },
+  {
+    "branch_id": "SSDMT:20484818",
+    "from_node": "S01B01A02P0000005547",
+    "to_node": "S01B01A02P0000001019",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004961,
+    "x_ohm": 0.004961,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04961
+  },
+  {
+    "branch_id": "SSDMT:9561068",
+    "from_node": "S01B01A02P0000007031",
+    "to_node": "S01B01A02CH000000115",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004076,
+    "x_ohm": 0.004076,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04076
+  },
+  {
+    "branch_id": "SSDMT:9561070",
+    "from_node": "S01B01A02P0000007032",
+    "to_node": "S01B01A02P0000007031",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003046,
+    "x_ohm": 0.003046,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03046
+  },
+  {
+    "branch_id": "SSDMT:9561072",
+    "from_node": "S01B01A02P0000000312",
+    "to_node": "S01B01A02P0000007032",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003311,
+    "x_ohm": 0.003311,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03311
+  },
+  {
+    "branch_id": "SSDMT:9726226",
+    "from_node": "S01B01A02P0000000317",
+    "to_node": "S01B01A02P0000009529",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.000576,
+    "x_ohm": 0.000576,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0057599999999999995
+  },
+  {
+    "branch_id": "SSDMT:9726228",
+    "from_node": "S01B01A02P0000000314",
+    "to_node": "S01B01A02P0000007014",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0043630000000000006,
+    "x_ohm": 0.0043630000000000006,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04363
+  },
+  {
+    "branch_id": "SSDMT:9726235",
+    "from_node": "S01B01A02P0000009529",
+    "to_node": "S01B01A02P0000000314",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0018570000000000001,
+    "x_ohm": 0.0018570000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.01857
+  },
+  {
+    "branch_id": "SSDMT:9726237",
+    "from_node": "S01B01A02P0000000313",
+    "to_node": "S01B01A02P0000009529",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.000304,
+    "x_ohm": 0.000304,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.00304
+  },
+  {
+    "branch_id": "SSDMT:9726239",
+    "from_node": "S01B01A02P0000000318",
+    "to_node": "S01B01A02P0000009529",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003747,
+    "x_ohm": 0.003747,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.037469999999999996
+  },
+  {
+    "branch_id": "SSDMT:9726241",
+    "from_node": "S01B01A02P0000000319",
+    "to_node": "S01B01A02P0000000318",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0042450000000000005,
+    "x_ohm": 0.0042450000000000005,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04245
+  },
+  {
+    "branch_id": "SSDMT:9726242",
+    "from_node": "S01B01A02P0000000320",
+    "to_node": "S01B01A02P0000000319",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006435,
+    "x_ohm": 0.006435,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06434999999999999
+  },
+  {
+    "branch_id": "SSDMT:9726243",
+    "from_node": "S01B01A02P0000000321",
+    "to_node": "S01B01A02P0000000320",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.006255,
+    "x_ohm": 0.006255,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.06255
+  },
+  {
+    "branch_id": "SSDMT:9726247",
+    "from_node": "S01B01A02P0000009452",
+    "to_node": "S01B01A02CH000000118",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0036220000000000002,
+    "x_ohm": 0.0036220000000000002,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03622
+  },
+  {
+    "branch_id": "SSDMT:9726249",
+    "from_node": "S01B01A02P0000009453",
+    "to_node": "S01B01A02P0000009452",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003912,
+    "x_ohm": 0.003912,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.039119999999999995
+  },
+  {
+    "branch_id": "SSDMT:9726250",
+    "from_node": "S01B01A02P0000009455",
+    "to_node": "S01B01A02P0000009453",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005016,
+    "x_ohm": 0.005016,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.050159999999999996
+  },
+  {
+    "branch_id": "SSDMT:9726251",
+    "from_node": "S01B01A02P0000009456",
+    "to_node": "S01B01A02P0000009455",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.005000000000000001,
+    "x_ohm": 0.005000000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.05
+  },
+  {
+    "branch_id": "SSDMT:9726252",
+    "from_node": "S01B01A02P0000009457",
+    "to_node": "S01B01A02P0000009456",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004909,
+    "x_ohm": 0.004909,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.04909
+  },
+  {
+    "branch_id": "SSDMT:9726257",
+    "from_node": "S01B01A02P0000009458",
+    "to_node": "S01B01A02P0000009457",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00628,
+    "x_ohm": 0.00628,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0628
+  },
+  {
+    "branch_id": "SSDMT:9764595",
+    "from_node": "S01B01A02P0000005046",
+    "to_node": "S01B01A02P0000005047",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.004606000000000001,
+    "x_ohm": 0.004606000000000001,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.046060000000000004
+  },
+  {
+    "branch_id": "SSDMT:9886551",
+    "from_node": "S01B01A02P0000012468",
+    "to_node": "S01B01A02P0000005223",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.003764,
+    "x_ohm": 0.003764,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.03764
+  },
+  {
+    "branch_id": "SSDMT:9910379",
+    "from_node": "S01B01A02P0000012444",
+    "to_node": "S01B01A02CH000000129",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.00041799999999999997,
+    "x_ohm": 0.00041799999999999997,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.00418
+  },
+  {
+    "branch_id": "UNSEMT:0114",
+    "from_node": "S01B01A02CH000000350",
+    "to_node": "S01B01A02P0000009382",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0120",
+    "from_node": "S01B01A02CH000000371",
+    "to_node": "S01B01A02P0000001360",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0123",
+    "from_node": "S01B01A02CH000000116",
+    "to_node": "S01B01A02P0000009278",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0125",
+    "from_node": "S01B01A02CH000000017",
+    "to_node": "S01B01A02P0000011964",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0173",
+    "from_node": "S01B01A02CH000000129",
+    "to_node": "S01B01A02P0000005225",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0263",
+    "from_node": "S01B01A02CH000000126",
+    "to_node": "S01B01A02P0000006914",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0267",
+    "from_node": "S01B01A02CH000000165",
+    "to_node": "S01B01A02P0000011960",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0295",
+    "from_node": "S01B01A02CH000000069",
+    "to_node": "S01B01A02P0000009391",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0312",
+    "from_node": "S01B01A02CH000000115",
+    "to_node": "S01B01A02P0000007030",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:0331",
+    "from_node": "S01B01A02CH000000351",
+    "to_node": "S01B01A02P0000009279",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-096",
+    "from_node": "S01B01A02CH000000216",
+    "to_node": "S01B01A02P0000009259",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-110",
+    "from_node": "S01B01A02CH000000265",
+    "to_node": "S01B01A02P0000001012",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-131",
+    "from_node": "S01B01A02CH000000348",
+    "to_node": "S01B01A02P0000013444",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-132",
+    "from_node": "S01B01A02CH000000320",
+    "to_node": "S01B01A02P0000006911",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-133",
+    "from_node": "S01B01A02CH000000338",
+    "to_node": "S01B01A02P0000011293",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-143",
+    "from_node": "S01B01A02CH000000283",
+    "to_node": "S01B01A02P0000006889",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-174",
+    "from_node": "S01B01A02CH000000100",
+    "to_node": "S01B01A02P0000006696",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-204",
+    "from_node": "S01B01A02CH000000124",
+    "to_node": "S01B01A02P0000010823",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-205",
+    "from_node": "S01B01A02CH000000384",
+    "to_node": "S01B01A02P0000006697",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-208",
+    "from_node": "S01B01A02CH000000140",
+    "to_node": "S01B01A02P0000005226",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-209",
+    "from_node": "S01B01A02CH000000118",
+    "to_node": "S01B01A02P0000000321",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-218",
+    "from_node": "S01B01A02CH000000059",
+    "to_node": "S01B01A02P0000012451",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-219",
+    "from_node": "S01B01A02CH000000057",
+    "to_node": "S01B01A02P0000012454",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-230",
+    "from_node": "S01B01A02CH000000104",
+    "to_node": "S01B01A02P0000001130",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-231",
+    "from_node": "S01B01A02CH000000267",
+    "to_node": "S01B01A02P0000000401",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-232",
+    "from_node": "S01B01A02CH000000150",
+    "to_node": "S01B01A02P0000004758",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-233",
+    "from_node": "S01B01A02CH000000266",
+    "to_node": "S01B01A02P0000002222",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-274",
+    "from_node": "S01B01A02CH000000381",
+    "to_node": "S01B01A02P0000013281",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-275",
+    "from_node": "S01B01A02CH000000382",
+    "to_node": "S01B01A02P0000013091",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-277",
+    "from_node": "S01B01A02CH000000329",
+    "to_node": "S01B01A02P0000007733",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-278",
+    "from_node": "S01B01A02CH000000330",
+    "to_node": "S01B01A02P0000007735",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-279",
+    "from_node": "S01B01A02CH000000326",
+    "to_node": "S01B01A02P0000003249",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-280",
+    "from_node": "S01B01A02CH000000327",
+    "to_node": "S01B01A02P0000003249",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-281",
+    "from_node": "S01B01A02CH000000328",
+    "to_node": "S01B01A02P0000007736",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-282",
+    "from_node": "S01B01A02CH000000325",
+    "to_node": "S01B01A02P0000007736",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-299",
+    "from_node": "S01B01A02CH000000376",
+    "to_node": "S01B01A02P0000013526",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-313",
+    "from_node": "S01B01A02CH000000187",
+    "to_node": "S01B01A02P0000006692",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-323",
+    "from_node": "S01B01A02CH000000241",
+    "to_node": "S01B01A02P0000001131",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:CH-326",
+    "from_node": "S01B01A02CH000000251",
+    "to_node": "S01B01A02P0000007748",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:RL-006",
+    "from_node": "S01B01A02CH000000237",
+    "to_node": "S01B01A02P0000001131",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:RL-008",
+    "from_node": "S01B01A02CH000000365",
+    "to_node": "S01B01A02P0000013444",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:RL-011",
+    "from_node": "S01B01A02CH000000253",
+    "to_node": "S01B01A02P0000007748",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNSEMT:RL-USA06",
+    "from_node": "S01B01A02CH000000034",
+    "to_node": "S01B01A02P0000006160",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  },
+  {
+    "branch_id": "UNREMT:0360",
+    "from_node": "S01B01A02P0000012451",
+    "to_node": "S01B01A02ER000000002",
+    "feeder_id": "002",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "r_ohm": 0.0,
+    "x_ohm": 0.0,
+    "max_capacity_kw": 1000.0,
+    "length_km": 0.0
+  }
+]

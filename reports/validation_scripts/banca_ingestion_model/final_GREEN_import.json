@@ -1,0 +1,696 @@
+{
+  "source_sha256": {
+    "kgp\\__init__.py": "7f973d9b6a4a709dcb42cf0713dd44a978a0ecd5a5951e9122c57e788916f0bc",
+    "kgp\\baselines.py": "e3162fb8e44f8c5fee39a066574ee91b22987441db70b505da531461ccfed2d0",
+    "kgp\\contracts.py": "a86d977598149a70dd58eb8e6151da27e7624c8f0d4a42b3dba360c0928381cc",
+    "kgp\\eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
+    "kgp\\experiment.py": "212e3e5919da9a679fd3ba1a6c47d9dfd49a4fdf515a7fd257ddda3b927c9474",
+    "kgp\\feasibility.py": "2c2672ab02c47bc90dd5a982563318de49c91b55c1f6246dafa7144173364416",
+    "kgp\\ingestion.py": "3f11f9a09c89f7e5741e1fb1a8b6bfbd0e54b6ab5f9008cdfdab7ab0b86aca16",
+    "kgp\\integrity.py": "cc34687ad9bfad4ccb9ed023c0961cf7239198eab840b1eca2483d48b45177e5",
+    "kgp\\materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda",
+    "kgp\\metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
+    "kgp\\optimizer.py": "4f27ad9da19b81f32c61f6877017090cd2223d9260949f163e6ede1b44ee0088",
+    "kgp\\planning_policy.py": "2ebb205db857174a0cc328919bac32cda23a633f42d7287098fa08ca3a29d5a4",
+    "kgp\\revalidation.py": "754da10225b17b944f5088814fd7427ce3b132c13966ea2cfe424ca9764b2e2d",
+    "kgp\\scheduling.py": "ffa223c6c3b1f119548e6a6d964f19e0b7247820637259f08b3d18cc91cbc78e",
+    "kgp\\topology.py": "b08ec30b6d9735187554d42e99635718cc31c00bde28e195bc1d044325671cd3",
+    "kgp\\validation.py": "83a66b8e1ae20ddb2e8d9015c5c73e58492079aff9a8925bd234fe970e620cdb"
+  },
+  "probes": 15,
+  "passed": 15,
+  "failed": 0,
+  "skipped": [
+    {
+      "probe": "symlink/native_loop",
+      "reason": "Native symlink creation unavailable in this environment",
+      "error_type": "OSError",
+      "winerror": 1314,
+      "platform": "win32"
+    }
+  ],
+  "results": [
+    {
+      "probe": "csv/control",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1",
+          "S2"
+        ],
+        "mandatory_ids": [
+          "S1",
+          "S2"
+        ],
+        "source_count": 2,
+        "source_ids": [
+          "S1",
+          "S2"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "csv/control/B0",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": 1,
+        "total": 2,
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/control/B1",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": 1,
+        "total": 2,
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/control/B2",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": 1,
+        "total": 2,
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/control/KGP",
+      "passed": true,
+      "evidence": {
+        "feasible": false,
+        "completed": 1,
+        "total": 2,
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "csv/unterminated_title",
+      "passed": true,
+      "evidence": {
+        "strict_parser_error": "unexpected end of data",
+        "source_sha256": "99f70164137e23c9eb4183d396702eb732047fdfaf841b229bd5aaa2c1330160",
+        "is_valid": false,
+        "service_ids": [],
+        "mandatory_ids": [],
+        "source_count": null,
+        "source_ids": null,
+        "issues": [
+          {
+            "code": "INVALID_FILE",
+            "table": "services",
+            "row": null,
+            "record_id": null,
+            "message": "CSV parser error (maximum field length is 131072 characters): unexpected end of data",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "csv/legitimate_multiline",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1",
+          "S2"
+        ],
+        "mandatory_ids": [
+          "S1",
+          "S2"
+        ],
+        "source_count": 2,
+        "source_ids": [
+          "S1",
+          "S2"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "mapping/control",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "mapping/implicit_state",
+      "passed": true,
+      "evidence": {
+        "is_valid": false,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [
+          {
+            "code": "INVALID_FIELD_MAP",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "field_map source names collide after resolving identity fallbacks",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID SRC",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "MISSING_SOURCE",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "network requires at least one explicitly active source",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "mapping/explicit_state",
+      "passed": true,
+      "evidence": {
+        "is_valid": false,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [
+          {
+            "code": "INVALID_FIELD_MAP",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "field_map must map unique canonical names to unique source names",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID SRC",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "MISSING_SOURCE",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "network requires at least one explicitly active source",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "mapping/implicit_coordinate",
+      "passed": true,
+      "evidence": {
+        "is_valid": false,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [
+          {
+            "code": "INVALID_FIELD_MAP",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "field_map source names collide after resolving identity fallbacks",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID SRC",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "MISSING_SOURCE",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "network requires at least one explicitly active source",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "mapping/legitimate_rename",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 1.0,
+            "y": 0.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "mapping/explicit_axis_swap",
+      "passed": true,
+      "evidence": {
+        "is_valid": true,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [],
+        "nodes": {
+          "SRC": {
+            "is_source": true,
+            "in_service": true,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "N1": {
+            "is_source": false,
+            "in_service": true,
+            "x": 0.0,
+            "y": 1.0
+          }
+        },
+        "phases": {
+          "SRC": [
+            "A"
+          ],
+          "N1": [
+            "A"
+          ]
+        }
+      }
+    },
+    {
+      "probe": "symlink/resolve_runtime_manifest",
+      "passed": true,
+      "evidence": {
+        "is_valid": false,
+        "service_ids": [],
+        "mandatory_ids": [],
+        "source_count": null,
+        "source_ids": null,
+        "issues": [
+          {
+            "code": "SYMLINK_LOOP",
+            "table": "manifest",
+            "row": null,
+            "record_id": null,
+            "message": "symbolic link cycle while resolving input path: Synthetic native Path.resolve symlink-cycle condition",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    },
+    {
+      "probe": "symlink/resolve_runtime_nodes",
+      "passed": true,
+      "evidence": {
+        "is_valid": false,
+        "service_ids": [
+          "S1"
+        ],
+        "mandatory_ids": [
+          "S1"
+        ],
+        "source_count": 1,
+        "source_ids": [
+          "S1"
+        ],
+        "issues": [
+          {
+            "code": "SYMLINK_LOOP",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "symbolic link cycle while resolving input path: Synthetic native Path.resolve symlink-cycle condition",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID SRC",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "branches",
+            "row": 1,
+            "record_id": "B1",
+            "message": "endpoints references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "assets",
+            "row": 1,
+            "record_id": "A1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "ORPHAN_REFERENCE",
+            "table": "consumers",
+            "row": 1,
+            "record_id": "C1",
+            "message": "node_id references missing nodes ID N1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "MISSING_SOURCE",
+            "table": "nodes",
+            "row": null,
+            "record_id": null,
+            "message": "network requires at least one explicitly active source",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: extremidades de B1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: barra de A1",
+            "severity": "ERROR"
+          },
+          {
+            "code": "INVALID_STRUCTURE",
+            "table": "problem",
+            "row": null,
+            "record_id": null,
+            "message": "Estrutura/referência inválida: consumidor C1",
+            "severity": "ERROR"
+          }
+        ]
+      }
+    }
+  ]
+}

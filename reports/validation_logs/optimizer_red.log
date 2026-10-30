@@ -1,0 +1,101 @@
+FFFFFFF                                                                  [100%]
+================================== FAILURES ===================================
+___ test_optional_omission_objective_bound_and_status_describe_same_problem ___
+
+    def test_optional_omission_objective_bound_and_status_describe_same_problem():
+        net, cat, jobs = small_instance()
+        plan = run_kgp_optimizer(net, jobs, cat, "optional_omission")
+        assert verify_plan_feasibility(net, jobs, cat, plan).is_feasible
+        assert plan.unscheduled_service_ids == ("J",)
+>       assert plan.solver_objective == pytest.approx(50.)
+E       assert 1000000.0 == 50.0 � 5.0e-05
+E         
+E         comparison failed
+E         Obtained: 1000000.0
+E         Expected: 50.0 � 5.0e-05
+
+tests\test_optimizer_audit.py:49: AssertionError
+_ test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference[0.0] __
+
+optional_penalty = 0.0
+
+    @pytest.mark.parametrize("optional_penalty", [0., 50., 250.])
+    def test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference(optional_penalty):
+        net, cat, jobs = small_instance()
+>       weights = ObjectiveWeights(optional_unscheduled_penalty=optional_penalty)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: ObjectiveWeights.__init__() got an unexpected keyword argument 'optional_unscheduled_penalty'
+
+tests\test_optimizer_audit.py:62: TypeError
+_ test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference[50.0] _
+
+optional_penalty = 50.0
+
+    @pytest.mark.parametrize("optional_penalty", [0., 50., 250.])
+    def test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference(optional_penalty):
+        net, cat, jobs = small_instance()
+>       weights = ObjectiveWeights(optional_unscheduled_penalty=optional_penalty)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: ObjectiveWeights.__init__() got an unexpected keyword argument 'optional_unscheduled_penalty'
+
+tests\test_optimizer_audit.py:62: TypeError
+_ test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference[250.0] _
+
+optional_penalty = 250.0
+
+    @pytest.mark.parametrize("optional_penalty", [0., 50., 250.])
+    def test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference(optional_penalty):
+        net, cat, jobs = small_instance()
+>       weights = ObjectiveWeights(optional_unscheduled_penalty=optional_penalty)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: ObjectiveWeights.__init__() got an unexpected keyword argument 'optional_unscheduled_penalty'
+
+tests\test_optimizer_audit.py:62: TypeError
+______ test_mandatory_completion_cannot_be_exchanged_for_finite_penalty _______
+
+    def test_mandatory_completion_cannot_be_exchanged_for_finite_penalty():
+        net, cat, jobs = small_instance(mandatory=True)
+        weights = ObjectiveWeights(window_weight=2_000_000.)
+        plan = run_kgp_optimizer(net, jobs, cat, "expensive_required", weights=weights)
+>       assert plan.completed_service_ids == ("J",)
+E       AssertionError: assert () == ('J',)
+E         
+E         Right contains one more item: 'J'
+E         Use -v to get more diff
+
+tests\test_optimizer_audit.py:89: AssertionError
+_ test_infeasible_mandatory_portfolio_has_no_feasible_objective_or_certificate _
+
+    def test_infeasible_mandatory_portfolio_has_no_feasible_objective_or_certificate():
+        net, cat, jobs = small_instance(mandatory=True)
+        jobs = [replace(jobs[0], required_skills=("unavailable",))]
+        plan = run_kgp_optimizer(net, iter(jobs), cat, "required_infeasible")
+        report = verify_plan_feasibility(net, jobs, cat, plan)
+        assert not report.is_feasible
+        assert not report.mandatory_portfolio_complete
+        assert plan.unscheduled_service_ids == ("J",)
+>       assert plan.solver_status == "INFEASIBLE_ON_DISCRETE_COLUMNS"
+E       AssertionError: assert 'PARTIAL_PORTFOLIO' == 'INFEASIBLE_O...CRETE_COLUMNS'
+E         
+E         - INFEASIBLE_ON_DISCRETE_COLUMNS
+E         + PARTIAL_PORTFOLIO
+
+tests\test_optimizer_audit.py:105: AssertionError
+_________ test_recount_requires_canonical_orders_when_omissions_exist _________
+
+    def test_recount_requires_canonical_orders_when_omissions_exist():
+        net, cat, jobs = small_instance()
+        plan = run_kgp_optimizer(net, jobs, cat, "canonical_recount")
+>       with pytest.raises(ValueError, match="services"):
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_optimizer_audit.py:115: Failed
+=========================== short test summary info ===========================
+FAILED tests/test_optimizer_audit.py::test_optional_omission_objective_bound_and_status_describe_same_problem
+FAILED tests/test_optimizer_audit.py::test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference[0.0]
+FAILED tests/test_optimizer_audit.py::test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference[50.0]
+FAILED tests/test_optimizer_audit.py::test_tiny_optional_problem_matches_exhaustive_serve_or_omit_reference[250.0]
+FAILED tests/test_optimizer_audit.py::test_mandatory_completion_cannot_be_exchanged_for_finite_penalty
+FAILED tests/test_optimizer_audit.py::test_infeasible_mandatory_portfolio_has_no_feasible_objective_or_certificate
+FAILED tests/test_optimizer_audit.py::test_recount_requires_canonical_orders_when_omissions_exist
+7 failed in 1.15s

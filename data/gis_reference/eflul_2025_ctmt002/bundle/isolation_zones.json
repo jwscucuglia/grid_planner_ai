@@ -1,0 +1,16 @@
+[
+  {
+    "zone_id": "SYN_ZONE_1",
+    "name": "Synthetic work scenario on a declared public switch",
+    "feeder_id": "002",
+    "open_switches": [
+      "UNSEMT:0114"
+    ],
+    "tie_switches_closed": [],
+    "prep_duration_hours": 0.25,
+    "recomp_duration_hours": 0.25,
+    "requires_transfer_validation": false,
+    "transfer_params_complete": true,
+    "max_transfer_voltage_drop_pct": 5.0
+  }
+]

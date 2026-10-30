@@ -1,0 +1,1756 @@
+{
+  "scope": "Extension of material conservation class 02 only",
+  "source_sha256": {
+    "src\\kgp\\__init__.py": "3a32c2a1e7dabea9ed4664e48e60d6634afc0124bc6734754478f4487f965a95",
+    "src\\kgp\\baselines.py": "e3162fb8e44f8c5fee39a066574ee91b22987441db70b505da531461ccfed2d0",
+    "src\\kgp\\contracts.py": "2e429791167dfa7fdd1d05f16d9b915f8acadc9b309c274fc2605963a37e46b4",
+    "src\\kgp\\eligibility.py": "5eff943bcb3285582b84b81223d43940075d5284612e0fa7cf18c4ebdf2923d0",
+    "src\\kgp\\experiment.py": "212e3e5919da9a679fd3ba1a6c47d9dfd49a4fdf515a7fd257ddda3b927c9474",
+    "src\\kgp\\feasibility.py": "a657b4e82891ffcade376c2752849bfebc6d35b63f15ecdd637580f80dd746b9",
+    "src\\kgp\\ingestion.py": "d2b33675621e13e4fe5a33bf1404515bd4d19477436845d4cfe7a74d7e63e935",
+    "src\\kgp\\integrity.py": "cc34687ad9bfad4ccb9ed023c0961cf7239198eab840b1eca2483d48b45177e5",
+    "src\\kgp\\materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda",
+    "src\\kgp\\metrics.py": "3dc6f497907b759880df0e159bc9eb14250368d253a88f3bcd6766535982559a",
+    "src\\kgp\\optimizer.py": "4f27ad9da19b81f32c61f6877017090cd2223d9260949f163e6ede1b44ee0088",
+    "src\\kgp\\planning_policy.py": "369ba7887626c4497a7e2d35ef764e73a1191462b604eb72f298e3fd172e8194",
+    "src\\kgp\\revalidation.py": "f9f044384715ac09328c873d4e87562f033edaa0aa4e700ffb2721f4832204e5",
+    "src\\kgp\\scheduling.py": "ffa223c6c3b1f119548e6a6d964f19e0b7247820637259f08b3d18cc91cbc78e",
+    "src\\kgp\\topology.py": "4f27b3f09c5b2704ceef0fbd4459ee4b603721bee720a200abd658f84952f11d",
+    "src\\kgp\\validation.py": "83a66b8e1ae20ddb2e8d9015c5c73e58492079aff9a8925bd234fe970e620cdb"
+  },
+  "elapsed_seconds": 6.943,
+  "probes": 105,
+  "passed": 105,
+  "failed": 0,
+  "results": [
+    {
+      "probe": "large_plus_tiny/package/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/package/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/package/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/package/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/windows/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/windows/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/windows/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/windows/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/days/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/days/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/days/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "large_plus_tiny/days/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0000000000000000000000000001",
+        "stock": "1.0",
+        "exact_used": "1.0",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "decimal_sum/package/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/package/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/package/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/package/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/windows/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/windows/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/windows/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/windows/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S2",
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/days/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/days/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/days/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "decimal_sum/days/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.3",
+        "stock": "0.3",
+        "exact_used": "0.3",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_sum/package/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/package/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/package/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/package/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/windows/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/windows/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/windows/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/windows/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/days/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/days/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/days/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_sum/days/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "1.0E-323",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "subnormal_exact/package/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/package/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/package/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/package/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/windows/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/windows/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/windows/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/windows/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/days/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/days/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/days/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "subnormal_exact/days/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "5E-324",
+        "stock": "5e-324",
+        "exact_used": "5E-324",
+        "feasible": true,
+        "complete": [
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/package/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/package/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/package/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/package/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/windows/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/windows/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/windows/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/windows/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S2",
+          "S3",
+          "S1"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/days/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/days/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/days/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_fit/days/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99999",
+        "exact_used": "0.99999",
+        "feasible": true,
+        "complete": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "optimal": true,
+        "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+        "violations": []
+      }
+    },
+    {
+      "probe": "thirds_deficit/package/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/package/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/package/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/package/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/windows/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/windows/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/windows/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/windows/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/days/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/days/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/days/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "thirds_deficit/days/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "0.99999",
+        "stock": "0.99998",
+        "exact_used": "0.66666",
+        "feasible": false,
+        "complete": [
+          "S1",
+          "S2"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S3']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/package/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/package/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/package/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/package/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/windows/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/windows/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/windows/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/windows/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/days/B0",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_INDIVIDUAL",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/days/B1",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_GEOGRAPHIC",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/days/B2",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "overflow/days/KGP",
+      "passed": true,
+      "evidence": {
+        "exact_required": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "stock": "1.7e+308",
+        "exact_used": "100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "feasible": false,
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+        "violations": [
+          "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S2']."
+        ]
+      }
+    },
+    {
+      "probe": "forged_stock/[1.0, 1e-28]/days=False",
+      "passed": true,
+      "evidence": {
+        "expected_total": "1.0000000000000000000000000001",
+        "reported_exact": "10000000000000000000000000001/10000000000000000000000000000",
+        "reported_float": {
+          "M": 1.0
+        },
+        "violations": [
+          "Violação de estoque de material 'M': plano consome 10000000000000000000000000001/10000000000000000000000000000, disponível 1 (valores exatos)."
+        ]
+      }
+    },
+    {
+      "probe": "forged_stock/[1.0, 1e-28]/days=True",
+      "passed": true,
+      "evidence": {
+        "expected_total": "1.0000000000000000000000000001",
+        "reported_exact": "10000000000000000000000000001/10000000000000000000000000000",
+        "reported_float": {
+          "M": 1.0
+        },
+        "violations": [
+          "Violação de estoque de material 'M': plano consome 10000000000000000000000000001/10000000000000000000000000000, disponível 1 (valores exatos)."
+        ]
+      }
+    },
+    {
+      "probe": "forged_stock/[5e-324, 5e-324]/days=False",
+      "passed": true,
+      "evidence": {
+        "expected_total": "1.0E-323",
+        "reported_exact": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "reported_float": {
+          "M": 1e-323
+        },
+        "violations": [
+          "Violação de estoque de material 'M': plano consome 1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, disponível 1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 (valores exatos)."
+        ]
+      }
+    },
+    {
+      "probe": "forged_stock/[5e-324, 5e-324]/days=True",
+      "passed": true,
+      "evidence": {
+        "expected_total": "1.0E-323",
+        "reported_exact": "1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "reported_float": {
+          "M": 1e-323
+        },
+        "violations": [
+          "Violação de estoque de material 'M': plano consome 1/100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, disponível 1/200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 (valores exatos)."
+        ]
+      }
+    },
+    {
+      "probe": "forged_stock/[1e+308, 1e+308]/days=False",
+      "passed": true,
+      "evidence": {
+        "expected_total": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "reported_exact": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "reported_float": {},
+        "violations": [
+          "Violação de estoque de material 'M': plano consome 200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, disponível 170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 (valores exatos).",
+          "Material 'M': total não representável como float finito; consulte o total exato."
+        ]
+      }
+    },
+    {
+      "probe": "forged_stock/[1e+308, 1e+308]/days=True",
+      "passed": true,
+      "evidence": {
+        "expected_total": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "reported_exact": "200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+        "reported_float": {},
+        "violations": [
+          "Violação de estoque de material 'M': plano consome 200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000, disponível 170000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 (valores exatos).",
+          "Material 'M': total não representável como float finito; consulte o total exato."
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[0.33333]/B0",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.3333,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B0_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[0.33333]/B1",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.3333,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B1_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[0.33333]/B2",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.3333,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B2_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[0.33333]/KGP",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.3333,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de KGP_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[5e-324]/B0",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.0,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B0_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[5e-324]/B1",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.0,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B1_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[5e-324]/B2",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.0,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B2_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[5e-324]/KGP",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.0,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de KGP_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[0.1, 0.2]/B0",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.30000000000000004,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B0_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[0.1, 0.2]/B1",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.30000000000000004,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B1_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[0.1, 0.2]/B2",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.30000000000000004,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de B2_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "forged_echo/[0.1, 0.2]/KGP",
+      "passed": true,
+      "evidence": {
+        "bad_echo": 0.30000000000000004,
+        "violations": [
+          "Estrutura/referência inválida: materiais exportados de KGP_bad_echo_W01"
+        ]
+      }
+    },
+    {
+      "probe": "overflow_echo_same_window/no_crash",
+      "passed": true,
+      "evidence": {
+        "violations": [
+          "Estrutura/referência inválida: intervalo órfão em W1",
+          "Estrutura/referência inválida: materiais não representáveis como float finito em W1",
+          "Estrutura/referência inválida: materiais exportados de W1"
+        ]
+      }
+    },
+    {
+      "probe": "milp_exact_final_gate/1.0/1e-28",
+      "passed": true,
+      "evidence": {
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "FEASIBLE_FALLBACK_NO_BOUND",
+        "objective": 1096.92,
+        "bound": null,
+        "violations": []
+      }
+    },
+    {
+      "probe": "milp_exact_final_gate/1e+308/5e-324",
+      "passed": true,
+      "evidence": {
+        "complete": [
+          "S1"
+        ],
+        "optimal": false,
+        "status": "FEASIBLE_FALLBACK_NO_BOUND",
+        "objective": 1096.92,
+        "bound": null,
+        "violations": []
+      }
+    }
+  ]
+}

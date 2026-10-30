@@ -1,63 +1,67 @@
-# RELATÓRIO TÉCNICO DE EXECUÇÃO — KAPTUS GRID PLANNER (KGP v0.2.0)
-## Desafio 07 Inova Cemig.Lab Ciclo 5 | Demonstrador Pré-Inscrição Auditado
+# RELATÓRIO DE EXECUÇÃO — KGP 0.6.0 / REV06
 
-- **Data de execução (UTC):** `2026-10-28T21:37:34.691768+00:00`
-- **Versão do pacote:** `0.2.0`
-- **Ambiente Python:** `3.11.0` (`Windows-10-10.0.26300-SP0`)
-- **Repositório:** `grid_planner_ai` (100% independente do Desafio 06 / GTA)
-- **Modo de operação:** *Sidecar / Out-of-Band* sobre rede de referência multi-alimentador (13,8 kV, 3 alimentadores, 15 barras, 9 chaves NF/NA, 14 ativos em barras e trechos, 198 consumidores) e carteira sintética documentada.
-- **Enquadramento TRL:** Suporte experimental de funções críticas em ambiente analítico/laboratorial de referência (**TRL 3**), sem alegar desempenho operacional em dados produtivos da Cemig.
+Reavaliação sintética de casos conhecidos — Desafio 07 Inova Cemig.Lab Ciclo 5.
 
----
+Execução UTC: 2026-10-29T21:47:45.713158+00:00. Código: `bdd6ab6be7593c906d80261c916eb9874676240a`; SHA-256 por arquivo no protocolo.
+48/48 planos factíveis após leitura do JSON exportado, 8 comparações EVAL admitidas. Carteira obrigatória e factibilidade são condições do benefício.
 
-## 1. Síntese Executiva e Verificação de Hipóteses
+## Resultados descritivos — 8 casos EVAL conhecidos, uma rede de referência
 
-Todos os planos gerados pelos quatro métodos (`B0`, `B1`, `B2` e `KGP`) nas **4 instâncias de desenvolvimento (`DEV`)** e **8 instâncias retidas de avaliação cega (`EVAL`)** foram submetidos a round-trip de serialização JSON e auditados pelo verificador independente (`src/kgp/feasibility.py`), que reconstrói de forma autônoma a conectividade elétrica e confronta todos os campos exportados, cumprindo **100% da carteira obrigatória conhecida na data da decisão** com **zero violações** elétricas, temporais, de equipes ou de materiais.
+| Método | Factíveis | Janelas médias | Manobras médias | Acoplamento | Reincidentes médios | Clientes-hora médios | Tempo médio (s) |
+|---|---|---|---|---|---|---|---|
+| B0 | 8/8 | 3.8750 | 10.2500 | 0.0000 | 37.7500 | 318.7125 | 0.0984 |
+| B1 | 8/8 | 3.2500 | 8.5000 | 0.2083 | 35.0000 | 280.7424 | 0.0847 |
+| B2 | 8/8 | 2.5000 | 7.5000 | 0.4896 | 13.0000 | 255.6620 | 0.5785 |
+| KGP | 8/8 | 2.1250 | 6.2500 | 0.5833 | 0.0000 | 212.3526 | 12.2464 |
 
-### Tabela 1 — Desempenho Agregado nos Cenários Retidos (`EVAL`, $N = 8$ instâncias independentes, IC 95% Bootstrap)
+## Balanço KGP × B2 — valores menores são melhores
 
-| Método | Planos Factíveis | Carteira Obrigatória | Janelas de Interrupção (Média [IC 95%]) | Manobras Físicas (Média [IC 95%]) | Taxa de Acoplamento (Média [IC 95%]) | Consumidores Reincidentes (Média [IC 95%]) | Clientes-Hora União (Média [IC 95%]) | Tempo Médio (s) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **B0** | 8/8 | 100.0% | 3.88 [3.38, 4.38] | 10.25 [8.74, 11.75] | 0.0% [0.0%, 0.0%] | 37.75 [20.23, 57.76] | 318.71 [239.15, 394.40] | 0.0389s |
-| **B1** | 8/8 | 100.0% | 3.25 [2.75, 3.62] | 8.50 [7.25, 9.75] | 20.8% [9.4%, 32.3%] | 35.00 [18.50, 53.50] | 280.74 [212.42, 347.10] | 0.0345s |
-| **B2** | 8/8 | 100.0% | 2.50 [1.88, 3.12] | 7.50 [6.50, 8.26] | 49.0% [27.1%, 71.9%] | 13.00 [2.00, 31.00] | 256.89 [196.41, 316.79] | 0.0352s |
-| **KGP** | 8/8 | 100.0% | 2.12 [1.62, 2.62] | 6.25 [4.75, 7.75] | 58.3% [33.3%, 81.2%] | 0.00 [0.00, 0.00] | 212.72 [169.65, 254.35] | 3.3000s |
+| Métrica | Ganhos | Empates | Perdas |
+|---|---|---|---|
+| by_windows | 3 | 5 | 0 |
+| by_consumer_hours | 5 | 2 | 1 |
+| by_repeat_consumers | 3 | 5 | 0 |
+| by_physical_maneuvers | 3 | 5 | 0 |
+| by_combined_objective_J | 7 | 1 | 0 |
 
-### Tabela 1B — Balanço Pareado `KGP` vs. `B2` por Métrica Individual (`EVAL`, $N = 8$)
+## Resultados por caso
 
-| Métrica Avaliada | Vitórias `KGP` (< `B2`) | Empates (`KGP` = `B2`) | Perdas `KGP` (> `B2`) | Observação de Trade-Off |
-| :--- | :---: | :---: | :---: | :--- |
-| **Janelas de Interrupção** | 3 | 5 | 0 | Zero perdas em frequência de desligamentos |
-| **Clientes-Hora (União)** | 6 | 1 | 1 | Em `EVAL_03`, `KGP` aguarda o dia 2 para reduzir 1 janela e zerar 16 reincidentes, com trade-off de +33,55 ch |
-| **Consumidores Reincidentes** | 3 | 5 | 0 | Elimina toda a reincidência (0,00 vs. 13.00 média em `B2`) |
-| **Objetivo Combinado ($J$)** | 7 | 1 | 0 | `KGP` vence ou empata em 100% das instâncias na função objetivo ponderada |
+| Caso | Janelas B0/B1/B2/KGP | Clientes-hora B0/B1/B2/KGP | Δ KGP−B2 clientes-hora |
+|---|---|---|---|
+| EVAL_01_TOPO_DISTANT_AND_PARALLEL | 4/4/2/2 | 429.90/429.90/243.20/243.20 | +0.0000 |
+| EVAL_02_TIE_TRANSFER_AND_CREW_SYNC | 4/3/2/2 | 486.70/299.50/256.12/167.80 | -88.3218 |
+| EVAL_03_PRECEDENCE_AND_RELEASE_DATES | 4/3/3/2 | 182.80/147.65/147.65/181.20 | +33.5536 |
+| EVAL_04_FREQ_VS_DURATION_TRADEOFF | 3/3/2/1 | 285.90/285.90/382.13/265.72 | -116.4144 |
+| EVAL_05_DISJOINT_NO_OPPORTUNITY | 3/3/3/3 | 144.00/144.00/144.00/144.00 | +0.0000 |
+| EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER | 3/2/1/1 | 263.40/217.90/183.24/120.11 | -63.1344 |
+| EVAL_07_STOCHASTIC_PORTFOLIO | 5/4/3/3 | 405.20/404.45/372.31/289.80 | -82.5120 |
+| EVAL_08_STOCHASTIC_PORTFOLIO | 5/4/4/3 | 351.80/316.65/316.65/287.00 | -29.6464 |
 
-### Avaliação das Hipóteses Científicas
-- **H1 (Conectividade pós-manobra vs. seleção geográfica):** Confirmada. O raio de `B1` calibrado nas sementes `DEV` (`0.75 km`) agrupa apenas serviços geograficamente próximos; em cenários onde ativos distantes (`1,9 km > raio B1 = 0.75 km`) pertencem à mesma zona isolada após manobra de transferência por chave NA (`SW_TIE_12`), e ativos próximos (`0,20 km`) pertencem a alimentadores distintos (`F1` vs. `F2`), `B1` não captura o acoplamento distante e tem o agrupamento inter-alimentador barrado pelo verificador elétrico, enquanto `B2` e `KGP` identificam a compatibilidade real pós-manobra.
-- **H2 (Otimização conjunta vs. heurística topológica gulosa `B2`):** Confirmada com registro transparente de ganhos, empates e trade-offs por métrica (Tabela 1B). Quando há múltiplas datas elegíveis com disponibilidade distinta de equipes ou escolha entre acoplar serviço longo em zona tronco vs. zona distal, o otimizador `KGP` reduz janelas (3 vitórias, 5 empates, 0 perdas) e clientes-hora (6 vitórias, 1 empate, 1 perda em `EVAL_03` onde prioriza eliminar 1 janela e 16 consumidores reincidentes).
-- **H3 (Factibilidade sob limites de equipes, precedências e variação de duração):** Confirmada. A duração de cada janela emerge da sequência real de execução das equipes (paralela quando há múltiplas equipes habilitadas disponíveis; sequencial quando há compartilhamento de equipe, precedência ou restrição de não-simultaneidade).
+## Interpretação e limites
 
----
+- H1/H2/H3 recebem evidência apenas nos casos representados. As entradas DEV/EVAL já foram observadas; não há novo cegamento nem amostra independente de redes Cemig.
+- O gerador, as sementes e o raio B1 de 0,75 km foram mantidos. Código, entradas, pesos e análise foram congelados antes de executar esta rodada. O protocolo contém os hashes e as versões.
+- O bootstrap empírico no JSON descreve reamostragens destes oito casos desenhados na mesma rede. Não mede validade externa nem demonstra benefício operacional ou economia na Cemig.
+- O verificador reconstrói conectividade por Union-Find por fase, etapas e intervalos de consumidores sem chamar o simulador do planejador (que usa BFS). Compartilha contratos e validadores cadastrais; a aproximação radial de transferência é implementada separadamente sob hipóteses comuns. Revisão por outro agente não equivale a auditoria por terceiro humano.
+- Todas as janelas elétricas são seriais, inclusive zonas disjuntas. A linha temporal global verifica alvos durante transferência/execução/recomposição; sobreposições continuam bloqueadas. Equipes podem atuar em paralelo dentro da mesma janela.
+- Preparação/recomposição elétricas são etapas agregadas: abertura no início, transferência no meio da preparação e restauração do estado inicial ao final. Não se certifica sequência individual de campo, proteção, LOTO ou aterramento. Consumidores inicialmente sem alimentação são rejeitados por escopo.
+- Janelas, manobras físicas, interrupções por consumidor e reincidência são métricas diferentes. Clientes-hora são a soma por consumidor da união de intervalos, sem duplicidade; contadores provêm do recálculo independente.
+- B2 inclui um passe local de até 30 trocas de zona, preservando pacotes e dias, reconstruindo as rotas completas e aceitando somente menor objetivo padrão e plano factível. Não é ótimo local de todo espaço.
+- OPTIMAL_ON_DISCRETE_COLUMNS refere-se somente às colunas geradas. A expansão limita pacotes a 5 ordens, 5 janelas/dia e 120 estados por profundidade, com inícios e alocações construtivos. Agendas factíveis das sementes B0/B1/B2 são acrescentadas fora desses filtros de tamanho; o certificado cobre o catálogo combinado efetivo. Inviabilidade desse catálogo não prova inviabilidade operacional geral. Objetivo, bound, gap, tempo e limites constam dos planos.
+- Carteira obrigatória é restrição rígida; omissão opcional custa 50 por ordem nos pesos padrão. Nenhuma incompletude recebe pontuação de benefício. Bound/gap são saídas do solver, sem verificação formal de certificado externo.
+- TRL 3 é proposta restrita às funções demonstradas em laboratório; a plataforma não foi validada operacionalmente. Integrações Electric Office/GeoServiços/SAP e validação dos programadores dependem da Cemig, em leitura/sidecar e sem telecomandos.
+- Estudos históricos 0.1.0-d07-scoped e REV02 são preservados separadamente e não são somados a esta rodada.
 
-## 2. Resultados Pareados por Cenário Retido (`EVAL`)
+- REV04/A1: toda etapa elétrica com duração positiva deve ser admissível, incluindo isolamento e recomposição. A conferência dos campos de uma etapa inviável não equivale à sua aprovação.
+- REV04/A2: ilhamento por geração distribuída é explicitamente não suportado e bloqueado antes de planejar/auditar. A rede de referência mantém anti-ilhamento; não se anuncia fluxo de DG sem seus limites.
+- REV04/A3/A4: dias anteriores à decisão são excluídos; certificado exige auditoria do plano bruto e após JSON. Transferência obrigatória malsucedida rejeita a intervenção; na opcional abandonada, a chave permanece aberta e esse estado efetivamente executado é auditado.
+- REV04/A5: grade operacional de 0,0001 h (0,36 s), fronteiras/união em ticks inteiros e adjacência exata. Horários fora da grade são rejeitados; a tolerância de representação binária não apaga intervalos ou reduz requisitos de duração/agenda.
+- Baliza temporal adicional: o catálogo exige gap diário positivo de recomposição. Catálogos ininterruptos 0–24h são recusados antes de planejar/auditar; o objetivo de colunas diárias não certifica continuidade de uma interrupção através da meia-noite.
+- REV05/A-CODE-01: totais e saldos de materiais são conservados por aritmética racional exata dos valores decimais canônicos. O verificador reconstrói esses totais independentemente; arredondamento de apresentação e tolerâncias do MILP não autorizam falta de estoque. Totais não representáveis como float finito não são exportados como infinitos.
+- Acoplamento no estudo é a proporção de janelas do plano com dois ou mais serviços sobre todas as janelas do plano. Os 1,7% oficiais usam manobras como denominador e não são diretamente intercambiáveis com essa métrica.
+- REV06: a aproximação física exige árvore energizada por fase e uma fonte ativa por componente no estado inicial e nos estados analisados. Ciclos, paralelas condutoras e múltiplas fontes conectadas são bloqueados; a conectividade cadastral continua preservando todas as arestas. O cadastro GIS público CTMT002 fica fora desse domínio físico, sem descartar ligações para forçar aceite.
+- As durações de manobra por chave são informativas neste contrato. A agenda e o verificador usam durações agregadas autoritativas da zona, a validar externamente; não derivam nem certificam tempos individuais de campo.
+## Artefatos e reprodução
 
-| Cenário (`EVAL`) | Janelas (`B0 / B1 / B2 / KGP`) | Clientes-Hora (`B0 / B1 / B2 / KGP`) | Reincidentes (`B0 / B1 / B2 / KGP`) | Diferença `KGP - B2` (Janelas / Clientes-Hora) | Status Solver `KGP` (Gap) |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| `EVAL_01_TOPO_DISTANT_AND_PARALLEL` | 4 / 4 / 2 / **2** | 429.9 / 429.9 / 253.0 / **243.2** | 82 / 82 / 0 / **0** | +0 jan / -9.80 ch | `OPTIMAL_ON_DISCRETE_COLUMNS` (0.0000%) |
-| `EVAL_02_TIE_TRANSFER_AND_CREW_SYNC` | 4 / 3 / 2 / **2** | 486.7 / 299.5 / 256.1 / **167.8** | 72 / 50 / 0 / **0** | +0 jan / -88.32 ch | `OPTIMAL_ON_DISCRETE_COLUMNS` (0.0000%) |
-| `EVAL_03_PRECEDENCE_AND_RELEASE_DATES` | 4 / 3 / 3 / **2** | 182.8 / 147.6 / 147.6 / **181.2** | 16 / 16 / 16 / **0** | -1 jan / +33.55 ch | `OPTIMAL_ON_DISCRETE_COLUMNS` (0.0000%) |
-| `EVAL_04_FREQ_VS_DURATION_TRADEOFF` | 3 / 3 / 2 / **1** | 285.9 / 285.9 / 382.1 / **265.7** | 50 / 50 / 72 / **0** | -1 jan / -116.41 ch | `OPTIMAL_ON_DISCRETE_COLUMNS` (0.0000%) |
-| `EVAL_05_DISJOINT_NO_OPPORTUNITY` | 3 / 3 / 3 / **3** | 144.0 / 144.0 / 144.0 / **144.0** | 0 / 0 / 0 / **0** | +0 jan / +0.00 ch | `OPTIMAL_ON_DISCRETE_COLUMNS` (0.0000%) |
-| `EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER` | 3 / 2 / 1 / **1** | 263.4 / 217.9 / 183.2 / **120.1** | 50 / 50 / 0 / **0** | +0 jan / -63.13 ch | `OPTIMAL_ON_DISCRETE_COLUMNS` (0.0000%) |
-| `EVAL_07_STOCHASTIC_PORTFOLIO` | 5 / 4 / 3 / **3** | 405.2 / 404.4 / 372.3 / **291.2** | 16 / 16 / 0 / **0** | +0 jan / -81.10 ch | `OPTIMAL_ON_DISCRETE_COLUMNS` (0.0000%) |
-| `EVAL_08_STOCHASTIC_PORTFOLIO` | 5 / 4 / 4 / **3** | 351.8 / 316.6 / 316.6 / **288.5** | 16 / 16 / 16 / **0** | -1 jan / -28.13 ch | `OPTIMAL_ON_DISCRETE_COLUMNS` (0.0000%) |
-
----
-
-## 3. Distinção Metodológica e Limitações Declaradas
-
-1. **Janelas de Interrupção vs. Manobras Físicas:** Cada janela de interrupção requer abertura e posterior fechamento de chaves seccionadoras NF e, quando há transferência de carga, fechamento e abertura de chave NA ($2 \times N_{\text{chaves}}$ operações físicas). O relatório contabiliza ambas separadamente.
-2. **Clientes-Hora sem Duplicidade:** Calculados pela soma, por consumidor, da duração da união disjunta dos intervalos sem alimentação em todas as etapas da manobra.
-3. **Escopo de Otimalidade (`OPTIMAL_ON_DISCRETE_COLUMNS`):** A otimalidade comprovada pelo solver MILP (HiGHS) refere-se ao espaço discreto de colunas candidatas factíveis geradas a partir das zonas de isolamento, dias, inícios de turno e pacotes elegíveis.
-4. **Não Extrapolação Financeira Direta:** Os resultados em rede de referência não são convertidos por regra de três sobre o montante de R\$ 3,64 milhões do Anexo 2, pois a apuração regulatória de compensações DIC/FIC/DMIC exige histórico individual por unidade consumidora, limites mensais/trimestrais/anuais do PRODIST Módulo 8 e faturamento real.
-5. **Restrições Operacionais de Campo Não Modeladas:** Seletividade fina de proteção em tempo real, instalação física de aterramento temporário, bloqueio mecânico (LOTO) e autorização final do COD permanecem sob responsabilidade operacional humana da Cemig.
+`python -m pytest -q`; `python -m kgp.experiment`. Entradas, planos lidos e verificações estão em `reports/revalidation_REV06_20261029/`; CSV, JSON, figura branca 16:9 e manifesto SHA-256 estão em `reports/`.
+Consulte também AUDITORIA_DOCUMENTAL_D07.md, MATRIZ_ADERENCIA_OFICIAL_D07.md, AUDITORIA_OTIMIZADOR_D07.md e REVISAO_INDEPENDENTE_NUCLEO_D07.md.

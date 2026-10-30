@@ -23,7 +23,9 @@ qualquer ExecutionPlan exportado recalculando de forma autônoma:
 from __future__ import annotations
 
 from collections import deque
+from fractions import Fraction
 import math
+import sys
 from typing import Dict, Iterable, List, Optional, Set, Tuple
 
 from .contracts import (
@@ -35,18 +37,35 @@ from .contracts import (
     GridNetwork,
     IsolationZoneSpec,
     ManeuverStage,
+    ManeuverStepResult,
     PlannedInterruptionWindow,
     ResourceCatalog,
     ServiceOrder,
     SwitchState,
+    TICKS_PER_HOUR,
+    operational_time_ticks,
 )
 from .eligibility import detect_lifecycle_conflicts
-from .metrics import merge_intervals
+from .validation import validate_problem_and_plan
 from .topology import (
-    simulate_zone_intervention,
     validate_asset_registration,
     validate_switch_maneuverability,
 )
+
+
+def merge_intervals(intervals):
+    """Independent interval union over integer operational ticks."""
+    ordered = sorted((operational_time_ticks(a), operational_time_ticks(b)) for a,b in intervals)
+    result = []
+    for a,b in ordered:
+        if b <= a:
+            continue
+        if result and a <= result[-1][1]:
+            result[-1] = (result[-1][0], max(b, result[-1][1]))
+        else:
+            result.append((a,b))
+    return [(a / TICKS_PER_HOUR, b / TICKS_PER_HOUR) for a,b in result]
+
 
 
 def _canonical_travel_hours(
@@ -56,10 +75,11 @@ def _canonical_travel_hours(
     y2: float,
     speed_kmh: float,
 ) -> float:
+    if not math.isfinite(speed_kmh) or speed_kmh <= 0.0:
+        raise ValueError("Velocidade de deslocamento deve ser positiva e finita.")
     dist_km = math.hypot(x2 - x1, y2 - y1)
-    if dist_km <= 1e-6:
-        return 0.0
-    return round(dist_km / max(5.0, speed_kmh), 4)
+    # Independently reconstruct the ratio before applying the time grid.
+    return round(dist_km / speed_kmh, 4)
 
 
 def _crew_has_all_skills(
@@ -70,86 +90,102 @@ def _crew_has_all_skills(
     return all(req in c_set for req in required_skills)
 
 
-def _independent_energized_phases_and_sources(
-    network: GridNetwork,
-    open_switches: Set[str],
-    closed_switches: Set[str],
-) -> Tuple[Dict[str, Set[str]], Dict[str, Dict[str, Set[str]]], Dict[str, GridBranch]]:
-    """Recálculo autônomo de fases energizadas e fontes supridoras por fase via BFS."""
-    branch_switches: Dict[str, List[str]] = {}
-    for sw_id, sw in network.switches.items():
-        branch_switches.setdefault(sw.branch_id, []).append(sw_id)
+def _independent_energized_phases_and_sources(network, open_switches, closed_switches):
+    """Phase connectivity by disjoint sets, independently of planner BFS.
 
-    active_branches: Dict[str, GridBranch] = {}
-    adj_by_phase: Dict[str, Dict[str, List[Tuple[str, GridBranch]]]] = {
-        ph: {nid: [] for nid in network.nodes} for ph in ("A", "B", "C")
-    }
-    for br_id, br in network.branches.items():
-        if not br.in_service:
+    Transfer calculations retain the same radial approximation; independence
+    of implementation does not establish operational load-flow accuracy.
+    """
+    active_branches = {}
+    branch_switches = {}
+    for sid, switch in network.switches.items():
+        branch_switches.setdefault(switch.branch_id, []).append((sid, switch))
+    for bid, branch in network.branches.items():
+        if not branch.in_service or not all(network.nodes[n].in_service for n in (branch.from_node, branch.to_node)):
             continue
-        if br.from_node not in network.nodes or br.to_node not in network.nodes:
-            continue
-        if (
-            not network.nodes[br.from_node].in_service
-            or not network.nodes[br.to_node].in_service
-        ):
-            continue
-        is_open = False
-        for sw_id in branch_switches.get(br_id, []):
-            sw = network.switches[sw_id]
-            if not sw.in_service:
-                is_open = True
-                break
-            if not sw.is_maneuverable:
-                eff_state = sw.current_state
-            elif sw_id in open_switches:
-                eff_state = SwitchState.OPEN
-            elif sw_id in closed_switches:
-                eff_state = SwitchState.CLOSED
-            else:
-                eff_state = sw.current_state
-            if eff_state == SwitchState.OPEN:
-                is_open = True
-                break
-        if is_open:
-            continue
-        active_branches[br_id] = br
-        for ph in br.phases:
-            if ph in adj_by_phase:
-                adj_by_phase[ph][br.from_node].append((br.to_node, br))
-                adj_by_phase[ph][br.to_node].append((br.from_node, br))
-
-    energized: Dict[str, Set[str]] = {nid: set() for nid in network.nodes}
-    sources_by_ph: Dict[str, Dict[str, Set[str]]] = {
-        ph: {nid: set() for nid in network.nodes} for ph in ("A", "B", "C")
-    }
-
-    for ph in ("A", "B", "C"):
-        q: deque[Tuple[str, str]] = deque()
-        visited: Set[Tuple[str, str]] = set()
-        for nid, node in network.nodes.items():
-            if not node.in_service or ph not in node.phases:
-                continue
-            is_src = node.is_source or (
-                network.allow_dg_islanding and node.distributed_gen_kw > 0.0
-            )
-            if is_src:
+        conducting = True
+        for sid, switch in branch_switches.get(bid, []):
+            state = switch.current_state
+            if switch.is_maneuverable:
+                if sid in open_switches:
+                    state = SwitchState.OPEN
+                elif sid in closed_switches:
+                    state = SwitchState.CLOSED
+            conducting &= switch.in_service and state == SwitchState.CLOSED
+        if conducting:
+            active_branches[bid] = branch
+    energized = {nid: set() for nid in network.nodes}
+    sources_by_ph = {ph: {nid: set() for nid in network.nodes} for ph in ('A', 'B', 'C')}
+    for ph in ('A', 'B', 'C'):
+        parent = {nid: nid for nid, node in network.nodes.items() if node.in_service and ph in node.phases}
+        def root(nid):
+            while parent[nid] != nid:
+                parent[nid] = parent[parent[nid]]
+                nid = parent[nid]
+            return nid
+        for branch in active_branches.values():
+            if ph in branch.phases and branch.from_node in parent and branch.to_node in parent:
+                parent[root(branch.from_node)] = root(branch.to_node)
+        sources = {}
+        for nid in parent:
+            node = network.nodes[nid]
+            if node.is_source or (network.allow_dg_islanding and node.distributed_gen_kw > 0):
+                sources.setdefault(root(nid), set()).add(nid)
+        for nid in parent:
+            supplying = sources.get(root(nid), set())
+            sources_by_ph[ph][nid].update(supplying)
+            if supplying:
                 energized[nid].add(ph)
-                sources_by_ph[ph][nid].add(nid)
-                visited.add((nid, nid))
-                q.append((nid, nid))
-        while q:
-            curr, src_id = q.popleft()
-            for nbr, _ in adj_by_phase[ph].get(curr, []):
-                nbr_node = network.nodes[nbr]
-                if nbr_node.in_service and ph in nbr_node.phases:
-                    energized[nbr].add(ph)
-                    sources_by_ph[ph][nbr].add(src_id)
-                    if (nbr, src_id) not in visited:
-                        visited.add((nbr, src_id))
-                        q.append((nbr, src_id))
-
     return energized, sources_by_ph, active_branches
+
+
+def _independent_radial_analysis_issues(network, energized_phases, active_branches):
+    """Independent Union-Find cycle/source gate for the radial physical model.
+
+    Unlike planner BFS/edge counting, every edge closing a disjoint-set path
+    records a cycle. Source counts and cycle ownership are resolved only after
+    all unions; record ordering cannot choose a physical flow tree.
+    """
+    issues = []
+    for phase in ('A', 'B', 'C'):
+        parent = {nid: nid for nid, node in network.nodes.items()
+                  if node.in_service and phase in node.phases
+                  and phase in energized_phases.get(nid, set())}
+        def find(nid):
+            while parent[nid] != nid:
+                parent[nid] = parent[parent[nid]]
+                nid = parent[nid]
+            return nid
+        cycle_nodes = []
+        edges = []
+        for branch in active_branches.values():
+            a, b = branch.from_node, branch.to_node
+            if phase not in branch.phases or a not in parent or b not in parent:
+                continue
+            edges.append((a, b))
+            ra, rb = find(a), find(b)
+            if ra == rb:
+                cycle_nodes.append(a)
+            else:
+                parent[ra] = rb
+        components = {}
+        for nid in sorted(parent):
+            components.setdefault(find(nid), []).append(nid)
+        cyclic_roots = {find(nid) for nid in cycle_nodes}
+        edge_counts = {}
+        for a, _ in edges:
+            root = find(a)
+            edge_counts[root] = edge_counts.get(root, 0) + 1
+        for root, component in components.items():
+            sources = [nid for nid in component if network.nodes[nid].is_source]
+            if not sources:
+                continue
+            prefix = f"Domínio físico radial não suportado na fase {phase}, componente '{component[0]}': "
+            if root in cyclic_roots:
+                issues.append(prefix + f"ciclo/caminhos paralelos energizados ({len(component)} nós, {edge_counts.get(root, 0)} trechos).")
+            if len(sources) != 1:
+                issues.append(prefix + f"{len(sources)} fontes ativas conectadas; exige exatamente uma por componente/fase.")
+    return issues
 
 
 def _independent_phase_transfer_check(
@@ -162,8 +198,8 @@ def _independent_phase_transfer_check(
     active_branches: Dict[str, GridBranch],
 ) -> Tuple[bool, float, float, str]:
     """Recálculo autônomo por fase do fluxo de transferência, carregamento e queda de tensão."""
-    if not closed_switches and not zone.requires_transfer_validation:
-        return True, 0.0, 0.0, "OK"
+    if network.allow_dg_islanding:
+        return False, 0.0, 0.0, "Ilhamento por GD não suportado nesta versão."
 
     sw_err = validate_switch_maneuverability(
         network, open_switches, closed_switches
@@ -171,13 +207,17 @@ def _independent_phase_transfer_check(
     if sw_err:
         return False, 0.0, 0.0, "; ".join(sw_err)
 
-    if not zone.transfer_params_complete:
+    if (closed_switches or zone.requires_transfer_validation) and not zone.transfer_params_complete:
         return (
             False,
             0.0,
             0.0,
             f"Parâmetros de transferência incompletos na zona '{zone.zone_id}'.",
         )
+
+    domain_issues = _independent_radial_analysis_issues(network, energized_phases, active_branches)
+    if domain_issues:
+        return False, 0.0, 0.0, "; ".join(domain_issues)
 
     for br in active_branches.values():
         if br.max_capacity_kw <= 0.0 or br.r_ohm < 0.0 or br.x_ohm < 0.0:
@@ -338,6 +378,87 @@ def _is_asset_conservatively_deenergized(
     return True
 
 
+def _reference_step(network, zone, order, stage, start, end, opened, closed):
+    phases, sources, branches = _independent_energized_phases_and_sources(network, set(opened), set(closed))
+    ok, loading, drop, note = _independent_phase_transfer_check(network, zone, set(opened), set(closed), phases, sources, branches)
+    return ManeuverStepResult(
+        step_order=order, stage=stage, start_hour=operational_time_ticks(start) / TICKS_PER_HOUR,
+        end_hour=operational_time_ticks(end) / TICKS_PER_HOUR,
+        open_switches=tuple(sorted(opened)), closed_switches=tuple(sorted(closed)),
+        energized_nodes=tuple(sorted(n for n, active in phases.items() if active)),
+        deenergized_nodes=tuple(sorted(n for n, active in phases.items() if not active)),
+        deenergized_assets=tuple(sorted(a for a in network.assets if _is_asset_conservatively_deenergized(network,a,phases)
+                                      and not validate_asset_registration(network,a))),
+        interrupted_consumers=tuple(sorted(cid for cid,c in network.consumers.items() if c.phase not in phases[c.node_id])),
+        active_sources=tuple(sorted({src for by_node in sources.values() for srcs in by_node.values() for src in srcs})),
+        transfer_feasible=ok, max_loading_pct=round(loading,2), estimated_voltage_drop_pct=round(drop,3), notes=note)
+
+
+
+def _reference_zone_intervention(network, zone_id, work_start_hour, work_end_hour):
+    """Separate reconstruction of the chosen switching policy in integer ticks.
+
+    Mandatory transfer never falls back. Optional transfer may be abandoned if
+    its probe fails; the resulting three stages keep the tie open. An odd
+    preparation tick is assigned to TRANSFER (midpoint uses floor).
+    """
+    z=network.isolation_zones[zone_id]
+    ws,we=operational_time_ticks(work_start_hour),operational_time_ticks(work_end_hour)
+    prep,recomp=operational_time_ticks(z.prep_duration_hours),operational_time_ticks(z.recomp_duration_hours)
+    begin,end=(ws-prep)/TICKS_PER_HOUR,(we+recomp)/TICKS_PER_HOUR
+    phase,srcs,branches=_independent_energized_phases_and_sources(network,set(z.open_switches),set(z.tie_switches_closed))
+    transfer_ok,_,_,_=_independent_phase_transfer_check(network,z,set(z.open_switches),set(z.tie_switches_closed),phase,srcs,branches)
+    if z.tie_switches_closed and (transfer_ok or z.requires_transfer_validation):
+        mid=(ws-prep+prep//2)/TICKS_PER_HOUR
+        definitions=[(ManeuverStage.ISOLATION,begin,mid,()),
+                     (ManeuverStage.TRANSFER,mid,work_start_hour,z.tie_switches_closed),
+                     (ManeuverStage.EXECUTION,work_start_hour,work_end_hour,z.tie_switches_closed),
+                     (ManeuverStage.RECOMPOSITION,work_end_hour,end,z.tie_switches_closed)]
+        maneuvers=2*(len(z.open_switches)+len(z.tie_switches_closed))
+    else:
+        definitions=[(ManeuverStage.ISOLATION,begin,work_start_hour,()),
+                     (ManeuverStage.EXECUTION,work_start_hour,work_end_hour,()),
+                     (ManeuverStage.RECOMPOSITION,work_end_hour,end,())]
+        maneuvers=2*len(z.open_switches)
+    return tuple(_reference_step(network,z,i+1,stage,start,stop,z.open_switches,closed)
+                 for i,(stage,start,stop,closed) in enumerate(definitions)),maneuvers
+
+
+
+def _global_reference_timeline(network, plan, svc_map):
+    """Joint phase connectivity on half-open integer tick event intervals."""
+    intervals,violations={},[]
+    for day in {w.day for w in plan.windows}:
+        windows=[w for w in plan.windows if w.day==day and w.zone_id in network.isolation_zones]
+        references=[(w,_reference_zone_intervention(network,w.zone_id,w.work_start_hour,w.work_end_hour)[0]) for w in windows]
+        boundaries=sorted({operational_time_ticks(t) for _,steps in references for step in steps for t in (step.start_hour,step.end_hour)})
+        for start,end in zip(boundaries,boundaries[1:]):
+            if end<=start:
+                continue
+            active=[(w,step) for w,steps in references for step in steps
+                    if operational_time_ticks(step.start_hour)<=start<end<=operational_time_ticks(step.end_hour)]
+            if not active:
+                continue
+            opened={sid for _,step in active for sid in step.open_switches}
+            closed={sid for _,step in active for sid in step.closed_switches}
+            if opened & closed:
+                violations.append(f'Conflito elétrico global: comandos contraditórios no dia {day}, {start/TICKS_PER_HOUR:.4f}h.')
+            phases,_,_=_independent_energized_phases_and_sources(network,opened,closed)
+            for cid,consumer in network.consumers.items():
+                if consumer.phase not in phases[consumer.node_id]:
+                    intervals.setdefault(cid,[]).append(((day*24*TICKS_PER_HOUR+start)/TICKS_PER_HOUR,
+                                                         (day*24*TICKS_PER_HOUR+end)/TICKS_PER_HOUR))
+            for w,_ in active:
+                for iv in w.crew_intervals:
+                    svc=svc_map.get(iv.service_id)
+                    if svc and svc.requires_deenergized and min(end,operational_time_ticks(iv.exec_end_hour))>max(start,operational_time_ticks(iv.exec_start_hour)):
+                        for asset in svc.target_assets:
+                            if not _is_asset_conservatively_deenergized(network,asset,phases):
+                                violations.append(f'Violação de isolamento elétrico global: {asset} do serviço {svc.service_id} energizado no dia {day}, {start/TICKS_PER_HOUR:.4f}h–{end/TICKS_PER_HOUR:.4f}h.')
+    return intervals,violations
+
+
+
 def verify_plan_feasibility(
     network: GridNetwork,
     services: Iterable[ServiceOrder],
@@ -345,9 +466,34 @@ def verify_plan_feasibility(
     plan: ExecutionPlan,
 ) -> FeasibilityReport:
     """Audita integralmente um plano exportado contra todas as restrições do problema."""
+    services = list(services)
+    structural_errors = validate_problem_and_plan(network, services, catalog, plan)
+    if structural_errors:
+        # Fail closed without traversing fields already diagnosed as malformed.
+        decision_day = plan.decision_day if isinstance(plan, ExecutionPlan) and type(plan.decision_day) is int else 0
+        mandatory = [s for s in services if isinstance(s, ServiceOrder) and s.mandatory and s.scope_status == 'ACTIVE'
+                     and type(s.created_at_day) is int and s.created_at_day <= decision_day]
+        return FeasibilityReport(
+            plan_id=str(getattr(plan, 'plan_id', 'INVALID')), method_name=str(getattr(plan, 'method_name', 'INVALID')),
+            scenario_id=str(getattr(plan, 'scenario_id', 'INVALID')),
+            is_feasible=False, mandatory_portfolio_complete=False,
+            completed_mandatory_count=0, total_mandatory_count=len(mandatory),
+            violations=structural_errors, isolation_verified=False,
+        )
     svc_map: Dict[str, ServiceOrder] = {s.service_id: s for s in services}
     violations: List[str] = []
     warnings: List[str] = []
+    initial_phases, _, initial_branches = _independent_energized_phases_and_sources(network, set(), set())
+    initial_domain_issues = _independent_radial_analysis_issues(network, initial_phases, initial_branches)
+    violations.extend('Rede fora do escopo radial no estado inicial: ' + message for message in initial_domain_issues)
+    initially_off = [cid for cid, consumer in network.consumers.items()
+                     if consumer.phase not in initial_phases[consumer.node_id]]
+    if initially_off:
+        violations.append(
+            f"Rede fora do escopo: {len(initially_off)} consumidor(es) inicialmente sem alimentação. "
+            "O catálogo modela interrupções programadas com recomposição ao estado inicial; "
+            "interrupções preexistentes exigem horizonte de observação próprio."
+        )
 
     known_mandatory = [
         s.service_id
@@ -395,7 +541,9 @@ def verify_plan_feasibility(
             f"serviço(s) obrigatório(s): {missing_mandatory}."
         )
 
-    recalculated_materials: Dict[str, float] = {}
+    # Reconstructed from canonical service requirements, independently of the
+    # planner's balance helper and of exported (display-only) window totals.
+    exact_materials: Dict[str, Fraction] = {}
     recalculated_maneuvers = 0
     recalc_consumer_intervals: Dict[str, List[Tuple[float, float]]] = {}
     exported_consumer_intervals: Dict[str, List[Tuple[float, float]]] = {}
@@ -420,51 +568,57 @@ def verify_plan_feasibility(
         zone = network.isolation_zones[win.zone_id]
 
         # Validação de permissão operacional de todas as chaves da zona e da janela:
-        sw_errors = validate_switch_maneuverability(
-            network,
-            set(zone.open_switches),
-            set(zone.tie_switches_closed),
-        )
+        sw_errors = validate_switch_maneuverability(network, set(zone.open_switches), set())
         if sw_errors:
             for err in sw_errors:
                 violations.append(
                     f"Violação de permissão de manobra na janela '{win.window_id}' (zona '{win.zone_id}'): {err}"
                 )
 
-        if win.start_hour < catalog.window_start_hour - 1e-4:
+        if operational_time_ticks(win.start_hour) < operational_time_ticks(catalog.window_start_hour):
             violations.append(
                 f"Janela '{win.window_id}' inicia às {win.start_hour:.2f}h antes do "
                 f"permitido ({catalog.window_start_hour:.2f}h)."
             )
-        if win.end_hour > catalog.window_end_hour + 1e-4:
+        if operational_time_ticks(win.end_hour) > operational_time_ticks(catalog.window_end_hour):
             violations.append(
                 f"Janela '{win.window_id}' termina às {win.end_hour:.2f}h após o "
                 f"limite ({catalog.window_end_hour:.2f}h)."
             )
-        if (win.end_hour - win.start_hour) > catalog.max_window_duration_hours + 1e-4:
+        if operational_time_ticks(win.end_hour) - operational_time_ticks(win.start_hour) > operational_time_ticks(catalog.max_window_duration_hours):
             violations.append(
                 f"Janela '{win.window_id}' excede duração máxima "
                 f"({win.end_hour - win.start_hour:.2f}h > {catalog.max_window_duration_hours:.2f}h)."
             )
 
-        if win.work_start_hour - win.start_hour < zone.prep_duration_hours - 1e-4:
+        if operational_time_ticks(win.work_start_hour) - operational_time_ticks(win.start_hour) < operational_time_ticks(zone.prep_duration_hours):
             violations.append(
                 f"Janela '{win.window_id}' não respeita tempo de manobra de isolamento "
                 f"da zona '{win.zone_id}' ({zone.prep_duration_hours:.2f}h)."
             )
-        if win.end_hour - win.work_end_hour < zone.recomp_duration_hours - 1e-4:
+        if operational_time_ticks(win.end_hour) - operational_time_ticks(win.work_end_hour) < operational_time_ticks(zone.recomp_duration_hours):
             violations.append(
                 f"Janela '{win.window_id}' não respeita tempo de recomposição "
                 f"da zona '{win.zone_id}' ({zone.recomp_duration_hours:.2f}h)."
             )
 
-        recalc_steps, recalc_phys = simulate_zone_intervention(
+        recalc_steps, recalc_phys = _reference_zone_intervention(
             network=network,
             zone_id=win.zone_id,
             work_start_hour=win.work_start_hour,
             work_end_hour=win.work_end_hour,
         )
         recalculated_maneuvers += recalc_phys
+        actual_open = {sid for st in recalc_steps for sid in st.open_switches}
+        actual_closed = {sid for st in recalc_steps for sid in st.closed_switches}
+        for error in validate_switch_maneuverability(network, actual_open, actual_closed):
+            violations.append(f"Violação de permissão de manobra na janela '{win.window_id}': {error}")
+        for st in recalc_steps:
+            if st.end_hour > st.start_hour and not st.transfer_feasible:
+                violations.append(f"Etapa elétrica inviável na janela '{win.window_id}', {st.stage.value}: "
+                                  f"carregamento={st.max_loading_pct:.2f}%, queda={st.estimated_voltage_drop_pct:.3f}%: {st.notes}")
+        if operational_time_ticks(win.start_hour) != operational_time_ticks(recalc_steps[0].start_hour) or operational_time_ticks(win.end_hour) != operational_time_ticks(recalc_steps[-1].end_hour):
+            violations.append(f"Violação de integridade: limites da janela '{win.window_id}' divergem da cronologia elétrica.")
 
         if not win.maneuver_steps:
             violations.append(
@@ -480,12 +634,20 @@ def verify_plan_feasibility(
             for exp_st, rec_st in zip(win.maneuver_steps, recalc_steps):
                 if (
                     exp_st.stage != rec_st.stage
-                    or abs(exp_st.start_hour - rec_st.start_hour) > 1e-3
-                    or abs(exp_st.end_hour - rec_st.end_hour) > 1e-3
+                    or exp_st.step_order != rec_st.step_order
+                    or operational_time_ticks(exp_st.start_hour) != operational_time_ticks(rec_st.start_hour)
+                    or operational_time_ticks(exp_st.end_hour) != operational_time_ticks(rec_st.end_hour)
                     or set(exp_st.open_switches) != set(rec_st.open_switches)
                     or set(exp_st.closed_switches) != set(rec_st.closed_switches)
                     or set(exp_st.interrupted_consumers)
                     != set(rec_st.interrupted_consumers)
+                    or set(exp_st.energized_nodes) != set(rec_st.energized_nodes)
+                    or set(exp_st.deenergized_nodes) != set(rec_st.deenergized_nodes)
+                    or set(exp_st.deenergized_assets) != set(rec_st.deenergized_assets)
+                    or set(exp_st.active_sources) != set(rec_st.active_sources)
+                    or exp_st.transfer_feasible != rec_st.transfer_feasible
+                    or abs(exp_st.max_loading_pct - rec_st.max_loading_pct) > 0.011
+                    or abs(exp_st.estimated_voltage_drop_pct - rec_st.estimated_voltage_drop_pct) > 0.0011
                 ):
                     violations.append(
                         f"Violação de integridade na etapa {exp_st.step_order} ({exp_st.stage.value}) "
@@ -531,23 +693,23 @@ def verify_plan_feasibility(
         indep_energized, indep_sources_ph, indep_active_branches = (
             _independent_energized_phases_and_sources(
                 network=network,
-                open_switches=set(zone.open_switches),
-                closed_switches=set(zone.tie_switches_closed),
+                open_switches=set(exec_step.open_switches),
+                closed_switches=set(exec_step.closed_switches),
             )
         )
         indep_tr_ok, indep_load_pct, indep_vdrop_pct, indep_tr_msg = (
             _independent_phase_transfer_check(
                 network=network,
                 zone=zone,
-                open_switches=set(zone.open_switches),
-                closed_switches=set(zone.tie_switches_closed),
+                open_switches=set(exec_step.open_switches),
+                closed_switches=set(exec_step.closed_switches),
                 energized_phases=indep_energized,
                 sources_by_ph=indep_sources_ph,
                 active_branches=indep_active_branches,
             )
         )
         if (
-            zone.requires_transfer_validation or zone.tie_switches_closed
+            zone.requires_transfer_validation or exec_step.closed_switches
         ) and (not exec_step.transfer_feasible or not indep_tr_ok):
             violations.append(
                 f"Janela '{win.window_id}' utiliza transferência eletricamente inviável "
@@ -607,9 +769,7 @@ def verify_plan_feasibility(
                         )
 
             for mat, qty in svc.required_materials.items():
-                recalculated_materials[mat] = round(
-                    recalculated_materials.get(mat, 0.0) + qty, 4
-                )
+                exact_materials[mat] = exact_materials.get(mat, Fraction(0)) + Fraction(str(qty))
 
             svc_intervals = [
                 iv for iv in win.crew_intervals if iv.service_id == sid
@@ -631,7 +791,7 @@ def verify_plan_feasibility(
             simultaneous_start = max(iv.exec_start_hour for iv in svc_intervals)
             simultaneous_end = min(iv.exec_end_hour for iv in svc_intervals)
             simultaneous_overlap = simultaneous_end - simultaneous_start
-            if simultaneous_overlap < svc.duration_hours - 1e-4:
+            if operational_time_ticks(simultaneous_end) - operational_time_ticks(simultaneous_start) < operational_time_ticks(svc.duration_hours):
                 violations.append(
                     f"Violação de simultaneidade de equipes no serviço '{sid}': "
                     f"interseção temporal entre as {len(svc_intervals)} equipes alocadas "
@@ -677,36 +837,36 @@ def verify_plan_feasibility(
                     )
 
                 req_prep = max(svc.prep_hours, crew.prep_hours)
-                if (iv.exec_start_hour - iv.prep_start_hour) < req_prep - 1e-4:
+                if operational_time_ticks(iv.exec_start_hour) - operational_time_ticks(iv.prep_start_hour) < operational_time_ticks(req_prep):
                     violations.append(
                         f"Preparação insuficiente da equipe '{iv.crew_id}' no serviço '{sid}' "
                         f"({iv.exec_start_hour - iv.prep_start_hour:.2f}h < {req_prep:.2f}h)."
                     )
-                if (iv.exec_end_hour - iv.exec_start_hour) < svc.duration_hours - 1e-4:
+                if operational_time_ticks(iv.exec_end_hour) - operational_time_ticks(iv.exec_start_hour) < operational_time_ticks(svc.duration_hours):
                     violations.append(
                         f"Duração de execução insuficiente para '{sid}' na equipe '{iv.crew_id}' "
                         f"({iv.exec_end_hour - iv.exec_start_hour:.2f}h < {svc.duration_hours:.2f}h)."
                     )
-                if (iv.recomp_end_hour - iv.exec_end_hour) < svc.recomp_hours - 1e-4:
+                if operational_time_ticks(iv.recomp_end_hour) - operational_time_ticks(iv.exec_end_hour) < operational_time_ticks(svc.recomp_hours):
                     violations.append(
                         f"Recomposição de equipe insuficiente para '{sid}' na equipe '{iv.crew_id}'."
                     )
-                if iv.exec_start_hour < win.work_start_hour - 1e-4:
+                if operational_time_ticks(iv.exec_start_hour) < operational_time_ticks(win.work_start_hour):
                     violations.append(
                         f"Serviço '{sid}' inicia execução ({iv.exec_start_hour:.2f}h) antes "
                         f"do isolamento da janela ({win.work_start_hour:.2f}h)."
                     )
-                if iv.exec_end_hour > win.work_end_hour + 1e-4:
+                if operational_time_ticks(iv.exec_end_hour) > operational_time_ticks(win.work_end_hour):
                     violations.append(
                         f"Serviço '{sid}' termina execução ({iv.exec_end_hour:.2f}h) após "
                         f"o fim do trabalho da janela ({win.work_end_hour:.2f}h)."
                     )
-                if iv.travel_start_hour < crew.shift_start_hour - 1e-4:
+                if operational_time_ticks(iv.travel_start_hour) < operational_time_ticks(crew.shift_start_hour):
                     violations.append(
                         f"Equipe '{iv.crew_id}' inicia deslocamento ({iv.travel_start_hour:.2f}h) "
                         f"antes do início do turno ({crew.shift_start_hour:.2f}h)."
                     )
-                if iv.recomp_end_hour > crew.shift_end_hour + 1e-4:
+                if operational_time_ticks(iv.recomp_end_hour) > operational_time_ticks(crew.shift_end_hour):
                     violations.append(
                         f"Equipe '{iv.crew_id}' encerra atividades ({iv.recomp_end_hour:.2f}h) "
                         f"após o fim do turno ({crew.shift_end_hour:.2f}h)."
@@ -730,7 +890,7 @@ def verify_plan_feasibility(
                     or not svc_b.allow_simultaneous_in_zone
                 ):
                     overlap = min(a_end, b_end) - max(a_start, b_start)
-                    if overlap > 1e-4:
+                    if min(operational_time_ticks(a_end), operational_time_ticks(b_end)) > max(operational_time_ticks(a_start), operational_time_ticks(b_start)):
                         violations.append(
                             f"Violação de simultaneidade na janela '{win.window_id}': "
                             f"serviços '{sid_a}' e '{sid_b}' sobrepostos em {overlap:.2f}h."
@@ -756,16 +916,13 @@ def verify_plan_feasibility(
                 win_overlap = min(wa.end_hour, wb.end_hour) - max(
                     wa.start_hour, wb.start_hour
                 )
-                if win_overlap > 1e-4 and (
-                    wa.zone_id == wb.zone_id
-                    or (sw_a & sw_b)
-                    or (assets_a & assets_b)
-                ):
+                if min(operational_time_ticks(wa.end_hour), operational_time_ticks(wb.end_hour)) > max(operational_time_ticks(wa.start_hour), operational_time_ticks(wb.start_hour)):
                     violations.append(
                         f"Conflito entre janelas sobrepostas no dia {day}: janelas "
                         f"'{wa.window_id}' ({wa.start_hour:.2f}h-{wa.end_hour:.2f}h, zona '{wa.zone_id}') e "
                         f"'{wb.window_id}' ({wb.start_hour:.2f}h-{wb.end_hour:.2f}h, zona '{wb.zone_id}') "
-                        "compartilham zona, chaves ou ativos desenergizados com sobreposição de manobra/recomposição."
+                        "têm sobreposição elétrica não admitida: a composição global de manobras "
+                        "simultâneas não é certificada neste catálogo, inclusive em zonas disjuntas."
                     )
 
     # Validação de deslocamento usando EXCLUSIVAMENTE coordenadas canônicas (svc.x, svc.y):
@@ -785,7 +942,7 @@ def verify_plan_feasibility(
                     prev_svc = svc_map.get(prev_iv.service_id)
                     from_x = prev_svc.x if prev_svc is not None else prev_iv.x
                     from_y = prev_svc.y if prev_svc is not None else prev_iv.y
-                    if iv.travel_start_hour < prev_iv.recomp_end_hour - 1e-4:
+                    if operational_time_ticks(iv.travel_start_hour) < operational_time_ticks(prev_iv.recomp_end_hour):
                         violations.append(
                             f"Sobreposição de agenda da equipe '{crew_id}' no dia {day}: "
                             f"serviço '{iv.service_id}' inicia às {iv.travel_start_hour:.2f}h "
@@ -794,10 +951,18 @@ def verify_plan_feasibility(
                 expected_travel = _canonical_travel_hours(
                     from_x, from_y, to_x, to_y, crew.speed_kmh
                 )
+                try:
+                    expected_travel_ticks = operational_time_ticks(expected_travel)
+                except ValueError:
+                    violations.append(
+                        f"Tempo de deslocamento canônico não representável para a equipe '{crew_id}' "
+                        f"no serviço '{iv.service_id}'; o plano não pode ser certificado."
+                    )
+                    continue
                 actual_travel_window = iv.prep_start_hour - iv.travel_start_hour
                 if (
-                    actual_travel_window < expected_travel - 1e-3
-                    or abs(iv.travel_hours - expected_travel) > 1e-3
+                    operational_time_ticks(iv.prep_start_hour) - operational_time_ticks(iv.travel_start_hour) < expected_travel_ticks
+                    or operational_time_ticks(iv.travel_hours) != expected_travel_ticks
                 ):
                     violations.append(
                         f"Tempo de deslocamento canônico violado para a equipe '{crew_id}' "
@@ -820,19 +985,24 @@ def verify_plan_feasibility(
                     f"Precedência violada entre dias: '{pred_id}' (dia {p_day}) agendado "
                     f"após '{sid}' (dia {s_day})."
                 )
-            elif p_day == s_day and p_end > s_start + 1e-4:
+            elif p_day == s_day and operational_time_ticks(p_end) > operational_time_ticks(s_start):
                 violations.append(
                     f"Precedência violada no mesmo dia ({s_day}): '{pred_id}' termina às "
                     f"{p_end:.2f}h após início de '{sid}' às {s_start:.2f}h."
                 )
 
-    for mat, qty in recalculated_materials.items():
-        avail = catalog.materials_inventory.get(mat, 0.0)
-        if qty > avail + 1e-4:
+    recalculated_materials: Dict[str, float] = {}
+    for mat, qty in exact_materials.items():
+        avail = Fraction(str(catalog.materials_inventory.get(mat, 0.0)))
+        if qty > avail:
             violations.append(
-                f"Violação de estoque de material '{mat}': plano consome {qty:.2f}, "
-                f"disponível {avail:.2f}."
+                f"Violação de estoque de material '{mat}': plano consome {qty}, "
+                f"disponível {avail} (valores exatos)."
             )
+        if qty > Fraction(str(sys.float_info.max)):
+            violations.append(f"Material '{mat}': total não representável como float finito; consulte o total exato.")
+        else:
+            recalculated_materials[mat] = float(qty)
 
     active_known_services = [
         s
@@ -843,11 +1013,15 @@ def verify_plan_feasibility(
     for alert in lc_alerts:
         warnings.append(alert.explanation)
 
+    recalc_consumer_intervals, global_violations = _global_reference_timeline(network, plan, svc_map)
+    violations.extend(global_violations)
     recalc_consumer_hours = 0.0
     recalc_repeat_consumers = 0
+    recalc_total_interruptions = 0
     for ivs in recalc_consumer_intervals.values():
         merged = merge_intervals(ivs)
         recalc_consumer_hours += sum(e - s for s, e in merged)
+        recalc_total_interruptions += len(merged)
         if len(merged) >= 2:
             recalc_repeat_consumers += 1
 
@@ -868,6 +1042,10 @@ def verify_plan_feasibility(
         or "Violação de integridade" in v
         or "Violação de permissão de manobra" in v
         or "transferência eletricamente inviável" in v
+        or "Conflito entre janelas" in v
+        or "Conflito elétrico global" in v
+        or "Rede fora do escopo" in v
+        or "Etapa elétrica inviável" in v
         for v in violations
     )
     is_feasible = len(violations) == 0 and mandatory_complete
@@ -883,10 +1061,13 @@ def verify_plan_feasibility(
         violations=violations,
         warnings=warnings,
         recalculated_materials=recalculated_materials,
+        recalculated_materials_exact={mat: str(qty) for mat, qty in exact_materials.items()},
         recalculated_consumer_hours=round(recalc_consumer_hours, 4),
         recalculated_windows_count=len(plan.windows),
         recalculated_physical_maneuvers=recalculated_maneuvers,
         recalculated_repeat_consumers=recalc_repeat_consumers,
+        recalculated_unique_consumers=len(recalc_consumer_intervals),
+        recalculated_total_interruptions=recalc_total_interruptions,
         recalculated_completed_services=tuple(
             scheduled_service_occurrences.keys()
         ),

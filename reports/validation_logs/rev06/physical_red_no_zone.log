@@ -1,0 +1,16 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_____ test_stage_without_zone_does_not_claim_physical_support_for_a_mesh ______
+
+    def test_stage_without_zone_does_not_claim_physical_support_for_a_mesh():
+        network, _, _ = radial_case('parallel')
+        step = evaluate_maneuver_step(network, 1, ManeuverStage.EXECUTION, 9., 10.,
+                                      ('SW',), ())
+>       assert not step.transfer_feasible
+E       AssertionError: assert not True
+E        +  where True = ManeuverStepResult(step_order=1, stage=<ManeuverStage.EXECUTION: 'EXECUTION'>, start_hour=9.0, end_hour=10.0, open_swi...'CW',), active_sources=('SRC',), transfer_feasible=True, max_loading_pct=0.0, estimated_voltage_drop_pct=0.0, notes='').transfer_feasible
+
+tests\test_radial_domain.py:166: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_radial_domain.py::test_stage_without_zone_does_not_claim_physical_support_for_a_mesh
+1 failed, 30 deselected in 1.05s

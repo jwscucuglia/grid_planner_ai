@@ -1,0 +1,33 @@
+{
+  "plan_id": "PLAN_KGP_EVAL_05_DISJOINT_NO_OPPORTUNITY",
+  "method_name": "KGP",
+  "scenario_id": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 3,
+  "total_mandatory_count": 3,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "CONECTOR_CUNHA": 2.0,
+    "KIT_TRAFO": 1.0,
+    "ISOLADOR_15KV": 3.0
+  },
+  "recalculated_consumer_hours": 144.0,
+  "recalculated_windows_count": 3,
+  "recalculated_physical_maneuvers": 6,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 60,
+  "recalculated_total_interruptions": 60,
+  "recalculated_completed_services": [
+    "S51_F1_TAIL",
+    "S52_F2_DISTAL",
+    "S53_F3_TAIL"
+  ],
+  "isolation_verified": true,
+  "recalculated_materials_exact": {
+    "CONECTOR_CUNHA": "2",
+    "KIT_TRAFO": "1",
+    "ISOLADOR_15KV": "3"
+  }
+}

@@ -1,0 +1,22 @@
+.......F.                                                                [100%]
+================================== FAILURES ===================================
+_ test_optional_predecessor_cannot_be_omitted_when_mandatory_successor_is_executed _
+
+    def test_optional_predecessor_cannot_be_omitted_when_mandatory_successor_is_executed():
+        net, cat, jobs = small_instance()
+        predecessor = replace(jobs[0], service_id="P")
+        successor = replace(jobs[0], service_id="S", mandatory=True,
+                            precedence_service_ids=("P",))
+        jobs = [predecessor, successor]
+        plan = run_kgp_optimizer(net, jobs, cat, "required_optional_predecessor")
+>       assert set(plan.completed_service_ids) == {"P", "S"}
+E       AssertionError: assert {'S'} == {'P', 'S'}
+E         
+E         Extra items in the right set:
+E         'P'
+E         Use -v to get more diff
+
+tests\test_optimizer_audit.py:127: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_optimizer_audit.py::test_optional_predecessor_cannot_be_omitted_when_mandatory_successor_is_executed
+1 failed, 8 passed in 1.08s

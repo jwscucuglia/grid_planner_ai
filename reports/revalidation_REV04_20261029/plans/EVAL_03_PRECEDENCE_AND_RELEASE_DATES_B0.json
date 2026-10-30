@@ -1,0 +1,1040 @@
+{
+  "plan_id": "PLAN_B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+  "method_name": "B0",
+  "scenario_id": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+  "decision_day": 0,
+  "windows": [
+    {
+      "window_id": "B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES_W01",
+      "day": 1,
+      "zone_id": "Z_F3_MID_TAIL",
+      "service_ids": [
+        "S31_F3_PREP"
+      ],
+      "start_hour": 8.0908,
+      "end_hour": 10.4908,
+      "work_start_hour": 8.2908,
+      "work_end_hour": 10.2908,
+      "maneuver_steps": [
+        {
+          "step_order": 1,
+          "stage": "ISOLATION",
+          "start_hour": 8.0908,
+          "end_hour": 8.2908,
+          "open_switches": [
+            "SW_A3_1"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_2",
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_2A",
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_2_01",
+            "CONS_N_A3_2_02",
+            "CONS_N_A3_2_03",
+            "CONS_N_A3_2_04",
+            "CONS_N_A3_2_05",
+            "CONS_N_A3_2_06",
+            "CONS_N_A3_2_07",
+            "CONS_N_A3_2_08",
+            "CONS_N_A3_2_09",
+            "CONS_N_A3_2_10",
+            "CONS_N_A3_2_11",
+            "CONS_N_A3_2_12",
+            "CONS_N_A3_2_13",
+            "CONS_N_A3_2_14",
+            "CONS_N_A3_2_15",
+            "CONS_N_A3_2_16",
+            "CONS_N_A3_2_17",
+            "CONS_N_A3_2_18",
+            "CONS_N_A3_2_19",
+            "CONS_N_A3_2_20",
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        },
+        {
+          "step_order": 2,
+          "stage": "EXECUTION",
+          "start_hour": 8.2908,
+          "end_hour": 10.2908,
+          "open_switches": [
+            "SW_A3_1"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_2",
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_2A",
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_2_01",
+            "CONS_N_A3_2_02",
+            "CONS_N_A3_2_03",
+            "CONS_N_A3_2_04",
+            "CONS_N_A3_2_05",
+            "CONS_N_A3_2_06",
+            "CONS_N_A3_2_07",
+            "CONS_N_A3_2_08",
+            "CONS_N_A3_2_09",
+            "CONS_N_A3_2_10",
+            "CONS_N_A3_2_11",
+            "CONS_N_A3_2_12",
+            "CONS_N_A3_2_13",
+            "CONS_N_A3_2_14",
+            "CONS_N_A3_2_15",
+            "CONS_N_A3_2_16",
+            "CONS_N_A3_2_17",
+            "CONS_N_A3_2_18",
+            "CONS_N_A3_2_19",
+            "CONS_N_A3_2_20",
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        },
+        {
+          "step_order": 3,
+          "stage": "RECOMPOSITION",
+          "start_hour": 10.2908,
+          "end_hour": 10.4908,
+          "open_switches": [
+            "SW_A3_1"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_2",
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_2A",
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_2_01",
+            "CONS_N_A3_2_02",
+            "CONS_N_A3_2_03",
+            "CONS_N_A3_2_04",
+            "CONS_N_A3_2_05",
+            "CONS_N_A3_2_06",
+            "CONS_N_A3_2_07",
+            "CONS_N_A3_2_08",
+            "CONS_N_A3_2_09",
+            "CONS_N_A3_2_10",
+            "CONS_N_A3_2_11",
+            "CONS_N_A3_2_12",
+            "CONS_N_A3_2_13",
+            "CONS_N_A3_2_14",
+            "CONS_N_A3_2_15",
+            "CONS_N_A3_2_16",
+            "CONS_N_A3_2_17",
+            "CONS_N_A3_2_18",
+            "CONS_N_A3_2_19",
+            "CONS_N_A3_2_20",
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        }
+      ],
+      "crew_intervals": [
+        {
+          "crew_id": "EQ_ESPEC_03",
+          "service_id": "S31_F3_PREP",
+          "window_id": "B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES_W01",
+          "day": 1,
+          "travel_start_hour": 8.0,
+          "prep_start_hour": 8.0908,
+          "exec_start_hour": 8.2908,
+          "exec_end_hour": 10.2908,
+          "recomp_end_hour": 10.4408,
+          "travel_hours": 0.0908,
+          "x": 2.8,
+          "y": -1.5
+        }
+      ],
+      "materials_used": {
+        "CRUZETA_CONCRETO": 2.0
+      },
+      "physical_maneuvers_count": 2,
+      "interrupted_consumers": [
+        "CONS_N_A3_2_01",
+        "CONS_N_A3_2_02",
+        "CONS_N_A3_2_03",
+        "CONS_N_A3_2_04",
+        "CONS_N_A3_2_05",
+        "CONS_N_A3_2_06",
+        "CONS_N_A3_2_07",
+        "CONS_N_A3_2_08",
+        "CONS_N_A3_2_09",
+        "CONS_N_A3_2_10",
+        "CONS_N_A3_2_11",
+        "CONS_N_A3_2_12",
+        "CONS_N_A3_2_13",
+        "CONS_N_A3_2_14",
+        "CONS_N_A3_2_15",
+        "CONS_N_A3_2_16",
+        "CONS_N_A3_2_17",
+        "CONS_N_A3_2_18",
+        "CONS_N_A3_2_19",
+        "CONS_N_A3_2_20",
+        "CONS_N_A3_3_01",
+        "CONS_N_A3_3_02",
+        "CONS_N_A3_3_03",
+        "CONS_N_A3_3_04",
+        "CONS_N_A3_3_05",
+        "CONS_N_A3_3_06",
+        "CONS_N_A3_3_07",
+        "CONS_N_A3_3_08",
+        "CONS_N_A3_3_09",
+        "CONS_N_A3_3_10",
+        "CONS_N_A3_3_11",
+        "CONS_N_A3_3_12",
+        "CONS_N_A3_3_13",
+        "CONS_N_A3_3_14",
+        "CONS_N_A3_3_15",
+        "CONS_N_A3_3_16"
+      ],
+      "lifecycle_alerts": [],
+      "inclusion_justifications": {
+        "S31_F3_PREP": "Alocado na zona 'Z_F3_MID_TAIL' (dia 1, execução 8.29h-10.29h) com equipe(s) ['EQ_ESPEC_03']; ativos ['AST_A3_2A'] isolados."
+      }
+    },
+    {
+      "window_id": "B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES_W02",
+      "day": 2,
+      "zone_id": "Z_F3_TAIL_ONLY",
+      "service_ids": [
+        "S32_F3_TRAFO"
+      ],
+      "start_hour": 8.1328,
+      "end_hour": 10.5328,
+      "work_start_hour": 8.3328,
+      "work_end_hour": 10.3328,
+      "maneuver_steps": [
+        {
+          "step_order": 1,
+          "stage": "ISOLATION",
+          "start_hour": 8.1328,
+          "end_hour": 8.3328,
+          "open_switches": [
+            "SW_A3_2"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        },
+        {
+          "step_order": 2,
+          "stage": "EXECUTION",
+          "start_hour": 8.3328,
+          "end_hour": 10.3328,
+          "open_switches": [
+            "SW_A3_2"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        },
+        {
+          "step_order": 3,
+          "stage": "RECOMPOSITION",
+          "start_hour": 10.3328,
+          "end_hour": 10.5328,
+          "open_switches": [
+            "SW_A3_2"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        }
+      ],
+      "crew_intervals": [
+        {
+          "crew_id": "EQ_MANUT_02",
+          "service_id": "S32_F3_TRAFO",
+          "window_id": "B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES_W02",
+          "day": 2,
+          "travel_start_hour": 8.0,
+          "prep_start_hour": 8.1328,
+          "exec_start_hour": 8.3328,
+          "exec_end_hour": 10.3328,
+          "recomp_end_hour": 10.4828,
+          "travel_hours": 0.1328,
+          "x": 4.4,
+          "y": -1.5
+        }
+      ],
+      "materials_used": {
+        "KIT_TRAFO": 1.0
+      },
+      "physical_maneuvers_count": 2,
+      "interrupted_consumers": [
+        "CONS_N_A3_3_01",
+        "CONS_N_A3_3_02",
+        "CONS_N_A3_3_03",
+        "CONS_N_A3_3_04",
+        "CONS_N_A3_3_05",
+        "CONS_N_A3_3_06",
+        "CONS_N_A3_3_07",
+        "CONS_N_A3_3_08",
+        "CONS_N_A3_3_09",
+        "CONS_N_A3_3_10",
+        "CONS_N_A3_3_11",
+        "CONS_N_A3_3_12",
+        "CONS_N_A3_3_13",
+        "CONS_N_A3_3_14",
+        "CONS_N_A3_3_15",
+        "CONS_N_A3_3_16"
+      ],
+      "lifecycle_alerts": [],
+      "inclusion_justifications": {
+        "S32_F3_TRAFO": "Alocado na zona 'Z_F3_TAIL_ONLY' (dia 2, execução 8.33h-10.33h) com equipe(s) ['EQ_MANUT_02']; ativos ['AST_A3_3A'] isolados."
+      }
+    },
+    {
+      "window_id": "B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES_W03",
+      "day": 3,
+      "zone_id": "Z_F3_TAIL_ONLY",
+      "service_ids": [
+        "S33_F3_PODA"
+      ],
+      "start_hour": 8.1299,
+      "end_hour": 10.3299,
+      "work_start_hour": 8.3299,
+      "work_end_hour": 10.1299,
+      "maneuver_steps": [
+        {
+          "step_order": 1,
+          "stage": "ISOLATION",
+          "start_hour": 8.1299,
+          "end_hour": 8.3299,
+          "open_switches": [
+            "SW_A3_2"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        },
+        {
+          "step_order": 2,
+          "stage": "EXECUTION",
+          "start_hour": 8.3299,
+          "end_hour": 10.1299,
+          "open_switches": [
+            "SW_A3_2"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        },
+        {
+          "step_order": 3,
+          "stage": "RECOMPOSITION",
+          "start_hour": 10.1299,
+          "end_hour": 10.3299,
+          "open_switches": [
+            "SW_A3_2"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A1_5",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A3_3"
+          ],
+          "deenergized_assets": [
+            "AST_A3_3A",
+            "AST_A3_3B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A3_3_01",
+            "CONS_N_A3_3_02",
+            "CONS_N_A3_3_03",
+            "CONS_N_A3_3_04",
+            "CONS_N_A3_3_05",
+            "CONS_N_A3_3_06",
+            "CONS_N_A3_3_07",
+            "CONS_N_A3_3_08",
+            "CONS_N_A3_3_09",
+            "CONS_N_A3_3_10",
+            "CONS_N_A3_3_11",
+            "CONS_N_A3_3_12",
+            "CONS_N_A3_3_13",
+            "CONS_N_A3_3_14",
+            "CONS_N_A3_3_15",
+            "CONS_N_A3_3_16"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 19.17,
+          "estimated_voltage_drop_pct": 0.255,
+          "notes": "Transferência factível (carregamento máx 19.2%, queda máx 0.25%)."
+        }
+      ],
+      "crew_intervals": [
+        {
+          "crew_id": "EQ_MANUT_02",
+          "service_id": "S33_F3_PODA",
+          "window_id": "B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES_W03",
+          "day": 3,
+          "travel_start_hour": 8.0,
+          "prep_start_hour": 8.1299,
+          "exec_start_hour": 8.3299,
+          "exec_end_hour": 10.1299,
+          "recomp_end_hour": 10.2799,
+          "travel_hours": 0.1299,
+          "x": 4.3,
+          "y": -1.48
+        }
+      ],
+      "materials_used": {
+        "ELO_FUSIVEL": 2.0
+      },
+      "physical_maneuvers_count": 2,
+      "interrupted_consumers": [
+        "CONS_N_A3_3_01",
+        "CONS_N_A3_3_02",
+        "CONS_N_A3_3_03",
+        "CONS_N_A3_3_04",
+        "CONS_N_A3_3_05",
+        "CONS_N_A3_3_06",
+        "CONS_N_A3_3_07",
+        "CONS_N_A3_3_08",
+        "CONS_N_A3_3_09",
+        "CONS_N_A3_3_10",
+        "CONS_N_A3_3_11",
+        "CONS_N_A3_3_12",
+        "CONS_N_A3_3_13",
+        "CONS_N_A3_3_14",
+        "CONS_N_A3_3_15",
+        "CONS_N_A3_3_16"
+      ],
+      "lifecycle_alerts": [],
+      "inclusion_justifications": {
+        "S33_F3_PODA": "Alocado na zona 'Z_F3_TAIL_ONLY' (dia 3, execução 8.33h-10.13h) com equipe(s) ['EQ_MANUT_02']; ativos ['AST_A3_3B'] isolados."
+      }
+    },
+    {
+      "window_id": "B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES_W04",
+      "day": 4,
+      "zone_id": "Z_F1_TAIL_ONLY",
+      "service_ids": [
+        "S34_F1_TAIL"
+      ],
+      "start_hour": 8.1435,
+      "end_hour": 10.0435,
+      "work_start_hour": 8.3435,
+      "work_end_hour": 9.8435,
+      "maneuver_steps": [
+        {
+          "step_order": 1,
+          "stage": "ISOLATION",
+          "start_hour": 8.1435,
+          "end_hour": 8.3435,
+          "open_switches": [
+            "SW_A1_4"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "N_A3_3",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A1_5"
+          ],
+          "deenergized_assets": [
+            "AST_A1_5A",
+            "AST_A1_5B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A1_5_01",
+            "CONS_N_A1_5_02",
+            "CONS_N_A1_5_03",
+            "CONS_N_A1_5_04",
+            "CONS_N_A1_5_05",
+            "CONS_N_A1_5_06",
+            "CONS_N_A1_5_07",
+            "CONS_N_A1_5_08",
+            "CONS_N_A1_5_09",
+            "CONS_N_A1_5_10",
+            "CONS_N_A1_5_11",
+            "CONS_N_A1_5_12"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 16.6,
+          "estimated_voltage_drop_pct": 0.189,
+          "notes": "GD em 'N_A1_5' (45.0 kW) desconectada por proteção anti-ilhamento (sem fonte principal conectada).; Transferência factível (carregamento máx 16.6%, queda máx 0.19%)."
+        },
+        {
+          "step_order": 2,
+          "stage": "EXECUTION",
+          "start_hour": 8.3435,
+          "end_hour": 9.8435,
+          "open_switches": [
+            "SW_A1_4"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "N_A3_3",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A1_5"
+          ],
+          "deenergized_assets": [
+            "AST_A1_5A",
+            "AST_A1_5B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A1_5_01",
+            "CONS_N_A1_5_02",
+            "CONS_N_A1_5_03",
+            "CONS_N_A1_5_04",
+            "CONS_N_A1_5_05",
+            "CONS_N_A1_5_06",
+            "CONS_N_A1_5_07",
+            "CONS_N_A1_5_08",
+            "CONS_N_A1_5_09",
+            "CONS_N_A1_5_10",
+            "CONS_N_A1_5_11",
+            "CONS_N_A1_5_12"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 16.6,
+          "estimated_voltage_drop_pct": 0.189,
+          "notes": "GD em 'N_A1_5' (45.0 kW) desconectada por proteção anti-ilhamento (sem fonte principal conectada).; Transferência factível (carregamento máx 16.6%, queda máx 0.19%)."
+        },
+        {
+          "step_order": 3,
+          "stage": "RECOMPOSITION",
+          "start_hour": 9.8435,
+          "end_hour": 10.0435,
+          "open_switches": [
+            "SW_A1_4"
+          ],
+          "closed_switches": [],
+          "energized_nodes": [
+            "N_A1_1",
+            "N_A1_2",
+            "N_A1_3",
+            "N_A1_4",
+            "N_A2_1",
+            "N_A2_2",
+            "N_A2_3",
+            "N_A2_4",
+            "N_A3_1",
+            "N_A3_2",
+            "N_A3_3",
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "deenergized_nodes": [
+            "N_A1_5"
+          ],
+          "deenergized_assets": [
+            "AST_A1_5A",
+            "AST_A1_5B"
+          ],
+          "interrupted_consumers": [
+            "CONS_N_A1_5_01",
+            "CONS_N_A1_5_02",
+            "CONS_N_A1_5_03",
+            "CONS_N_A1_5_04",
+            "CONS_N_A1_5_05",
+            "CONS_N_A1_5_06",
+            "CONS_N_A1_5_07",
+            "CONS_N_A1_5_08",
+            "CONS_N_A1_5_09",
+            "CONS_N_A1_5_10",
+            "CONS_N_A1_5_11",
+            "CONS_N_A1_5_12"
+          ],
+          "active_sources": [
+            "SUB_01",
+            "SUB_02",
+            "SUB_03"
+          ],
+          "transfer_feasible": true,
+          "max_loading_pct": 16.6,
+          "estimated_voltage_drop_pct": 0.189,
+          "notes": "GD em 'N_A1_5' (45.0 kW) desconectada por proteção anti-ilhamento (sem fonte principal conectada).; Transferência factível (carregamento máx 16.6%, queda máx 0.19%)."
+        }
+      ],
+      "crew_intervals": [
+        {
+          "crew_id": "EQ_MANUT_02",
+          "service_id": "S34_F1_TAIL",
+          "window_id": "B0_EVAL_03_PRECEDENCE_AND_RELEASE_DATES_W04",
+          "day": 4,
+          "travel_start_hour": 8.0,
+          "prep_start_hour": 8.1435,
+          "exec_start_hour": 8.3435,
+          "exec_end_hour": 9.8435,
+          "recomp_end_hour": 9.9935,
+          "travel_hours": 0.1435,
+          "x": 4.9,
+          "y": 1.1
+        }
+      ],
+      "materials_used": {
+        "CONECTOR_CUNHA": 2.0
+      },
+      "physical_maneuvers_count": 2,
+      "interrupted_consumers": [
+        "CONS_N_A1_5_01",
+        "CONS_N_A1_5_02",
+        "CONS_N_A1_5_03",
+        "CONS_N_A1_5_04",
+        "CONS_N_A1_5_05",
+        "CONS_N_A1_5_06",
+        "CONS_N_A1_5_07",
+        "CONS_N_A1_5_08",
+        "CONS_N_A1_5_09",
+        "CONS_N_A1_5_10",
+        "CONS_N_A1_5_11",
+        "CONS_N_A1_5_12"
+      ],
+      "lifecycle_alerts": [],
+      "inclusion_justifications": {
+        "S34_F1_TAIL": "Alocado na zona 'Z_F1_TAIL_ONLY' (dia 4, execução 8.34h-9.84h) com equipe(s) ['EQ_MANUT_02']; ativos ['AST_A1_5A'] isolados."
+      }
+    }
+  ],
+  "completed_service_ids": [
+    "S31_F3_PREP",
+    "S32_F3_TRAFO",
+    "S33_F3_PODA",
+    "S34_F1_TAIL"
+  ],
+  "unscheduled_service_ids": [],
+  "exclusion_justifications": {},
+  "lifecycle_alerts": [],
+  "unmodeled_constraints": [
+    "Ajustes finos de coordenação e seletividade de proteção em tempo real",
+    "Aterramento temporário de campo e bloqueio mecânico (LOTO) pelo COD/Cemig",
+    "Autorização operacional humana final do programador e despachante"
+  ],
+  "solver_status": "HEURISTIC_INDIVIDUAL",
+  "solver_objective": null,
+  "solver_bound": null,
+  "solver_gap": null,
+  "solver_time_sec": 0.071476,
+  "is_optimal_proven": false,
+  "metadata": {}
+}

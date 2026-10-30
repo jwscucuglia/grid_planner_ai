@@ -1,0 +1,15 @@
+{
+  "historical_revision": "REV05",
+  "source_commit": "f49a8c6543717ff740f1f7c701e20d34e82e6e5a",
+  "status": "Superseded checkpoint before final approval; complementary ingestion and electrical-domain review still pending at preservation",
+  "files": {
+    "configs/protocol_and_seeds.json": "e8994f3c603fc9c96e1a64ad0e988d6654a3f889a80897130dc23728cc36b398",
+    "reports/RELATORIO_EXECUCAO_KGP.md": "856a81e0ff830a576da2340c3231ee05f23b13a2b710dea701ed4832017b1118",
+    "reports/kgp_evaluation_results.csv": "29e07a5f0b7e572395401d97e25a8bce33bdb61b4204b7e1eaa859621beab49d",
+    "reports/kgp_evaluation_summary.json": "46cb7dca85e7c37198ddf1f03489aaa7df153b11b7dadf79593a7856b0bc43d4",
+    "reports/comparativo_kgp_desafio07.png": "3e8d77efeb308ca447e4841b5da3c9c81f89bc199d1283c670a80d35095a568f",
+    "reports/manifest_sha256.json": "83d3051f96384c5b205bd6570f3433cf8ca7873c79086682c7a94aa52c37e61b",
+    "reports/pytest_execution.log": "840632a572b0145dad618c09f4e7f1168b9c1b54fb730fa7a284b313fd55e001",
+    "reports/REV05_RELEASE.json": "9e66e5b3ec108a6b3dcc6806cf073ce2849c6672c7e375fe7e5c785666673cd2"
+  }
+}

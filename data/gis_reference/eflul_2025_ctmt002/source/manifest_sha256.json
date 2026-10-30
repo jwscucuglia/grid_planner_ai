@@ -1,0 +1,107 @@
+[
+  {
+    "path": "arcgis_item_metadata.json",
+    "bytes": 1380,
+    "sha256": "0e21e4beeba9e48b68af44b4c920f6fcaeac8b36c620fc8988b28c1f98dcf687"
+  },
+  {
+    "path": "catalog_license_metadata.json",
+    "bytes": 3795,
+    "sha256": "b066c8d3916637d9292adb0a33862eba9d0c8b737d71d2579a9c62ed1862e740"
+  },
+  {
+    "path": "CTMT.csv",
+    "bytes": 1139,
+    "sha256": "ad173da49d4d003f831000895f0d212d8c217279287c820426dc1691a187ab71"
+  },
+  {
+    "path": "CTMT.geojson",
+    "bytes": 2224,
+    "sha256": "7b32e705841fe4a40b8b172dab705dcc39c392f06f21b478e544a4839a31f9bf"
+  },
+  {
+    "path": "exported_layer_schema.json",
+    "bytes": 4726,
+    "sha256": "b66b7ca433f9d496ba5b6e26a4f8a2b85c77d50e86f3dc8d32accad87aaebb4e"
+  },
+  {
+    "path": "extract_reference.py",
+    "bytes": 13490,
+    "sha256": "16a0bcbf5aa7b3cd92d23eba4def78f107065a4ceb2cb7734936adc1a199198a"
+  },
+  {
+    "path": "LICENSE_ODBL_1_0.txt",
+    "bytes": 25278,
+    "sha256": "607680718977f6f6c9607972afd98f208573f19251315ed1362a8589b51beaf5"
+  },
+  {
+    "path": "mv_connectivity.csv",
+    "bytes": 36575,
+    "sha256": "467e9d6fa5ff10c7612672bca1b17d13c3c1cd2623a7f6e0aa36b8caf8ca6095"
+  },
+  {
+    "path": "mv_nodes_display.csv",
+    "bytes": 65819,
+    "sha256": "65c5ccec5b7b1e660e6b419bd709194bde95834b33bd44cf57d526e2742f4b3a"
+  },
+  {
+    "path": "mv_nodes_display.geojson",
+    "bytes": 299263,
+    "sha256": "15c9e3e4f950512cda336899ffdfbad41789a5ee7120e69f315979dff3763160"
+  },
+  {
+    "path": "NOTICE.md",
+    "bytes": 1311,
+    "sha256": "f902dc37284860d6304a53b7a49ed40d93b94f2b2c42d77f8fc99c61daa74e97"
+  },
+  {
+    "path": "quality_report.json",
+    "bytes": 55205,
+    "sha256": "3842dd7f8e81324615eece45ac2b33d412da793d64722e9c5966fb4e3bf470dc"
+  },
+  {
+    "path": "source.json",
+    "bytes": 2503,
+    "sha256": "8578df3411eab2a743ad3e90f2eaa2b15914cb70f699df04832624ff4439b75c"
+  },
+  {
+    "path": "SOURCE_REPORT.md",
+    "bytes": 4506,
+    "sha256": "aa3613f35663697153e547ea08787c03bc2eaccb549242346ef65d7ace08d416"
+  },
+  {
+    "path": "source_validation.json",
+    "bytes": 864,
+    "sha256": "4b3d6ee96bafdf7cd5a1afde1db2f82d68a51c8cdcc545bde0518845fc0616de"
+  },
+  {
+    "path": "SSDMT.csv",
+    "bytes": 53638,
+    "sha256": "bd3f1cb5436854f4e3f929c90245d55e6967eeb4a37621fd9af5e1dfb61643d3"
+  },
+  {
+    "path": "SSDMT.geojson",
+    "bytes": 341985,
+    "sha256": "ef2b7af5cc03a1b9358b5b248650c4d372d4edc3c293c5c9c3a832c352256642"
+  },
+  {
+    "path": "UNREMT.csv",
+    "bytes": 215,
+    "sha256": "0bfdc4e0c440473351b8c8e1cf2eb2d6e556e10db5661a2fdd86e6303c9a24d7"
+  },
+  {
+    "path": "UNREMT.geojson",
+    "bytes": 921,
+    "sha256": "7074695b61ee94db5573af8a53994a61dcfd4a028fc28bddc1851dde9678ea1a"
+  },
+  {
+    "path": "UNSEMT.csv",
+    "bytes": 6081,
+    "sha256": "656cd19d72b413d4df031080975b2f159f95d759772c4d01518129e23da86c56"
+  },
+  {
+    "path": "UNSEMT.geojson",
+    "bytes": 35245,
+    "sha256": "776259399ad0143321a87740b791c336ce5c5d208e0008eb05a390110737c8af"
+  }
+]

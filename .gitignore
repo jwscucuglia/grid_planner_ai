@@ -1,4 +1,5 @@
 .venv/
+.audit_cache/
 __pycache__/
 *.py[cod]
 *$py.class
@@ -6,4 +7,25 @@ __pycache__/
 *.egg-info/
 dist/
 build/
+
+# Candidature review and budgets stay in the project's private Drive package.
+reports/AUDITORIA_DOCUMENTAL_D07.md
+reports/AUDITORIA_INTEGRAL_D07_REV03.md
+reports/FONTES_OFICIAIS_SHA256_D07.json
+reports/INVENTARIO_DRIVE_D07_20261029.csv
+reports/MATRIZ_ADERENCIA_OFICIAL_D07.md
+reports/ORCAMENTO_TRANSPOSTO_CONFERENCIA.json
+reports/ORCAMENTO_VALIDACAO_ARITMETICA.json
+reports/SINCRONIZACAO_ORCAMENTO_ANEXOS_D07.json
+reports/SINCRONIZACAO_DRIVE_D07_REV03.json
+scripts/validate_budget.py
+reports/AUDITORIA_INTEGRAL_D07_REV04.md
+reports/SINCRONIZACAO_DRIVE_D07_REV04.json
+reports/validation_scripts/historical/reproduction/
+reports/SINCRONIZACAO_INGESTAO01_DOCS.json
+reports/AUDITORIA_BANCA_CANDIDATURA_20261029.md
+reports/SINCRONIZACAO_BANCA_20261029.json
+reports/FECHAMENTO_BANCA_20261029.md
+reports/SINCRONIZACAO_REV06_P1_20261030.json
+reports/FECHAMENTO_REV06_P1_20261030.md
 

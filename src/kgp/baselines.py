@@ -15,6 +15,7 @@ from __future__ import annotations
 
 import math
 import time
+from dataclasses import replace
 from typing import Dict, Iterable, List, Optional, Sequence, Set, Tuple
 
 from .contracts import (
@@ -32,7 +33,9 @@ from .eligibility import (
     find_eligible_zones_for_service,
 )
 from .scheduling import build_window_schedule, topological_sort_services
+from .materials import exact_materials, subtract_service_materials
 from .topology import simulate_zone_intervention
+from .planning_policy import unsupported_input_plan
 
 
 def _rank_zones_by_impact(
@@ -64,42 +67,14 @@ def _order_portfolio_with_precedences(
     )
 
 
-def _subtract_materials(
-    stock: Dict[str, float],
-    used: Dict[str, float],
-) -> Dict[str, float]:
-    updated = dict(stock)
-    for k, v in used.items():
-        updated[k] = round(updated.get(k, 0.0) - v, 4)
-    return updated
-
-
 def _get_conflicting_zones_map(network: GridNetwork) -> Dict[str, Set[str]]:
-    """Mapeia cada zona para todas as zonas que compartilham a própria zona, chaves ou ativos desenergizados."""
-    zone_switches: Dict[str, Set[str]] = {}
-    zone_assets: Dict[str, Set[str]] = {}
-    for zid, z in network.isolation_zones.items():
-        zone_switches[zid] = set(z.open_switches) | set(z.tie_switches_closed)
-        steps, _ = simulate_zone_intervention(network, zid, 9.0, 11.0)
-        deenerg: Set[str] = set()
-        for st in steps:
-            deenerg.update(st.deenergized_assets)
-        zone_assets[zid] = deenerg
+    """Serial electrical windows until joint switching is supported and certified.
 
-    conflicts: Dict[str, Set[str]] = {
-        zid: {zid} for zid in network.isolation_zones
-    }
-    zids = list(network.isolation_zones.keys())
-    for i in range(len(zids)):
-        za = zids[i]
-        for j in range(i + 1, len(zids)):
-            zb = zids[j]
-            if (zone_switches[za] & zone_switches[zb]) or (
-                zone_assets[za] & zone_assets[zb]
-            ):
-                conflicts[za].add(zb)
-                conflicts[zb].add(za)
-    return conflicts
+    Disjoint switch/asset sets do not imply electrical independence. The same
+    conservative restriction applies to B0/B1/B2 and the daily MILP columns.
+    Parallel crews inside one window remain allowed.
+    """
+    return {zid: set(network.isolation_zones) for zid in network.isolation_zones}
 
 
 def _update_conflicting_zones_day_end(
@@ -117,6 +92,70 @@ def _update_conflicting_zones_day_end(
         )
 
 
+def _improve_b2_zones(network, services, catalog, plan, max_candidates=30):
+    """One bounded local pass over alternative zones, keeping packages and days.
+
+    Rebuilds every daily route for each candidate; accepts only a complete
+    feasible plan with lower fixed default J (90,1,12,2.5,0.6). This is a
+    neighborhood search, not a claim of a local optimum over all schedules.
+    """
+    from .feasibility import verify_plan_feasibility
+    from .metrics import compute_plan_metrics
+
+    services = list(services)
+    by_id = {s.service_id: s for s in services}
+
+    def score(candidate):
+        report = verify_plan_feasibility(network, services, catalog, candidate)
+        if not report.is_feasible:
+            return None
+        m = compute_plan_metrics(network, services, candidate, report)
+        return (90 * m.interruption_windows_count + m.consumer_hours_total +
+                12 * m.repeat_interrupted_consumers_count + 2.5 * m.physical_maneuvers_count +
+                0.6 * (m.total_crew_work_hours + m.total_crew_travel_hours))
+
+    best, best_score, tried = plan, score(plan), 0
+    if best_score is None:
+        return plan
+    ordered = sorted(plan.windows, key=lambda w: (w.day, w.start_hour, w.window_id))
+    for chosen in ordered:
+        for zid in sorted(network.isolation_zones):
+            if zid == chosen.zone_id or tried >= max_candidates:
+                continue
+            pack = [by_id[sid] for sid in chosen.service_ids]
+            if not all(check_service_zone_eligibility(network, svc, zid)[0] for svc in pack):
+                continue
+            tried += 1
+            rebuilt, histories, ends = [], {}, {}
+            remaining = exact_materials(catalog.materials_inventory)
+            for original in ordered:
+                zone = zid if original.window_id == chosen.window_id else original.zone_id
+                window, _ = build_window_schedule(
+                    network, catalog, zone, original.day, original.window_id,
+                    [by_id[sid] for sid in original.service_ids],
+                    existing_day_intervals=histories.get(original.day, []), remaining_materials=remaining,
+                    earliest_window_start_hour=max(original.start_hour, ends.get(original.day, catalog.window_start_hour)),
+                )
+                if window is None:
+                    break
+                rebuilt.append(window)
+                histories.setdefault(window.day, []).extend(window.crew_intervals)
+                ends[window.day] = window.end_hour + 0.10
+                remaining = subtract_service_materials(
+                    remaining, (by_id[sid] for sid in window.service_ids)
+                )
+            if len(rebuilt) != len(ordered):
+                continue
+            candidate = replace(plan, windows=rebuilt)
+            value = score(candidate)
+            if value is not None and value < best_score - 1e-4:
+                best, best_score = candidate, value
+    best.metadata = dict(best.metadata)
+    best.metadata['local_zone_search'] = {'max_candidates': max_candidates, 'evaluated': tried,
+                                        'accepted': best is not plan, 'scope': 'one_pass_zone_change_same_packages_days'}
+    return best
+
+
 def run_baseline_b0_individual(
     network: GridNetwork,
     services: Iterable[ServiceOrder],
@@ -127,11 +166,14 @@ def run_baseline_b0_individual(
     """B0 — Programação individual por prioridade e prazo (1 serviço por janela)."""
     t0 = time.perf_counter()
     all_services = list(services)
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B0", catalog=catalog)
+    if unsupported is not None:
+        return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
 
-    remaining_materials = dict(catalog.materials_inventory)
+    remaining_materials = exact_materials(catalog.materials_inventory)
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
@@ -155,7 +197,7 @@ def run_baseline_b0_individual(
             )
             continue
 
-        min_day = svc.ready_at_day
+        min_day = max(decision_day, svc.ready_at_day)
         for pred_id in svc.precedence_service_ids:
             if pred_id in service_scheduled_day:
                 min_day = max(min_day, service_scheduled_day[pred_id])
@@ -222,8 +264,8 @@ def run_baseline_b0_individual(
             )
             service_scheduled_day[svc.service_id] = scheduled_win.day
             service_scheduled_end[svc.service_id] = scheduled_win.work_end_hour
-            remaining_materials = _subtract_materials(
-                remaining_materials, scheduled_win.materials_used
+            remaining_materials = subtract_service_materials(
+                remaining_materials, [svc]
             )
         else:
             unscheduled.append(svc.service_id)
@@ -261,11 +303,14 @@ def run_baseline_b1_geographic(
     """
     t0 = time.perf_counter()
     all_services = list(services)
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B1", catalog=catalog)
+    if unsupported is not None:
+        return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
 
-    remaining_materials = dict(catalog.materials_inventory)
+    remaining_materials = exact_materials(catalog.materials_inventory)
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
@@ -305,7 +350,7 @@ def run_baseline_b1_geographic(
             if dist <= radius_km:
                 geo_neighbors.append(cand)
 
-        min_seed_day = seed_svc.ready_at_day
+        min_seed_day = max(decision_day, seed_svc.ready_at_day)
         for pred_id in seed_svc.precedence_service_ids:
             if pred_id in service_scheduled_day:
                 min_seed_day = max(min_seed_day, service_scheduled_day[pred_id])
@@ -411,8 +456,8 @@ def run_baseline_b1_geographic(
                 scheduled_win.day,
                 scheduled_win.end_hour,
             )
-            remaining_materials = _subtract_materials(
-                remaining_materials, scheduled_win.materials_used
+            remaining_materials = subtract_service_materials(
+                remaining_materials, scheduled_pack
             )
             for s in scheduled_pack:
                 unassigned_ids.discard(s.service_id)
@@ -464,11 +509,14 @@ def run_baseline_b2_topological_greedy(
     """
     t0 = time.perf_counter()
     all_services = list(services)
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "B2", catalog=catalog)
+    if unsupported is not None:
+        return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
     ordered = _order_portfolio_with_precedences(known_services)
     lc_alerts = detect_lifecycle_conflicts(known_services)
 
-    remaining_materials = dict(catalog.materials_inventory)
+    remaining_materials = exact_materials(catalog.materials_inventory)
     day_intervals: Dict[int, List[CrewScheduleInterval]] = {
         d: [] for d in catalog.planning_days
     }
@@ -497,7 +545,7 @@ def run_baseline_b2_topological_greedy(
             )
             continue
 
-        min_seed_day = seed_svc.ready_at_day
+        min_seed_day = max(decision_day, seed_svc.ready_at_day)
         for pred_id in seed_svc.precedence_service_ids:
             if pred_id in service_scheduled_day:
                 min_seed_day = max(min_seed_day, service_scheduled_day[pred_id])
@@ -623,8 +671,8 @@ def run_baseline_b2_topological_greedy(
                 scheduled_win.day,
                 scheduled_win.end_hour,
             )
-            remaining_materials = _subtract_materials(
-                remaining_materials, scheduled_win.materials_used
+            remaining_materials = subtract_service_materials(
+                remaining_materials, scheduled_pack
             )
             for s in scheduled_pack:
                 unassigned_ids.discard(s.service_id)
@@ -644,7 +692,7 @@ def run_baseline_b2_topological_greedy(
             )
 
     elapsed = time.perf_counter() - t0
-    return ExecutionPlan(
+    plan = ExecutionPlan(
         plan_id=f"PLAN_B2_{scenario_id}",
         method_name="B2",
         scenario_id=scenario_id,
@@ -657,3 +705,7 @@ def run_baseline_b2_topological_greedy(
         solver_status="HEURISTIC_TOPOLOGICAL_GREEDY",
         solver_time_sec=round(elapsed, 6),
     )
+    plan = _improve_b2_zones(network, all_services, catalog, plan)
+    plan.solver_time_sec = round(time.perf_counter() - t0, 6)
+    plan.solver_status = 'HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES'
+    return plan

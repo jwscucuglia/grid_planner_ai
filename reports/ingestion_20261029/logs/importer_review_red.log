@@ -1,0 +1,297 @@
+............................F........................................... [ 76%]
+....FFFFFFF...F.F.....                                                   [100%]
+================================== FAILURES ===================================
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[services-scope_status] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_critical_fields_cannot_fa23')
+table = 'services', field = 'scope_status'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("services", "required_crews_count"), ("services", "required_materials"),
+        ("services", "requires_deenergized"), ("services", "allow_simultaneous_in_zone"),
+        ("services", "scope_status"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+
+tests\test_ingestion.py:162: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'})
+code = 'MISSING_FIELD', table = 'services', row = 1, record_id = None
+
+    def assert_blocked(result, code=None, table=None, row=None, record_id=None):
+>       assert not result.is_valid
+E       AssertionError: assert not True
+E        +  where True = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'}).is_valid
+
+tests\test_ingestion.py:87: AssertionError
+_____ test_unknown_scope_status_cannot_remove_a_mandatory_service[ATIVO] ______
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_unknown_scope_status_cann0')
+status = 'ATIVO'
+
+    @pytest.mark.parametrize("status", ["ATIVO", "active", "INACTIVE", "CANCELLED", ""])
+    def test_unknown_scope_status_cannot_remove_a_mandatory_service(tmp_path, status):
+        tables = deepcopy(TABLES)
+        tables["services"][0]["scope_status"] = status
+        result = importer(write_bundle(tmp_path, tables))
+>       assert_blocked(result, "INVALID_SCOPE_STATUS", "services", 1, "S1")
+
+tests\test_ingestion.py:309: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'})
+code = 'INVALID_SCOPE_STATUS', table = 'services', row = 1, record_id = 'S1'
+
+    def assert_blocked(result, code=None, table=None, row=None, record_id=None):
+>       assert not result.is_valid
+E       AssertionError: assert not True
+E        +  where True = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'}).is_valid
+
+tests\test_ingestion.py:87: AssertionError
+_____ test_unknown_scope_status_cannot_remove_a_mandatory_service[active] _____
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_unknown_scope_status_cann1')
+status = 'active'
+
+    @pytest.mark.parametrize("status", ["ATIVO", "active", "INACTIVE", "CANCELLED", ""])
+    def test_unknown_scope_status_cannot_remove_a_mandatory_service(tmp_path, status):
+        tables = deepcopy(TABLES)
+        tables["services"][0]["scope_status"] = status
+        result = importer(write_bundle(tmp_path, tables))
+>       assert_blocked(result, "INVALID_SCOPE_STATUS", "services", 1, "S1")
+
+tests\test_ingestion.py:309: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'})
+code = 'INVALID_SCOPE_STATUS', table = 'services', row = 1, record_id = 'S1'
+
+    def assert_blocked(result, code=None, table=None, row=None, record_id=None):
+>       assert not result.is_valid
+E       AssertionError: assert not True
+E        +  where True = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'}).is_valid
+
+tests\test_ingestion.py:87: AssertionError
+____ test_unknown_scope_status_cannot_remove_a_mandatory_service[INACTIVE] ____
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_unknown_scope_status_cann2')
+status = 'INACTIVE'
+
+    @pytest.mark.parametrize("status", ["ATIVO", "active", "INACTIVE", "CANCELLED", ""])
+    def test_unknown_scope_status_cannot_remove_a_mandatory_service(tmp_path, status):
+        tables = deepcopy(TABLES)
+        tables["services"][0]["scope_status"] = status
+        result = importer(write_bundle(tmp_path, tables))
+>       assert_blocked(result, "INVALID_SCOPE_STATUS", "services", 1, "S1")
+
+tests\test_ingestion.py:309: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'})
+code = 'INVALID_SCOPE_STATUS', table = 'services', row = 1, record_id = 'S1'
+
+    def assert_blocked(result, code=None, table=None, row=None, record_id=None):
+>       assert not result.is_valid
+E       AssertionError: assert not True
+E        +  where True = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'}).is_valid
+
+tests\test_ingestion.py:87: AssertionError
+___ test_unknown_scope_status_cannot_remove_a_mandatory_service[CANCELLED] ____
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_unknown_scope_status_cann3')
+status = 'CANCELLED'
+
+    @pytest.mark.parametrize("status", ["ATIVO", "active", "INACTIVE", "CANCELLED", ""])
+    def test_unknown_scope_status_cannot_remove_a_mandatory_service(tmp_path, status):
+        tables = deepcopy(TABLES)
+        tables["services"][0]["scope_status"] = status
+        result = importer(write_bundle(tmp_path, tables))
+>       assert_blocked(result, "INVALID_SCOPE_STATUS", "services", 1, "S1")
+
+tests\test_ingestion.py:309: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'})
+code = 'INVALID_SCOPE_STATUS', table = 'services', row = 1, record_id = 'S1'
+
+    def assert_blocked(result, code=None, table=None, row=None, record_id=None):
+>       assert not result.is_valid
+E       AssertionError: assert not True
+E        +  where True = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'}).is_valid
+
+tests\test_ingestion.py:87: AssertionError
+________ test_unknown_scope_status_cannot_remove_a_mandatory_service[] ________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_unknown_scope_status_cann4')
+status = ''
+
+    @pytest.mark.parametrize("status", ["ATIVO", "active", "INACTIVE", "CANCELLED", ""])
+    def test_unknown_scope_status_cannot_remove_a_mandatory_service(tmp_path, status):
+        tables = deepcopy(TABLES)
+        tables["services"][0]["scope_status"] = status
+        result = importer(write_bundle(tmp_path, tables))
+>       assert_blocked(result, "INVALID_SCOPE_STATUS", "services", 1, "S1")
+
+tests\test_ingestion.py:309: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'})
+code = 'INVALID_SCOPE_STATUS', table = 'services', row = 1, record_id = 'S1'
+
+    def assert_blocked(result, code=None, table=None, row=None, record_id=None):
+>       assert not result.is_valid
+E       AssertionError: assert not True
+E        +  where True = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'}).is_valid
+
+tests\test_ingestion.py:87: AssertionError
+_ test_branch_voltage_transition_requires_an_explicit_supported_converter[False] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_branch_voltage_transition0')
+cross_feeder = False
+
+    @pytest.mark.parametrize("cross_feeder", [False, True])
+    def test_branch_voltage_transition_requires_an_explicit_supported_converter(tmp_path, cross_feeder):
+        tables = deepcopy(TABLES)
+        tables["nodes"][1]["nominal_voltage_kv"] = .38
+        if cross_feeder:
+            tables["nodes"][1]["feeder_id"] = "F2"
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "UNSUPPORTED_VOLTAGE_TRANSITION", "branches", 1, "B1")
+
+tests\test_ingestion.py:320: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'})
+code = 'UNSUPPORTED_VOLTAGE_TRANSITION', table = 'branches', row = 1
+record_id = 'B1'
+
+    def assert_blocked(result, code=None, table=None, row=None, record_id=None):
+>       assert not result.is_valid
+E       AssertionError: assert not True
+E        +  where True = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'}).is_valid
+
+tests\test_ingestion.py:87: AssertionError
+_ test_branch_voltage_transition_requires_an_explicit_supported_converter[True] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_branch_voltage_transition1')
+cross_feeder = True
+
+    @pytest.mark.parametrize("cross_feeder", [False, True])
+    def test_branch_voltage_transition_requires_an_explicit_supported_converter(tmp_path, cross_feeder):
+        tables = deepcopy(TABLES)
+        tables["nodes"][1]["nominal_voltage_kv"] = .38
+        if cross_feeder:
+            tables["nodes"][1]["feeder_id"] = "F2"
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "UNSUPPORTED_VOLTAGE_TRANSITION", "branches", 1, "B1")
+
+tests\test_ingestion.py:320: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+result = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'})
+code = 'UNSUPPORTED_VOLTAGE_TRANSITION', table = 'branches', row = 1
+record_id = 'B1'
+
+    def assert_blocked(result, code=None, table=None, row=None, record_id=None):
+>       assert not result.is_valid
+E       AssertionError: assert not True
+E        +  where True = IngestionResult(network=GridNetwork(network_id='GIS_TEST', version='1', valid_from_day=0, coordinate_system='CARTESIAN...km', 'power': 'kW', 'voltage': 'kV', 'impedance': 'ohm', 'duration': 'h'}, 'source_coordinate_system': 'CARTESIAN_KM'}).is_valid
+
+tests\test_ingestion.py:87: AssertionError
+_______ test_oversized_csv_field_returns_diagnostics_instead_of_raising _______
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_oversized_csv_field_retur0')
+
+    def test_oversized_csv_field_returns_diagnostics_instead_of_raising(tmp_path):
+        path = write_bundle(tmp_path, fmt="csv")
+        write_large_csv_field(path, csv.field_size_limit() + 1)
+>       result = importer(path)
+                 ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:361: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_ingestion.py:77: in importer
+    return import_bundle(path)
+           ^^^^^^^^^^^^^^^^^^^
+src\kgp\ingestion.py:273: in import_bundle
+    rows, raw = _records(table_path, descriptor.get("format"))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src\kgp\ingestion.py:104: in _records
+    records = list(reader)
+              ^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <csv.DictReader object at 0x000001A04FB80DD0>
+
+    def __next__(self):
+        if self.line_num == 0:
+            # Used only for its side effect.
+            self.fieldnames
+>       row = next(self.reader)
+              ^^^^^^^^^^^^^^^^^
+E       _csv.Error: field larger than field limit (131072)
+
+C:\Program Files\Python311\Lib\csv.py:111: Error
+______________ test_cli_handles_oversized_csv_without_traceback _______________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-29/test_cli_handles_oversized_csv0')
+
+    def test_cli_handles_oversized_csv_without_traceback(tmp_path):
+        path = write_bundle(tmp_path, fmt="csv")
+        write_large_csv_field(path, csv.field_size_limit() + 1)
+        script = Path(__file__).resolve().parents[1] / "scripts" / "import_kgp_bundle.py"
+        run = subprocess.run([sys.executable, str(script), str(path)], capture_output=True, text=True)
+        assert run.returncode == 1
+>       report = json.loads(run.stdout)
+                 ^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:380: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Program Files\Python311\Lib\json\__init__.py:346: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Program Files\Python311\Lib\json\decoder.py:337: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <json.decoder.JSONDecoder object at 0x000001A04D3AAD10>, s = '', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+C:\Program Files\Python311\Lib\json\decoder.py:355: JSONDecodeError
+=========================== short test summary info ===========================
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[services-scope_status]
+FAILED tests/test_ingestion.py::test_unknown_scope_status_cannot_remove_a_mandatory_service[ATIVO]
+FAILED tests/test_ingestion.py::test_unknown_scope_status_cannot_remove_a_mandatory_service[active]
+FAILED tests/test_ingestion.py::test_unknown_scope_status_cannot_remove_a_mandatory_service[INACTIVE]
+FAILED tests/test_ingestion.py::test_unknown_scope_status_cannot_remove_a_mandatory_service[CANCELLED]
+FAILED tests/test_ingestion.py::test_unknown_scope_status_cannot_remove_a_mandatory_service[]
+FAILED tests/test_ingestion.py::test_branch_voltage_transition_requires_an_explicit_supported_converter[False]
+FAILED tests/test_ingestion.py::test_branch_voltage_transition_requires_an_explicit_supported_converter[True]
+FAILED tests/test_ingestion.py::test_oversized_csv_field_returns_diagnostics_instead_of_raising
+FAILED tests/test_ingestion.py::test_cli_handles_oversized_csv_without_traceback
+10 failed, 84 passed in 5.75s

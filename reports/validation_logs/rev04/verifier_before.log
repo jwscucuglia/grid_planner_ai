@@ -1,0 +1,276 @@
+{
+  "nonexecution_thermal_violation_accepted": {
+    "structural_errors": [],
+    "initial_loading_pct": 90.0,
+    "initial_transfer_feasible": true,
+    "plan_stages": [
+      {
+        "stage": "ISOLATION",
+        "start": 9.0,
+        "end": 9.125,
+        "transfer_feasible": false,
+        "loading_pct": 180.0,
+        "notes": "Barra 'L' parcialmente energizada (fases ativas: ['B'], fases sem tens�o: ['A']). N�o liberada para interven��o desenergizada.; Sobrecarga t�rmica em transfer�ncia (180.0% > 100%)."
+      },
+      {
+        "stage": "TRANSFER",
+        "start": 9.125,
+        "end": 9.25,
+        "transfer_feasible": true,
+        "loading_pct": 90.0,
+        "notes": "Transfer�ncia fact�vel (carregamento m�x 90.0%, queda m�x 0.01%)."
+      },
+      {
+        "stage": "EXECUTION",
+        "start": 9.25,
+        "end": 10.25,
+        "transfer_feasible": true,
+        "loading_pct": 90.0,
+        "notes": "Transfer�ncia fact�vel (carregamento m�x 90.0%, queda m�x 0.01%)."
+      },
+      {
+        "stage": "RECOMPOSITION",
+        "start": 10.25,
+        "end": 10.5,
+        "transfer_feasible": true,
+        "loading_pct": 90.0,
+        "notes": "Transfer�ncia fact�vel (carregamento m�x 90.0%, queda m�x 0.01%)."
+      }
+    ],
+    "verification": {
+      "plan_id": "P",
+      "method_name": "CUSTOM",
+      "scenario_id": "COUNTEREXAMPLE",
+      "is_feasible": true,
+      "mandatory_portfolio_complete": true,
+      "completed_mandatory_count": 1,
+      "total_mandatory_count": 1,
+      "violations": [],
+      "warnings": [],
+      "recalculated_materials": {},
+      "recalculated_consumer_hours": 0.0,
+      "recalculated_windows_count": 1,
+      "recalculated_physical_maneuvers": 6,
+      "recalculated_repeat_consumers": 0,
+      "recalculated_unique_consumers": 0,
+      "recalculated_total_interruptions": 0,
+      "recalculated_completed_services": [
+        "WORK"
+      ],
+      "isolation_verified": true
+    }
+  },
+  "dg_branch_loading_ignored": {
+    "structural_errors": [],
+    "initial_normal_source_path": "S -> X -> L, capacity10000kW; DG -> L10kW tie initially OPEN",
+    "initial_planner_max_loading_pct": 10.0,
+    "initial_independent_electrical_check": [
+      true,
+      10.0,
+      0.24700655663436352,
+      "OK"
+    ],
+    "initial_tie_state": "OPEN",
+    "initial_sources_at_load": [
+      "S"
+    ],
+    "execution_sources_at_load": [
+      "DG"
+    ],
+    "execution_closed_switches": [
+      [
+        "ST"
+      ]
+    ],
+    "branch_capacity_kw": 10.0,
+    "downstream_load_kw": 1000.0,
+    "generation_kw": 1000.0,
+    "physical_min_loading_pct": 10000.0,
+    "plan_stages": [
+      {
+        "stage": "ISOLATION",
+        "active_sources": [
+          "DG",
+          "S"
+        ],
+        "transfer_feasible": true,
+        "loading_pct": 0.0
+      },
+      {
+        "stage": "TRANSFER",
+        "active_sources": [
+          "DG",
+          "S"
+        ],
+        "transfer_feasible": true,
+        "loading_pct": 0.0
+      },
+      {
+        "stage": "EXECUTION",
+        "active_sources": [
+          "DG",
+          "S"
+        ],
+        "transfer_feasible": true,
+        "loading_pct": 0.0
+      },
+      {
+        "stage": "RECOMPOSITION",
+        "active_sources": [
+          "DG",
+          "S"
+        ],
+        "transfer_feasible": true,
+        "loading_pct": 0.0
+      }
+    ],
+    "verification": {
+      "plan_id": "P",
+      "method_name": "CUSTOM",
+      "scenario_id": "COUNTEREXAMPLE",
+      "is_feasible": true,
+      "mandatory_portfolio_complete": true,
+      "completed_mandatory_count": 1,
+      "total_mandatory_count": 1,
+      "violations": [],
+      "warnings": [],
+      "recalculated_materials": {},
+      "recalculated_consumer_hours": 0.125,
+      "recalculated_windows_count": 1,
+      "recalculated_physical_maneuvers": 6,
+      "recalculated_repeat_consumers": 0,
+      "recalculated_unique_consumers": 1,
+      "recalculated_total_interruptions": 1,
+      "recalculated_completed_services": [
+        "WORK"
+      ],
+      "isolation_verified": true
+    }
+  },
+  "optional_transfer_fallback_inconsistent": {
+    "eligible": [
+      true,
+      "Ativos ['AX'] efetivamente isolados e desenergizados na zona 'Z'."
+    ],
+    "planned_execution_closed_switches": [
+      []
+    ],
+    "structural_errors": [],
+    "verification": {
+      "plan_id": "P",
+      "method_name": "CUSTOM",
+      "scenario_id": "COUNTEREXAMPLE",
+      "is_feasible": false,
+      "mandatory_portfolio_complete": true,
+      "completed_mandatory_count": 1,
+      "total_mandatory_count": 1,
+      "violations": [
+        "Janela 'W' utiliza transfer�ncia eletricamente invi�vel (carregamento=1000.0%, queda=0.01%): Sobrecarga t�rmica por fase na transfer�ncia (1000.0% > 100%). | OK",
+        "Viola��o de isolamento el�trico: ativo 'AX' do servi�o 'WORK' permanece energizado (ou com extremidade de trecho energizada) na zona 'Z'."
+      ],
+      "warnings": [],
+      "recalculated_materials": {},
+      "recalculated_consumer_hours": 1.5,
+      "recalculated_windows_count": 1,
+      "recalculated_physical_maneuvers": 2,
+      "recalculated_repeat_consumers": 0,
+      "recalculated_unique_consumers": 1,
+      "recalculated_total_interruptions": 1,
+      "recalculated_completed_services": [
+        "WORK"
+      ],
+      "isolation_verified": false
+    },
+    "kgp_raw_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+    "kgp_raw_is_optimal_proven": true,
+    "kgp_raw_windows": 1,
+    "kgp_verification": {
+      "plan_id": "PLAN_KGP_FALLBACK",
+      "method_name": "KGP",
+      "scenario_id": "FALLBACK",
+      "is_feasible": false,
+      "mandatory_portfolio_complete": true,
+      "completed_mandatory_count": 1,
+      "total_mandatory_count": 1,
+      "violations": [
+        "Janela 'KGP_FALLBACK_W01' utiliza transfer�ncia eletricamente invi�vel (carregamento=1000.0%, queda=0.01%): Sobrecarga t�rmica por fase na transfer�ncia (1000.0% > 100%). | OK",
+        "Viola��o de isolamento el�trico: ativo 'AX' do servi�o 'WORK' permanece energizado (ou com extremidade de trecho energizada) na zona 'Z'."
+      ],
+      "warnings": [],
+      "recalculated_materials": {},
+      "recalculated_consumer_hours": 1.5,
+      "recalculated_windows_count": 1,
+      "recalculated_physical_maneuvers": 2,
+      "recalculated_repeat_consumers": 0,
+      "recalculated_unique_consumers": 1,
+      "recalculated_total_interruptions": 1,
+      "recalculated_completed_services": [
+        "WORK"
+      ],
+      "isolation_verified": false
+    }
+  },
+  "required_transfer_fallback_inconsistent": {
+    "eligible": [
+      true,
+      "Ativos ['AX'] efetivamente isolados e desenergizados na zona 'Z'."
+    ],
+    "planned_execution_closed_switches": [
+      []
+    ],
+    "structural_errors": [],
+    "verification": {
+      "plan_id": "P",
+      "method_name": "CUSTOM",
+      "scenario_id": "COUNTEREXAMPLE",
+      "is_feasible": false,
+      "mandatory_portfolio_complete": true,
+      "completed_mandatory_count": 1,
+      "total_mandatory_count": 1,
+      "violations": [
+        "Janela 'W' utiliza transfer�ncia eletricamente invi�vel (carregamento=1000.0%, queda=0.01%): Sobrecarga t�rmica por fase na transfer�ncia (1000.0% > 100%). | OK",
+        "Viola��o de isolamento el�trico: ativo 'AX' do servi�o 'WORK' permanece energizado (ou com extremidade de trecho energizada) na zona 'Z'."
+      ],
+      "warnings": [],
+      "recalculated_materials": {},
+      "recalculated_consumer_hours": 1.5,
+      "recalculated_windows_count": 1,
+      "recalculated_physical_maneuvers": 2,
+      "recalculated_repeat_consumers": 0,
+      "recalculated_unique_consumers": 1,
+      "recalculated_total_interruptions": 1,
+      "recalculated_completed_services": [
+        "WORK"
+      ],
+      "isolation_verified": false
+    },
+    "kgp_raw_status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+    "kgp_raw_is_optimal_proven": true,
+    "kgp_raw_windows": 1,
+    "kgp_verification": {
+      "plan_id": "PLAN_KGP_FALLBACK",
+      "method_name": "KGP",
+      "scenario_id": "FALLBACK",
+      "is_feasible": false,
+      "mandatory_portfolio_complete": true,
+      "completed_mandatory_count": 1,
+      "total_mandatory_count": 1,
+      "violations": [
+        "Janela 'KGP_FALLBACK_W01' utiliza transfer�ncia eletricamente invi�vel (carregamento=1000.0%, queda=0.01%): Sobrecarga t�rmica por fase na transfer�ncia (1000.0% > 100%). | OK",
+        "Viola��o de isolamento el�trico: ativo 'AX' do servi�o 'WORK' permanece energizado (ou com extremidade de trecho energizada) na zona 'Z'."
+      ],
+      "warnings": [],
+      "recalculated_materials": {},
+      "recalculated_consumer_hours": 1.5,
+      "recalculated_windows_count": 1,
+      "recalculated_physical_maneuvers": 2,
+      "recalculated_repeat_consumers": 0,
+      "recalculated_unique_consumers": 1,
+      "recalculated_total_interruptions": 1,
+      "recalculated_completed_services": [
+        "WORK"
+      ],
+      "isolation_verified": false
+    }
+  }
+}

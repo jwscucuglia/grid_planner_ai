@@ -4,4 +4,4 @@ Demonstrador computacional independente para programação conjunta de serviços
 em redes elétricas de distribuição sob restrições topológicas, temporais e de recursos.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.6.1"

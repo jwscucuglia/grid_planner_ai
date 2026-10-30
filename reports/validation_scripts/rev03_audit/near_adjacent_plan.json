@@ -1,0 +1,20 @@
+{
+  "strict_roundtrip_passed": true,
+  "feasible": true,
+  "violations": [],
+  "gap_hours": 4.999999999810711e-06,
+  "optimizer_consumer_union": {
+    "C": [
+      [
+        33.000049000000004,
+        35.000054
+      ]
+    ]
+  },
+  "verifier_repeat_consumers": 1,
+  "verifier_consumer_hours": 2.0,
+  "optimizer_exact_J": 193.2,
+  "verifier_counters_J": 205.2,
+  "objective_difference": -12.0,
+  "limitation": "Subsecond exported times accepted by contracts; no published 48-plan evidence affected."
+}

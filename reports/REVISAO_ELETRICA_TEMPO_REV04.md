@@ -1,0 +1,20 @@
+# Revisão elétrica e temporal independente — REV04
+
+Data: 29/10/2026. Parecer: **não identifiquei bloqueador adicional no escopo exercitado**. Esta é uma nova revisão computacional dos caminhos elétricos e temporais; não representa crédito ou aprovação de um revisor humano.
+
+Foram lidos os caminhos de topologia, elegibilidade, programação, verificação independente, contratos, validação estrutural e métricas. A execução limitou-se a casos pequenos; não alterou produção nem testes e não executou a suíte integral ou o benchmark. Os sete arquivos de produção examinados permaneceram com os mesmos SHA-256 entre a execução dos casos e o fechamento desta revisão.
+
+Os inputs dos contraexemplos elétricos da REV03 foram reutilizados literalmente, sem executar as antigas asserções que exigiam a presença do defeito. Um novo script verificou as correções e controles adicionais. Resultado: **85 verificações de casos/controles e 2.000 comparações de união temporal passaram**, sem falhas. As 2.000 comparações correspondem a 1.000 amostras determinísticas, cada uma confrontada com as duas implementações; não são 2.000 cenários de rede.
+
+| Tema | Evidência observada | Parecer limitado |
+| --- | --- | --- |
+| A1 — etapas elétricas | Isolamento positivo com carregamento de 180% foi rejeitado, apesar de transferência/execução/recomposição a 90%. Um caso apenas de tensão também foi rejeitado: isolamento com queda de 7,561%, demais etapas com 3,781%, limite de 5%. | A falha representada deixa de ser aceita por coincidir com a evidência exportada. Elegibilidade e programação também bloqueiam o caso térmico. |
+| A1 — controles | Carga admissível passou. Com preparação zero, o estado inviável de duração zero não invalidou as etapas efetivas. Preparação de um tick alocou o tick à transferência; dois ticks produziram isolamento positivo e rejeição. Sobrecarga sem fechamento de NA também foi rejeitada. | O bloqueio distingue etapas positivas de estados instantâneos e não depende da existência de transferência. |
+| A2 — GD | O input original com `allow_dg_islanding=True` foi recusado por B0/B1/B2/KGP e pelo verificador, sem prova de ótimo. | A opção foi explicitamente retirada do escopo suportado; implementar ilhamento por GD não é requisito desta revisão. |
+| A4 — transferência | Falhas por sobrecarga, permissão de manobra e parâmetros ausentes: a opcional foi abandonada, mantendo a NA aberta, duas manobras físicas e plano exportado factível. A obrigatória falhou explicitamente. | A auditoria usa o estado efetivamente executado e preserva a distinção entre transferência opcional e obrigatória. |
+| A5 — contrato e agenda | O testemunho original com separação de 18 ms foi rejeitado no objeto e na leitura JSON, sem normalização silenciosa. Serviços positivos de um tick foram preservados. Violações de um tick nos limites de catálogo/turno, duração máxima e precedência foram rejeitadas. | As fronteiras examinadas usam a resolução declarada de 0,0001 h, equivalente a 0,36 s. |
+| A5 — impacto e objetivo | Janelas contíguas produziram uma interrupção e J = 193,2; separadas por um tick produziram duas e J = 205,2. Ambos os casos mantiveram 2 clientes-hora. | A reincidência e o objetivo coincidem nos controles. As duas uniões coincidiram com uma terceira referência por ocupação bruta de células inteiras em todas as amostras. |
+
+As implementações de conectividade e união do verificador permanecem separadas das usadas pelo planejador. O compartilhamento do contrato de ticks fixa a semântica temporal; a terceira referência não chamou nenhuma das duas rotinas de união para derivar os resultados esperados.
+
+Evidência local de revisão: `.audit_cache/rev04/independent_electrical_time/review.py` e `results.json`, executados com `.venv/Scripts/python.exe`. O JSON registra os hashes dos fontes, o hash do reproducer original e os estados dos controles elétricos. Este parecer não substitui a suíte consolidada da REV04, não confirma novos números do benchmark e não amplia o modelo agregado/radial para fluxo AC, proteção, LOTO ou segurança de operação em campo.

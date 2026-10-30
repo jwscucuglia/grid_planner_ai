@@ -1,0 +1,10 @@
+{
+  "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "matplotlib": "3.11.2"
+  },
+  "commit": "5adf593ad9168e61a4b4ceea62346db7402a3d4c",
+  "source_status": " M configs/protocol_and_seeds.json\n M reports/RELATORIO_EXECUCAO_KGP.md\n M reports/comparativo_kgp_desafio07.png\n M reports/kgp_evaluation_results.csv\n M reports/kgp_evaluation_summary.json\n M reports/manifest_sha256.json\n M reports/pytest_execution.log\n?? reports/AUDITORIA_DOCUMENTAL_D07.md\n?? reports/AUDITORIA_INTEGRAL_D07_REV03.md\n?? reports/AUDITORIA_OTIMIZADOR_D07.md\n?? reports/ENUMERACAO_INDEPENDENTE_CATALOGO_PEQUENO.json\n?? reports/FONTES_OFICIAIS_SHA256_D07.json\n?? reports/HISTORICO_REV02_CONFERENCIA.json\n?? reports/INVENTARIO_DRIVE_D07_20261029.csv\n?? reports/MATRIZ_ADERENCIA_OFICIAL_D07.md\n?? reports/ORCAMENTO_TRANSPOSTO_CONFERENCIA.json\n?? reports/ORCAMENTO_VALIDACAO_ARITMETICA.json\n?? reports/REAUDITORIA_FOCUSED_ADAPTADA.json\n?? reports/REPRODUCAO_METRICAS_SEM_TEMPO.json\n?? reports/REVISAO_FINAL_BRANCH_D07.md\n?? reports/REVISAO_INDEPENDENTE_NUCLEO_D07.md\n?? reports/SINCRONIZACAO_ORCAMENTO_ANEXOS_D07.json\n?? reports/VALIDACAO_ENTREGA_48_PLANOS.json\n?? reports/history/\n?? reports/revalidation_20261029/\n?? reports/validation_logs/\n?? reports/validation_scripts/\n?? scripts/\n"
+}

@@ -1,0 +1,36 @@
+{
+  "dataset": "ANEEL BDGD / EFLUL",
+  "reference_date": "2025-12-31",
+  "source_item_title": "Eflul_86_2025-12-31_V11_20260823-1830",
+  "source_item_id": "04a736e95f114c32a56206957a492cba",
+  "source_owner": "aneel_aneel",
+  "catalog_url": "https://dadosabertos.aneel.gov.br/dataset/base-de-dados-geografica-da-distribuidora-bdgd",
+  "catalog_metadata_api": "https://dadosabertos.aneel.gov.br/api/3/action/package_show?id=base-de-dados-geografica-da-distribuidora-bdgd",
+  "item_url": "https://www.arcgis.com/home/item.html?id=04a736e95f114c32a56206957a492cba",
+  "download_url": "https://www.arcgis.com/sharing/rest/content/items/04a736e95f114c32a56206957a492cba/data",
+  "license": "Open Data Commons Open Database License (ODbL), as declared by ANEEL CKAN dataset metadata",
+  "license_id": "odc-odbl",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "arcgis_item_licenseInfo": null,
+  "license_qualification": "The individual ArcGIS item has licenseInfo=null; ODbL is supplied by its official parent dataset, not invented as an item-level statement.",
+  "attribution": "Contém informações da Base de Dados Geográfica da Distribuidora (BDGD), ANEEL/EFLUL, data-base 31/12/2025; recorte CTMT 002 (USA 06).",
+  "zip_bytes": 3174969,
+  "zip_sha256": "35a071a48728cd3bf5dbd9aa960026c9f6290f04c3d4abea25038eae476df168",
+  "retrieved_utc_date": "2026-10-29",
+  "feeder_selection": "CTMT COD_ID=002; smallest EFLUL feeder by SSDMT record count (314). All matching SSDMT, UNSEMT and UNREMT retained.",
+  "raw_native_crs": "EPSG:4674 (SIRGAS 2000)",
+  "geojson_crs": "EPSG:4326 (transformed with pyproj, always_xy=True)",
+  "display_projected_crs": "EPSG:31982 (SIRGAS 2000 / UTM zone 22S), coordinates in metres",
+  "units_verified": {
+    "CTMT.TEN_NOM": "DDA TTEN code; 49 -> 13800 V (Manual BDGD Rev5 p182)",
+    "UNSEMT.P_N_OPE": "TNOROPE: A=Aberta; F=Fechada (Manual BDGD Rev5 p202)",
+    "SSDMT.COMP": "metres (Manual BDGD Rev5 SSDMT model)",
+    "SEGCON.CNOM/CMAX": "amperes (Manual BDGD Rev5 SEGCON model; not imported into this topological excerpt)"
+  },
+  "manual_url": "https://www.arcgis.com/sharing/rest/content/items/5e98fead943e4b7e8eaa95f56967a6d1/data",
+  "reader_versions": {
+    "pyogrio": "0.13.0",
+    "GDAL": "(3, 12, 4)"
+  },
+  "scientific_claim_boundary": "Public real GIS import and topological reachability demonstration only. Any planning run must label synthetic overlays and must not claim operational validation."
+}

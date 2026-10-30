@@ -1,0 +1,184 @@
+FFFFFFF                                                                  [100%]
+================================== FAILURES ===================================
+_ test_imported_public_graph_preserves_all_declared_connections_and_switches __
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_imported_public_graph_pre0')
+
+    def test_imported_public_graph_preserves_all_declared_connections_and_switches(tmp_path):
+>       manifest = prepare(tmp_path)
+                   ^^^^^^^^^^^^^^^^^
+
+tests\test_gis_reference_integration.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+output = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_imported_public_graph_pre0')
+source = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/data/gis_reference/eflul_2025_ctmt002/source')
+
+    def prepare(output, source=SOURCE):
+        path = ROOT / 'scripts/prepare_gis_reference.py'
+>       assert path.exists(), 'Public GIS adapter is not implemented'
+E       AssertionError: Public GIS adapter is not implemented
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/scripts/prepare_gis_reference.py').exists
+
+tests\test_gis_reference_integration.py:24: AssertionError
+_ test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier[B0] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_public_gis_bundle_runs_th0')
+method = 'B0'
+
+    @pytest.mark.parametrize('method', ['B0', 'B1', 'B2', 'KGP'])
+    def test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier(tmp_path, method):
+>       result = import_bundle(prepare(tmp_path))
+                               ^^^^^^^^^^^^^^^^^
+
+tests\test_gis_reference_integration.py:55: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+output = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_public_gis_bundle_runs_th0')
+source = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/data/gis_reference/eflul_2025_ctmt002/source')
+
+    def prepare(output, source=SOURCE):
+        path = ROOT / 'scripts/prepare_gis_reference.py'
+>       assert path.exists(), 'Public GIS adapter is not implemented'
+E       AssertionError: Public GIS adapter is not implemented
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/scripts/prepare_gis_reference.py').exists
+
+tests\test_gis_reference_integration.py:24: AssertionError
+_ test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier[B1] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_public_gis_bundle_runs_th1')
+method = 'B1'
+
+    @pytest.mark.parametrize('method', ['B0', 'B1', 'B2', 'KGP'])
+    def test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier(tmp_path, method):
+>       result = import_bundle(prepare(tmp_path))
+                               ^^^^^^^^^^^^^^^^^
+
+tests\test_gis_reference_integration.py:55: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+output = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_public_gis_bundle_runs_th1')
+source = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/data/gis_reference/eflul_2025_ctmt002/source')
+
+    def prepare(output, source=SOURCE):
+        path = ROOT / 'scripts/prepare_gis_reference.py'
+>       assert path.exists(), 'Public GIS adapter is not implemented'
+E       AssertionError: Public GIS adapter is not implemented
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/scripts/prepare_gis_reference.py').exists
+
+tests\test_gis_reference_integration.py:24: AssertionError
+_ test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier[B2] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_public_gis_bundle_runs_th2')
+method = 'B2'
+
+    @pytest.mark.parametrize('method', ['B0', 'B1', 'B2', 'KGP'])
+    def test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier(tmp_path, method):
+>       result = import_bundle(prepare(tmp_path))
+                               ^^^^^^^^^^^^^^^^^
+
+tests\test_gis_reference_integration.py:55: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+output = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_public_gis_bundle_runs_th2')
+source = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/data/gis_reference/eflul_2025_ctmt002/source')
+
+    def prepare(output, source=SOURCE):
+        path = ROOT / 'scripts/prepare_gis_reference.py'
+>       assert path.exists(), 'Public GIS adapter is not implemented'
+E       AssertionError: Public GIS adapter is not implemented
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/scripts/prepare_gis_reference.py').exists
+
+tests\test_gis_reference_integration.py:24: AssertionError
+_ test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier[KGP] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_public_gis_bundle_runs_th3')
+method = 'KGP'
+
+    @pytest.mark.parametrize('method', ['B0', 'B1', 'B2', 'KGP'])
+    def test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier(tmp_path, method):
+>       result = import_bundle(prepare(tmp_path))
+                               ^^^^^^^^^^^^^^^^^
+
+tests\test_gis_reference_integration.py:55: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+output = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_public_gis_bundle_runs_th3')
+source = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/data/gis_reference/eflul_2025_ctmt002/source')
+
+    def prepare(output, source=SOURCE):
+        path = ROOT / 'scripts/prepare_gis_reference.py'
+>       assert path.exists(), 'Public GIS adapter is not implemented'
+E       AssertionError: Public GIS adapter is not implemented
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/scripts/prepare_gis_reference.py').exists
+
+tests\test_gis_reference_integration.py:24: AssertionError
+__ test_altered_source_is_not_silently_imported_as_verified_public_reference __
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_altered_source_is_not_sil0')
+
+    def test_altered_source_is_not_silently_imported_as_verified_public_reference(tmp_path):
+        source = tmp_path / 'source'
+        shutil.copytree(SOURCE, source)
+        path = source / 'mv_connectivity.csv'
+        path.write_bytes(path.read_bytes() + b'\n')
+        with pytest.raises(ValueError, match='hash'):
+>           prepare(tmp_path / 'bundle', source)
+
+tests\test_gis_reference_integration.py:75: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+output = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_altered_source_is_not_sil0/bundle')
+source = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_altered_source_is_not_sil0/source')
+
+    def prepare(output, source=SOURCE):
+        path = ROOT / 'scripts/prepare_gis_reference.py'
+>       assert path.exists(), 'Public GIS adapter is not implemented'
+E       AssertionError: Public GIS adapter is not implemented
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/scripts/prepare_gis_reference.py').exists
+
+tests\test_gis_reference_integration.py:24: AssertionError
+_________ test_orphan_connection_in_normalized_bundle_blocks_planning _________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_orphan_connection_in_norm0')
+
+    def test_orphan_connection_in_normalized_bundle_blocks_planning(tmp_path):
+>       manifest = prepare(tmp_path)
+                   ^^^^^^^^^^^^^^^^^
+
+tests\test_gis_reference_integration.py:79: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+output = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-24/test_orphan_connection_in_norm0')
+source = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/data/gis_reference/eflul_2025_ctmt002/source')
+
+    def prepare(output, source=SOURCE):
+        path = ROOT / 'scripts/prepare_gis_reference.py'
+>       assert path.exists(), 'Public GIS adapter is not implemented'
+E       AssertionError: Public GIS adapter is not implemented
+E       assert False
+E        +  where False = exists()
+E        +    where exists = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/scripts/prepare_gis_reference.py').exists
+
+tests\test_gis_reference_integration.py:24: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_gis_reference_integration.py::test_imported_public_graph_preserves_all_declared_connections_and_switches
+FAILED tests/test_gis_reference_integration.py::test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier[B0]
+FAILED tests/test_gis_reference_integration.py::test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier[B1]
+FAILED tests/test_gis_reference_integration.py::test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier[B2]
+FAILED tests/test_gis_reference_integration.py::test_public_gis_bundle_runs_through_existing_planners_and_independent_verifier[KGP]
+FAILED tests/test_gis_reference_integration.py::test_altered_source_is_not_silently_imported_as_verified_public_reference
+FAILED tests/test_gis_reference_integration.py::test_orphan_connection_in_normalized_bundle_blocks_planning
+7 failed in 1.45s

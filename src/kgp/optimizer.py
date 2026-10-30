@@ -1,8 +1,8 @@
 """Otimizador combinatório MILP (KGP) via SciPy/HiGHS para programação de desligamentos.
 
 Seleciona conjuntamente pacotes de serviços, zonas de isolamento, datas, sequências
-diárias de janelas e alocação de equipes dentro exatamente do mesmo espaço de zonas,
-horários e restrições permitido aos comparadores (B0, B1, B2).
+diárias de janelas e alocação de equipes sob as mesmas restrições operacionais dos
+comparadores (B0, B1, B2), em um catálogo discreto limitado que inclui suas sementes.
 
 Função objetivo documentada (minimização ponderada):
   J = w_win * N_janelas
@@ -10,6 +10,9 @@ Função objetivo documentada (minimização ponderada):
     + w_rep * Consumidores_Reincidentes
     + w_man * Manobras_Fisicas
     + w_hh  * (Horas_Trabalho_Equipe + Horas_Deslocamento_Equipe)
+    + w_opt * N_ordens_opcionais_omitidas
+
+Carteira obrigatória e precedências são restrições rígidas, sem troca por custo.
 
 Cada coluna candidata no MILP representa uma programação diária completa e factível
 (1 ou mais janelas encadeadas no dia `d` com o deslocamento real entre serviços e a
@@ -19,8 +22,11 @@ avaliado pelo solver e o custo do plano final exportado.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass, fields, replace
+from fractions import Fraction
 from itertools import combinations
+import json
+import math
 import time
 from typing import Dict, FrozenSet, Iterable, List, Optional, Sequence, Set, Tuple
 
@@ -49,7 +55,9 @@ from .eligibility import (
     find_eligible_zones_for_service,
 )
 from .metrics import compute_consumer_interruption_unions, merge_intervals
+from .materials import exact_materials, service_material_totals, subtract_service_materials
 from .scheduling import build_window_schedule
+from .planning_policy import unsupported_input_plan
 
 
 @dataclass(frozen=True)
@@ -61,7 +69,15 @@ class ObjectiveWeights:
     repeat_consumer_weight: float = 12.0
     physical_maneuver_weight: float = 2.5
     crew_hour_weight: float = 0.6
+    # Compatibilidade da API 0.2.0; não é usada como relaxação de carteira obrigatória.
     unscheduled_penalty: float = 1_000_000.0
+    optional_unscheduled_penalty: float = 50.0
+
+    def __post_init__(self) -> None:
+        for item in fields(self):
+            value = getattr(self, item.name)
+            if not math.isfinite(value) or value < 0.0:
+                raise ValueError(f"Peso '{item.name}' deve ser finito e não negativo.")
 
 
 @dataclass
@@ -72,7 +88,7 @@ class _DayScheduleColumn:
     day: int
     windows: Tuple[PlannedInterruptionWindow, ...]
     service_ids: Tuple[str, ...]
-    materials_used: Dict[str, float]
+    materials_used: Dict[str, Fraction]
     consumer_hours: float
     physical_maneuvers: int
     crew_hours: float
@@ -130,16 +146,6 @@ def _evaluate_day_windows_metrics(
     )
 
 
-def _subtract_materials(
-    stock: Dict[str, float],
-    used: Dict[str, float],
-) -> Dict[str, float]:
-    out = dict(stock)
-    for k, v in used.items():
-        out[k] = round(out.get(k, 0.0) - v, 4)
-    return out
-
-
 def _generate_day_schedule_columns(
     network: GridNetwork,
     known_services: Sequence[ServiceOrder],
@@ -150,6 +156,7 @@ def _generate_day_schedule_columns(
     max_package_size: int = 5,
     max_windows_per_day: int = 5,
     max_states_per_depth: int = 120,
+    decision_day: int = 0,
 ) -> List[_DayScheduleColumn]:
     """Gera colunas diárias completas (1 a N janelas encadeadas por dia com deslocamento exato)."""
     svc_map: Dict[str, ServiceOrder] = {s.service_id: s for s in known_services}
@@ -157,6 +164,8 @@ def _generate_day_schedule_columns(
     all_day_columns: List[_DayScheduleColumn] = []
 
     for day in catalog.planning_days:
+        if day < decision_day:
+            continue
         day_svcs = [
             s
             for s in known_services
@@ -224,13 +233,13 @@ def _generate_day_schedule_columns(
             Tuple[PlannedInterruptionWindow, ...],
             FrozenSet[str],
             Dict[str, float],
-            Dict[str, float],
+            Dict[str, Fraction],
         ]
         empty_state: StateType = (
             (),
             frozenset(),
             {},
-            dict(catalog.materials_inventory),
+            exact_materials(catalog.materials_inventory),
         )
         current_layer: List[StateType] = [empty_state]
         collected_states: List[Tuple[PlannedInterruptionWindow, ...]] = []
@@ -328,8 +337,8 @@ def _generate_day_schedule_columns(
                                 if iv.service_id == sid
                             )
                             new_end_map[sid] = s_end
-                        new_rem_mat = _subtract_materials(
-                            rem_mat, new_win.materials_used
+                        new_rem_mat = subtract_service_materials(
+                            rem_mat, (svc_map[sid] for sid in new_win.service_ids)
                         )
 
                         _, _, _, state_cost, _ = _evaluate_day_windows_metrics(
@@ -428,10 +437,10 @@ def _generate_day_schedule_columns(
             if not intra_pred_ok:
                 continue
 
-            mats_used: Dict[str, float] = {}
-            for w in wins_tuple:
-                for mk, mv in w.materials_used.items():
-                    mats_used[mk] = round(mats_used.get(mk, 0.0) + mv, 4)
+            mats_used = service_material_totals(svc_map[sid] for sid in covered_sorted)
+            if any(qty > Fraction(str(catalog.materials_inventory.get(mat, 0.0)))
+                   for mat, qty in mats_used.items()):
+                continue
 
             ch, phys, wh, cost, grp_ints = _evaluate_day_windows_metrics(
                 wins_tuple, consumer_groups, weights
@@ -468,8 +477,25 @@ def _generate_day_schedule_columns(
 def compute_exact_plan_objective(
     plan: ExecutionPlan,
     weights: ObjectiveWeights,
+    services: Optional[Iterable[ServiceOrder]] = None,
 ) -> float:
-    """Calcula o valor exato da função objetivo J sobre um ExecutionPlan completo."""
+    """Recalcula J; omissões opcionais exigem a carteira canônica ``services``.
+
+    A carteira obrigatória é restrição rígida. Um plano que a omita não possui
+    objetivo factível; não recebe pontuação artificialmente favorável nem uma
+    penalidade finita que possa ser trocada por custo operacional.
+    """
+    if services is None:
+        if plan.unscheduled_service_ids:
+            raise ValueError("services é obrigatório para classificar omissões do plano.")
+        omitted_optional_count = 0
+    else:
+        known, _ = filter_known_services(list(services), plan.decision_day)
+        completed = {sid for win in plan.windows for sid in win.service_ids}
+        omitted = [svc for svc in known if svc.service_id not in completed]
+        if any(svc.mandatory for svc in omitted):
+            raise ValueError("Carteira mandatory incompleta: objetivo factível indefinido.")
+        omitted_optional_count = len(omitted)
     merged_by_cons = compute_consumer_interruption_unions(plan)
     ch_total = sum(
         (end - start)
@@ -489,9 +515,81 @@ def compute_exact_plan_objective(
         + weights.repeat_consumer_weight * repeat_count
         + weights.physical_maneuver_weight * phys_man
         + weights.crew_hour_weight * crew_h
-        + weights.unscheduled_penalty * len(plan.unscheduled_service_ids)
+        + weights.optional_unscheduled_penalty * omitted_optional_count
     )
     return round(obj, 4)
+
+
+def _audit_plan_export(
+    network: GridNetwork,
+    services: Sequence[ServiceOrder],
+    catalog: ResourceCatalog,
+    plan: ExecutionPlan,
+) -> Tuple[ExecutionPlan, bool]:
+    """Audita o objeto e sua exportação JSON antes de publicar qualquer certificado."""
+    from .contracts import plan_from_json
+    from .feasibility import verify_plan_feasibility
+
+    raw_report = verify_plan_feasibility(network, services, catalog, plan)
+    raw_violations = list(raw_report.violations)
+    exported_report = None
+    export_error = None
+    try:
+        exported = plan_from_json(json.dumps(asdict(plan), ensure_ascii=False, allow_nan=False))
+        exported_report = verify_plan_feasibility(network, services, catalog, exported)
+        plan = exported
+    except (TypeError, ValueError, OverflowError) as exc:
+        export_error = f"Exportação JSON rejeitada: {exc}"
+
+    violations = raw_violations + (
+        list(exported_report.violations) if exported_report is not None else [export_error]
+    )
+    audit = {
+        "raw_is_feasible": raw_report.is_feasible,
+        "json_roundtrip_succeeded": exported_report is not None,
+        "exported_is_feasible": exported_report.is_feasible if exported_report is not None else False,
+        "violations": list(dict.fromkeys(violations)),
+    }
+    plan.metadata = dict(plan.metadata)
+    plan.metadata["independent_verification"] = audit
+    return plan, bool(raw_report.is_feasible and exported_report is not None and exported_report.is_feasible)
+
+
+def _reject_plan_certificate(plan: ExecutionPlan) -> ExecutionPlan:
+    """Um candidato rejeitado não tem objetivo factível nem certificado publicável."""
+    plan.solver_status = "INVALID_PLAN_REJECTED"
+    plan.solver_objective = None
+    plan.solver_bound = None
+    plan.solver_gap = None
+    plan.is_optimal_proven = False
+    plan.metadata["optimality_scope"] = (
+        "Plano rejeitado pelo verificador independente ou pela exportação JSON; "
+        "sem objetivo factível, bound, gap ou prova de ótimo publicáveis."
+    )
+    return plan
+
+
+def _verified_seed_fallback(
+    network: GridNetwork,
+    services: Sequence[ServiceOrder],
+    catalog: ResourceCatalog,
+    seeds: Sequence[ExecutionPlan],
+    weights: ObjectiveWeights,
+    plan_id: str,
+) -> Optional[ExecutionPlan]:
+    """Escolhe a melhor semente que passa pela mesma auditoria da saída MILP."""
+    feasible_seeds = []
+    for seed in seeds:
+        candidate = replace(
+            seed, plan_id=plan_id, method_name="KGP", solver_status="PENDING_VERIFICATION",
+            solver_objective=None, solver_bound=None, solver_gap=None,
+            is_optimal_proven=False, metadata=dict(seed.metadata),
+        )
+        candidate, feasible = _audit_plan_export(network, services, catalog, candidate)
+        if feasible:
+            candidate.solver_objective = compute_exact_plan_objective(candidate, weights, services)
+            feasible_seeds.append(candidate)
+    return min(feasible_seeds, key=lambda p: p.solver_objective) if feasible_seeds else None
 
 
 def run_kgp_optimizer(
@@ -502,17 +600,21 @@ def run_kgp_optimizer(
     decision_day: int = 0,
     weights: Optional[ObjectiveWeights] = None,
     time_limit_sec: float = 15.0,
+    b1_radius_km: float = 1.25,
 ) -> ExecutionPlan:
     """Executa o otimizador combinatório KGP (MILP via SciPy/HiGHS sobre colunas diárias)."""
     t0 = time.perf_counter()
     w = weights if weights is not None else ObjectiveWeights()
 
     all_services = list(services)
+    unsupported = unsupported_input_plan(network, all_services, scenario_id, decision_day, "KGP", catalog=catalog)
+    if unsupported is not None:
+        return unsupported
     known_services, excluded = filter_known_services(all_services, decision_day)
     lc_alerts = detect_lifecycle_conflicts(known_services)
 
     if not known_services:
-        return ExecutionPlan(
+        empty_plan = ExecutionPlan(
             plan_id=f"PLAN_KGP_{scenario_id}",
             method_name="KGP",
             scenario_id=scenario_id,
@@ -522,13 +624,18 @@ def run_kgp_optimizer(
             unscheduled_service_ids=(),
             exclusion_justifications=excluded,
             lifecycle_alerts=lc_alerts,
-            solver_status="OPTIMAL_ON_DISCRETE_COLUMNS",
-            solver_objective=0.0,
-            solver_bound=0.0,
-            solver_gap=0.0,
+            solver_status="PENDING_VERIFICATION",
             solver_time_sec=round(time.perf_counter() - t0, 6),
-            is_optimal_proven=True,
         )
+        empty_plan, feasible = _audit_plan_export(network, all_services, catalog, empty_plan)
+        empty_plan.solver_time_sec = round(time.perf_counter() - t0, 6)
+        if not feasible:
+            return _reject_plan_certificate(empty_plan)
+        empty_plan.solver_status = "OPTIMAL_ON_DISCRETE_COLUMNS"
+        empty_plan.solver_objective = empty_plan.solver_bound = empty_plan.solver_gap = 0.0
+        empty_plan.is_optimal_proven = True
+        empty_plan.solver_time_sec = round(time.perf_counter() - t0, 6)
+        return empty_plan
 
     # Gera planos sementes de B0, B1 e B2 para garantir que o espaço de colunas do KGP
     # contenha todas as alternativas construtivas dos comparadores:
@@ -536,7 +643,7 @@ def run_kgp_optimizer(
         network, all_services, catalog, scenario_id, decision_day
     )
     seed_b1 = run_baseline_b1_geographic(
-        network, all_services, catalog, scenario_id, decision_day
+        network, all_services, catalog, scenario_id, decision_day, radius_km=b1_radius_km
     )
     seed_b2 = run_baseline_b2_topological_greedy(
         network, all_services, catalog, scenario_id, decision_day
@@ -555,6 +662,7 @@ def run_kgp_optimizer(
         consumer_groups=consumer_groups,
         weights=w,
         seed_plans=(seed_b0, seed_b1, seed_b2),
+        decision_day=decision_day,
     )
 
     num_cols = len(columns)
@@ -574,7 +682,10 @@ def run_kgp_optimizer(
 
     for i, svc in enumerate(known_services):
         var_idx = num_cols + i
-        c_vec[var_idx] = w.unscheduled_penalty if svc.mandatory else 50.0
+        c_vec[var_idx] = 0.0 if svc.mandatory else w.optional_unscheduled_penalty
+        # Não negociar carteira obrigatória por uma penalidade finita.
+        if svc.mandatory:
+            ub[var_idx] = 0.0
 
     # Indicador estritamente binário r_g in {0, 1} para reincidência (>= 2 interrupções):
     for g_idx, g_key in enumerate(group_keys):
@@ -617,8 +728,23 @@ def run_kgp_optimizer(
     for s_idx, svc in enumerate(known_services):
         for pred_id in svc.precedence_service_ids:
             if pred_id not in svc_index:
+                # Predecessor fora da carteira conhecida/ativa não pode sustentar
+                # uma execução; obrigatórias tornam o catálogo inviável.
+                row = np.zeros(total_vars, dtype=float)
+                row[num_cols + s_idx] = 1.0
+                rows.append(row)
+                lhs_list.append(1.0)
+                rhs_list.append(1.0)
                 continue
             p_idx = svc_index[pred_id]
+            # Cobertura do predecessor: omitir P implica omitir S, mesmo se P
+            # for opcional. A desigualdade de datas sozinha relaxava esse caso.
+            presence_row = np.zeros(total_vars, dtype=float)
+            presence_row[num_cols + p_idx] = 1.0
+            presence_row[num_cols + s_idx] = -1.0
+            rows.append(presence_row)
+            lhs_list.append(-np.inf)
+            rhs_list.append(0.0)
             row = np.zeros(total_vars, dtype=float)
             for k, col in enumerate(columns):
                 has_p = pred_id in col.service_ids
@@ -635,19 +761,33 @@ def run_kgp_optimizer(
             lhs_list.append(-np.inf)
             rhs_list.append(1.0)
 
-    # 4. Estoque global de materiais:
-    for mat, avail_qty in catalog.materials_inventory.items():
+    # 4. Exact mandatory demand is a necessary physical condition. Encode an
+    # impossible row on deficit, including parcels below double precision.
+    mandatory_materials = service_material_totals(s for s in known_services if s.mandatory)
+    inventory = exact_materials(catalog.materials_inventory)
+    if any(qty > inventory.get(mat, Fraction(0)) for mat, qty in mandatory_materials.items()):
+        rows.append(np.zeros(total_vars, dtype=float))
+        lhs_list.append(-np.inf)
+        rhs_list.append(-1.0)
+
+    # Positive-stock rows are scaled to RHS=1; small absolute inventories must
+    # not disappear inside the solver's absolute feasibility tolerance. This
+    # remains a double-precision MILP; the exact final audit is the hard gate.
+    for mat in sorted(inventory.keys() | {m for col in columns for m in col.materials_used}):
+        avail_qty = inventory.get(mat, Fraction(0))
         row = np.zeros(total_vars, dtype=float)
         has_usage = False
         for k, col in enumerate(columns):
-            used = col.materials_used.get(mat, 0.0)
-            if used > 0.0:
-                row[k] = used
+            used = col.materials_used.get(mat, Fraction(0))
+            if used > avail_qty:
+                ub[k] = 0.0
+            elif used > 0:
+                row[k] = float(used / avail_qty)
                 has_usage = True
         if has_usage:
             rows.append(row)
             lhs_list.append(-np.inf)
-            rhs_list.append(float(avail_qty))
+            rhs_list.append(1.0)
 
     # 5. Reincidência exata (r_g = 1 se e somente se total de interrupções >= 2, sem cap artificial):
     for g_idx, g_key in enumerate(group_keys):
@@ -685,14 +825,61 @@ def run_kgp_optimizer(
     )
 
     elapsed = time.perf_counter() - t0
-    if not res.success or res.x is None:
-        fallback = run_baseline_b2_topological_greedy(
-            network, services, catalog, scenario_id, decision_day
+    if res.x is None or res.status not in (0, 1):
+        fallback = _verified_seed_fallback(
+            network, all_services, catalog, (seed_b2, seed_b1, seed_b0), w,
+            f"PLAN_KGP_{scenario_id}",
         )
-        fallback.plan_id = f"PLAN_KGP_{scenario_id}"
-        fallback.method_name = "KGP"
-        fallback.solver_status = f"FALLBACK_AFTER_SOLVER_STATUS_{res.status}"
+        fallback_is_feasible = fallback is not None
+        if fallback is None:
+            fallback = replace(seed_b2, plan_id=f"PLAN_KGP_{scenario_id}", method_name="KGP")
+            fallback, _ = _audit_plan_export(network, all_services, catalog, fallback)
+            _reject_plan_certificate(fallback)
+        fallback.solver_status = (
+            "INFEASIBLE_ON_DISCRETE_COLUMNS" if res.status == 2
+            else "INVALID_PLAN_REJECTED"
+        )
         fallback.solver_time_sec = round(elapsed, 6)
+        fallback.solver_objective = None
+        fallback.solver_bound = None
+        fallback.solver_gap = None
+        fallback.is_optimal_proven = False
+        if fallback_is_feasible:
+            fallback.solver_objective = compute_exact_plan_objective(fallback, w, known_services)
+            raw_bound = getattr(res, 'mip_dual_bound', None)
+            if (res.status in (0, 1) and raw_bound is not None and math.isfinite(raw_bound)
+                    and raw_bound <= fallback.solver_objective + 1e-4):
+                fallback.solver_bound = round(float(raw_bound), 4)
+                fallback.solver_gap = round(abs(fallback.solver_objective - fallback.solver_bound) /
+                                            max(abs(fallback.solver_objective), 1e-10), 6)
+            fallback.solver_status = ('FEASIBLE_FALLBACK_BOUNDED' if fallback.solver_bound is not None
+                                      else 'FEASIBLE_FALLBACK_NO_BOUND')
+        fallback.solver_time_sec = round(time.perf_counter() - t0, 6)
+        fallback.metadata = {
+            **fallback.metadata,
+            "candidate_columns_count": num_cols,
+            "solver_raw_status": int(res.status),
+            "optimality_scope": (
+                "Plano fallback factível verificado; limite conhecido nas colunas geradas quando disponível, sem prova de ótimo."
+                if fallback_is_feasible else
+                ("Inviabilidade restrita às colunas geradas; não prova inviabilidade operacional geral."
+                 if res.status == 2 else "Solver interrompido/sem solução; fallback não factível, sem prova de inviabilidade.")
+            ),
+            "objective_weights": {
+                "window_weight": w.window_weight, "consumer_hour_weight": w.consumer_hour_weight,
+                "repeat_consumer_weight": w.repeat_consumer_weight, "physical_maneuver_weight": w.physical_maneuver_weight,
+                "crew_hour_weight": w.crew_hour_weight, "optional_unscheduled_penalty": w.optional_unscheduled_penalty,
+            },
+            "fallback_verified_feasible": fallback_is_feasible,
+            "missing_mandatory_service_ids": [
+                s.service_id for s in known_services
+                if s.mandatory and s.service_id not in fallback.completed_service_ids
+            ],
+            "omitted_optional_service_ids": [
+                s.service_id for s in known_services
+                if not s.mandatory and s.service_id not in fallback.completed_service_ids
+            ],
+        }
         return fallback
 
     x_sol = res.x
@@ -757,21 +944,12 @@ def run_kgp_optimizer(
 
     milp_obj_val = float(res.fun) if res.fun is not None else 0.0
     mip_gap = float(getattr(res, "mip_gap", 0.0) or 0.0)
-    dual_bound = float(
-        getattr(res, "mip_dual_bound", milp_obj_val * (1.0 - mip_gap))
-        or milp_obj_val
-    )
-
-    is_optimal = (
-        res.status == 0
-        and mip_gap <= 1e-4
-        and len(unscheduled_ids) == 0
-    )
-    status_str = (
-        "OPTIMAL_ON_DISCRETE_COLUMNS"
-        if is_optimal
-        else ("PARTIAL_PORTFOLIO" if unscheduled_ids else "FEASIBLE_BOUNDED")
-    )
+    raw_bound = getattr(res, "mip_dual_bound", None)
+    dual_bound = float(raw_bound) if raw_bound is not None and math.isfinite(raw_bound) else None
+    missing_mandatory = [s.service_id for s in known_services
+                         if s.mandatory and s.service_id in unscheduled_ids]
+    omitted_optional = [s.service_id for s in known_services
+                        if not s.mandatory and s.service_id in unscheduled_ids]
 
     plan_out = ExecutionPlan(
         plan_id=f"PLAN_KGP_{scenario_id}",
@@ -783,29 +961,113 @@ def run_kgp_optimizer(
         unscheduled_service_ids=tuple(unscheduled_ids),
         exclusion_justifications=excluded,
         lifecycle_alerts=lc_alerts,
-        solver_status=status_str,
-        solver_objective=round(milp_obj_val, 4),
-        solver_bound=round(dual_bound, 4),
-        solver_gap=round(max(0.0, mip_gap), 6),
+        solver_status="PENDING_VERIFICATION",
         solver_time_sec=round(elapsed, 6),
-        is_optimal_proven=is_optimal,
     )
-    exact_reconstructed_obj = compute_exact_plan_objective(plan_out, w)
+    plan_out, feasible = _audit_plan_export(network, all_services, catalog, plan_out)
+    if not feasible:
+        rejected_verification = plan_out.metadata["independent_verification"]
+        fallback = _verified_seed_fallback(
+            network, all_services, catalog, (seed_b2, seed_b1, seed_b0), w,
+            plan_out.plan_id,
+        )
+        if fallback is not None:
+            # A certificate for the rejected MILP output must not migrate to
+            # a different feasible plan. Its catalog result is diagnostic only.
+            plan_out = fallback
+            plan_out.solver_status = "FEASIBLE_FALLBACK_NO_BOUND"
+        else:
+            _reject_plan_certificate(plan_out)
+        plan_out.metadata.update({
+            "candidate_columns_count": num_cols,
+            "solver_raw_status": int(res.status),
+            "rejected_candidate_verification": rejected_verification,
+            "rejected_solver_catalog_result": {
+                "objective": round(milp_obj_val, 4),
+                "bound": round(dual_bound, 4) if dual_bound is not None else None,
+                "gap": round(max(0.0, mip_gap), 6),
+            },
+            "fallback_verified_feasible": fallback is not None,
+            "mandatory_coverage_rule": "HARD_CONSTRAINT",
+            "b1_seed_radius_km": b1_radius_km,
+            "objective_weights": {
+                "window_weight": w.window_weight, "consumer_hour_weight": w.consumer_hour_weight,
+                "repeat_consumer_weight": w.repeat_consumer_weight, "physical_maneuver_weight": w.physical_maneuver_weight,
+                "crew_hour_weight": w.crew_hour_weight, "optional_unscheduled_penalty": w.optional_unscheduled_penalty,
+            },
+            "missing_mandatory_service_ids": [
+                s.service_id for s in known_services
+                if s.mandatory and s.service_id not in plan_out.completed_service_ids
+            ],
+            "omitted_optional_service_ids": [
+                s.service_id for s in known_services
+                if not s.mandatory and s.service_id not in plan_out.completed_service_ids
+            ],
+        })
+        if fallback is not None:
+            plan_out.metadata["optimality_scope"] = (
+                "Fallback factível auditado após rejeição do candidato MILP; "
+                "resultado do catálogo rejeitado é apenas diagnóstico, sem bound/gap ou prova de ótimo."
+            )
+        plan_out.solver_time_sec = round(time.perf_counter() - t0, 6)
+        return plan_out
+
+    exact_reconstructed_obj = compute_exact_plan_objective(plan_out, w, known_services)
     plan_out.solver_objective = exact_reconstructed_obj
+    objective_matches = abs(exact_reconstructed_obj - milp_obj_val) <= 1e-3
+    bound_valid = dual_bound is not None and dual_bound <= exact_reconstructed_obj + 1e-4
+    plan_out.solver_bound = round(dual_bound, 4) if bound_valid else None
+    plan_out.solver_gap = (
+        round(abs(exact_reconstructed_obj - dual_bound) / max(abs(exact_reconstructed_obj), 1e-10), 6)
+        if bound_valid else None
+    )
+    plan_out.is_optimal_proven = bool(
+        res.status == 0 and mip_gap <= 1e-4 and objective_matches and bound_valid
+        and abs(exact_reconstructed_obj - dual_bound) <= 1e-4
+    )
+    plan_out.solver_status = (
+        "OPTIMAL_ON_DISCRETE_COLUMNS" if plan_out.is_optimal_proven else
+        ("FEASIBLE_BOUNDED" if bound_valid else "FEASIBLE_NO_BOUND")
+    )
+    if not objective_matches:
+        plan_out.solver_status = "OBJECTIVE_INTEGRITY_FAILURE"
+        plan_out.is_optimal_proven = False
+        plan_out.solver_bound = None
+        plan_out.solver_gap = None
     plan_out.metadata = {
+        **plan_out.metadata,
         "candidate_columns_count": num_cols,
         "milp_column_objective": round(milp_obj_val, 4),
         "reconstructed_plan_objective": exact_reconstructed_obj,
+        "objective_reconstruction_matches": objective_matches,
+        "missing_mandatory_service_ids": missing_mandatory,
+        "omitted_optional_service_ids": omitted_optional,
+        "mandatory_coverage_rule": "HARD_CONSTRAINT",
         "optimality_scope": (
             "Ótimo global comprovado sobre o conjunto discreto de colunas "
             "diárias factíveis geradas (incluindo encadeamento diário e sementes B0/B1/B2)."
+            if plan_out.is_optimal_proven else
+            ("Plano factível auditado, mas objetivo reconstruído diverge do MILP; sem bound/gap ou prova de ótimo."
+             if not objective_matches else
+             "Melhor plano factível nas colunas geradas, com bound/gap quando disponíveis; sem prova de ótimo.")
         ),
+        "b1_seed_radius_km": b1_radius_km,
+        "candidate_generation_limits": {
+            "max_package_size": 5,
+            "max_windows_per_day": 5,
+            "max_states_per_depth": 120,
+            "window_start_rule": "Primeiro início viável por sequência, turno, precedência e recursos; não enumera inícios contínuos.",
+            "crew_allocation_rule": "Catálogo completo e subcatálogos de uma equipe na primeira janela; escalonador construtivo.",
+            "sequence_rule": "Expansão limitada, deduplicação e poda por custo; sementes B0/B1/B2 incluídas.",
+        },
         "objective_weights": {
             "window_weight": w.window_weight,
             "consumer_hour_weight": w.consumer_hour_weight,
             "repeat_consumer_weight": w.repeat_consumer_weight,
             "physical_maneuver_weight": w.physical_maneuver_weight,
             "crew_hour_weight": w.crew_hour_weight,
+            "optional_unscheduled_penalty": w.optional_unscheduled_penalty,
         },
     }
+    plan_out.solver_time_sec = round(time.perf_counter() - t0, 6)
     return plan_out

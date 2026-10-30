@@ -1,0 +1,338 @@
+{
+  "repeat_cap_one_day": {
+    "KGP": {
+      "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+      "optimal": true,
+      "completed": [
+        "J0",
+        "J1",
+        "J2"
+      ],
+      "unscheduled": [],
+      "windows": [
+        {
+          "services": [
+            "J0"
+          ],
+          "start": 8.0,
+          "end": 8.7,
+          "travel": 0.0
+        },
+        {
+          "services": [
+            "J1"
+          ],
+          "start": 8.75,
+          "end": 9.45,
+          "travel": 0.0
+        },
+        {
+          "services": [
+            "J2"
+          ],
+          "start": 9.5,
+          "end": 10.2,
+          "travel": 0.0
+        }
+      ],
+      "feasible": true,
+      "violations": [],
+      "solver_objective": 300.36,
+      "solver_bound": 300.36,
+      "documented_J": 300.36,
+      "repeat_consumers": 1
+    },
+    "B0": {
+      "status": "HEURISTIC_INDIVIDUAL",
+      "optimal": false,
+      "completed": [
+        "J0",
+        "J1",
+        "J2"
+      ],
+      "unscheduled": [],
+      "windows": [
+        {
+          "services": [
+            "J0"
+          ],
+          "start": 8.0,
+          "end": 8.7,
+          "travel": 0.0
+        },
+        {
+          "services": [
+            "J1"
+          ],
+          "start": 8.8,
+          "end": 9.5,
+          "travel": 0.0
+        },
+        {
+          "services": [
+            "J2"
+          ],
+          "start": 9.6,
+          "end": 10.3,
+          "travel": 0.0
+        }
+      ],
+      "feasible": true,
+      "violations": [],
+      "solver_objective": null,
+      "solver_bound": null,
+      "documented_J": 300.36,
+      "repeat_consumers": 1
+    }
+  },
+  "shift_domain": {
+    "KGP": {
+      "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+      "optimal": true,
+      "completed": [
+        "J2",
+        "J1",
+        "J0"
+      ],
+      "unscheduled": [],
+      "windows": [
+        {
+          "services": [
+            "J2"
+          ],
+          "start": 8.0,
+          "end": 10.2,
+          "travel": 0.0
+        },
+        {
+          "services": [
+            "J1"
+          ],
+          "start": 10.25,
+          "end": 12.45,
+          "travel": 0.0
+        },
+        {
+          "services": [
+            "J0"
+          ],
+          "start": 12.5,
+          "end": 14.7,
+          "travel": 0.0
+        }
+      ],
+      "feasible": true,
+      "violations": [],
+      "solver_objective": 295.56,
+      "solver_bound": 295.56,
+      "documented_J": 295.56,
+      "repeat_consumers": 0
+    },
+    "B0": {
+      "status": "HEURISTIC_INDIVIDUAL",
+      "optimal": false,
+      "completed": [
+        "J0",
+        "J1",
+        "J2"
+      ],
+      "unscheduled": [],
+      "windows": [
+        {
+          "services": [
+            "J0"
+          ],
+          "start": 8.0,
+          "end": 10.2,
+          "travel": 0.0
+        },
+        {
+          "services": [
+            "J1"
+          ],
+          "start": 10.3,
+          "end": 12.5,
+          "travel": 0.0
+        },
+        {
+          "services": [
+            "J2"
+          ],
+          "start": 12.6,
+          "end": 14.8,
+          "travel": 0.0
+        }
+      ],
+      "feasible": true,
+      "violations": [],
+      "solver_objective": null,
+      "solver_bound": null,
+      "documented_J": 295.56,
+      "repeat_consumers": 0
+    }
+  },
+  "reconstruction_travel": {
+    "KGP": {
+      "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+      "optimal": true,
+      "completed": [
+        "J0",
+        "J1"
+      ],
+      "unscheduled": [],
+      "windows": [
+        {
+          "services": [
+            "J0"
+          ],
+          "start": 9.0,
+          "end": 9.7,
+          "travel": 1.0
+        },
+        {
+          "services": [
+            "J1"
+          ],
+          "start": 9.75,
+          "end": 10.45,
+          "travel": 0.01
+        }
+      ],
+      "feasible": true,
+      "violations": [],
+      "solver_objective": 192.846,
+      "solver_bound": 192.846,
+      "documented_J": 192.846,
+      "repeat_consumers": 0
+    },
+    "B0": {
+      "status": "HEURISTIC_INDIVIDUAL",
+      "optimal": false,
+      "completed": [
+        "J0",
+        "J1"
+      ],
+      "unscheduled": [],
+      "windows": [
+        {
+          "services": [
+            "J0"
+          ],
+          "start": 9.0,
+          "end": 9.7,
+          "travel": 1.0
+        },
+        {
+          "services": [
+            "J1"
+          ],
+          "start": 9.8,
+          "end": 10.5,
+          "travel": 0.01
+        }
+      ],
+      "feasible": true,
+      "violations": [],
+      "solver_objective": null,
+      "solver_bound": null,
+      "documented_J": 192.846,
+      "repeat_consumers": 0
+    }
+  },
+  "repeat_objective": {
+    "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+    "optimal": true,
+    "completed": [
+      "J1",
+      "J2",
+      "J3"
+    ],
+    "unscheduled": [],
+    "windows": [
+      {
+        "services": [
+          "J1"
+        ],
+        "start": 8.0,
+        "end": 8.7,
+        "travel": 0.0
+      },
+      {
+        "services": [
+          "J2"
+        ],
+        "start": 8.0,
+        "end": 8.7,
+        "travel": 0.0
+      },
+      {
+        "services": [
+          "J3"
+        ],
+        "start": 8.0,
+        "end": 8.7,
+        "travel": 0.0
+      }
+    ],
+    "feasible": true,
+    "violations": [],
+    "solver_objective": 300.36,
+    "solver_bound": 300.36,
+    "documented_J": 300.36,
+    "repeat_consumers": 1
+  },
+  "greedy_allocation": {
+    "KGP": {
+      "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+      "optimal": true,
+      "completed": [
+        "B",
+        "A"
+      ],
+      "unscheduled": [],
+      "windows": [
+        {
+          "services": [
+            "B",
+            "A"
+          ],
+          "start": 8.0,
+          "end": 10.2,
+          "travel": 0.0
+        }
+      ],
+      "feasible": true,
+      "violations": [],
+      "solver_objective": 99.84,
+      "solver_bound": 99.84,
+      "documented_J": 99.84,
+      "repeat_consumers": 0
+    },
+    "alternative": {
+      "status": "NOT_APPLICABLE",
+      "optimal": false,
+      "completed": [
+        "A",
+        "B"
+      ],
+      "unscheduled": [],
+      "windows": [
+        {
+          "services": [
+            "B",
+            "A"
+          ],
+          "start": 8.0,
+          "end": 10.2,
+          "travel": 0.0
+        }
+      ],
+      "feasible": true,
+      "violations": [],
+      "solver_objective": null,
+      "solver_bound": null,
+      "documented_J": 99.84,
+      "repeat_consumers": 0
+    }
+  }
+}

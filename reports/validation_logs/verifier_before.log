@@ -1,0 +1,424 @@
+FFFFFFFFFFFFF.FFFFF.                                                     [100%]
+================================== FAILURES ===================================
+_ test_every_exported_electrical_evidence_field_is_checked[energized_nodes-value0] _
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.041882, is_optimal_proven=False, metadata={}))
+field = 'energized_nodes', value = ()
+
+    @pytest.mark.parametrize('field,value', [
+        ('energized_nodes', ()), ('deenergized_nodes', ('NONEXISTENT',)),
+        ('deenergized_assets', ('NONEXISTENT',)), ('active_sources', ()),
+        ('transfer_feasible', False), ('max_loading_pct', 999999.0),
+        ('estimated_voltage_drop_pct', 99999.0), ('step_order', -999),
+    ])
+    def test_every_exported_electrical_evidence_field_is_checked(case, field, value):
+        s, p = case
+        w = p.windows[0]
+        bad = replace(w.maneuver_steps[0], **{field: value})
+        q = replace(p, windows=[replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])] + p.windows[1:])
+        r = verify_plan_feasibility(s.network, s.services, s.catalog, roundtrip_plan_via_json(q))
+>       assert not r.is_feasible, field
+E       AssertionError: energized_nodes
+E       assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:35: AssertionError
+_ test_every_exported_electrical_evidence_field_is_checked[deenergized_nodes-value1] _
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.041132, is_optimal_proven=False, metadata={}))
+field = 'deenergized_nodes', value = ('NONEXISTENT',)
+
+    @pytest.mark.parametrize('field,value', [
+        ('energized_nodes', ()), ('deenergized_nodes', ('NONEXISTENT',)),
+        ('deenergized_assets', ('NONEXISTENT',)), ('active_sources', ()),
+        ('transfer_feasible', False), ('max_loading_pct', 999999.0),
+        ('estimated_voltage_drop_pct', 99999.0), ('step_order', -999),
+    ])
+    def test_every_exported_electrical_evidence_field_is_checked(case, field, value):
+        s, p = case
+        w = p.windows[0]
+        bad = replace(w.maneuver_steps[0], **{field: value})
+        q = replace(p, windows=[replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])] + p.windows[1:])
+        r = verify_plan_feasibility(s.network, s.services, s.catalog, roundtrip_plan_via_json(q))
+>       assert not r.is_feasible, field
+E       AssertionError: deenergized_nodes
+E       assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:35: AssertionError
+_ test_every_exported_electrical_evidence_field_is_checked[deenergized_assets-value2] _
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040971, is_optimal_proven=False, metadata={}))
+field = 'deenergized_assets', value = ('NONEXISTENT',)
+
+    @pytest.mark.parametrize('field,value', [
+        ('energized_nodes', ()), ('deenergized_nodes', ('NONEXISTENT',)),
+        ('deenergized_assets', ('NONEXISTENT',)), ('active_sources', ()),
+        ('transfer_feasible', False), ('max_loading_pct', 999999.0),
+        ('estimated_voltage_drop_pct', 99999.0), ('step_order', -999),
+    ])
+    def test_every_exported_electrical_evidence_field_is_checked(case, field, value):
+        s, p = case
+        w = p.windows[0]
+        bad = replace(w.maneuver_steps[0], **{field: value})
+        q = replace(p, windows=[replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])] + p.windows[1:])
+        r = verify_plan_feasibility(s.network, s.services, s.catalog, roundtrip_plan_via_json(q))
+>       assert not r.is_feasible, field
+E       AssertionError: deenergized_assets
+E       assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:35: AssertionError
+_ test_every_exported_electrical_evidence_field_is_checked[active_sources-value3] _
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040446, is_optimal_proven=False, metadata={}))
+field = 'active_sources', value = ()
+
+    @pytest.mark.parametrize('field,value', [
+        ('energized_nodes', ()), ('deenergized_nodes', ('NONEXISTENT',)),
+        ('deenergized_assets', ('NONEXISTENT',)), ('active_sources', ()),
+        ('transfer_feasible', False), ('max_loading_pct', 999999.0),
+        ('estimated_voltage_drop_pct', 99999.0), ('step_order', -999),
+    ])
+    def test_every_exported_electrical_evidence_field_is_checked(case, field, value):
+        s, p = case
+        w = p.windows[0]
+        bad = replace(w.maneuver_steps[0], **{field: value})
+        q = replace(p, windows=[replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])] + p.windows[1:])
+        r = verify_plan_feasibility(s.network, s.services, s.catalog, roundtrip_plan_via_json(q))
+>       assert not r.is_feasible, field
+E       AssertionError: active_sources
+E       assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:35: AssertionError
+_ test_every_exported_electrical_evidence_field_is_checked[transfer_feasible-False] _
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040597, is_optimal_proven=False, metadata={}))
+field = 'transfer_feasible', value = False
+
+    @pytest.mark.parametrize('field,value', [
+        ('energized_nodes', ()), ('deenergized_nodes', ('NONEXISTENT',)),
+        ('deenergized_assets', ('NONEXISTENT',)), ('active_sources', ()),
+        ('transfer_feasible', False), ('max_loading_pct', 999999.0),
+        ('estimated_voltage_drop_pct', 99999.0), ('step_order', -999),
+    ])
+    def test_every_exported_electrical_evidence_field_is_checked(case, field, value):
+        s, p = case
+        w = p.windows[0]
+        bad = replace(w.maneuver_steps[0], **{field: value})
+        q = replace(p, windows=[replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])] + p.windows[1:])
+        r = verify_plan_feasibility(s.network, s.services, s.catalog, roundtrip_plan_via_json(q))
+>       assert not r.is_feasible, field
+E       AssertionError: transfer_feasible
+E       assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:35: AssertionError
+_ test_every_exported_electrical_evidence_field_is_checked[max_loading_pct-999999.0] _
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.041192, is_optimal_proven=False, metadata={}))
+field = 'max_loading_pct', value = 999999.0
+
+    @pytest.mark.parametrize('field,value', [
+        ('energized_nodes', ()), ('deenergized_nodes', ('NONEXISTENT',)),
+        ('deenergized_assets', ('NONEXISTENT',)), ('active_sources', ()),
+        ('transfer_feasible', False), ('max_loading_pct', 999999.0),
+        ('estimated_voltage_drop_pct', 99999.0), ('step_order', -999),
+    ])
+    def test_every_exported_electrical_evidence_field_is_checked(case, field, value):
+        s, p = case
+        w = p.windows[0]
+        bad = replace(w.maneuver_steps[0], **{field: value})
+        q = replace(p, windows=[replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])] + p.windows[1:])
+        r = verify_plan_feasibility(s.network, s.services, s.catalog, roundtrip_plan_via_json(q))
+>       assert not r.is_feasible, field
+E       AssertionError: max_loading_pct
+E       assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:35: AssertionError
+_ test_every_exported_electrical_evidence_field_is_checked[estimated_voltage_drop_pct-99999.0] _
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040299, is_optimal_proven=False, metadata={}))
+field = 'estimated_voltage_drop_pct', value = 99999.0
+
+    @pytest.mark.parametrize('field,value', [
+        ('energized_nodes', ()), ('deenergized_nodes', ('NONEXISTENT',)),
+        ('deenergized_assets', ('NONEXISTENT',)), ('active_sources', ()),
+        ('transfer_feasible', False), ('max_loading_pct', 999999.0),
+        ('estimated_voltage_drop_pct', 99999.0), ('step_order', -999),
+    ])
+    def test_every_exported_electrical_evidence_field_is_checked(case, field, value):
+        s, p = case
+        w = p.windows[0]
+        bad = replace(w.maneuver_steps[0], **{field: value})
+        q = replace(p, windows=[replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])] + p.windows[1:])
+        r = verify_plan_feasibility(s.network, s.services, s.catalog, roundtrip_plan_via_json(q))
+>       assert not r.is_feasible, field
+E       AssertionError: estimated_voltage_drop_pct
+E       assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:35: AssertionError
+__ test_every_exported_electrical_evidence_field_is_checked[step_order--999] __
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040169, is_optimal_proven=False, metadata={}))
+field = 'step_order', value = -999
+
+    @pytest.mark.parametrize('field,value', [
+        ('energized_nodes', ()), ('deenergized_nodes', ('NONEXISTENT',)),
+        ('deenergized_assets', ('NONEXISTENT',)), ('active_sources', ()),
+        ('transfer_feasible', False), ('max_loading_pct', 999999.0),
+        ('estimated_voltage_drop_pct', 99999.0), ('step_order', -999),
+    ])
+    def test_every_exported_electrical_evidence_field_is_checked(case, field, value):
+        s, p = case
+        w = p.windows[0]
+        bad = replace(w.maneuver_steps[0], **{field: value})
+        q = replace(p, windows=[replace(w, maneuver_steps=(bad,) + w.maneuver_steps[1:])] + p.windows[1:])
+        r = verify_plan_feasibility(s.network, s.services, s.catalog, roundtrip_plan_via_json(q))
+>       assert not r.is_feasible, field
+E       AssertionError: step_order
+E       assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:35: AssertionError
+____________ test_impact_reference_survives_common_simulator_fault ____________
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040064, is_optimal_proven=False, metadata={}))
+
+    def test_impact_reference_survives_common_simulator_fault(case):
+        s, p = case
+        q = replace(p, windows=[replace(w, interrupted_consumers=(), maneuver_steps=tuple(
+            replace(t, interrupted_consumers=()) for t in w.maneuver_steps)) for w in p.windows])
+        with patch('kgp.feasibility.simulate_zone_intervention', return_value=((), 0), create=True), \
+             patch('kgp.topology.simulate_zone_intervention', return_value=((), 0)):
+            r = verify_plan_feasibility(s.network, s.services, s.catalog, q)
+        assert not r.is_feasible
+>       assert r.recalculated_consumer_hours > 0
+E       AssertionError: assert 0.0 > 0
+E        +  where 0.0 = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...culated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=False).recalculated_consumer_hours
+
+tests\test_verifier_audit.py:47: AssertionError
+_________ test_disjoint_zones_that_reenergize_other_work_are_blocked __________
+
+    def test_disjoint_zones_that_reenergize_other_work_are_blocked():
+        n, s, c, p = joint_case()
+        r = verify_plan_feasibility(n, s, c, p)
+>       assert not r.is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='joint', method_name='CUSTOM', scenario_id='joint', is_feasible=True, mandatory_portfolio_co...al_maneuvers=6, recalculated_repeat_consumers=0, recalculated_completed_services=('S1', 'S3'), isolation_verified=True).is_feasible
+
+tests\test_verifier_audit.py:80: AssertionError
+_______ test_nonfinite_rejected_at_construction_and_after_mutation[nan] _______
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040645, is_optimal_proven=False, metadata={}))
+value = nan
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf')])
+    def test_nonfinite_rejected_at_construction_and_after_mutation(case, value):
+        s, p = case
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_verifier_audit.py:89: Failed
+_______ test_nonfinite_rejected_at_construction_and_after_mutation[inf] _______
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.041342, is_optimal_proven=False, metadata={}))
+value = inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf')])
+    def test_nonfinite_rejected_at_construction_and_after_mutation(case, value):
+        s, p = case
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_verifier_audit.py:89: Failed
+______ test_nonfinite_rejected_at_construction_and_after_mutation[-inf] _______
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040949, is_optimal_proven=False, metadata={}))
+value = -inf
+
+    @pytest.mark.parametrize('value', [float('nan'), float('inf'), -float('inf')])
+    def test_nonfinite_rejected_at_construction_and_after_mutation(case, value):
+        s, p = case
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests\test_verifier_audit.py:89: Failed
+_________________ test_structural_integrity[unknown_interval] _________________
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040299, is_optimal_proven=False, metadata={}))
+mutation = 'unknown_interval'
+
+    @pytest.mark.parametrize('mutation', ['reversed', 'unknown_interval', 'window_id', 'duplicate_window', 'materials', 'completed'])
+    def test_structural_integrity(case, mutation):
+        s, p = case
+        w = p.windows[0]
+        iv = w.crew_intervals[0]
+        if mutation == 'reversed':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, prep_start_hour=iv.exec_start_hour + 2),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'unknown_interval':
+            q = replace(p, windows=[replace(w, crew_intervals=w.crew_intervals + (replace(iv, service_id='UNKNOWN'),))] + p.windows[1:])
+        elif mutation == 'window_id':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, window_id='WRONG'),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'duplicate_window':
+            q = replace(p, windows=[replace(w, window_id=p.windows[1].window_id)] + p.windows[1:])
+        elif mutation == 'materials':
+            q = replace(p, windows=[replace(w, materials_used={'FAKE': 100})] + p.windows[1:])
+        else:
+            q = replace(p, completed_service_ids=())
+>       assert not verify_plan_feasibility(s.network, s.services, s.catalog, q).is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+E        +    where FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True) = verify_plan_feasibility(GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)], ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DISTANT...ver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040299, is_optimal_proven=False, metadata={}))
+E        +      where GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).network
+E        +      and   [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)] = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).services
+E        +      and   ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).catalog
+
+tests\test_verifier_audit.py:116: AssertionError
+____________________ test_structural_integrity[window_id] _____________________
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.041283, is_optimal_proven=False, metadata={}))
+mutation = 'window_id'
+
+    @pytest.mark.parametrize('mutation', ['reversed', 'unknown_interval', 'window_id', 'duplicate_window', 'materials', 'completed'])
+    def test_structural_integrity(case, mutation):
+        s, p = case
+        w = p.windows[0]
+        iv = w.crew_intervals[0]
+        if mutation == 'reversed':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, prep_start_hour=iv.exec_start_hour + 2),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'unknown_interval':
+            q = replace(p, windows=[replace(w, crew_intervals=w.crew_intervals + (replace(iv, service_id='UNKNOWN'),))] + p.windows[1:])
+        elif mutation == 'window_id':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, window_id='WRONG'),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'duplicate_window':
+            q = replace(p, windows=[replace(w, window_id=p.windows[1].window_id)] + p.windows[1:])
+        elif mutation == 'materials':
+            q = replace(p, windows=[replace(w, materials_used={'FAKE': 100})] + p.windows[1:])
+        else:
+            q = replace(p, completed_service_ids=())
+>       assert not verify_plan_feasibility(s.network, s.services, s.catalog, q).is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+E        +    where FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True) = verify_plan_feasibility(GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)], ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DISTANT...ver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.041283, is_optimal_proven=False, metadata={}))
+E        +      where GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).network
+E        +      and   [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)] = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).services
+E        +      and   ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).catalog
+
+tests\test_verifier_audit.py:116: AssertionError
+_________________ test_structural_integrity[duplicate_window] _________________
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.041617, is_optimal_proven=False, metadata={}))
+mutation = 'duplicate_window'
+
+    @pytest.mark.parametrize('mutation', ['reversed', 'unknown_interval', 'window_id', 'duplicate_window', 'materials', 'completed'])
+    def test_structural_integrity(case, mutation):
+        s, p = case
+        w = p.windows[0]
+        iv = w.crew_intervals[0]
+        if mutation == 'reversed':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, prep_start_hour=iv.exec_start_hour + 2),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'unknown_interval':
+            q = replace(p, windows=[replace(w, crew_intervals=w.crew_intervals + (replace(iv, service_id='UNKNOWN'),))] + p.windows[1:])
+        elif mutation == 'window_id':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, window_id='WRONG'),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'duplicate_window':
+            q = replace(p, windows=[replace(w, window_id=p.windows[1].window_id)] + p.windows[1:])
+        elif mutation == 'materials':
+            q = replace(p, windows=[replace(w, materials_used={'FAKE': 100})] + p.windows[1:])
+        else:
+            q = replace(p, completed_service_ids=())
+>       assert not verify_plan_feasibility(s.network, s.services, s.catalog, q).is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+E        +    where FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True) = verify_plan_feasibility(GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)], ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DISTANT...ver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.041617, is_optimal_proven=False, metadata={}))
+E        +      where GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).network
+E        +      and   [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)] = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).services
+E        +      and   ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).catalog
+
+tests\test_verifier_audit.py:116: AssertionError
+____________________ test_structural_integrity[materials] _____________________
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040332, is_optimal_proven=False, metadata={}))
+mutation = 'materials'
+
+    @pytest.mark.parametrize('mutation', ['reversed', 'unknown_interval', 'window_id', 'duplicate_window', 'materials', 'completed'])
+    def test_structural_integrity(case, mutation):
+        s, p = case
+        w = p.windows[0]
+        iv = w.crew_intervals[0]
+        if mutation == 'reversed':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, prep_start_hour=iv.exec_start_hour + 2),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'unknown_interval':
+            q = replace(p, windows=[replace(w, crew_intervals=w.crew_intervals + (replace(iv, service_id='UNKNOWN'),))] + p.windows[1:])
+        elif mutation == 'window_id':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, window_id='WRONG'),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'duplicate_window':
+            q = replace(p, windows=[replace(w, window_id=p.windows[1].window_id)] + p.windows[1:])
+        elif mutation == 'materials':
+            q = replace(p, windows=[replace(w, materials_used={'FAKE': 100})] + p.windows[1:])
+        else:
+            q = replace(p, completed_service_ids=())
+>       assert not verify_plan_feasibility(s.network, s.services, s.catalog, q).is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+E        +    where FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True) = verify_plan_feasibility(GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)], ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DISTANT...ver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040332, is_optimal_proven=False, metadata={}))
+E        +      where GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).network
+E        +      and   [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)] = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).services
+E        +      and   ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).catalog
+
+tests\test_verifier_audit.py:116: AssertionError
+____________________ test_structural_integrity[completed] _____________________
+
+case = (ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Serv...er_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040408, is_optimal_proven=False, metadata={}))
+mutation = 'completed'
+
+    @pytest.mark.parametrize('mutation', ['reversed', 'unknown_interval', 'window_id', 'duplicate_window', 'materials', 'completed'])
+    def test_structural_integrity(case, mutation):
+        s, p = case
+        w = p.windows[0]
+        iv = w.crew_intervals[0]
+        if mutation == 'reversed':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, prep_start_hour=iv.exec_start_hour + 2),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'unknown_interval':
+            q = replace(p, windows=[replace(w, crew_intervals=w.crew_intervals + (replace(iv, service_id='UNKNOWN'),))] + p.windows[1:])
+        elif mutation == 'window_id':
+            q = replace(p, windows=[replace(w, crew_intervals=(replace(iv, window_id='WRONG'),) + w.crew_intervals[1:])] + p.windows[1:])
+        elif mutation == 'duplicate_window':
+            q = replace(p, windows=[replace(w, window_id=p.windows[1].window_id)] + p.windows[1:])
+        elif mutation == 'materials':
+            q = replace(p, windows=[replace(w, materials_used={'FAKE': 100})] + p.windows[1:])
+        else:
+            q = replace(p, completed_service_ids=())
+>       assert not verify_plan_feasibility(s.network, s.services, s.catalog, q).is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True).is_feasible
+E        +    where FeasibilityReport(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DIS...lculated_completed_services=('S01_F1_NEAR', 'S02_F1_FAR', 'S03_F2_PARALLEL', 'S04_F2_DISTAL'), isolation_verified=True) = verify_plan_feasibility(GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)], ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL', method_name='B0', scenario_id='EVAL_01_TOPO_DISTANT...ver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.040408, is_optimal_proven=False, metadata={}))
+E        +      where GridNetwork(network_id='CEMIG_D07_REF_MULTIFEEDER_13K8V', version='2026.10.28-rev2', valid_from_day=0, coordinate_syst...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).network
+E        +      and   [ServiceOrder(service_id='S01_F1_NEAR', title='Substitui��o de isoladores na estrutura N_A1_2', service_type=<ServiceT....2, recomp_hours=0.15, priority=3, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=2.9, y=1.8)] = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).services
+E        +      and   ResourceCatalog(crews={'EQ_PESADA_01': CrewResource(crew_id='EQ_PESADA_01', name='Equipe Manuten��o Pesada / Obras 01'...VEL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0) = ScenarioInstance(scenario_id='EVAL_01_TOPO_DISTANT_AND_PARALLEL', split='EVAL', seed=202601, regime_description='Servi...EL': 80.0}, planning_days=(1, 2, 3, 4, 5), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0)).catalog
+
+tests\test_verifier_audit.py:116: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_verifier_audit.py::test_every_exported_electrical_evidence_field_is_checked[energized_nodes-value0]
+FAILED tests/test_verifier_audit.py::test_every_exported_electrical_evidence_field_is_checked[deenergized_nodes-value1]
+FAILED tests/test_verifier_audit.py::test_every_exported_electrical_evidence_field_is_checked[deenergized_assets-value2]
+FAILED tests/test_verifier_audit.py::test_every_exported_electrical_evidence_field_is_checked[active_sources-value3]
+FAILED tests/test_verifier_audit.py::test_every_exported_electrical_evidence_field_is_checked[transfer_feasible-False]
+FAILED tests/test_verifier_audit.py::test_every_exported_electrical_evidence_field_is_checked[max_loading_pct-999999.0]
+FAILED tests/test_verifier_audit.py::test_every_exported_electrical_evidence_field_is_checked[estimated_voltage_drop_pct-99999.0]
+FAILED tests/test_verifier_audit.py::test_every_exported_electrical_evidence_field_is_checked[step_order--999]
+FAILED tests/test_verifier_audit.py::test_impact_reference_survives_common_simulator_fault
+FAILED tests/test_verifier_audit.py::test_disjoint_zones_that_reenergize_other_work_are_blocked
+FAILED tests/test_verifier_audit.py::test_nonfinite_rejected_at_construction_and_after_mutation[nan]
+FAILED tests/test_verifier_audit.py::test_nonfinite_rejected_at_construction_and_after_mutation[inf]
+FAILED tests/test_verifier_audit.py::test_nonfinite_rejected_at_construction_and_after_mutation[-inf]
+FAILED tests/test_verifier_audit.py::test_structural_integrity[unknown_interval]
+FAILED tests/test_verifier_audit.py::test_structural_integrity[window_id] - A...
+FAILED tests/test_verifier_audit.py::test_structural_integrity[duplicate_window]
+FAILED tests/test_verifier_audit.py::test_structural_integrity[materials] - A...
+FAILED tests/test_verifier_audit.py::test_structural_integrity[completed] - A...
+18 failed, 2 passed in 3.00s

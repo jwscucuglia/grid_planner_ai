@@ -1,0 +1,1837 @@
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF                  [100%]
+================================== FAILURES ===================================
+_______ test_imports_explicit_connections_and_preserves_portfolio[json] _______
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_imports_explicit_connecti0')
+fmt = 'json'
+
+    @pytest.mark.parametrize("fmt", ["json", "csv", "geojson"])
+    def test_imports_explicit_connections_and_preserves_portfolio(tmp_path, fmt):
+>       result = importer(write_bundle(tmp_path, fmt=fmt))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_imports_explicit_connecti0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_______ test_imports_explicit_connections_and_preserves_portfolio[csv] ________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_imports_explicit_connecti1')
+fmt = 'csv'
+
+    @pytest.mark.parametrize("fmt", ["json", "csv", "geojson"])
+    def test_imports_explicit_connections_and_preserves_portfolio(tmp_path, fmt):
+>       result = importer(write_bundle(tmp_path, fmt=fmt))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_imports_explicit_connecti1/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_____ test_imports_explicit_connections_and_preserves_portfolio[geojson] ______
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_imports_explicit_connecti2')
+fmt = 'geojson'
+
+    @pytest.mark.parametrize("fmt", ["json", "csv", "geojson"])
+    def test_imports_explicit_connections_and_preserves_portfolio(tmp_path, fmt):
+>       result = importer(write_bundle(tmp_path, fmt=fmt))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_imports_explicit_connecti2/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+____________ test_maps_external_names_without_guessing_enum_codes _____________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_maps_external_names_witho0')
+
+    def test_maps_external_names_without_guessing_enum_codes(tmp_path):
+        tables = deepcopy(TABLES)
+        for row in tables["nodes"]:
+            row["PAC"] = row.pop("node_id")
+        path = write_bundle(tmp_path, tables)
+        modify_manifest(path, lambda m: m["tables"]["nodes"].update(field_map={"node_id": "PAC"}))
+>       result = importer(path)
+                 ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:110: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_maps_external_names_witho0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+___ test_converts_declared_units_for_every_coordinate_and_operational_time ____
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_converts_declared_units_f0')
+
+    def test_converts_declared_units_for_every_coordinate_and_operational_time(tmp_path):
+        tables = deepcopy(TABLES)
+        for name, rows in tables.items():
+            for row in rows:
+                for key, value in list(row.items()):
+                    if key in {"x", "y", "base_x", "base_y", "length_km"} or key.endswith("_kw") or key.endswith("_kv"):
+                        row[key] = value * 1000
+                    elif key.endswith("_hours") or key.endswith("_hour"):
+                        row[key] = value * 60
+        path = write_bundle(tmp_path, tables)
+        def change(m):
+            m["units"].update(coordinates="m", length="m", power="W", voltage="V", duration="min")
+            m["network"]["coordinate_system"] = "EPSG:31982"
+            for key in ["window_start_hour", "window_end_hour", "max_window_duration_hours"]:
+                m["catalog"][key] *= 60
+        modify_manifest(path, change)
+>       result = importer(path)
+                 ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_converts_declared_units_f0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-phases] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa0')
+table = 'nodes', field = 'phases'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-is_source] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa1')
+table = 'nodes', field = 'is_source'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa1/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-in_service] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa2')
+table = 'nodes', field = 'in_service'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa2/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-load_kw] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa3')
+table = 'nodes', field = 'load_kw'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa3/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-nominal_voltage_kv] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa4')
+table = 'nodes', field = 'nominal_voltage_kv'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa4/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-distributed_gen_kw] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa5')
+table = 'nodes', field = 'distributed_gen_kw'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa5/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-phases] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa6')
+table = 'branches', field = 'phases'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa6/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-r_ohm] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa7')
+table = 'branches', field = 'r_ohm'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa7/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-x_ohm] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa8')
+table = 'branches', field = 'x_ohm'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa8/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-max_capacity_kw] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa9')
+table = 'branches', field = 'max_capacity_kw'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa9/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-in_service] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa10')
+table = 'branches', field = 'in_service'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa10/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-length_km] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa11')
+table = 'branches', field = 'length_km'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa11/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[switches-current_state] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa12')
+table = 'switches', field = 'current_state'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa12/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[switches-maneuver_duration_hours] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa13')
+table = 'switches', field = 'maneuver_duration_hours'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa13/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[assets-phases] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa14')
+table = 'assets', field = 'phases'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa14/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[consumers-phase] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa15')
+table = 'consumers', field = 'phase'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa15/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[consumers-avg_demand_kw] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa16')
+table = 'consumers', field = 'avg_demand_kw'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa16/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[services-duration_hours] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa17')
+table = 'services', field = 'duration_hours'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa17/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[services-prep_hours] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa18')
+table = 'services', field = 'prep_hours'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa18/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[crews-shift_start_hour] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa19')
+table = 'crews', field = 'shift_start_hour'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa19/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[crews-base_x] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa20')
+table = 'crews', field = 'base_x'
+
+    @pytest.mark.parametrize("table,field", [
+        ("nodes", "phases"), ("nodes", "is_source"), ("nodes", "in_service"),
+        ("nodes", "load_kw"), ("nodes", "nominal_voltage_kv"), ("nodes", "distributed_gen_kw"),
+        ("branches", "phases"), ("branches", "r_ohm"), ("branches", "x_ohm"),
+        ("branches", "max_capacity_kw"), ("branches", "in_service"), ("branches", "length_km"),
+        ("switches", "current_state"), ("switches", "maneuver_duration_hours"),
+        ("assets", "phases"), ("consumers", "phase"), ("consumers", "avg_demand_kw"),
+        ("services", "duration_hours"), ("services", "prep_hours"),
+        ("crews", "shift_start_hour"), ("crews", "base_x"),
+    ])
+    def test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults(tmp_path, table, field):
+        tables = deepcopy(TABLES)
+        del tables[table][0][field]
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "MISSING_FIELD", table, 1)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:156: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_critical_fields_cannot_fa20/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[branches-to_node-MISSING-ORPHAN_REFERENCE] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors0')
+table = 'branches', field = 'to_node', value = 'MISSING'
+code = 'ORPHAN_REFERENCE'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[assets-node_id-MISSING-ORPHAN_REFERENCE] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors1')
+table = 'assets', field = 'node_id', value = 'MISSING'
+code = 'ORPHAN_REFERENCE'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors1/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[services-target_assets-value2-ORPHAN_REFERENCE] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors2')
+table = 'services', field = 'target_assets', value = ['MISSING']
+code = 'ORPHAN_REFERENCE'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors2/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[services-precedence_service_ids-value3-ORPHAN_REFERENCE] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors3')
+table = 'services', field = 'precedence_service_ids', value = ['MISSING']
+code = 'ORPHAN_REFERENCE'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors3/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[branches-phases-value4-INCOMPATIBLE_PHASES] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors4')
+table = 'branches', field = 'phases', value = ['B']
+code = 'INCOMPATIBLE_PHASES'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors4/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[assets-phases-value5-INCOMPATIBLE_PHASES] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors5')
+table = 'assets', field = 'phases', value = ['B'], code = 'INCOMPATIBLE_PHASES'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors5/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[consumers-phase-B-INCOMPATIBLE_PHASES] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors6')
+table = 'consumers', field = 'phase', value = 'B', code = 'INCOMPATIBLE_PHASES'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors6/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[services-duration_hours-1.00001-OFF_GRID_TIME] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors7')
+table = 'services', field = 'duration_hours', value = 1.00001
+code = 'OFF_GRID_TIME'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors7/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[crews-shift_start_hour-True-INVALID_VALUE] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors8')
+table = 'crews', field = 'shift_start_hour', value = True
+code = 'INVALID_VALUE'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors8/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_reports_structured_errors_without_returning_plannable_inputs[switches-current_state-OPEN-INVALID_STRUCTURE] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors9')
+table = 'switches', field = 'current_state', value = 'OPEN'
+code = 'INVALID_STRUCTURE'
+
+    @pytest.mark.parametrize("table,field,value,code", [
+        ("branches", "to_node", "MISSING", "ORPHAN_REFERENCE"),
+        ("assets", "node_id", "MISSING", "ORPHAN_REFERENCE"),
+        ("services", "target_assets", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("services", "precedence_service_ids", ["MISSING"], "ORPHAN_REFERENCE"),
+        ("branches", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("assets", "phases", ["B"], "INCOMPATIBLE_PHASES"),
+        ("consumers", "phase", "B", "INCOMPATIBLE_PHASES"),
+        ("services", "duration_hours", 1.00001, "OFF_GRID_TIME"),
+        ("crews", "shift_start_hour", True, "INVALID_VALUE"),
+        ("switches", "current_state", "OPEN", "INVALID_STRUCTURE"),
+    ])
+    def test_reports_structured_errors_without_returning_plannable_inputs(tmp_path, table, field, value, code):
+        tables = deepcopy(TABLES)
+        tables[table][0][field] = value
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), code)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:174: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_reports_structured_errors9/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_________ test_duplicate_ids_block_instead_of_overwriting_rows[nodes] _________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_ids_block_inste0')
+table = 'nodes'
+
+    @pytest.mark.parametrize("table", ["nodes", "branches", "services", "crews"])
+    def test_duplicate_ids_block_instead_of_overwriting_rows(tmp_path, table):
+        tables = deepcopy(TABLES)
+        tables[table].append(deepcopy(tables[table][0]))
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "DUPLICATE_ID", table, len(tables[table]))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:181: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_ids_block_inste0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_______ test_duplicate_ids_block_instead_of_overwriting_rows[branches] ________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_ids_block_inste1')
+table = 'branches'
+
+    @pytest.mark.parametrize("table", ["nodes", "branches", "services", "crews"])
+    def test_duplicate_ids_block_instead_of_overwriting_rows(tmp_path, table):
+        tables = deepcopy(TABLES)
+        tables[table].append(deepcopy(tables[table][0]))
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "DUPLICATE_ID", table, len(tables[table]))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:181: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_ids_block_inste1/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_______ test_duplicate_ids_block_instead_of_overwriting_rows[services] ________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_ids_block_inste2')
+table = 'services'
+
+    @pytest.mark.parametrize("table", ["nodes", "branches", "services", "crews"])
+    def test_duplicate_ids_block_instead_of_overwriting_rows(tmp_path, table):
+        tables = deepcopy(TABLES)
+        tables[table].append(deepcopy(tables[table][0]))
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "DUPLICATE_ID", table, len(tables[table]))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:181: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_ids_block_inste2/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_________ test_duplicate_ids_block_instead_of_overwriting_rows[crews] _________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_ids_block_inste3')
+table = 'crews'
+
+    @pytest.mark.parametrize("table", ["nodes", "branches", "services", "crews"])
+    def test_duplicate_ids_block_instead_of_overwriting_rows(tmp_path, table):
+        tables = deepcopy(TABLES)
+        tables[table].append(deepcopy(tables[table][0]))
+>       assert_blocked(importer(write_bundle(tmp_path, tables)), "DUPLICATE_ID", table, len(tables[table]))
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:181: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_ids_block_inste3/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_______ test_unsupported_or_geographic_units_block[coordinates-degrees] _______
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_unsupported_or_geographic0')
+unit = 'coordinates', value = 'degrees'
+
+    @pytest.mark.parametrize("unit,value", [("coordinates", "degrees"), ("length", "feet"), ("power", "MW"), ("impedance", "ohm/km")])
+    def test_unsupported_or_geographic_units_block(tmp_path, unit, value):
+        path = write_bundle(tmp_path)
+        modify_manifest(path, lambda m: m["units"].update({unit: value}))
+>       assert_blocked(importer(path), "INVALID_UNITS")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:188: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_unsupported_or_geographic0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+___________ test_unsupported_or_geographic_units_block[length-feet] ___________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_unsupported_or_geographic1')
+unit = 'length', value = 'feet'
+
+    @pytest.mark.parametrize("unit,value", [("coordinates", "degrees"), ("length", "feet"), ("power", "MW"), ("impedance", "ohm/km")])
+    def test_unsupported_or_geographic_units_block(tmp_path, unit, value):
+        path = write_bundle(tmp_path)
+        modify_manifest(path, lambda m: m["units"].update({unit: value}))
+>       assert_blocked(importer(path), "INVALID_UNITS")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:188: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_unsupported_or_geographic1/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+____________ test_unsupported_or_geographic_units_block[power-MW] _____________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_unsupported_or_geographic2')
+unit = 'power', value = 'MW'
+
+    @pytest.mark.parametrize("unit,value", [("coordinates", "degrees"), ("length", "feet"), ("power", "MW"), ("impedance", "ohm/km")])
+    def test_unsupported_or_geographic_units_block(tmp_path, unit, value):
+        path = write_bundle(tmp_path)
+        modify_manifest(path, lambda m: m["units"].update({unit: value}))
+>       assert_blocked(importer(path), "INVALID_UNITS")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:188: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_unsupported_or_geographic2/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+________ test_unsupported_or_geographic_units_block[impedance-ohm/km] _________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_unsupported_or_geographic3')
+unit = 'impedance', value = 'ohm/km'
+
+    @pytest.mark.parametrize("unit,value", [("coordinates", "degrees"), ("length", "feet"), ("power", "MW"), ("impedance", "ohm/km")])
+    def test_unsupported_or_geographic_units_block(tmp_path, unit, value):
+        path = write_bundle(tmp_path)
+        modify_manifest(path, lambda m: m["units"].update({unit: value}))
+>       assert_blocked(importer(path), "INVALID_UNITS")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:188: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_unsupported_or_geographic3/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_____________ test_geographic_crs_cannot_claim_linear_coordinates _____________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_geographic_crs_cannot_cla0')
+
+    def test_geographic_crs_cannot_claim_linear_coordinates(tmp_path):
+        path = write_bundle(tmp_path)
+        modify_manifest(path, lambda m: m["network"].update(coordinate_system="EPSG:4326"))
+>       assert_blocked(importer(path), "GEOGRAPHIC_CRS")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:194: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_geographic_crs_cannot_cla0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_ test_strict_json_rejects_duplicates_and_nonfinite_numbers[[{"node_id":"SRC","node_id":"OTHER"}]] _
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_strict_json_rejects_dupli0')
+bad_json = '[{"node_id":"SRC","node_id":"OTHER"}]'
+
+    @pytest.mark.parametrize("bad_json", ['[{"node_id":"SRC","node_id":"OTHER"}]', '[{"x":NaN}]', '[{"x":1e999}]'])
+    def test_strict_json_rejects_duplicates_and_nonfinite_numbers(tmp_path, bad_json):
+        path = write_bundle(tmp_path)
+        (tmp_path / "nodes.json").write_text(bad_json, encoding="utf-8")
+>       assert_blocked(importer(path), "INVALID_FILE", "nodes")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:201: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_strict_json_rejects_dupli0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+___ test_strict_json_rejects_duplicates_and_nonfinite_numbers[[{"x":NaN}]] ____
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_strict_json_rejects_dupli1')
+bad_json = '[{"x":NaN}]'
+
+    @pytest.mark.parametrize("bad_json", ['[{"node_id":"SRC","node_id":"OTHER"}]', '[{"x":NaN}]', '[{"x":1e999}]'])
+    def test_strict_json_rejects_duplicates_and_nonfinite_numbers(tmp_path, bad_json):
+        path = write_bundle(tmp_path)
+        (tmp_path / "nodes.json").write_text(bad_json, encoding="utf-8")
+>       assert_blocked(importer(path), "INVALID_FILE", "nodes")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:201: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_strict_json_rejects_dupli1/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+__ test_strict_json_rejects_duplicates_and_nonfinite_numbers[[{"x":1e999}]] ___
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_strict_json_rejects_dupli2')
+bad_json = '[{"x":1e999}]'
+
+    @pytest.mark.parametrize("bad_json", ['[{"node_id":"SRC","node_id":"OTHER"}]', '[{"x":NaN}]', '[{"x":1e999}]'])
+    def test_strict_json_rejects_duplicates_and_nonfinite_numbers(tmp_path, bad_json):
+        path = write_bundle(tmp_path)
+        (tmp_path / "nodes.json").write_text(bad_json, encoding="utf-8")
+>       assert_blocked(importer(path), "INVALID_FILE", "nodes")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:201: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_strict_json_rejects_dupli2/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_____________ test_duplicate_csv_headers_and_extra_columns_block ______________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_csv_headers_and0')
+
+    def test_duplicate_csv_headers_and_extra_columns_block(tmp_path):
+        path = write_bundle(tmp_path, fmt="csv")
+        (tmp_path / "nodes.csv").write_text("node_id,node_id\nSRC,OTHER\n", encoding="utf-8")
+>       assert_blocked(importer(path), "DUPLICATE_HEADER", "nodes")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:207: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_duplicate_csv_headers_and0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_______________________ test_csv_nested_json_is_strict ________________________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_csv_nested_json_is_strict0')
+
+    def test_csv_nested_json_is_strict(tmp_path):
+        path = write_bundle(tmp_path, fmt="csv")
+        text = (tmp_path / "services.csv").read_text(encoding="utf-8-sig")
+        text = text.replace("1.0", "NaN", 1)
+        (tmp_path / "services.csv").write_text(text, encoding="utf-8")
+>       assert_blocked(importer(path))
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:215: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_csv_nested_json_is_strict0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_________________ test_paths_cannot_escape_manifest_directory _________________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_paths_cannot_escape_manif0')
+
+    def test_paths_cannot_escape_manifest_directory(tmp_path):
+        path = write_bundle(tmp_path / "bundle")
+        outside = tmp_path / "outside.json"
+        outside.write_text("[]", encoding="utf-8")
+        modify_manifest(path, lambda m: m["tables"]["nodes"].update(path="../outside.json"))
+>       assert_blocked(importer(path), "UNSAFE_PATH", "nodes")
+                       ^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:223: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_paths_cannot_escape_manif0/bundle/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+__________ test_coincident_coordinates_do_not_connect_distinct_nodes __________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_coincident_coordinates_do0')
+
+    def test_coincident_coordinates_do_not_connect_distinct_nodes(tmp_path):
+        tables = deepcopy(TABLES)
+        tables["nodes"][1]["x"] = 0.
+        tables["branches"] = []
+        tables["switches"] = []
+        tables["isolation_zones"] = []
+        tables["services"][0]["compatible_zone_ids"] = []
+>       result = importer(write_bundle(tmp_path, tables))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:233: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_coincident_coordinates_do0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+___________ test_all_bad_rows_remain_counted_and_services_traceable ___________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_all_bad_rows_remain_count0')
+
+    def test_all_bad_rows_remain_counted_and_services_traceable(tmp_path):
+        tables = deepcopy(TABLES)
+        tables["nodes"][0].pop("is_source")
+        tables["nodes"][1].pop("load_kw")
+>       result = importer(write_bundle(tmp_path, tables))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:243: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_all_bad_rows_remain_count0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+__ test_existing_planner_and_independent_verifier_accept_imported_contracts ___
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_existing_planner_and_inde0')
+
+    def test_existing_planner_and_independent_verifier_accept_imported_contracts(tmp_path):
+>       result = importer(write_bundle(tmp_path))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_ingestion.py:251: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_existing_planner_and_inde0/manifest.json')
+
+    def importer(path):
+        # This assertion is RED before implementation, rather than an import-time error.
+>       assert importlib.util.find_spec("kgp.ingestion") is not None, "GIS importer is not implemented"
+E       AssertionError: GIS importer is not implemented
+E       assert None is not None
+E        +  where None = <function find_spec at 0x000001FD89CCF740>('kgp.ingestion')
+E        +    where <function find_spec at 0x000001FD89CCF740> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests\test_ingestion.py:72: AssertionError
+_______ test_cli_reports_quality_and_returns_nonzero_for_blocked_bundle _______
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-18/test_cli_reports_quality_and_r0')
+
+    def test_cli_reports_quality_and_returns_nonzero_for_blocked_bundle(tmp_path):
+        path = write_bundle(tmp_path)
+        script = Path(__file__).resolve().parents[1] / "scripts" / "import_kgp_bundle.py"
+>       assert script.is_file(), "GIS import CLI is not implemented"
+E       AssertionError: GIS import CLI is not implemented
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = WindowsPath('C:/Users/scucuglia/Documents/P&D 2026/P&D Cemig 2026/grid_planner_ai/scripts/import_kgp_bundle.py').is_file
+
+tests\test_ingestion.py:266: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_ingestion.py::test_imports_explicit_connections_and_preserves_portfolio[json]
+FAILED tests/test_ingestion.py::test_imports_explicit_connections_and_preserves_portfolio[csv]
+FAILED tests/test_ingestion.py::test_imports_explicit_connections_and_preserves_portfolio[geojson]
+FAILED tests/test_ingestion.py::test_maps_external_names_without_guessing_enum_codes
+FAILED tests/test_ingestion.py::test_converts_declared_units_for_every_coordinate_and_operational_time
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-phases]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-is_source]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-in_service]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-load_kw]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-nominal_voltage_kv]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[nodes-distributed_gen_kw]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-phases]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-r_ohm]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-x_ohm]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-max_capacity_kw]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-in_service]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[branches-length_km]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[switches-current_state]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[switches-maneuver_duration_hours]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[assets-phases]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[consumers-phase]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[consumers-avg_demand_kw]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[services-duration_hours]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[services-prep_hours]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[crews-shift_start_hour]
+FAILED tests/test_ingestion.py::test_critical_fields_cannot_fall_back_to_synthetic_contract_defaults[crews-base_x]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[branches-to_node-MISSING-ORPHAN_REFERENCE]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[assets-node_id-MISSING-ORPHAN_REFERENCE]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[services-target_assets-value2-ORPHAN_REFERENCE]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[services-precedence_service_ids-value3-ORPHAN_REFERENCE]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[branches-phases-value4-INCOMPATIBLE_PHASES]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[assets-phases-value5-INCOMPATIBLE_PHASES]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[consumers-phase-B-INCOMPATIBLE_PHASES]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[services-duration_hours-1.00001-OFF_GRID_TIME]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[crews-shift_start_hour-True-INVALID_VALUE]
+FAILED tests/test_ingestion.py::test_reports_structured_errors_without_returning_plannable_inputs[switches-current_state-OPEN-INVALID_STRUCTURE]
+FAILED tests/test_ingestion.py::test_duplicate_ids_block_instead_of_overwriting_rows[nodes]
+FAILED tests/test_ingestion.py::test_duplicate_ids_block_instead_of_overwriting_rows[branches]
+FAILED tests/test_ingestion.py::test_duplicate_ids_block_instead_of_overwriting_rows[services]
+FAILED tests/test_ingestion.py::test_duplicate_ids_block_instead_of_overwriting_rows[crews]
+FAILED tests/test_ingestion.py::test_unsupported_or_geographic_units_block[coordinates-degrees]
+FAILED tests/test_ingestion.py::test_unsupported_or_geographic_units_block[length-feet]
+FAILED tests/test_ingestion.py::test_unsupported_or_geographic_units_block[power-MW]
+FAILED tests/test_ingestion.py::test_unsupported_or_geographic_units_block[impedance-ohm/km]
+FAILED tests/test_ingestion.py::test_geographic_crs_cannot_claim_linear_coordinates
+FAILED tests/test_ingestion.py::test_strict_json_rejects_duplicates_and_nonfinite_numbers[[{"node_id":"SRC","node_id":"OTHER"}]]
+FAILED tests/test_ingestion.py::test_strict_json_rejects_duplicates_and_nonfinite_numbers[[{"x":NaN}]]
+FAILED tests/test_ingestion.py::test_strict_json_rejects_duplicates_and_nonfinite_numbers[[{"x":1e999}]]
+FAILED tests/test_ingestion.py::test_duplicate_csv_headers_and_extra_columns_block
+FAILED tests/test_ingestion.py::test_csv_nested_json_is_strict - AssertionErr...
+FAILED tests/test_ingestion.py::test_paths_cannot_escape_manifest_directory
+FAILED tests/test_ingestion.py::test_coincident_coordinates_do_not_connect_distinct_nodes
+FAILED tests/test_ingestion.py::test_all_bad_rows_remain_counted_and_services_traceable
+FAILED tests/test_ingestion.py::test_existing_planner_and_independent_verifier_accept_imported_contracts
+FAILED tests/test_ingestion.py::test_cli_reports_quality_and_returns_nonzero_for_blocked_bundle
+55 failed in 1.52s

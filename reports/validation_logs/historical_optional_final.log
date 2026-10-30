@@ -1,0 +1,70 @@
+{
+  "KGP": {
+    "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+    "optimal": true,
+    "completed": [],
+    "unscheduled": [
+      "J0"
+    ],
+    "windows": [],
+    "feasible": true,
+    "violations": [],
+    "solver_objective": 50.0,
+    "solver_bound": 50.0,
+    "documented_J": 0.0,
+    "repeat_consumers": 0
+  },
+  "KGP_metadata": {
+    "candidate_columns_count": 1,
+    "milp_column_objective": 50.0,
+    "reconstructed_plan_objective": 50.0,
+    "objective_reconstruction_matches": true,
+    "missing_mandatory_service_ids": [],
+    "omitted_optional_service_ids": [
+      "J0"
+    ],
+    "mandatory_coverage_rule": "HARD_CONSTRAINT",
+    "optimality_scope": "\u00d3timo global comprovado sobre o conjunto discreto de colunas di\u00e1rias fact\u00edveis geradas (incluindo encadeamento di\u00e1rio e sementes B0/B1/B2).",
+    "b1_seed_radius_km": 1.25,
+    "candidate_generation_limits": {
+      "max_package_size": 5,
+      "max_windows_per_day": 5,
+      "max_states_per_depth": 120,
+      "window_start_rule": "Primeiro in\u00edcio vi\u00e1vel por sequ\u00eancia, turno, preced\u00eancia e recursos; n\u00e3o enumera in\u00edcios cont\u00ednuos.",
+      "crew_allocation_rule": "Cat\u00e1logo completo e subcat\u00e1logos de uma equipe na primeira janela; escalonador construtivo.",
+      "sequence_rule": "Expans\u00e3o limitada, deduplica\u00e7\u00e3o e poda por custo; sementes B0/B1/B2 inclu\u00eddas."
+    },
+    "objective_weights": {
+      "window_weight": 90.0,
+      "consumer_hour_weight": 1.0,
+      "repeat_consumer_weight": 12.0,
+      "physical_maneuver_weight": 2.5,
+      "crew_hour_weight": 0.6,
+      "optional_unscheduled_penalty": 50.0
+    }
+  },
+  "B0": {
+    "status": "HEURISTIC_INDIVIDUAL",
+    "optimal": false,
+    "completed": [
+      "J0"
+    ],
+    "unscheduled": [],
+    "windows": [
+      {
+        "services": [
+          "J0"
+        ],
+        "start": 8.0,
+        "end": 8.7,
+        "travel": 0.0
+      }
+    ],
+    "feasible": true,
+    "violations": [],
+    "solver_objective": null,
+    "solver_bound": null,
+    "documented_J": 96.12,
+    "repeat_consumers": 0
+  }
+}

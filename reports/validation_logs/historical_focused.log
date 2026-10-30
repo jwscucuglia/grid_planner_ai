@@ -1,0 +1,18 @@
+./.venv/Scripts/python.exe : Traceback (most recent call last):
+No linha:2 caractere:1
++ ./.venv/Scripts/python.exe '.audit_cache/reauditoria/D07_REAUDITORIA_ ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "C:\Users\scucuglia\Documents\P&D 2026\P&D Cemig 
+2026\grid_planner_ai\.audit_cache\reauditoria\D07_REAUDITORIA_REV02\verifier\reproduce_focused.py", line 33, in 
+<module>
+    with patch('kgp.feasibility.simulate_zone_intervention',bad_sim):
+  File "C:\Program Files\Python311\Lib\unittest\mock.py", line 1427, in __enter__
+    original, local = self.get_original()
+                      ^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\Python311\Lib\unittest\mock.py", line 1400, in get_original
+    raise AttributeError(
+AttributeError: <module 'kgp.feasibility' from 'C:\\Users\\scucuglia\\Documents\\P&D 2026\\P&D Cemig 
+2026\\grid_planner_ai\\src\\kgp\\feasibility.py'> does not have the attribute 'simulate_zone_intervention'

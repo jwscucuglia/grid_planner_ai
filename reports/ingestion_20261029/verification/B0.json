@@ -1,0 +1,25 @@
+{
+  "plan_id": "PLAN_B0_PUBLIC_GIS_SYNTHETIC_OVERLAY",
+  "method_name": "B0",
+  "scenario_id": "PUBLIC_GIS_SYNTHETIC_OVERLAY",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 2,
+  "total_mandatory_count": 2,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "TEST_MATERIAL": 2.0
+  },
+  "recalculated_consumer_hours": 7.0,
+  "recalculated_windows_count": 2,
+  "recalculated_physical_maneuvers": 4,
+  "recalculated_repeat_consumers": 2,
+  "recalculated_unique_consumers": 2,
+  "recalculated_total_interruptions": 4,
+  "recalculated_completed_services": [
+    "SYN_SERVICE_2",
+    "SYN_SERVICE_1"
+  ],
+  "isolation_verified": true
+}

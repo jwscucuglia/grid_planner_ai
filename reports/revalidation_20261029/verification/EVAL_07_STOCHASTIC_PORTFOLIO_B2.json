@@ -1,0 +1,31 @@
+{
+  "plan_id": "PLAN_B2_EVAL_07_STOCHASTIC_PORTFOLIO",
+  "method_name": "B2",
+  "scenario_id": "EVAL_07_STOCHASTIC_PORTFOLIO",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 5,
+  "total_mandatory_count": 5,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "ELO_FUSIVEL": 2.0,
+    "KIT_TRAFO": 1.0,
+    "CRUZETA_CONCRETO": 2.0,
+    "CONECTOR_CUNHA": 3.0
+  },
+  "recalculated_consumer_hours": 372.312,
+  "recalculated_windows_count": 3,
+  "recalculated_physical_maneuvers": 10,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 140,
+  "recalculated_total_interruptions": 140,
+  "recalculated_completed_services": [
+    "S_202607_04",
+    "S_202607_05",
+    "S_202607_03",
+    "S_202607_02",
+    "S_202607_01"
+  ],
+  "isolation_verified": true
+}

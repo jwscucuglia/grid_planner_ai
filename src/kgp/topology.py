@@ -20,6 +20,8 @@ from .contracts import (
     ManeuverStage,
     ManeuverStepResult,
     SwitchState,
+    operational_time_ticks,
+    TICKS_PER_HOUR,
 )
 
 
@@ -216,6 +218,62 @@ def compute_energized_phases_by_node(
     return energized_phases, supplying_sources, notes
 
 
+def _radial_component_issues(network, active_branches, energized_phases):
+    """BFS components of each live phase, counting every conducting branch.
+
+    This is a domain guard, not a load-flow calculation. Parallel branch IDs
+    and self-loops count as edges; disconnected dark components do not enter
+    the physical analysis. Each live component must be a single-source tree.
+    """
+    issues = []
+    for phase in ('A', 'B', 'C'):
+        adjacency = {
+            nid: [] for nid, node in network.nodes.items()
+            if node.in_service and phase in node.phases
+            and phase in energized_phases.get(nid, set())
+        }
+        for bid, branch in active_branches.items():
+            if (phase in branch.phases and branch.from_node in adjacency
+                    and branch.to_node in adjacency):
+                adjacency[branch.from_node].append((branch.to_node, bid))
+                adjacency[branch.to_node].append((branch.from_node, bid))
+        visited = set()
+        for start in sorted(adjacency):
+            if start in visited:
+                continue
+            component, edge_ids = set(), set()
+            queue = deque([start])
+            visited.add(start)
+            while queue:
+                node = queue.popleft()
+                component.add(node)
+                for neighbor, bid in adjacency[node]:
+                    edge_ids.add(bid)
+                    if neighbor not in visited:
+                        visited.add(neighbor)
+                        queue.append(neighbor)
+            sources = [nid for nid in component if network.nodes[nid].is_source]
+            if not sources:
+                continue
+            prefix = f"Domínio físico radial não suportado na fase {phase}, componente '{start}': "
+            if len(edge_ids) != len(component) - 1:
+                issues.append(prefix + f"ciclo/caminhos paralelos energizados ({len(component)} nós, {len(edge_ids)} trechos).")
+            if len(sources) != 1:
+                issues.append(prefix + f"{len(sources)} fontes ativas conectadas; exige exatamente uma por componente/fase.")
+    return issues
+
+
+def radial_analysis_issues(network, open_switches, closed_switches):
+    """Return unsupported live radial-analysis domains for the effective state.
+
+    Topological reachability remains available on the full imported multigraph;
+    no edge is removed to manufacture a physically supported input.
+    """
+    phases, _, _ = compute_energized_phases_by_node(network, set(open_switches), set(closed_switches))
+    branches = get_active_branches(network, get_effective_switch_states(network, set(open_switches), set(closed_switches)))
+    return _radial_component_issues(network, branches, phases)
+
+
 def verify_transfer_electrical_feasibility(
     network: GridNetwork,
     zone: IsolationZoneSpec,
@@ -230,8 +288,8 @@ def verify_transfer_electrical_feasibility(
     dos trechos ativos que possuem a respectiva fase `ph`, impedindo que cargas
     de uma fase sejam roteadas por atalhos de outra fase.
     """
-    if not closed_switches and not zone.requires_transfer_validation:
-        return True, 0.0, 0.0, "Sem transferência por chave NA."
+    if network.allow_dg_islanding:
+        return False, 0.0, 0.0, "Ilhamento por GD não suportado: faltam limites e modelo de despacho das fontes DG."
 
     sw_issues = validate_switch_maneuverability(
         network, open_switches, closed_switches
@@ -239,7 +297,7 @@ def verify_transfer_electrical_feasibility(
     if sw_issues:
         return False, 0.0, 0.0, "; ".join(sw_issues)
 
-    if not zone.transfer_params_complete:
+    if (closed_switches or zone.requires_transfer_validation) and not zone.transfer_params_complete:
         return (
             False,
             0.0,
@@ -251,6 +309,10 @@ def verify_transfer_electrical_feasibility(
         network, open_switches, closed_switches
     )
     active_branches = get_active_branches(network, switch_states)
+
+    domain_issues = _radial_component_issues(network, active_branches, energized_phases)
+    if domain_issues:
+        return False, 0.0, 0.0, "; ".join(domain_issues)
 
     for br in active_branches.values():
         if br.max_capacity_kw <= 0.0 or br.r_ohm < 0.0 or br.x_ohm < 0.0:
@@ -488,7 +550,7 @@ def evaluate_maneuver_step(
     if sw_issues:
         transfer_ok = False
         topo_notes.extend(sw_issues)
-    elif zone is not None and (closed_set or zone.requires_transfer_validation):
+    elif zone is not None:
         transfer_ok, max_loading, max_vdrop, tr_note = (
             verify_transfer_electrical_feasibility(
                 network,
@@ -500,12 +562,23 @@ def evaluate_maneuver_step(
             )
         )
         topo_notes.append(tr_note)
+    else:
+        # A topology-only snapshot still must not advertise physical support
+        # for a meshed/multi-source state when no zone limits were supplied.
+        domain_issues = _radial_component_issues(
+            network,
+            get_active_branches(network, get_effective_switch_states(network, open_set, closed_set)),
+            energized_phases,
+        )
+        if domain_issues:
+            transfer_ok = False
+            topo_notes.extend(domain_issues)
 
     return ManeuverStepResult(
         step_order=step_order,
         stage=stage,
-        start_hour=round(start_hour, 4),
-        end_hour=round(end_hour, 4),
+        start_hour=operational_time_ticks(start_hour) / TICKS_PER_HOUR,
+        end_hour=operational_time_ticks(end_hour) / TICKS_PER_HOUR,
         open_switches=tuple(sorted(open_set)),
         closed_switches=tuple(sorted(closed_set)),
         energized_nodes=tuple(energized_nodes),
@@ -529,10 +602,16 @@ def simulate_zone_intervention(
     """Simula todas as etapas de uma intervenção em uma zona de isolamento."""
     if zone_id not in network.isolation_zones:
         raise TopologyValidationError(f"Zona de isolamento '{zone_id}' inexistente.")
+    if network.allow_dg_islanding:
+        raise TopologyValidationError("Ilhamento por GD não suportado nesta versão.")
 
     zone = network.isolation_zones[zone_id]
-    prep_start = work_start_hour - zone.prep_duration_hours
-    recomp_end = work_end_hour + zone.recomp_duration_hours
+    ws = operational_time_ticks(work_start_hour)
+    we = operational_time_ticks(work_end_hour)
+    prep = operational_time_ticks(zone.prep_duration_hours)
+    recomp = operational_time_ticks(zone.recomp_duration_hours)
+    prep_start = (ws - prep) / TICKS_PER_HOUR
+    recomp_end = (we + recomp) / TICKS_PER_HOUR
 
     steps: List[ManeuverStepResult] = []
 
@@ -548,7 +627,7 @@ def simulate_zone_intervention(
             zone=zone,
         )
         if probe_step.transfer_feasible:
-            mid_prep = prep_start + (zone.prep_duration_hours * 0.5)
+            mid_prep = (ws - prep + prep // 2) / TICKS_PER_HOUR
             step1 = evaluate_maneuver_step(
                 network=network,
                 step_order=1,
@@ -594,6 +673,8 @@ def simulate_zone_intervention(
                 len(zone.open_switches) + len(zone.tie_switches_closed)
             )
             return tuple(steps), physical_maneuvers
+        if zone.requires_transfer_validation:
+            raise TopologyValidationError(f"Transferência obrigatória inviável na zona '{zone_id}': {probe_step.notes}")
 
     step1 = evaluate_maneuver_step(
         network=network,

@@ -1,0 +1,59 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_ test_time_limit_without_incumbent_preserves_feasible_fallback_and_known_bound _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000183FEF33C50>
+
+    def test_time_limit_without_incumbent_preserves_feasible_fallback_and_known_bound(monkeypatch):
+        from types import SimpleNamespace
+        net, cat, jobs = small_instance(mandatory=True)
+        monkeypatch.setattr(optimizer_module, 'milp', lambda **kwargs:
+                            SimpleNamespace(x=None, status=1, mip_dual_bound=0., mip_gap=None, fun=None))
+        plan = run_kgp_optimizer(net, jobs, cat, 'fallback_known_bound')
+        assert verify_plan_feasibility(net, jobs, cat, plan).is_feasible
+>       assert plan.solver_objective == compute_exact_plan_objective(plan, ObjectiveWeights(), jobs)
+E       AssertionError: assert None == 96.12
+E        +  where None = ExecutionPlan(plan_id='PLAN_KGP_fallback_known_bound', method_name='KGP', scenario_id='fallback_known_bound', decision... n�o prova inviabilidade operacional geral.', 'missing_mandatory_service_ids': [], 'omitted_optional_service_ids': []}).solver_objective
+E        +  and   96.12 = compute_exact_plan_objective(ExecutionPlan(plan_id='PLAN_KGP_fallback_known_bound', method_name='KGP', scenario_id='fallback_known_bound', decision... n�o prova inviabilidade operacional geral.', 'missing_mandatory_service_ids': [], 'omitted_optional_service_ids': []}), ObjectiveWeights(window_weight=90.0, consumer_hour_weight=1.0, repeat_consumer_weight=12.0, physical_maneuver_weight=2.5, crew_hour_weight=0.6, unscheduled_penalty=1000000.0, optional_unscheduled_penalty=50.0), [ServiceOrder(service_id='J', title='job', service_type=<ServiceType.OBRA: 'OBRA'>, target_assets=('A',), mandatory=Tr...0.1, recomp_hours=0.1, priority=1, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=0.0, y=0.0)])
+E        +    where ObjectiveWeights(window_weight=90.0, consumer_hour_weight=1.0, repeat_consumer_weight=12.0, physical_maneuver_weight=2.5, crew_hour_weight=0.6, unscheduled_penalty=1000000.0, optional_unscheduled_penalty=50.0) = ObjectiveWeights()
+
+tests\test_optimizer_audit.py:162: AssertionError
+_______ test_failed_round_cannot_publish_previous_figure_or_stale_plan ________
+
+tmp_path = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-0/test_failed_round_cannot_publi0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000183FF07CD10>
+
+    def test_failed_round_cannot_publish_previous_figure_or_stale_plan(tmp_path, monkeypatch):
+        from dataclasses import replace
+        import json
+        import kgp.experiment as experiment
+        from kgp.revalidation import run_revalidation
+        scenario = experiment.generate_scenario_instance(202601, 'EVAL')
+        scenario.services = [replace(s, required_skills=('UNAVAILABLE',)) for s in scenario.services]
+        monkeypatch.setattr(experiment, 'DEV_SEEDS', ())
+        monkeypatch.setattr(experiment, 'EVAL_SEEDS', (202601,))
+        monkeypatch.setattr(experiment, 'generate_scenario_instance', lambda *args: scenario)
+        reports = tmp_path / 'reports'
+        evidence = reports / 'revalidation_20261029/plans'
+        evidence.mkdir(parents=True)
+        old = reports / 'comparativo_kgp_desafio07.png'
+        old.write_bytes(b'OLD_SUCCESSFUL_FIGURE')
+        (evidence / 'STALE.json').write_text('{}')
+        result = run_revalidation(tmp_path)
+        assert not result['paired_eval_comparisons']
+>       assert old.read_bytes().startswith(b'\x89PNG')
+E       AssertionError: assert False
+E        +  where False = <built-in method startswith of bytes object at 0x00000183FFD0BAB0>(b'\x89PNG')
+E        +    where <built-in method startswith of bytes object at 0x00000183FFD0BAB0> = b'OLD_SUCCESSFUL_FIGURE'.startswith
+E        +      where b'OLD_SUCCESSFUL_FIGURE' = read_bytes()
+E        +        where read_bytes = WindowsPath('C:/Users/scucuglia/AppData/Local/Temp/pytest-of-scucuglia/pytest-0/test_failed_round_cannot_publi0/reports/comparativo_kgp_desafio07.png').read_bytes
+
+tests\test_experiment_protocol.py:35: AssertionError
+---------------------------- Captured stdout call -----------------------------
+RUN EVAL_01_TOPO_DISTANT_AND_PARALLEL
+VERIFIED EVAL_01_TOPO_DISTANT_AND_PARALLEL 0/4
+END 0/4 feasible; 0 EVAL pairs
+=========================== short test summary info ===========================
+FAILED tests/test_optimizer_audit.py::test_time_limit_without_incumbent_preserves_feasible_fallback_and_known_bound
+FAILED tests/test_experiment_protocol.py::test_failed_round_cannot_publish_previous_figure_or_stale_plan
+2 failed in 3.14s

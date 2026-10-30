@@ -1,0 +1,14 @@
+{
+  "overlap_feasible": false,
+  "overlap_isolation": false,
+  "overlap_violations": [
+    "Conflito entre janelas sobrepostas no dia 1: janelas 'W0' (9.00h-10.50h, zona 'Z1') e 'W1' (9.00h-10.50h, zona 'Z2') t\u00eam sobreposi\u00e7\u00e3o el\u00e9trica n\u00e3o admitida: a composi\u00e7\u00e3o global de manobras simult\u00e2neas n\u00e3o \u00e9 certificada neste cat\u00e1logo, inclusive em zonas disjuntas.",
+    "Viola\u00e7\u00e3o de isolamento el\u00e9trico global: A1 do servi\u00e7o S1 energizado no dia 1, 9.2500h\u201310.2500h.",
+    "Viola\u00e7\u00e3o de integridade de impacto: clientes-hora exportados nas etapas (3.0000) divergem do rec\u00e1lculo do verificador (1.6250)."
+  ],
+  "global_timeline": [
+    "Viola\u00e7\u00e3o de isolamento el\u00e9trico global: A1 do servi\u00e7o S1 energizado no dia 1, 9.2500h\u201310.2500h."
+  ],
+  "serial_feasible": true,
+  "serial_violations": []
+}

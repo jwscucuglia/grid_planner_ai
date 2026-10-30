@@ -1,0 +1,29 @@
+{
+  "plan_id": "PLAN_B1_DEV_104_STOCHASTIC_PORTFOLIO",
+  "method_name": "B1",
+  "scenario_id": "DEV_104_STOCHASTIC_PORTFOLIO",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 4,
+  "total_mandatory_count": 4,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "KIT_TRAFO": 2.0,
+    "CRUZETA_CONCRETO": 1.0,
+    "ISOLADOR_15KV": 3.0
+  },
+  "recalculated_consumer_hours": 434.3,
+  "recalculated_windows_count": 4,
+  "recalculated_physical_maneuvers": 12,
+  "recalculated_repeat_consumers": 50,
+  "recalculated_unique_consumers": 144,
+  "recalculated_total_interruptions": 194,
+  "recalculated_completed_services": [
+    "S_104_02",
+    "S_104_01",
+    "S_104_03",
+    "S_104_04"
+  ],
+  "isolation_verified": true
+}

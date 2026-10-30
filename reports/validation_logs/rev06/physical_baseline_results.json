@@ -1,0 +1,537 @@
+{
+  "valid_control": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": []
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      true,
+      0.0,
+      0.0,
+      "Transfer\u00eancia fact\u00edvel (carregamento m\u00e1x 0.0%, queda m\u00e1x 0.00%)."
+    ],
+    "independent_electrical": [
+      true,
+      0.0,
+      0.0,
+      "OK"
+    ],
+    "plan_audit": {
+      "is_feasible": true,
+      "mandatory_portfolio_complete": true,
+      "completed": [
+        "S1"
+      ],
+      "violations": []
+    },
+    "planned_windows": [
+      {
+        "window_start": 8.0,
+        "work_start": 8.1,
+        "work_end": 9.1,
+        "window_end": 9.2,
+        "physical_maneuvers": 2,
+        "stage_durations": [
+          0.09999999999999964,
+          1.0,
+          0.09999999999999964
+        ]
+      }
+    ]
+  },
+  "high_first": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": [],
+      "LIVE_LOAD": [
+        "A"
+      ]
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      true,
+      10.0,
+      0.05250997689561016,
+      "Transfer\u00eancia fact\u00edvel (carregamento m\u00e1x 10.0%, queda m\u00e1x 0.05%)."
+    ],
+    "independent_electrical": [
+      true,
+      10.0,
+      0.05250997689561016,
+      "OK"
+    ],
+    "plan_audit": {
+      "is_feasible": true,
+      "mandatory_portfolio_complete": true,
+      "completed": [
+        "S1"
+      ],
+      "violations": []
+    },
+    "planned_windows": [
+      {
+        "window_start": 8.0,
+        "work_start": 8.1,
+        "work_end": 9.1,
+        "window_end": 9.2,
+        "physical_maneuvers": 2,
+        "stage_durations": [
+          0.09999999999999964,
+          1.0,
+          0.09999999999999964
+        ]
+      }
+    ]
+  },
+  "low_first": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": [],
+      "LIVE_LOAD": [
+        "A"
+      ]
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      false,
+      10000.0,
+      0.0005250997689561016,
+      "Sobrecarga t\u00e9rmica em transfer\u00eancia (10000.0% > 100%)."
+    ],
+    "independent_electrical": [
+      false,
+      10000.0,
+      0.0005250997689561016,
+      "Sobrecarga t\u00e9rmica por fase na transfer\u00eancia (10000.0% > 100%)."
+    ]
+  },
+  "radial_high_only": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": [],
+      "LIVE_LOAD": [
+        "A"
+      ]
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      true,
+      10.0,
+      0.05250997689561016,
+      "Transfer\u00eancia fact\u00edvel (carregamento m\u00e1x 10.0%, queda m\u00e1x 0.05%)."
+    ],
+    "independent_electrical": [
+      true,
+      10.0,
+      0.05250997689561016,
+      "OK"
+    ]
+  },
+  "radial_low_only": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": [],
+      "LIVE_LOAD": [
+        "A"
+      ]
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      false,
+      10000.0,
+      0.0005250997689561016,
+      "Sobrecarga t\u00e9rmica em transfer\u00eancia (10000.0% > 100%)."
+    ],
+    "independent_electrical": [
+      false,
+      10000.0,
+      0.0005250997689561016,
+      "Sobrecarga t\u00e9rmica por fase na transfer\u00eancia (10000.0% > 100%)."
+    ]
+  },
+  "missing_source_flag": {
+    "is_valid": false,
+    "issues": [
+      {
+        "code": "MISSING_FIELD",
+        "table": "nodes",
+        "row": 1,
+        "record_id": "SRC",
+        "message": "explicit critical fields required: is_source",
+        "severity": "ERROR"
+      },
+      {
+        "code": "ORPHAN_REFERENCE",
+        "table": "branches",
+        "row": 1,
+        "record_id": "B1",
+        "message": "endpoints references missing nodes ID SRC",
+        "severity": "ERROR"
+      },
+      {
+        "code": "MISSING_SOURCE",
+        "table": "nodes",
+        "row": null,
+        "record_id": null,
+        "message": "network requires at least one explicitly active source",
+        "severity": "ERROR"
+      },
+      {
+        "code": "INVALID_STRUCTURE",
+        "table": "problem",
+        "row": null,
+        "record_id": null,
+        "message": "Estrutura/refer\u00eancia inv\u00e1lida: extremidades de B1",
+        "severity": "ERROR"
+      }
+    ],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": true,
+    "catalog_withheld": true
+  },
+  "no_active_source": {
+    "is_valid": false,
+    "issues": [
+      {
+        "code": "MISSING_SOURCE",
+        "table": "nodes",
+        "row": null,
+        "record_id": null,
+        "message": "network requires at least one explicitly active source",
+        "severity": "ERROR"
+      }
+    ],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": true,
+    "catalog_withheld": true
+  },
+  "branch_phase_mismatch": {
+    "is_valid": false,
+    "issues": [
+      {
+        "code": "INCOMPATIBLE_PHASES",
+        "table": "branches",
+        "row": 1,
+        "record_id": "B1",
+        "message": "phases are absent from the explicitly referenced endpoint/asset",
+        "severity": "ERROR"
+      },
+      {
+        "code": "INCOMPATIBLE_PHASES",
+        "table": "branches",
+        "row": 1,
+        "record_id": "B1",
+        "message": "phases are absent from the explicitly referenced endpoint/asset",
+        "severity": "ERROR"
+      }
+    ],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": true,
+    "catalog_withheld": true
+  },
+  "inactive_service": {
+    "is_valid": false,
+    "issues": [
+      {
+        "code": "INVALID_SCOPE_STATUS",
+        "table": "services",
+        "row": 1,
+        "record_id": "S1",
+        "message": "v1 accepts only explicit scope_status='ACTIVE'; external/inactive/cancelled codes have no supported mapping",
+        "severity": "ERROR"
+      }
+    ],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": true,
+    "catalog_withheld": true
+  },
+  "unsupported_voltage_transition": {
+    "is_valid": false,
+    "issues": [
+      {
+        "code": "UNSUPPORTED_VOLTAGE_TRANSITION",
+        "table": "branches",
+        "row": 1,
+        "record_id": "B1",
+        "message": "branch connects 13.8 kV to 0.38 kV without a supported transformer/converter model",
+        "severity": "ERROR"
+      }
+    ],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": true,
+    "catalog_withheld": true
+  },
+  "out_of_service_branch": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": []
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      true,
+      0.0,
+      0.0,
+      "Transfer\u00eancia fact\u00edvel (carregamento m\u00e1x 0.0%, queda m\u00e1x 0.00%)."
+    ],
+    "independent_electrical": [
+      true,
+      0.0,
+      0.0,
+      "OK"
+    ]
+  },
+  "out_of_service_switch": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": []
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      false,
+      0.0,
+      0.0,
+      "Chave 'SW1' fora de servi\u00e7o."
+    ],
+    "independent_electrical": [
+      false,
+      0.0,
+      0.0,
+      "Chave 'SW1' fora de servi\u00e7o."
+    ]
+  },
+  "unknown_inactive_consumer_field": {
+    "is_valid": true,
+    "issues": [
+      {
+        "code": "UNMAPPED_FIELDS",
+        "table": "consumers",
+        "row": 1,
+        "record_id": "C1",
+        "message": "source fields not used: ['in_service']",
+        "severity": "WARNING"
+      }
+    ],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": []
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      true,
+      0.0,
+      0.0,
+      "Transfer\u00eancia fact\u00edvel (carregamento m\u00e1x 0.0%, queda m\u00e1x 0.00%)."
+    ],
+    "independent_electrical": [
+      true,
+      0.0,
+      0.0,
+      "OK"
+    ]
+  },
+  "switch_maneuver_two_hours": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": []
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      true,
+      0.0,
+      0.0,
+      "Transfer\u00eancia fact\u00edvel (carregamento m\u00e1x 0.0%, queda m\u00e1x 0.00%)."
+    ],
+    "independent_electrical": [
+      true,
+      0.0,
+      0.0,
+      "OK"
+    ],
+    "plan_audit": {
+      "is_feasible": true,
+      "mandatory_portfolio_complete": true,
+      "completed": [
+        "S1"
+      ],
+      "violations": []
+    },
+    "planned_windows": [
+      {
+        "window_start": 8.0,
+        "work_start": 8.1,
+        "work_end": 9.1,
+        "window_end": 9.2,
+        "physical_maneuvers": 2,
+        "stage_durations": [
+          0.09999999999999964,
+          1.0,
+          0.09999999999999964
+        ]
+      }
+    ]
+  },
+  "switch_and_zone_two_hours": {
+    "is_valid": true,
+    "issues": [],
+    "source_service_ids": [
+      "S1"
+    ],
+    "network_withheld": false,
+    "catalog_withheld": false,
+    "bfs_phases": {
+      "SRC": [
+        "A"
+      ],
+      "N1": []
+    },
+    "independent_phases_match": true,
+    "planner_electrical": [
+      true,
+      0.0,
+      0.0,
+      "Transfer\u00eancia fact\u00edvel (carregamento m\u00e1x 0.0%, queda m\u00e1x 0.00%)."
+    ],
+    "independent_electrical": [
+      true,
+      0.0,
+      0.0,
+      "OK"
+    ],
+    "plan_audit": {
+      "is_feasible": true,
+      "mandatory_portfolio_complete": true,
+      "completed": [
+        "S1"
+      ],
+      "violations": []
+    },
+    "planned_windows": [
+      {
+        "window_start": 8.0,
+        "work_start": 10.0,
+        "work_end": 11.0,
+        "window_end": 13.0,
+        "physical_maneuvers": 2,
+        "stage_durations": [
+          2.0,
+          1.0,
+          2.0
+        ]
+      }
+    ]
+  },
+  "public_reference_active_topology": {
+    "A": {
+      "energized_nodes": 344,
+      "active_edges_in_source_component": 348,
+      "cycle_rank_including_parallel": 5
+    },
+    "B": {
+      "energized_nodes": 338,
+      "active_edges_in_source_component": 342,
+      "cycle_rank_including_parallel": 5
+    },
+    "C": {
+      "energized_nodes": 338,
+      "active_edges_in_source_component": 342,
+      "cycle_rank_including_parallel": 5
+    }
+  },
+  "parallel_physical_sanity_reference": {
+    "scope": "Parallel resistance ratio, same endpoints/phase, common voltage drop; no AC accuracy claim.",
+    "low_impedance_branch_fraction_of_total_current": 0.9900990099009901,
+    "approximate_low_capacity_branch_power_kw_for_100kw": 99.00990099009901,
+    "low_capacity_branch_limit_kw": 1.0,
+    "same_graph_reordered": "high_first and low_first differ only by branch table row order."
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "plan_id": "PLAN_B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+  "method_name": "B0",
+  "scenario_id": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 4,
+  "total_mandatory_count": 4,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "ISOLADOR_15KV": 9.0,
+    "KIT_TRAFO": 1.0,
+    "CONECTOR_CUNHA": 4.0
+  },
+  "recalculated_consumer_hours": 429.9,
+  "recalculated_windows_count": 4,
+  "recalculated_physical_maneuvers": 12,
+  "recalculated_repeat_consumers": 82,
+  "recalculated_unique_consumers": 128,
+  "recalculated_total_interruptions": 210,
+  "recalculated_completed_services": [
+    "S01_F1_NEAR",
+    "S02_F1_FAR",
+    "S03_F2_PARALLEL",
+    "S04_F2_DISTAL"
+  ],
+  "isolation_verified": true
+}

@@ -1,0 +1,45 @@
+{
+  "scope": "Known designed tiny catalogs; no claim of continuous operational optimum",
+  "results": [
+    {
+      "case": "mandatory_pair",
+      "columns": 14,
+      "enumerated_combinations": 64,
+      "independently_feasible_combinations": 12,
+      "enumerated_best_J": 99.68,
+      "solver_J": 99.68,
+      "solver_bound": 99.68,
+      "matches": true
+    },
+    {
+      "case": "optional_50",
+      "columns": 14,
+      "enumerated_combinations": 64,
+      "independently_feasible_combinations": 14,
+      "enumerated_best_J": 99.68,
+      "solver_J": 99.68,
+      "solver_bound": 99.68,
+      "matches": true
+    },
+    {
+      "case": "optional_250",
+      "columns": 14,
+      "enumerated_combinations": 64,
+      "independently_feasible_combinations": 14,
+      "enumerated_best_J": 99.68,
+      "solver_J": 99.68,
+      "solver_bound": 99.68,
+      "matches": true
+    },
+    {
+      "case": "optional_predecessor",
+      "columns": 10,
+      "enumerated_combinations": 36,
+      "independently_feasible_combinations": 6,
+      "enumerated_best_J": 99.68,
+      "solver_J": 99.68,
+      "solver_bound": 99.68,
+      "matches": true
+    }
+  ]
+}

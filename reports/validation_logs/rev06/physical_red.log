@@ -1,0 +1,355 @@
+FFFFFFFFFFFFFFFFF....FF....FFF                                           [100%]
+================================== FAILURES ===================================
+_ test_both_physical_checks_reject_energized_nonradial_domain[False-parallel] _
+
+shape = 'parallel', reverse = False
+
+    @pytest.mark.parametrize('shape', ['parallel', 'triangle', 'self_loop', 'multiple_sources'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_both_physical_checks_reject_energized_nonradial_domain(shape, reverse):
+        network, _, _ = radial_case(shape, reverse)
+        for result in electrical_checks(network):
+>           assert result[0] is False
+E           assert True is False
+
+tests\test_radial_domain.py:84: AssertionError
+_ test_both_physical_checks_reject_energized_nonradial_domain[False-triangle] _
+
+shape = 'triangle', reverse = False
+
+    @pytest.mark.parametrize('shape', ['parallel', 'triangle', 'self_loop', 'multiple_sources'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_both_physical_checks_reject_energized_nonradial_domain(shape, reverse):
+        network, _, _ = radial_case(shape, reverse)
+        for result in electrical_checks(network):
+>           assert result[0] is False
+E           assert True is False
+
+tests\test_radial_domain.py:84: AssertionError
+_ test_both_physical_checks_reject_energized_nonradial_domain[False-self_loop] _
+
+shape = 'self_loop', reverse = False
+
+    @pytest.mark.parametrize('shape', ['parallel', 'triangle', 'self_loop', 'multiple_sources'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_both_physical_checks_reject_energized_nonradial_domain(shape, reverse):
+        network, _, _ = radial_case(shape, reverse)
+        for result in electrical_checks(network):
+>           assert result[0] is False
+E           assert True is False
+
+tests\test_radial_domain.py:84: AssertionError
+_ test_both_physical_checks_reject_energized_nonradial_domain[False-multiple_sources] _
+
+shape = 'multiple_sources', reverse = False
+
+    @pytest.mark.parametrize('shape', ['parallel', 'triangle', 'self_loop', 'multiple_sources'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_both_physical_checks_reject_energized_nonradial_domain(shape, reverse):
+        network, _, _ = radial_case(shape, reverse)
+        for result in electrical_checks(network):
+>           assert result[0] is False
+E           assert True is False
+
+tests\test_radial_domain.py:84: AssertionError
+_ test_both_physical_checks_reject_energized_nonradial_domain[True-parallel] __
+
+shape = 'parallel', reverse = True
+
+    @pytest.mark.parametrize('shape', ['parallel', 'triangle', 'self_loop', 'multiple_sources'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_both_physical_checks_reject_energized_nonradial_domain(shape, reverse):
+        network, _, _ = radial_case(shape, reverse)
+        for result in electrical_checks(network):
+            assert result[0] is False
+>           assert 'radial' in result[3].lower()
+E           AssertionError: assert 'radial' in 'sobrecarga térmica em transferência (10000.0% > 100%).'
+E            +  where 'sobrecarga térmica em transferência (10000.0% > 100%).' = <built-in method lower of str object at 0x00000274EB30C5B0>()
+E            +    where <built-in method lower of str object at 0x00000274EB30C5B0> = 'Sobrecarga térmica em transferência (10000.0% > 100%).'.lower
+
+tests\test_radial_domain.py:85: AssertionError
+_ test_both_physical_checks_reject_energized_nonradial_domain[True-triangle] __
+
+shape = 'triangle', reverse = True
+
+    @pytest.mark.parametrize('shape', ['parallel', 'triangle', 'self_loop', 'multiple_sources'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_both_physical_checks_reject_energized_nonradial_domain(shape, reverse):
+        network, _, _ = radial_case(shape, reverse)
+        for result in electrical_checks(network):
+>           assert result[0] is False
+E           assert True is False
+
+tests\test_radial_domain.py:84: AssertionError
+_ test_both_physical_checks_reject_energized_nonradial_domain[True-self_loop] _
+
+shape = 'self_loop', reverse = True
+
+    @pytest.mark.parametrize('shape', ['parallel', 'triangle', 'self_loop', 'multiple_sources'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_both_physical_checks_reject_energized_nonradial_domain(shape, reverse):
+        network, _, _ = radial_case(shape, reverse)
+        for result in electrical_checks(network):
+>           assert result[0] is False
+E           assert True is False
+
+tests\test_radial_domain.py:84: AssertionError
+_ test_both_physical_checks_reject_energized_nonradial_domain[True-multiple_sources] _
+
+shape = 'multiple_sources', reverse = True
+
+    @pytest.mark.parametrize('shape', ['parallel', 'triangle', 'self_loop', 'multiple_sources'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_both_physical_checks_reject_energized_nonradial_domain(shape, reverse):
+        network, _, _ = radial_case(shape, reverse)
+        for result in electrical_checks(network):
+>           assert result[0] is False
+E           assert True is False
+
+tests\test_radial_domain.py:84: AssertionError
+_ test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[False-B0] _
+
+method = <function run_baseline_b0_individual at 0x00000274BCD554E0>
+reverse = False
+
+    @pytest.mark.parametrize('method', METHODS, ids=['B0', 'B1', 'B2', 'KGP'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_all_methods_reject_initial_mesh_without_erasing_mandatory_order(method, reverse):
+        network, services, catalog = radial_case('parallel', reverse)
+        plan = plan_from_json(json.dumps(asdict(method(network, services, catalog, 'mesh')), allow_nan=False))
+>       assert plan.solver_status == 'UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_INDIVIDUAL' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_INDIVIDUAL
+
+tests\test_radial_domain.py:93: AssertionError
+_ test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[False-B1] _
+
+method = <function run_baseline_b1_geographic at 0x00000274BCD55580>
+reverse = False
+
+    @pytest.mark.parametrize('method', METHODS, ids=['B0', 'B1', 'B2', 'KGP'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_all_methods_reject_initial_mesh_without_erasing_mandatory_order(method, reverse):
+        network, services, catalog = radial_case('parallel', reverse)
+        plan = plan_from_json(json.dumps(asdict(method(network, services, catalog, 'mesh')), allow_nan=False))
+>       assert plan.solver_status == 'UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_GEOGRAPHIC' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_GEOGRAPHIC
+
+tests\test_radial_domain.py:93: AssertionError
+_ test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[False-B2] _
+
+method = <function run_baseline_b2_topological_greedy at 0x00000274BCD55620>
+reverse = False
+
+    @pytest.mark.parametrize('method', METHODS, ids=['B0', 'B1', 'B2', 'KGP'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_all_methods_reject_initial_mesh_without_erasing_mandatory_order(method, reverse):
+        network, services, catalog = radial_case('parallel', reverse)
+        plan = plan_from_json(json.dumps(asdict(method(network, services, catalog, 'mesh')), allow_nan=False))
+>       assert plan.solver_status == 'UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_TO...Y_LOCAL_ZONES' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES
+
+tests\test_radial_domain.py:93: AssertionError
+_ test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[False-KGP] _
+
+method = <function run_kgp_optimizer at 0x00000274EB280860>, reverse = False
+
+    @pytest.mark.parametrize('method', METHODS, ids=['B0', 'B1', 'B2', 'KGP'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_all_methods_reject_initial_mesh_without_erasing_mandatory_order(method, reverse):
+        network, services, catalog = radial_case('parallel', reverse)
+        plan = plan_from_json(json.dumps(asdict(method(network, services, catalog, 'mesh')), allow_nan=False))
+>       assert plan.solver_status == 'UNSUPPORTED_INPUT'
+E       AssertionError: assert 'OPTIMAL_ON_DISCRETE_COLUMNS' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + OPTIMAL_ON_DISCRETE_COLUMNS
+
+tests\test_radial_domain.py:93: AssertionError
+_ test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[True-B0] _
+
+method = <function run_baseline_b0_individual at 0x00000274BCD554E0>
+reverse = True
+
+    @pytest.mark.parametrize('method', METHODS, ids=['B0', 'B1', 'B2', 'KGP'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_all_methods_reject_initial_mesh_without_erasing_mandatory_order(method, reverse):
+        network, services, catalog = radial_case('parallel', reverse)
+        plan = plan_from_json(json.dumps(asdict(method(network, services, catalog, 'mesh')), allow_nan=False))
+>       assert plan.solver_status == 'UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_INDIVIDUAL' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_INDIVIDUAL
+
+tests\test_radial_domain.py:93: AssertionError
+_ test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[True-B1] _
+
+method = <function run_baseline_b1_geographic at 0x00000274BCD55580>
+reverse = True
+
+    @pytest.mark.parametrize('method', METHODS, ids=['B0', 'B1', 'B2', 'KGP'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_all_methods_reject_initial_mesh_without_erasing_mandatory_order(method, reverse):
+        network, services, catalog = radial_case('parallel', reverse)
+        plan = plan_from_json(json.dumps(asdict(method(network, services, catalog, 'mesh')), allow_nan=False))
+>       assert plan.solver_status == 'UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_GEOGRAPHIC' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_GEOGRAPHIC
+
+tests\test_radial_domain.py:93: AssertionError
+_ test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[True-B2] _
+
+method = <function run_baseline_b2_topological_greedy at 0x00000274BCD55620>
+reverse = True
+
+    @pytest.mark.parametrize('method', METHODS, ids=['B0', 'B1', 'B2', 'KGP'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_all_methods_reject_initial_mesh_without_erasing_mandatory_order(method, reverse):
+        network, services, catalog = radial_case('parallel', reverse)
+        plan = plan_from_json(json.dumps(asdict(method(network, services, catalog, 'mesh')), allow_nan=False))
+>       assert plan.solver_status == 'UNSUPPORTED_INPUT'
+E       AssertionError: assert 'HEURISTIC_TO...Y_LOCAL_ZONES' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES
+
+tests\test_radial_domain.py:93: AssertionError
+_ test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[True-KGP] _
+
+method = <function run_kgp_optimizer at 0x00000274EB280860>, reverse = True
+
+    @pytest.mark.parametrize('method', METHODS, ids=['B0', 'B1', 'B2', 'KGP'])
+    @pytest.mark.parametrize('reverse', [False, True])
+    def test_all_methods_reject_initial_mesh_without_erasing_mandatory_order(method, reverse):
+        network, services, catalog = radial_case('parallel', reverse)
+        plan = plan_from_json(json.dumps(asdict(method(network, services, catalog, 'mesh')), allow_nan=False))
+>       assert plan.solver_status == 'UNSUPPORTED_INPUT'
+E       AssertionError: assert 'INFEASIBLE_O...CRETE_COLUMNS' == 'UNSUPPORTED_INPUT'
+E         
+E         - UNSUPPORTED_INPUT
+E         + INFEASIBLE_ON_DISCRETE_COLUMNS
+
+tests\test_radial_domain.py:93: AssertionError
+___ test_independent_verifier_rejects_forged_complete_plan_on_initial_mesh ____
+
+    def test_independent_verifier_rejects_forged_complete_plan_on_initial_mesh():
+        network, services, catalog = radial_case('radial')
+        plan = run_baseline_b0_individual(network, services, catalog, 'base')
+        # Add a parallel conducting path while preserving the exported target/work.
+        network.branches['OTHER'] = replace(network.branches['HIGH'], branch_id='OTHER')
+        report = verify_plan_feasibility(network, services, catalog,
+                                         plan_from_json(json.dumps(asdict(plan), allow_nan=False)))
+>       assert not report.is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='PLAN_B0_base', method_name='B0', scenario_id='base', is_feasible=True, mandatory_portfolio_...l_interruptions=1, recalculated_completed_services=('WORK',), isolation_verified=True, recalculated_materials_exact={}).is_feasible
+
+tests\test_radial_domain.py:109: AssertionError
+_ test_zero_demand_does_not_make_unsupported_physical_domain_supported[parallel] _
+
+shape = 'parallel'
+
+    @pytest.mark.parametrize('shape', ['parallel', 'multiple_sources'])
+    def test_zero_demand_does_not_make_unsupported_physical_domain_supported(shape):
+        network, _, _ = radial_case(shape, load=0.)
+        for result in electrical_checks(network):
+>           assert not result[0] and 'radial' in result[3].lower()
+E           assert (not True)
+
+tests\test_radial_domain.py:127: AssertionError
+_ test_zero_demand_does_not_make_unsupported_physical_domain_supported[multiple_sources] _
+
+shape = 'multiple_sources'
+
+    @pytest.mark.parametrize('shape', ['parallel', 'multiple_sources'])
+    def test_zero_demand_does_not_make_unsupported_physical_domain_supported(shape):
+        network, _, _ = radial_case(shape, load=0.)
+        for result in electrical_checks(network):
+>           assert not result[0] and 'radial' in result[3].lower()
+E           assert (not True)
+
+tests\test_radial_domain.py:127: AssertionError
+__ test_switch_closure_is_checked_in_the_effective_stage_not_only_initially ___
+
+    def test_switch_closure_is_checked_in_the_effective_stage_not_only_initially():
+        network, services, catalog = radial_case('parallel')
+        network.switches['TIE'] = GridSwitch('TIE', 'LOW', SwitchState.OPEN, SwitchState.OPEN)
+        assert all(result[0] for result in electrical_checks(network))
+>       assert all(not result[0] and 'radial' in result[3].lower()
+                   for result in electrical_checks(network, closed=('TIE',)))
+E       assert False
+E        +  where False = all(<generator object test_switch_closure_is_checked_in_the_effective_stage_not_only_initially.<locals>.<genexpr> at 0x00000274EB296C00>)
+
+tests\test_radial_domain.py:154: AssertionError
+_____ test_nonradial_transfer_is_never_executed_even_when_optional[False] _____
+
+required = False
+
+    @pytest.mark.parametrize('required', [False, True])
+    def test_nonradial_transfer_is_never_executed_even_when_optional(required):
+        network, services, catalog = radial_case('parallel')
+        network.switches['TIE'] = GridSwitch('TIE', 'LOW', SwitchState.OPEN, SwitchState.OPEN)
+        network.isolation_zones['Z'] = replace(network.isolation_zones['Z'],
+            tie_switches_closed=('TIE',), requires_transfer_validation=required,
+            transfer_params_complete=True)
+        window, error = build_window_schedule(network, catalog, 'Z', 1, 'W', services)
+        if required:
+            assert window is None
+        else:
+            assert window is not None, error
+>           assert all(not stage.closed_switches for stage in window.maneuver_steps)
+E           assert False
+E            +  where False = all(<generator object test_nonradial_transfer_is_never_executed_even_when_optional.<locals>.<genexpr> at 0x00000274E9CCB510>)
+
+tests\test_radial_domain.py:174: AssertionError
+_____ test_nonradial_transfer_is_never_executed_even_when_optional[True] ______
+
+required = True
+
+    @pytest.mark.parametrize('required', [False, True])
+    def test_nonradial_transfer_is_never_executed_even_when_optional(required):
+        network, services, catalog = radial_case('parallel')
+        network.switches['TIE'] = GridSwitch('TIE', 'LOW', SwitchState.OPEN, SwitchState.OPEN)
+        network.isolation_zones['Z'] = replace(network.isolation_zones['Z'],
+            tie_switches_closed=('TIE',), requires_transfer_validation=required,
+            transfer_params_complete=True)
+        window, error = build_window_schedule(network, catalog, 'Z', 1, 'W', services)
+        if required:
+>           assert window is None
+E           assert PlannedInterruptionWindow(window_id='W', day=1, zone_id='Z', service_ids=('WORK',), start_hour=8.0, end_hour=9.5, work...tifications={'WORK': "Alocado na zona 'Z' (dia 1, execução 8.25h-9.25h) com equipe(s) ['C']; ativos ['AW'] isolados."}) is None
+
+tests\test_radial_domain.py:171: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_radial_domain.py::test_both_physical_checks_reject_energized_nonradial_domain[False-parallel]
+FAILED tests/test_radial_domain.py::test_both_physical_checks_reject_energized_nonradial_domain[False-triangle]
+FAILED tests/test_radial_domain.py::test_both_physical_checks_reject_energized_nonradial_domain[False-self_loop]
+FAILED tests/test_radial_domain.py::test_both_physical_checks_reject_energized_nonradial_domain[False-multiple_sources]
+FAILED tests/test_radial_domain.py::test_both_physical_checks_reject_energized_nonradial_domain[True-parallel]
+FAILED tests/test_radial_domain.py::test_both_physical_checks_reject_energized_nonradial_domain[True-triangle]
+FAILED tests/test_radial_domain.py::test_both_physical_checks_reject_energized_nonradial_domain[True-self_loop]
+FAILED tests/test_radial_domain.py::test_both_physical_checks_reject_energized_nonradial_domain[True-multiple_sources]
+FAILED tests/test_radial_domain.py::test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[False-B0]
+FAILED tests/test_radial_domain.py::test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[False-B1]
+FAILED tests/test_radial_domain.py::test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[False-B2]
+FAILED tests/test_radial_domain.py::test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[False-KGP]
+FAILED tests/test_radial_domain.py::test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[True-B0]
+FAILED tests/test_radial_domain.py::test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[True-B1]
+FAILED tests/test_radial_domain.py::test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[True-B2]
+FAILED tests/test_radial_domain.py::test_all_methods_reject_initial_mesh_without_erasing_mandatory_order[True-KGP]
+FAILED tests/test_radial_domain.py::test_independent_verifier_rejects_forged_complete_plan_on_initial_mesh
+FAILED tests/test_radial_domain.py::test_zero_demand_does_not_make_unsupported_physical_domain_supported[parallel]
+FAILED tests/test_radial_domain.py::test_zero_demand_does_not_make_unsupported_physical_domain_supported[multiple_sources]
+FAILED tests/test_radial_domain.py::test_switch_closure_is_checked_in_the_effective_stage_not_only_initially
+FAILED tests/test_radial_domain.py::test_nonradial_transfer_is_never_executed_even_when_optional[False]
+FAILED tests/test_radial_domain.py::test_nonradial_transfer_is_never_executed_even_when_optional[True]
+22 failed, 8 passed in 1.57s

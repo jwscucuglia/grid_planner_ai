@@ -1,0 +1,344 @@
+{
+  "plans_verified_from_frozen_inputs": 48,
+  "kgp_objectives_recalculated_independently": 12,
+  "manifest_hashes_checked": 135,
+  "hash_failures": [],
+  "checks": [
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 242.7,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 242.7,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 242.7,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 351.6,
+      "independent_objective": 642.2487
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 185.9,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 185.9,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 281.4384,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 257.112,
+      "independent_objective": 452.5556
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 306.3,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 306.3,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 291.5806,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 211.6,
+      "independent_objective": 511.7319
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 434.3,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 434.3,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 317.105,
+      "independent_objective": null
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 317.0,
+      "independent_objective": 618.323
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 429.9,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 429.9,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 243.2,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 243.2,
+      "independent_objective": 448.7118
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 486.7,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 299.5,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 256.1218,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 167.8,
+      "independent_objective": 373.9096
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 182.8,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 147.6464,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 147.6464,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 181.2,
+      "independent_objective": 376.6775
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 285.9,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 285.9,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 382.1304,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 265.716,
+      "independent_objective": 365.9629
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 144.0,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 144.0,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 144.0,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 144.0,
+      "independent_objective": 433.4712
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 263.4,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 217.9,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 183.2394,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 120.105,
+      "independent_objective": 229.1889
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 405.2,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 404.4464,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 372.312,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 289.8,
+      "independent_objective": 591.9831
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "feasible": true,
+      "consumer_hours": 351.8,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "feasible": true,
+      "consumer_hours": 316.6464,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "feasible": true,
+      "consumer_hours": 316.6464,
+      "independent_objective": null
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "feasible": true,
+      "consumer_hours": 287.0,
+      "independent_objective": 579.0048
+    }
+  ]
+}

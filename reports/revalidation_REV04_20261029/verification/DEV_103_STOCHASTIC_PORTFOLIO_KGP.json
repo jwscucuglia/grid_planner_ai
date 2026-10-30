@@ -1,0 +1,29 @@
+{
+  "plan_id": "PLAN_KGP_DEV_103_STOCHASTIC_PORTFOLIO",
+  "method_name": "KGP",
+  "scenario_id": "DEV_103_STOCHASTIC_PORTFOLIO",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 4,
+  "total_mandatory_count": 4,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "CONECTOR_CUNHA": 3.0,
+    "KIT_TRAFO": 2.0,
+    "ELO_FUSIVEL": 2.0
+  },
+  "recalculated_consumer_hours": 211.6,
+  "recalculated_windows_count": 3,
+  "recalculated_physical_maneuvers": 10,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 120,
+  "recalculated_total_interruptions": 120,
+  "recalculated_completed_services": [
+    "S_103_02",
+    "S_103_04",
+    "S_103_03",
+    "S_103_01"
+  ],
+  "isolation_verified": true
+}

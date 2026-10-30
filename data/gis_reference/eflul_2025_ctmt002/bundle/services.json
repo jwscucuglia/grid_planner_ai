@@ -1,0 +1,70 @@
+[
+  {
+    "service_id": "SYN_SERVICE_1",
+    "title": "Synthetic integration work 1",
+    "service_type": "PREVENTIVA",
+    "target_assets": [
+      "SYN_ASSET_1"
+    ],
+    "mandatory": true,
+    "created_at_day": 0,
+    "ready_at_day": 0,
+    "deadline_day": 1,
+    "duration_hours": 1.0,
+    "required_skills": [
+      "ELEC"
+    ],
+    "required_crews_count": 1,
+    "required_materials": {
+      "TEST_MATERIAL": 1.0
+    },
+    "precedence_service_ids": [],
+    "requires_deenergized": true,
+    "compatible_zone_ids": [
+      "SYN_ZONE_1"
+    ],
+    "allow_simultaneous_in_zone": true,
+    "prep_hours": 0.1,
+    "recomp_hours": 0.1,
+    "priority": 1,
+    "replaces_asset_ids": [],
+    "maintains_asset_ids": [],
+    "scope_status": "ACTIVE",
+    "x": 0.0,
+    "y": 0.0
+  },
+  {
+    "service_id": "SYN_SERVICE_2",
+    "title": "Synthetic integration work 2",
+    "service_type": "PODA",
+    "target_assets": [
+      "SYN_ASSET_2"
+    ],
+    "mandatory": true,
+    "created_at_day": 0,
+    "ready_at_day": 0,
+    "deadline_day": 1,
+    "duration_hours": 1.5,
+    "required_skills": [
+      "PRUNE"
+    ],
+    "required_crews_count": 1,
+    "required_materials": {
+      "TEST_MATERIAL": 1.0
+    },
+    "precedence_service_ids": [],
+    "requires_deenergized": true,
+    "compatible_zone_ids": [
+      "SYN_ZONE_1"
+    ],
+    "allow_simultaneous_in_zone": true,
+    "prep_hours": 0.1,
+    "recomp_hours": 0.1,
+    "priority": 1,
+    "replaces_asset_ids": [],
+    "maintains_asset_ids": [],
+    "scope_status": "ACTIVE",
+    "x": 3.42,
+    "y": 0.0
+  }
+]

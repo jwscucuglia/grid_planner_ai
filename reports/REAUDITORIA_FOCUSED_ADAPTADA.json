@@ -1,0 +1,102 @@
+{
+  "baseline": {
+    "feasible": true,
+    "consumer_hours": 429.9
+  },
+  "tamper_exported_electrical_fields": {
+    "feasible": false,
+    "isolation_verified": false,
+    "violations": [
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (TRANSFER) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W03': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W03': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W03': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W04': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W04': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa -999 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W04': dados exportados divergem do rec\u00e1lculo."
+    ]
+  },
+  "shared_simulator_outage_fault": {
+    "feasible": false,
+    "isolation_verified": false,
+    "consumer_hours": 429.9,
+    "violations": [
+      "Viola\u00e7\u00e3o de integridade na etapa 1 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 2 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 3 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W01': lista de consumidores interrompidos exportada (0) diverge do rec\u00e1lculo (72).",
+      "Viola\u00e7\u00e3o de integridade na etapa 1 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 2 (TRANSFER) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 3 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 4 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W02': lista de consumidores interrompidos exportada (0) diverge do rec\u00e1lculo (50).",
+      "Viola\u00e7\u00e3o de integridade na etapa 1 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W03': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 2 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W03': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 3 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W03': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W03': lista de consumidores interrompidos exportada (0) diverge do rec\u00e1lculo (56).",
+      "Viola\u00e7\u00e3o de integridade na etapa 1 (ISOLATION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W04': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 2 (EXECUTION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W04': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na etapa 3 (RECOMPOSITION) da janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W04': dados exportados divergem do rec\u00e1lculo.",
+      "Viola\u00e7\u00e3o de integridade na janela 'B0_EVAL_01_TOPO_DISTANT_AND_PARALLEL_W04': lista de consumidores interrompidos exportada (0) diverge do rec\u00e1lculo (32).",
+      "Viola\u00e7\u00e3o de integridade de impacto: clientes-hora exportados nas etapas (0.0000) divergem do rec\u00e1lculo do verificador (429.9000)."
+    ]
+  },
+  "joint_switch_state_interaction": {
+    "feasible": false,
+    "violations": [
+      "Conflito entre janelas sobrepostas no dia 1: janelas 'W1' (9.00h-10.50h, zona 'Z1') e 'W2' (9.00h-10.50h, zona 'Z2') t\u00eam sobreposi\u00e7\u00e3o el\u00e9trica n\u00e3o admitida: a composi\u00e7\u00e3o global de manobras simult\u00e2neas n\u00e3o \u00e9 certificada neste cat\u00e1logo, inclusive em zonas disjuntas.",
+      "Viola\u00e7\u00e3o de isolamento el\u00e9trico global: A1 do servi\u00e7o S1 energizado no dia 1, 9.2500h\u201310.2500h.",
+      "Viola\u00e7\u00e3o de integridade de impacto: clientes-hora exportados nas etapas (3.0000) divergem do rec\u00e1lculo do verificador (1.6250)."
+    ],
+    "isolation_verified": false,
+    "window_bounds": [
+      [
+        9.0,
+        10.5
+      ],
+      [
+        9.0,
+        10.5
+      ]
+    ],
+    "individual_dead_assets": [
+      [
+        [
+          "A1"
+        ]
+      ],
+      [
+        [
+          "A3"
+        ]
+      ]
+    ],
+    "combined_deenergized_assets": [
+      "A3"
+    ],
+    "combined_energized_nodes": [
+      "N1",
+      "SRC1",
+      "SRC2"
+    ],
+    "unsafe_service": "S1 targets A1 at energized N1 during overlap"
+  },
+  "shared_simulator_isolation_fault_detected": {
+    "feasible": false,
+    "violations": [
+      "Viola\u00e7\u00e3o de isolamento el\u00e9trico: ativo 'A3' do servi\u00e7o 'S1' permanece energizado (ou com extremidade de trecho energizada) na zona 'Z1'.",
+      "Viola\u00e7\u00e3o de isolamento el\u00e9trico global: A3 do servi\u00e7o S1 energizado no dia 1, 9.2500h\u201310.2500h."
+    ]
+  },
+  "nan_execution_bounds": {
+    "feasible": false,
+    "rejected_at_contract": true,
+    "reason": "contract.exec_start_hour: valor n\u00e3o finito; contract.exec_end_hour: valor n\u00e3o finito"
+  }
+}

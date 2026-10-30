@@ -1,0 +1,63 @@
+F.FFF                                                                    [100%]
+================================== FAILURES ===================================
+____ test_positive_isolation_overload_is_rejected_by_verifier_and_planners ____
+
+    def test_positive_isolation_overload_is_rejected_by_verifier_and_planners():
+        n,svc,c = phase_case()
+        p = exported_window(n,svc,c)
+        assert p.windows[0].maneuver_steps[0].max_loading_pct == 180.
+        assert not p.windows[0].maneuver_steps[0].transfer_feasible
+        r = verify_plan_feasibility(n,[svc],c,p)
+>       assert not r.is_feasible
+E       AssertionError: assert not True
+E        +  where True = FeasibilityReport(plan_id='P', method_name='CUSTOM', scenario_id='A1', is_feasible=True, mandatory_portfolio_complete=...ue_consumers=0, recalculated_total_interruptions=0, recalculated_completed_services=('WORK',), isolation_verified=True).is_feasible
+
+tests\test_rev04_electrical.py:46: AssertionError
+_______ test_abandoned_optional_transfer_verifies_actual_open_tie_state _______
+
+    def test_abandoned_optional_transfer_verifies_actual_open_tie_state():
+        n,svc,c=fallback_case()
+        w,error=build_window_schedule(n,c,'Z',1,'W',[svc])
+        assert w is not None,error
+        assert all(not st.closed_switches for st in w.maneuver_steps)
+        p=ExecutionPlan('P','CUSTOM','A4',0,windows=[w],completed_service_ids=('WORK',))
+>       assert verify_plan_feasibility(n,[svc],c,roundtrip_plan_via_json(p)).is_feasible
+E       AssertionError: assert False
+E        +  where False = FeasibilityReport(plan_id='P', method_name='CUSTOM', scenario_id='A4', is_feasible=False, mandatory_portfolio_complete...e_consumers=1, recalculated_total_interruptions=1, recalculated_completed_services=('WORK',), isolation_verified=False).is_feasible
+E        +    where FeasibilityReport(plan_id='P', method_name='CUSTOM', scenario_id='A4', is_feasible=False, mandatory_portfolio_complete...e_consumers=1, recalculated_total_interruptions=1, recalculated_completed_services=('WORK',), isolation_verified=False) = verify_plan_feasibility(GridNetwork(network_id='FALLBACK', version='test', valid_from_day=0, coordinate_system='CARTESIAN_KM', origin='Rede de...ransfer_validation=False, transfer_params_complete=True, max_transfer_voltage_drop_pct=5.0)}, allow_dg_islanding=False), [ServiceOrder(service_id='WORK', title='WORK', service_type=<ServiceType.PODA: 'PODA'>, target_assets=('AX',), mandato....2, recomp_hours=0.15, priority=1, replaces_asset_ids=(), maintains_asset_ids=(), scope_status='ACTIVE', x=0.0, y=0.0)], ResourceCatalog(crews={'C': CrewResource(crew_id='C', name='C', skills=('K',), available_days=(1,), shift_start_hour=8...materials_inventory={}, planning_days=(1,), window_start_hour=8.0, window_end_hour=17.0, max_window_duration_hours=8.0), ExecutionPlan(plan_id='P', method_name='CUSTOM', scenario_id='A4', decision_day=0, windows=[PlannedInterruptionWindow(..., solver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.0, is_optimal_proven=False, metadata={}))
+E        +      where ExecutionPlan(plan_id='P', method_name='CUSTOM', scenario_id='A4', decision_day=0, windows=[PlannedInterruptionWindow(..., solver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.0, is_optimal_proven=False, metadata={}) = roundtrip_plan_via_json(ExecutionPlan(plan_id='P', method_name='CUSTOM', scenario_id='A4', decision_day=0, windows=[PlannedInterruptionWindow(..., solver_objective=None, solver_bound=None, solver_gap=None, solver_time_sec=0.0, is_optimal_proven=False, metadata={}))
+
+tests\test_rev04_electrical.py:78: AssertionError
+___________ test_failed_required_transfer_never_silently_falls_back ___________
+
+    def test_failed_required_transfer_never_silently_falls_back():
+        n,svc,c=fallback_case(True)
+>       assert not check_service_zone_eligibility(n,svc,'Z')[0]
+E       assert not True
+
+tests\test_rev04_electrical.py:85: AssertionError
+_________ test_direct_transfer_check_rejects_unsupported_dg_islanding _________
+
+    def test_direct_transfer_check_rejects_unsupported_dg_islanding():
+        n,svc,c=fallback_case()
+        n.allow_dg_islanding=True
+        p=ExecutionPlan('P','CUSTOM','DG',0,unscheduled_service_ids=('WORK',))
+        assert not verify_plan_feasibility(n,[svc],c,p).is_feasible
+        step=evaluate_maneuver_step(n,1,ManeuverStage.EXECUTION,9.,10.,('SC',),('ST',),n.isolation_zones['Z'])
+        assert not step.transfer_feasible
+>       assert 'suport' in step.notes.lower() or 'ilhamento' in step.notes.lower()
+E       AssertionError: assert ('suport' in 'sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).' or 'ilhamento' in 'sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).')
+E        +  where 'sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).' = <built-in method lower of str object at 0x000001FB536FE430>()
+E        +    where <built-in method lower of str object at 0x000001FB536FE430> = 'Sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).'.lower
+E        +      where 'Sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).' = ManeuverStepResult(step_order=1, stage=<ManeuverStage.EXECUTION: 'EXECUTION'>, start_hour=9.0, end_hour=10.0, open_swi...ax_loading_pct=1000.0, estimated_voltage_drop_pct=0.012, notes='Sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).').notes
+E        +  and   'sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).' = <built-in method lower of str object at 0x000001FB536FE430>()
+E        +    where <built-in method lower of str object at 0x000001FB536FE430> = 'Sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).'.lower
+E        +      where 'Sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).' = ManeuverStepResult(step_order=1, stage=<ManeuverStage.EXECUTION: 'EXECUTION'>, start_hour=9.0, end_hour=10.0, open_swi...ax_loading_pct=1000.0, estimated_voltage_drop_pct=0.012, notes='Sobrecarga t�rmica em transfer�ncia (1000.0% > 100%).').notes
+
+tests\test_rev04_electrical.py:99: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_rev04_electrical.py::test_positive_isolation_overload_is_rejected_by_verifier_and_planners
+FAILED tests/test_rev04_electrical.py::test_abandoned_optional_transfer_verifies_actual_open_tie_state
+FAILED tests/test_rev04_electrical.py::test_failed_required_transfer_never_silently_falls_back
+FAILED tests/test_rev04_electrical.py::test_direct_transfer_check_rejects_unsupported_dg_islanding
+4 failed, 1 passed in 1.68s

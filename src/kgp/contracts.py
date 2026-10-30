@@ -7,9 +7,228 @@ e métricas auditáveis.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, fields, is_dataclass
 from enum import Enum
-from typing import Any, Dict, List, Optional, Set, Tuple
+import json
+import math
+from typing import Any, Dict, List, Optional, Set, Tuple, Union, get_args, get_origin, get_type_hints
+
+
+# Operational schedules use the scheduler's existing four-decimal-hour grid.
+# Binary float ULP noise is representation error, never an outage-joining epsilon.
+TICKS_PER_HOUR = 10_000
+HOURS_PER_TICK = 1 / TICKS_PER_HOUR  # 0.0001 h = 0.36 s
+_OPERATIONAL_TIME_FIELDS = {
+    'GridSwitch': ('maneuver_duration_hours',),
+    'IsolationZoneSpec': ('prep_duration_hours', 'recomp_duration_hours'),
+    'ServiceOrder': ('duration_hours', 'prep_hours', 'recomp_hours'),
+    'CrewResource': ('shift_start_hour', 'shift_end_hour', 'prep_hours'),
+    'ResourceCatalog': ('window_start_hour', 'window_end_hour', 'max_window_duration_hours'),
+    'ManeuverStepResult': ('start_hour', 'end_hour'),
+    'CrewScheduleInterval': ('travel_start_hour', 'prep_start_hour', 'exec_start_hour',
+                             'exec_end_hour', 'recomp_end_hour', 'travel_hours'),
+    'PlannedInterruptionWindow': ('start_hour', 'end_hour', 'work_start_hour', 'work_end_hour'),
+}
+
+
+def operational_time_ticks(value: float, path: str = 'time') -> int:
+    """Validate hours on the 0.0001 h grid and return the exact integer tick.
+
+    At most four binary ULPs are accepted to accommodate arithmetic such as
+    ``0.1 + 0.2``. The allowance is capped at 1/16 tick, so it cannot bridge
+    a tick even for unusually large absolute timestamps. No input is mutated.
+    Constructors remain permissive for finite floats; typed reads and the
+    independent audit boundary enforce this operational precision contract.
+    Coordinates, material quantities, solver statistics and metadata have no
+    operational time-grid restriction.
+    """
+    if type(value) not in (int, float):
+        raise ValueError(f'{path}: esperado tempo finito na resolução 0.0001 h (0.36 s)')
+    try:
+        hours = float(value)
+        scaled = hours * TICKS_PER_HOUR
+        if not math.isfinite(scaled):
+            raise ValueError
+        tick = round(scaled)
+        canonical = tick / TICKS_PER_HOUR
+        representation_error = min(4 * max(math.ulp(hours), math.ulp(canonical)), HOURS_PER_TICK / 16)
+        if abs(hours - canonical) > representation_error:
+            raise ValueError
+    except (OverflowError, ValueError):
+        raise ValueError(f'{path}: tempo fora da resolução operacional 0.0001 h (0.36 s)') from None
+    return tick
+
+
+def nonfinite_paths(value: Any, path: str = "contract") -> List[str]:
+    """Find non-finite numbers, including nested metadata and mutated objects."""
+    errors = []
+    pending = [(value, path)]
+    while pending:
+        item, item_path = pending.pop()
+        if isinstance(item, float):
+            if not math.isfinite(item):
+                errors.append(f"{item_path}: valor não finito")
+        elif is_dataclass(item):
+            pending.extend(reversed([(getattr(item, f.name), f"{item_path}.{f.name}") for f in fields(item)]))
+        elif isinstance(item, dict):
+            pending.extend(reversed([(v, f"{item_path}.{k}") for k, v in item.items()]))
+        elif isinstance(item, (list, tuple, set)):
+            pending.extend(reversed([(v, f"{item_path}[{i}]") for i, v in enumerate(item)]))
+    return errors
+
+
+class FiniteContract:
+    """Dataclass construction boundary; verifier rechecks after any mutation."""
+
+    def __post_init__(self) -> None:
+        errors = nonfinite_paths(self)
+        if errors:
+            raise ValueError("; ".join(errors))
+
+
+def _decode_typed(value: Any, expected: Any, path: str) -> Any:
+    """Strict contract reader: no coercion of bools, strings or fractional days."""
+    if expected is Any:
+        errors = nonfinite_paths(value, path)
+        if errors:
+            raise ValueError("; ".join(errors))
+        return value
+    origin, args = get_origin(expected), get_args(expected)
+    if origin is Union:
+        for kind in args:
+            try:
+                return _decode_typed(value, kind, path)
+            except (ValueError, TypeError):
+                pass
+        raise ValueError(f"{path}: tipo inválido")
+    if expected is type(None):
+        if value is not None:
+            raise ValueError(f"{path}: esperado null")
+        return None
+    if isinstance(expected, type) and issubclass(expected, Enum):
+        return expected(value)
+    if isinstance(expected, type) and is_dataclass(expected):
+        if is_dataclass(value):
+            hints = get_type_hints(expected)
+            for item in fields(expected):
+                kind = hints[item.name]
+                if isinstance(kind, type) and issubclass(kind, Enum) and not isinstance(getattr(value, item.name), kind):
+                    raise ValueError(f"{path}.{item.name}: esperado enum {kind.__name__}")
+        raw = {f.name: getattr(value, f.name) for f in fields(value)} if is_dataclass(value) else value
+        if not isinstance(raw, dict):
+            raise ValueError(f"{path}: esperado objeto")
+        known = {f.name for f in fields(expected)}
+        if set(raw) - known:
+            raise ValueError(f"{path}: campos desconhecidos {sorted(set(raw) - known)}")
+        hints = get_type_hints(expected)
+        try:
+            decoded = expected(**{k: _decode_typed(v, hints[k], f"{path}.{k}") for k, v in raw.items()})
+        except TypeError as exc:
+            raise ValueError(f"{path}: estrutura inválida: {exc}") from exc
+        for name in _OPERATIONAL_TIME_FIELDS.get(expected.__name__, ()):
+            operational_time_ticks(getattr(decoded, name), f'{path}.{name}')
+        return decoded
+    if origin in (list, tuple, set):
+        if not isinstance(value, (list, tuple, set)):
+            raise ValueError(f"{path}: esperado sequência")
+        if origin is tuple and args and args[-1] is not Ellipsis:
+            if len(value) != len(args):
+                raise ValueError(f"{path}: comprimento inválido")
+            return tuple(_decode_typed(v, t, path) for v, t in zip(value, args))
+        decoded = [_decode_typed(v, args[0], f"{path}[{i}]") for i, v in enumerate(value)]
+        return origin(decoded)
+    if origin is dict:
+        if not isinstance(value, dict):
+            raise ValueError(f"{path}: esperado objeto")
+        return {_decode_typed(k, args[0], path): _decode_typed(v, args[1], f"{path}.{k}") for k, v in value.items()}
+    if expected is float:
+        try:
+            finite = type(value) in (int, float) and math.isfinite(float(value))
+        except (OverflowError, ValueError):
+            finite = False
+        if not finite:
+            raise ValueError(f"{path}: esperado número finito")
+        return float(value)
+    if type(value) is not expected:
+        raise ValueError(f"{path}: esperado {expected.__name__}")
+    return value
+
+
+MAX_JSON_DEPTH = 512
+
+
+class JSONDepthError(ValueError):
+    """Input-domain error shared by all raw JSON entry points."""
+
+    code = "JSON_DEPTH_EXCEEDED"
+
+
+def _check_json_depth(raw: str) -> None:
+    """Bound containers before the stdlib parser; quoted text is not structure."""
+    depth = 0
+    quoted = False
+    escaped = False
+    for char in raw:
+        if quoted:
+            if escaped:
+                escaped = False
+            elif char == '\\':
+                escaped = True
+            elif char == '"':
+                quoted = False
+        elif char == '"':
+            quoted = True
+        elif char in '{[':
+            depth += 1
+            if depth > MAX_JSON_DEPTH:
+                raise JSONDepthError(f"JSON depth exceeds the supported maximum of {MAX_JSON_DEPTH} containers.")
+        elif char in '}]':
+            depth -= 1
+    # Grammar, balancing and complete strings remain the JSON parser's job.
+
+
+def strict_json_loads(raw: str) -> Any:
+    """Read canonical finite floats without silently erasing nonzero inputs.
+
+    Decimal literals use ordinary binary-float rounding, including supported
+    subnormals. A nonzero literal that rounds to zero is outside this domain;
+    actual zero mantissas remain valid regardless of exponent or sign.
+    Raw objects/arrays may nest at most MAX_JSON_DEPTH levels; the lexical
+    boundary runs before parsing so excessive input returns a domain error.
+    """
+    def reject_constant(value: str) -> None:
+        raise ValueError(f"JSON não finito: {value}")
+
+    def canonical_float(token: str) -> float:
+        value = float(token)
+        # The JSON parser has already validated the numeric grammar. Inspect
+        # only the mantissa: exponent digits cannot make an actual zero nonzero.
+        if value == 0.0 and any(digit in '123456789' for digit in token.lower().partition('e')[0]):
+            raise ValueError(
+                f"JSON numeric underflow: '{token}' não zero fora do domínio de floats canônicos; conversão produziria zero."
+            )
+        return value
+
+    def unique_keys(pairs: list) -> dict:
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f"JSON com chave duplicada: {key}")
+            result[key] = value
+        return result
+
+    _check_json_depth(raw)
+    data = json.loads(raw, parse_float=canonical_float,
+                      parse_constant=reject_constant, object_pairs_hook=unique_keys)
+    errors = nonfinite_paths(data)
+    if errors:
+        raise ValueError("; ".join(errors))
+    return data
+
+
+def plan_from_json(raw: str) -> ExecutionPlan:
+    """Read the actual exported JSON using the same typed contracts, strictly."""
+    return _decode_typed(strict_json_loads(raw), ExecutionPlan, "plan")
 
 
 class SwitchState(str, Enum):
@@ -40,7 +259,7 @@ class ManeuverStage(str, Enum):
 
 
 @dataclass(frozen=True)
-class GridNode:
+class GridNode(FiniteContract):
     """Barra/nó da rede elétrica com faseamento, coordenadas e estado em serviço."""
 
     node_id: str
@@ -57,7 +276,7 @@ class GridNode:
 
 
 @dataclass(frozen=True)
-class GridBranch:
+class GridBranch(FiniteContract):
     """Trecho elétrico entre dois nós com parâmetros de impedância e limite térmico."""
 
     branch_id: str
@@ -73,8 +292,12 @@ class GridBranch:
 
 
 @dataclass(frozen=True)
-class GridSwitch:
-    """Chave de manobra (NF ou NA) associada a um trecho da rede."""
+class GridSwitch(FiniteContract):
+    """Chave de manobra; duração individual é informativa no modelo agregado.
+
+    A agenda usa prep/recomp da IsolationZoneSpec, não soma este campo nem
+    certifica sequência/concorrência das operações individuais de campo.
+    """
 
     switch_id: str
     branch_id: str
@@ -86,7 +309,7 @@ class GridSwitch:
 
 
 @dataclass(frozen=True)
-class GridAsset:
+class GridAsset(FiniteContract):
     """Ativo de trabalho (estrutura, transformador, vão, regulador) vinculado à rede."""
 
     asset_id: str
@@ -101,7 +324,7 @@ class GridAsset:
 
 
 @dataclass(frozen=True)
-class ConsumerUnit:
+class ConsumerUnit(FiniteContract):
     """Unidade consumidora conectada a um nó/ativo e conjunto de fases."""
 
     consumer_id: str
@@ -116,8 +339,12 @@ class ConsumerUnit:
 
 
 @dataclass(frozen=True)
-class IsolationZoneSpec:
-    """Zona de isolamento predefinida e validada com manobras e transferência opcional."""
+class IsolationZoneSpec(FiniteContract):
+    """Intervenção predefinida com durações agregadas autoritativas.
+
+    A validação externa desses agregados é premissa da entrada; o software
+    não os deriva das durações individuais das chaves ou de operadores.
+    """
 
     zone_id: str
     name: str
@@ -132,7 +359,7 @@ class IsolationZoneSpec:
 
 
 @dataclass
-class GridNetwork:
+class GridNetwork(FiniteContract):
     """Grafo completo da rede de distribuição com metadados e rastreabilidade."""
 
     network_id: str
@@ -152,7 +379,7 @@ class GridNetwork:
 
 
 @dataclass(frozen=True)
-class ServiceOrder:
+class ServiceOrder(FiniteContract):
     """Ordem/nota de serviço na carteira de manutenção e obras."""
 
     service_id: str
@@ -182,7 +409,7 @@ class ServiceOrder:
 
 
 @dataclass(frozen=True)
-class CrewResource:
+class CrewResource(FiniteContract):
     """Equipe operacional com especialidades, jornada diária e base geográfica."""
 
     crew_id: str
@@ -198,7 +425,7 @@ class CrewResource:
 
 
 @dataclass
-class ResourceCatalog:
+class ResourceCatalog(FiniteContract):
     """Catálogo de recursos operacionais (equipes, estoque de materiais e horizonte)."""
 
     crews: Dict[str, CrewResource] = field(default_factory=dict)
@@ -210,7 +437,7 @@ class ResourceCatalog:
 
 
 @dataclass(frozen=True)
-class ManeuverStepResult:
+class ManeuverStepResult(FiniteContract):
     """Resultado elétrico e topológico de uma etapa da intervenção."""
 
     step_order: int
@@ -231,7 +458,7 @@ class ManeuverStepResult:
 
 
 @dataclass(frozen=True)
-class CrewScheduleInterval:
+class CrewScheduleInterval(FiniteContract):
     """Alocação temporal contínua de uma equipe a um serviço dentro de uma janela."""
 
     crew_id: str
@@ -249,7 +476,7 @@ class CrewScheduleInterval:
 
 
 @dataclass(frozen=True)
-class LifecycleConflictAlert:
+class LifecycleConflictAlert(FiniteContract):
     """Alerta de conflito entre manutenção e substituição futura no mesmo ativo."""
 
     maintenance_service_id: str
@@ -260,7 +487,7 @@ class LifecycleConflictAlert:
 
 
 @dataclass
-class PlannedInterruptionWindow:
+class PlannedInterruptionWindow(FiniteContract):
     """Janela programada de intervenção associada a uma zona de isolamento e data."""
 
     window_id: str
@@ -281,7 +508,7 @@ class PlannedInterruptionWindow:
 
 
 @dataclass
-class ExecutionPlan:
+class ExecutionPlan(FiniteContract):
     """Plano de programação exportado por qualquer comparador (B0, B1, B2) ou KGP."""
 
     plan_id: str
@@ -308,7 +535,7 @@ class ExecutionPlan:
 
 
 @dataclass
-class FeasibilityReport:
+class FeasibilityReport(FiniteContract):
     """Relatório de auditoria do verificador independente sobre um plano exportado."""
 
     plan_id: str
@@ -325,12 +552,16 @@ class FeasibilityReport:
     recalculated_windows_count: int = 0
     recalculated_physical_maneuvers: int = 0
     recalculated_repeat_consumers: int = 0
+    recalculated_unique_consumers: int = 0
+    recalculated_total_interruptions: int = 0
     recalculated_completed_services: Tuple[str, ...] = ()
     isolation_verified: bool = True
+    # Rational strings preserve totals that cannot be represented by float.
+    recalculated_materials_exact: Dict[str, str] = field(default_factory=dict)
 
 
 @dataclass
-class PlanMetrics:
+class PlanMetrics(FiniteContract):
     """Métricas exatas de avaliação de um plano de desligamentos programados."""
 
     plan_id: str

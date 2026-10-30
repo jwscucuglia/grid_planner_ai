@@ -1,0 +1,32 @@
+[
+  {
+    "asset_id": "SYN_ASSET_1",
+    "node_id": "S01B01A02CH000000017",
+    "branch_id": null,
+    "feeder_id": "002",
+    "asset_type": "SYNTHETIC_WORK_TARGET",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "x": 0.0,
+    "y": 0.0
+  },
+  {
+    "asset_id": "SYN_ASSET_2",
+    "node_id": "S01B01A02P0000013282",
+    "branch_id": null,
+    "feeder_id": "002",
+    "asset_type": "SYNTHETIC_WORK_TARGET",
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "in_service": true,
+    "x": 3.42,
+    "y": 0.0
+  }
+]

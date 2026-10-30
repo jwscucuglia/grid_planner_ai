@@ -1,0 +1,347 @@
+{
+  "release": "REV06-P1",
+  "source_commit": "2bc16881e99e16a410831221a5d66d439d7ddd3a",
+  "known_synthetic_plans_reproduced": 48,
+  "frozen_inputs_identical": 12,
+  "source_hashes_unchanged": 37,
+  "paired_results_identical": true,
+  "checks": [
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_101_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_102_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_103_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "DEV_104_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_01_TOPO_DISTANT_AND_PARALLEL",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_02_TIE_TRANSFER_AND_CREW_SYNC",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_03_PRECEDENCE_AND_RELEASE_DATES",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_05_DISJOINT_NO_OPPORTUNITY",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_06_LIFECYCLE_AND_TEMPORAL_FILTER",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_07_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B0",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B1",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "B2",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    },
+    {
+      "scenario": "EVAL_08_STOCHASTIC_PORTFOLIO",
+      "method": "KGP",
+      "differences": {},
+      "feasible": true,
+      "mandatory_complete": true
+    }
+  ],
+  "scope": "Known synthetic reevaluation; no new blind or operational evaluation."
+}

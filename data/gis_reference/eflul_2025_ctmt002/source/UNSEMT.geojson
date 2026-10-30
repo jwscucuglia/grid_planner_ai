@@ -1,0 +1,1427 @@
+{
+  "type": "FeatureCollection",
+  "name": "ANEEL_EFLUL_2025_UNSEMT_CTMT_002",
+  "source_crs": "EPSG:4674",
+  "geometry_crs": "EPSG:4326 (transformed from SIRGAS 2000 EPSG:4674)",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "0114",
+      "properties": {
+        "COD_ID": "0114",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000350",
+        "PAC_2": "S01B01A02P0000009382",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "1H",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL ADUVANIO TALAMINI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.295674187513725,
+          -28.53804605618052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0120",
+      "properties": {
+        "COD_ID": "0120",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000371",
+        "PAC_2": "S01B01A02P0000001360",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "10K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL PERFETTO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27483509616269,
+          -28.561251642449292
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0123",
+      "properties": {
+        "COD_ID": "0123",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000116",
+        "PAC_2": "S01B01A02P0000009278",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2014",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL NOVAGRES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27151519217233,
+          -28.56390741059846
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0125",
+      "properties": {
+        "COD_ID": "0125",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000017",
+        "PAC_2": "S01B01A02P0000011964",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "15K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "NU",
+        "DESCR": "ESTRADA GERAL DE ACESSO RIO COMPRUDENTE CRIAVES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.272507497822744,
+          -28.580232993457855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0173",
+      "properties": {
+        "COD_ID": "0173",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000129",
+        "PAC_2": "S01B01A02P0000005225",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2004",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "NU",
+        "DESCR": "ENTRADA ALUMASA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.29548131531044,
+          -28.54094756048147
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0263",
+      "properties": {
+        "COD_ID": "0263",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000126",
+        "PAC_2": "S01B01A02P0000006914",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "25K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL INDUPLAST"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27429285173366,
+          -28.56201296982266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0267",
+      "properties": {
+        "COD_ID": "0267",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000165",
+        "PAC_2": "S01B01A02P0000011960",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "6K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "NU",
+        "DESCR": "RAMAL FABRAS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.263743575705405,
+          -28.572664258648558
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0295",
+      "properties": {
+        "COD_ID": "0295",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000069",
+        "PAC_2": "S01B01A02P0000009391",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "5H",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "SC445"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.29324896236966,
+          -28.53988053555821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0312",
+      "properties": {
+        "COD_ID": "0312",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000115",
+        "PAC_2": "S01B01A02P0000007030",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "15K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL POSSAI MECNICA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.28481417863139,
+          -28.544042518847107
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "0331",
+      "properties": {
+        "COD_ID": "0331",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000351",
+        "PAC_2": "S01B01A02P0000009279",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "1H",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": " "
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27102346356196,
+          -28.564024923211605
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-096",
+      "properties": {
+        "COD_ID": "CH-096",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000216",
+        "PAC_2": "S01B01A02P0000009259",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "6K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "07/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "ROD GENESIO MAZONDE VILLARAMAL VIVO SA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.31064000443263,
+          -28.53180284832274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-110",
+      "properties": {
+        "COD_ID": "CH-110",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000265",
+        "PAC_2": "S01B01A02P0000001012",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "25K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "NU",
+        "DESCR": "ROD GENESIO MAZONRAMAL CRIAVES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.26417256041526,
+          -28.573136014215663
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-131",
+      "properties": {
+        "COD_ID": "CH-131",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000348",
+        "PAC_2": "S01B01A02P0000013444",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "22/06/2018",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RELIGADOR PROX BENEDETTA AUTOCAR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.313239425559004,
+          -28.531685835732674
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-132",
+      "properties": {
+        "COD_ID": "CH-132",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000320",
+        "PAC_2": "S01B01A02P0000006911",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "27",
+        "TLCD": 0,
+        "DAT_CON": "29/12/2017",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RODGENESIO MAZONPROX A PERFETTO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27538534455795,
+          -28.560514870165093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-133",
+      "properties": {
+        "COD_ID": "CH-133",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000338",
+        "PAC_2": "S01B01A02P0000011293",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "40K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "06/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "ROD GENESIO MAZONPROX A ASSOCIAO DA CEUSA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27052977622816,
+          -28.564295894340034
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-143",
+      "properties": {
+        "COD_ID": "CH-143",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000283",
+        "PAC_2": "S01B01A02P0000006889",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "20K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "19/10/2021",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL SO PEDRO BANCO DE CAPACITORES"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.28191977088068,
+          -28.551768982152737
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-174",
+      "properties": {
+        "COD_ID": "CH-174",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000100",
+        "PAC_2": "S01B01A02P0000006696",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2004",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "ROD GENESIO MAZONSO PEDROPROX ACESSO CELSO POSSAMAI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.28572911110956,
+          -28.545408948763907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-204",
+      "properties": {
+        "COD_ID": "CH-204",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000124",
+        "PAC_2": "S01B01A02P0000010823",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2014",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "SC445 ELTRICA BAESSOBY PASS USA0206"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.31623972758132,
+          -28.530805130552267
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-205",
+      "properties": {
+        "COD_ID": "CH-205",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000384",
+        "PAC_2": "S01B01A02P0000006697",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "25K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "09/02/2022",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL POSSAMAI EQUIPAMENTOS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.28539403630566,
+          -28.54568718911247
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-208",
+      "properties": {
+        "COD_ID": "CH-208",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000140",
+        "PAC_2": "S01B01A02P0000005226",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "15K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "07/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "NU",
+        "DESCR": "ESTRADA GERALDE VILLAPRX SE ALUMASA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.29583874096511,
+          -28.541261556975257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-209",
+      "properties": {
+        "COD_ID": "CH-209",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000118",
+        "PAC_2": "S01B01A02P0000000321",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "10K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "07/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "NU",
+        "DESCR": "DE VILLARAMAL LEO SOUZA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.29746552101693,
+          -28.548536995885627
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-218",
+      "properties": {
+        "COD_ID": "CH-218",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000059",
+        "PAC_2": "S01B01A02P0000012451",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "35",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2004",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "REGULADOR EPAGRI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.31570114699031,
+          -28.530919071957555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-219",
+      "properties": {
+        "COD_ID": "CH-219",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000057",
+        "PAC_2": "S01B01A02P0000012454",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2004",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "REGULADOR EPAGRI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.31565105745028,
+          -28.530956182481816
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-230",
+      "properties": {
+        "COD_ID": "CH-230",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000104",
+        "PAC_2": "S01B01A02P0000001130",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "03/06/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "AV MARCOS COSTA SUBESTAO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.331333571986704,
+          -28.527482756124243
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-231",
+      "properties": {
+        "COD_ID": "CH-231",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000267",
+        "PAC_2": "S01B01A02P0000000401",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2004",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RUA JOO MARIA CANCELIER ENTRADA CO LOT CAROL"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.32138937601883,
+          -28.530927309747483
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-232",
+      "properties": {
+        "COD_ID": "CH-232",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000150",
+        "PAC_2": "S01B01A02P0000004758",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2004",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RUA JOAO MARIA CANCELIER"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.31956618313279,
+          -28.530865882454464
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-233",
+      "properties": {
+        "COD_ID": "CH-233",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000266",
+        "PAC_2": "S01B01A02P0000002222",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/12/2004",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RUA JOO MARIA CENCELIER EM FRETE A NUGAIS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.31832718535128,
+          -28.530824545116616
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-274",
+      "properties": {
+        "COD_ID": "CH-274",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000381",
+        "PAC_2": "S01B01A02P0000013281",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "06/04/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "EM FRENTE A ALUMASA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.29406961532044,
+          -28.53924860174152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-275",
+      "properties": {
+        "COD_ID": "CH-275",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000382",
+        "PAC_2": "S01B01A02P0000013091",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "06/04/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL ALUMASA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.29362250477476,
+          -28.539616276969582
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-277",
+      "properties": {
+        "COD_ID": "CH-277",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000329",
+        "PAC_2": "S01B01A02P0000007733",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "35",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/01/2021",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "REGULADOR PROX IBRAP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27771193835525,
+          -28.557458613224355
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-278",
+      "properties": {
+        "COD_ID": "CH-278",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000330",
+        "PAC_2": "S01B01A02P0000007735",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/01/2021",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "REGULADOR PROX IBRAP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27768801728814,
+          -28.55749397366793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-279",
+      "properties": {
+        "COD_ID": "CH-279",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000326",
+        "PAC_2": "S01B01A02P0000003249",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/01/2021",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "REGULADOR PROX IBRAP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.277787246684056,
+          -28.557336260460033
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-280",
+      "properties": {
+        "COD_ID": "CH-280",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000327",
+        "PAC_2": "S01B01A02P0000003249",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/01/2021",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "REGULADOR PROX IBRAP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27779317231699,
+          -28.557332653279275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-281",
+      "properties": {
+        "COD_ID": "CH-281",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000328",
+        "PAC_2": "S01B01A02P0000007736",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/01/2021",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "REGULADOR PROX IBRAP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27756303040951,
+          -28.557604595675514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-282",
+      "properties": {
+        "COD_ID": "CH-282",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000325",
+        "PAC_2": "S01B01A02P0000007736",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "19/01/2021",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "REGULADOR PROX IBRAP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.27757016473129,
+          -28.557610272196257
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-299",
+      "properties": {
+        "COD_ID": "CH-299",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000376",
+        "PAC_2": "S01B01A02P0000013526",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "22",
+        "P_N_OPE": "F",
+        "CAP_ELO": "6K",
+        "COR_NOM": "12",
+        "TLCD": 0,
+        "DAT_CON": "07/01/2020",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RAMAL LOTEAMENTO VILLA HIBISCUS"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.29808670163993,
+          -28.536687462956024
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-313",
+      "properties": {
+        "COD_ID": "CH-313",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000187",
+        "PAC_2": "S01B01A02P0000006692",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 0,
+        "DAT_CON": "31/12/2025",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "MANOBRA ALIMENTADORES USA 06 USA 03"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.287244899532425,
+          -28.54426813536611
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-323",
+      "properties": {
+        "COD_ID": "CH-323",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000241",
+        "PAC_2": "S01B01A02P0000001131",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "32",
+        "TLCD": 0,
+        "DAT_CON": "31/12/2025",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "USA 06 RELIGADOR SAIDA SUBESTAO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.33094024629531,
+          -28.527462481808072
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "CH-326",
+      "properties": {
+        "COD_ID": "CH-326",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000251",
+        "PAC_2": "S01B01A02P0000007748",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "19",
+        "P_N_OPE": "A",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "32",
+        "TLCD": 0,
+        "DAT_CON": "31/12/2025",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RE3LIGADOR PROX IBRAP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.277976367815086,
+          -28.55707950851246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RL-006",
+      "properties": {
+        "COD_ID": "RL-006",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000237",
+        "PAC_2": "S01B01A02P0000001131",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "32",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "36",
+        "TLCD": 1,
+        "DAT_CON": "31/12/2025",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "USA 06 SAIDA SUBESTAO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.33094638057099,
+          -28.527450635938067
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RL-008",
+      "properties": {
+        "COD_ID": "RL-008",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000365",
+        "PAC_2": "S01B01A02P0000013444",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "32",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "36",
+        "TLCD": 0,
+        "DAT_CON": "31/12/2025",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RELIGADOR BENEDETTA AUTOCAR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.31323711070405,
+          -28.53170415312411
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RL-011",
+      "properties": {
+        "COD_ID": "RL-011",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000253",
+        "PAC_2": "S01B01A02P0000007748",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "32",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "36",
+        "TLCD": 0,
+        "DAT_CON": "31/12/2025",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "RELIGADOR PROX IBRAP"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.277996330965834,
+          -28.557089481094636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "RL-USA06",
+      "properties": {
+        "COD_ID": "RL-USA06",
+        "DIST": 86,
+        "PAC_1": "S01B01A02CH000000034",
+        "PAC_2": "S01B01A02P0000006160",
+        "FAS_CON": "ABC",
+        "SIT_ATIV": "AT",
+        "TIP_UNID": "32",
+        "P_N_OPE": "F",
+        "CAP_ELO": "DIR",
+        "COR_NOM": "35",
+        "TLCD": 1,
+        "DAT_CON": "30/11/2019",
+        "POS": "PD",
+        "CTMT": "002",
+        "UNI_TR_AT": " ",
+        "SUB": "01",
+        "CONJ": 5273,
+        "MUN": "4219002",
+        "ARE_LOC": "UB",
+        "DESCR": "AV MARCOS COSTA USA 06"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -49.3305272245517,
+          -28.527582629434733
+        ]
+      }
+    }
+  ]
+}

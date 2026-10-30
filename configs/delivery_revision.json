@@ -1,0 +1,16 @@
+{
+  "release_revision": "REV06-P1",
+  "delivery_date": "20261030",
+  "package_version": "0.6.1",
+  "source_commit": "2bc16881e99e16a410831221a5d66d439d7ddd3a",
+  "source_commit_scope": "Frozen runtime modules, tests and scientific metadata used by the maintenance reevaluation. Subsequent commits only package evidence and finalize delivery metadata.",
+  "scientific_baseline": {
+    "source_commit": "bdd6ab6be7593c906d80261c916eb9874676240a",
+    "audited_delivery_commit": "cf38643964a57c468edfb6f9d0b410bb255da57c",
+    "audited_archive_sha256": "712fc5c3180e34ef052b152fb1edca170fea6cd219f590de1757d493cafaf952",
+    "protocol": "configs/protocol_and_seeds.json",
+    "preserved": true
+  },
+  "maintenance_evidence": "reports/maintenance_REV06_P1_20261030",
+  "scope": "Residual input robustness; unchanged known synthetic results. No operational or general correctness certification."
+}

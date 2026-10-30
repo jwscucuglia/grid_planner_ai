@@ -1,0 +1,33 @@
+{
+  "plan_id": "PLAN_KGP_EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+  "method_name": "KGP",
+  "scenario_id": "EVAL_04_FREQ_VS_DURATION_TRADEOFF",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 3,
+  "total_mandatory_count": 3,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "CRUZETA_CONCRETO": 2.0,
+    "KIT_TRAFO": 2.0,
+    "ISOLADOR_15KV": 3.0
+  },
+  "recalculated_consumer_hours": 265.716,
+  "recalculated_windows_count": 1,
+  "recalculated_physical_maneuvers": 2,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 72,
+  "recalculated_total_interruptions": 72,
+  "recalculated_completed_services": [
+    "S42_F1_TRUNK_B",
+    "S43_F1_TAIL_LONG",
+    "S41_F1_MID_A"
+  ],
+  "isolation_verified": true,
+  "recalculated_materials_exact": {
+    "CRUZETA_CONCRETO": "2",
+    "KIT_TRAFO": "2",
+    "ISOLADOR_15KV": "3"
+  }
+}

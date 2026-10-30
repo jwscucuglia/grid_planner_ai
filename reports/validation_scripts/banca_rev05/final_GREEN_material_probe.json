@@ -1,0 +1,51 @@
+{
+  "import_valid": true,
+  "exact_required": 4e-05,
+  "available": 0.0,
+  "methods": {
+    "B0": {
+      "feasible": false,
+      "completed": [],
+      "recalculated_materials": {},
+      "exported_materials": [],
+      "solver_status": "HEURISTIC_INDIVIDUAL",
+      "optimal_proven": false,
+      "violations": [
+        "Carteira obrigat\u00f3ria incompleta: faltam 1 servi\u00e7o(s) obrigat\u00f3rio(s): ['S1']."
+      ]
+    },
+    "B1": {
+      "feasible": false,
+      "completed": [],
+      "recalculated_materials": {},
+      "exported_materials": [],
+      "solver_status": "HEURISTIC_GEOGRAPHIC",
+      "optimal_proven": false,
+      "violations": [
+        "Carteira obrigat\u00f3ria incompleta: faltam 1 servi\u00e7o(s) obrigat\u00f3rio(s): ['S1']."
+      ]
+    },
+    "B2": {
+      "feasible": false,
+      "completed": [],
+      "recalculated_materials": {},
+      "exported_materials": [],
+      "solver_status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+      "optimal_proven": false,
+      "violations": [
+        "Carteira obrigat\u00f3ria incompleta: faltam 1 servi\u00e7o(s) obrigat\u00f3rio(s): ['S1']."
+      ]
+    },
+    "KGP": {
+      "feasible": false,
+      "completed": [],
+      "recalculated_materials": {},
+      "exported_materials": [],
+      "solver_status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+      "optimal_proven": false,
+      "violations": [
+        "Carteira obrigat\u00f3ria incompleta: faltam 1 servi\u00e7o(s) obrigat\u00f3rio(s): ['S1']."
+      ]
+    }
+  }
+}

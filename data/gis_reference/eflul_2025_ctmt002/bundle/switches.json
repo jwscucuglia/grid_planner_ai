@@ -1,0 +1,389 @@
+[
+  {
+    "switch_id": "UNSEMT:0114",
+    "branch_id": "UNSEMT:0114",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0120",
+    "branch_id": "UNSEMT:0120",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0123",
+    "branch_id": "UNSEMT:0123",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0125",
+    "branch_id": "UNSEMT:0125",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0173",
+    "branch_id": "UNSEMT:0173",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0263",
+    "branch_id": "UNSEMT:0263",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0267",
+    "branch_id": "UNSEMT:0267",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0295",
+    "branch_id": "UNSEMT:0295",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0312",
+    "branch_id": "UNSEMT:0312",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:0331",
+    "branch_id": "UNSEMT:0331",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-096",
+    "branch_id": "UNSEMT:CH-096",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-110",
+    "branch_id": "UNSEMT:CH-110",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-131",
+    "branch_id": "UNSEMT:CH-131",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-132",
+    "branch_id": "UNSEMT:CH-132",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-133",
+    "branch_id": "UNSEMT:CH-133",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-143",
+    "branch_id": "UNSEMT:CH-143",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-174",
+    "branch_id": "UNSEMT:CH-174",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-204",
+    "branch_id": "UNSEMT:CH-204",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-205",
+    "branch_id": "UNSEMT:CH-205",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-208",
+    "branch_id": "UNSEMT:CH-208",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-209",
+    "branch_id": "UNSEMT:CH-209",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-218",
+    "branch_id": "UNSEMT:CH-218",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-219",
+    "branch_id": "UNSEMT:CH-219",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-230",
+    "branch_id": "UNSEMT:CH-230",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-231",
+    "branch_id": "UNSEMT:CH-231",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-232",
+    "branch_id": "UNSEMT:CH-232",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-233",
+    "branch_id": "UNSEMT:CH-233",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-274",
+    "branch_id": "UNSEMT:CH-274",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-275",
+    "branch_id": "UNSEMT:CH-275",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-277",
+    "branch_id": "UNSEMT:CH-277",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-278",
+    "branch_id": "UNSEMT:CH-278",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-279",
+    "branch_id": "UNSEMT:CH-279",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-280",
+    "branch_id": "UNSEMT:CH-280",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-281",
+    "branch_id": "UNSEMT:CH-281",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-282",
+    "branch_id": "UNSEMT:CH-282",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-299",
+    "branch_id": "UNSEMT:CH-299",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-313",
+    "branch_id": "UNSEMT:CH-313",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-323",
+    "branch_id": "UNSEMT:CH-323",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:CH-326",
+    "branch_id": "UNSEMT:CH-326",
+    "normal_state": "OPEN",
+    "current_state": "OPEN",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:RL-006",
+    "branch_id": "UNSEMT:RL-006",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:RL-008",
+    "branch_id": "UNSEMT:RL-008",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:RL-011",
+    "branch_id": "UNSEMT:RL-011",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  },
+  {
+    "switch_id": "UNSEMT:RL-USA06",
+    "branch_id": "UNSEMT:RL-USA06",
+    "normal_state": "CLOSED",
+    "current_state": "CLOSED",
+    "is_maneuverable": true,
+    "maneuver_duration_hours": 0.1,
+    "in_service": true
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "plan_id": "PLAN_KGP_EVAL_08_STOCHASTIC_PORTFOLIO",
+  "method_name": "KGP",
+  "scenario_id": "EVAL_08_STOCHASTIC_PORTFOLIO",
+  "is_feasible": true,
+  "mandatory_portfolio_complete": true,
+  "completed_mandatory_count": 5,
+  "total_mandatory_count": 5,
+  "violations": [],
+  "warnings": [],
+  "recalculated_materials": {
+    "ISOLADOR_15KV": 3.0,
+    "CONECTOR_CUNHA": 4.0,
+    "CRUZETA_CONCRETO": 1.0,
+    "ELO_FUSIVEL": 2.0,
+    "KIT_TRAFO": 1.0
+  },
+  "recalculated_consumer_hours": 287.0,
+  "recalculated_windows_count": 3,
+  "recalculated_physical_maneuvers": 6,
+  "recalculated_repeat_consumers": 0,
+  "recalculated_unique_consumers": 122,
+  "recalculated_total_interruptions": 122,
+  "recalculated_completed_services": [
+    "S_202608_05",
+    "S_202608_03",
+    "S_202608_02",
+    "S_202608_04",
+    "S_202608_01"
+  ],
+  "isolation_verified": true,
+  "recalculated_materials_exact": {
+    "ISOLADOR_15KV": "3",
+    "CONECTOR_CUNHA": "4",
+    "CRUZETA_CONCRETO": "1",
+    "ELO_FUSIVEL": "2",
+    "KIT_TRAFO": "1"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "4459e483-451f-4444-8022-bd8b5eac05c5",
+  "name": "base-de-dados-geografica-da-distribuidora-bdgd",
+  "title": "Base de Dados Geográfica da Distribuidora - BDGD",
+  "notes": "Parte integrante do Sistema de Informação Geográfico Regulatório da distribuição (SIG-R), a BDGD é um modelo geográfico estabelecido com o objetivo de representar de forma simplificada o sistema elétrico real da distribuidora, visando refletir tanto a situação real dos ativos quanto as informações técnicas e comerciais de interesse. Para que todas as bases recebidas possam se compatibilizar e compor o SIG-R, é necessário que as distribuidoras observem determinados modelos, requisitos e padrões, os quais são estabelecidos no Módulo 10 PRODIST (https://www.gov.br/aneel/pt-br/centrais-de-conteudos/procedimentos-regulatorios/prodist) e no Manual de Instruções da BDGD (https://www.gov.br/aneel/pt-br/centrais-de-conteudos/manuais-modelos-e-instrucoes/distribuicao).\n\nDe forma a emular o sistema elétrico das distribuidoras, a BDGD é estruturada em entidades, modelos abstratos de dados estabelecidos com o objetivo de representar todas as informações de interesse, desde ativos até as perdas estimadas pelos agentes.\n\nCada uma dessas entidades é detalhada em diversas informações, dentre as quais constam aquelas que devem observar a codificação pré-estabelecida pelo Dicionário de Dados ANEEL do SIG-R (DDA), o qual especifica padrões de dados a serem utilizados na BDGD, visando a normalização das informações.\n\nOs dados cartográficos são disponibilizados em um arquivo Geodatabase (.gdb) por distribuidora. O Manual de Instruções da BDGD e o Módulo 10 do PRODIST contém informações úteis para entender a BDGD, como as entidades disponibilizadas e as definições dos campos.",
+  "license_id": "odc-odbl",
+  "license_title": "Open Data Commons Open Database License (ODbL)",
+  "license_url": "http://www.opendefinition.org/licenses/odc-odbl",
+  "url": "https://dadosabertos.aneel.gov.br/",
+  "author": "STD/ANEEL",
+  "metadata_created": "2026-05-27T15:55:58.175693",
+  "metadata_modified": "2026-09-01T19:29:08.206645",
+  "organization": {
+    "id": "e43edce4-1514-4493-8a22-fe11fa98ef9e",
+    "name": "agencia-nacional-de-energia-eletrica",
+    "title": "Agência Nacional de Energia Elétrica",
+    "type": "organization",
+    "description": "A Agência Nacional de Energia Elétrica (ANEEL), autarquia em regime especial vinculada ao Ministério de Minas e Energia, foi criada para regular o setor elétrico brasileiro, por meio da [Lei nº 9.427/1996](http://www.planalto.gov.br/ccivil_03/leis/l9427cons.htm) e do [Decreto nº 2.335/1997](http://www.planalto.gov.br/ccivil_03/decreto/d2335.HTM).\r\n\r\nA ANEEL iniciou suas atividades em dezembro de 1997, tendo como principais atribuições:\r\n\r\n* Regular a geração (produção), transmissão, distribuição e comercialização de energia elétrica;\r\n\r\n* Fiscalizar, diretamente ou mediante convênios com órgãos estaduais, as concessões, as permissões e os serviços de energia elétrica;\r\n* Implementar as políticas e diretrizes do governo federal relativas à exploração da energia elétrica e ao aproveitamento dos potenciais hidráulicos;\r\n* Estabelecer tarifas;\r\n* Dirimir as divergências, na esfera administrativa, entre os agentes e entre esses agentes e os consumidores, e\r\n* Promover as atividades de outorgas de concessão, permissão e autorização de empreendimentos e serviços de energia elétrica, por delegação do Governo Federal.",
+    "image_url": "2026-05-29-130337.442419Aneel.png",
+    "created": "2026-05-27T12:53:06.102274",
+    "is_organization": true,
+    "approval_status": "approved",
+    "state": "active"
+  }
+}

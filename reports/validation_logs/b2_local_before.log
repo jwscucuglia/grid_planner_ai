@@ -1,0 +1,12 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+______ test_b2_local_zone_change_reduces_impact_and_preserves_portfolio _______
+
+    def test_b2_local_zone_change_reduces_impact_and_preserves_portfolio():
+>       from kgp.baselines import _improve_b2_zones
+E       ImportError: cannot import name '_improve_b2_zones' from 'kgp.baselines' (C:\Users\scucuglia\Documents\P&D 2026\P&D Cemig 2026\grid_planner_ai\src\kgp\baselines.py)
+
+tests\test_baseline_local.py:11: ImportError
+=========================== short test summary info ===========================
+FAILED tests/test_baseline_local.py::test_b2_local_zone_change_reduces_impact_and_preserves_portfolio
+1 failed in 1.62s

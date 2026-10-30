@@ -1,0 +1,39 @@
+{
+  "delivery_revision": "INGESTAO01",
+  "scientific_core_version": "0.4.0",
+  "ingestion_source_commit": "8f93a61acb43eb78f7a5985d88157d60b09888d3",
+  "prior_delivery_commit": "056f7d61d4eb4c327abb14a6af256a013f41ddac",
+  "frozen_core_experiment_source_commit": "66e90ea783720ccd4dd1e9cda9eef288e0facb3d",
+  "frozen_core_files_unchanged": 28,
+  "tests": {
+    "full_suite_passed": 231,
+    "elapsed_seconds": 209.91,
+    "preserved_suite": 130,
+    "ingestion": 94,
+    "gis_integration": 7
+  },
+  "reference": {
+    "source": "ANEEL BDGD EFLUL 2025-12-31 CTMT002",
+    "source_zip_sha256": "35a071a48728cd3bf5dbd9aa960026c9f6290f04c3d4abea25038eae476df168",
+    "nodes": 354,
+    "edges": 358,
+    "coordinate_conflict_pacs": 81
+  },
+  "planning_integration": {
+    "feasible_plans": 4,
+    "mandatory_services_per_plan": 2,
+    "phase_reference_checks": 9,
+    "operational_validation": false,
+    "cemig_data_used": false,
+    "synthetic_overlay_required": true
+  },
+  "implementation_sha256": {
+    "src/kgp/ingestion.py": "f3b17053012a9bc3e4e4cba841174a1e16bb2f0e2c5949b407b4bed90e926497",
+    "scripts/import_kgp_bundle.py": "59fede1e8127062103da8bdbe494ae0cf860483f6a98013ddbc46c0ea7876ab3",
+    "scripts/prepare_gis_reference.py": "38dbe08a4a3fdd448f2fcea0c4a949c17e59cf17a9cd2d08b83f938651cdfc7d",
+    "scripts/validate_gis_ingestion.py": "5df2a209aed01f34fcf44d407122faeb713027dc19f71d307c060a596e91018b",
+    "tests/test_ingestion.py": "d9a95bf282c7a273dcdd28bb9ebc0342e9566e7e8fd785cdc14f6f0863999b20",
+    "tests/test_gis_reference_integration.py": "c8558ef009aef02d26b646b779718e46241364b131a13d89d195bbddacaa6b7c"
+  },
+  "known_experiment_scope": "The original REV04 evidence is historical and retained separately; no new blind Cemig or operational evaluation is claimed."
+}

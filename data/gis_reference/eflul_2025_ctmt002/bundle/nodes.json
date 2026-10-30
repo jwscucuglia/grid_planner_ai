@@ -1,0 +1,6008 @@
+[
+  {
+    "node_id": "S01B01A02CH000000017",
+    "name": "S01B01A02CH000000017",
+    "feeder_id": "002",
+    "x": 0.0,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000034",
+    "name": "S01B01A02CH000000034",
+    "feeder_id": "002",
+    "x": 0.01,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000057",
+    "name": "S01B01A02CH000000057",
+    "feeder_id": "002",
+    "x": 0.02,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000059",
+    "name": "S01B01A02CH000000059",
+    "feeder_id": "002",
+    "x": 0.03,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000069",
+    "name": "S01B01A02CH000000069",
+    "feeder_id": "002",
+    "x": 0.04,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000100",
+    "name": "S01B01A02CH000000100",
+    "feeder_id": "002",
+    "x": 0.05,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000104",
+    "name": "S01B01A02CH000000104",
+    "feeder_id": "002",
+    "x": 0.06,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000115",
+    "name": "S01B01A02CH000000115",
+    "feeder_id": "002",
+    "x": 0.07,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000116",
+    "name": "S01B01A02CH000000116",
+    "feeder_id": "002",
+    "x": 0.08,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000118",
+    "name": "S01B01A02CH000000118",
+    "feeder_id": "002",
+    "x": 0.09,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000124",
+    "name": "S01B01A02CH000000124",
+    "feeder_id": "002",
+    "x": 0.1,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000126",
+    "name": "S01B01A02CH000000126",
+    "feeder_id": "002",
+    "x": 0.11,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000129",
+    "name": "S01B01A02CH000000129",
+    "feeder_id": "002",
+    "x": 0.12,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000140",
+    "name": "S01B01A02CH000000140",
+    "feeder_id": "002",
+    "x": 0.13,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000150",
+    "name": "S01B01A02CH000000150",
+    "feeder_id": "002",
+    "x": 0.14,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000165",
+    "name": "S01B01A02CH000000165",
+    "feeder_id": "002",
+    "x": 0.15,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000187",
+    "name": "S01B01A02CH000000187",
+    "feeder_id": "002",
+    "x": 0.16,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000216",
+    "name": "S01B01A02CH000000216",
+    "feeder_id": "002",
+    "x": 0.17,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000237",
+    "name": "S01B01A02CH000000237",
+    "feeder_id": "002",
+    "x": 0.18,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000241",
+    "name": "S01B01A02CH000000241",
+    "feeder_id": "002",
+    "x": 0.19,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000251",
+    "name": "S01B01A02CH000000251",
+    "feeder_id": "002",
+    "x": 0.2,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000253",
+    "name": "S01B01A02CH000000253",
+    "feeder_id": "002",
+    "x": 0.21,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000265",
+    "name": "S01B01A02CH000000265",
+    "feeder_id": "002",
+    "x": 0.22,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000266",
+    "name": "S01B01A02CH000000266",
+    "feeder_id": "002",
+    "x": 0.23,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000267",
+    "name": "S01B01A02CH000000267",
+    "feeder_id": "002",
+    "x": 0.24,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000283",
+    "name": "S01B01A02CH000000283",
+    "feeder_id": "002",
+    "x": 0.25,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000320",
+    "name": "S01B01A02CH000000320",
+    "feeder_id": "002",
+    "x": 0.26,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000325",
+    "name": "S01B01A02CH000000325",
+    "feeder_id": "002",
+    "x": 0.27,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000326",
+    "name": "S01B01A02CH000000326",
+    "feeder_id": "002",
+    "x": 0.28,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000327",
+    "name": "S01B01A02CH000000327",
+    "feeder_id": "002",
+    "x": 0.29,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000328",
+    "name": "S01B01A02CH000000328",
+    "feeder_id": "002",
+    "x": 0.3,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000329",
+    "name": "S01B01A02CH000000329",
+    "feeder_id": "002",
+    "x": 0.31,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000330",
+    "name": "S01B01A02CH000000330",
+    "feeder_id": "002",
+    "x": 0.32,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000338",
+    "name": "S01B01A02CH000000338",
+    "feeder_id": "002",
+    "x": 0.33,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000348",
+    "name": "S01B01A02CH000000348",
+    "feeder_id": "002",
+    "x": 0.34,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000350",
+    "name": "S01B01A02CH000000350",
+    "feeder_id": "002",
+    "x": 0.35000000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000351",
+    "name": "S01B01A02CH000000351",
+    "feeder_id": "002",
+    "x": 0.36,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000365",
+    "name": "S01B01A02CH000000365",
+    "feeder_id": "002",
+    "x": 0.37,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000371",
+    "name": "S01B01A02CH000000371",
+    "feeder_id": "002",
+    "x": 0.38,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000376",
+    "name": "S01B01A02CH000000376",
+    "feeder_id": "002",
+    "x": 0.39,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000381",
+    "name": "S01B01A02CH000000381",
+    "feeder_id": "002",
+    "x": 0.4,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000382",
+    "name": "S01B01A02CH000000382",
+    "feeder_id": "002",
+    "x": 0.41000000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02CH000000384",
+    "name": "S01B01A02CH000000384",
+    "feeder_id": "002",
+    "x": 0.42,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02ER000000002",
+    "name": "S01B01A02ER000000002",
+    "feeder_id": "002",
+    "x": 0.43,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000122",
+    "name": "S01B01A02P0000000122",
+    "feeder_id": "002",
+    "x": 0.44,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000138",
+    "name": "S01B01A02P0000000138",
+    "feeder_id": "002",
+    "x": 0.45,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000162",
+    "name": "S01B01A02P0000000162",
+    "feeder_id": "002",
+    "x": 0.46,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000170",
+    "name": "S01B01A02P0000000170",
+    "feeder_id": "002",
+    "x": 0.47000000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000312",
+    "name": "S01B01A02P0000000312",
+    "feeder_id": "002",
+    "x": 0.48,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000313",
+    "name": "S01B01A02P0000000313",
+    "feeder_id": "002",
+    "x": 0.49,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000314",
+    "name": "S01B01A02P0000000314",
+    "feeder_id": "002",
+    "x": 0.5,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000317",
+    "name": "S01B01A02P0000000317",
+    "feeder_id": "002",
+    "x": 0.51,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000318",
+    "name": "S01B01A02P0000000318",
+    "feeder_id": "002",
+    "x": 0.52,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000319",
+    "name": "S01B01A02P0000000319",
+    "feeder_id": "002",
+    "x": 0.53,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000320",
+    "name": "S01B01A02P0000000320",
+    "feeder_id": "002",
+    "x": 0.54,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000321",
+    "name": "S01B01A02P0000000321",
+    "feeder_id": "002",
+    "x": 0.55,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000375",
+    "name": "S01B01A02P0000000375",
+    "feeder_id": "002",
+    "x": 0.56,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000379",
+    "name": "S01B01A02P0000000379",
+    "feeder_id": "002",
+    "x": 0.5700000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000380",
+    "name": "S01B01A02P0000000380",
+    "feeder_id": "002",
+    "x": 0.58,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000381",
+    "name": "S01B01A02P0000000381",
+    "feeder_id": "002",
+    "x": 0.59,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000382",
+    "name": "S01B01A02P0000000382",
+    "feeder_id": "002",
+    "x": 0.6,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000399",
+    "name": "S01B01A02P0000000399",
+    "feeder_id": "002",
+    "x": 0.61,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000401",
+    "name": "S01B01A02P0000000401",
+    "feeder_id": "002",
+    "x": 0.62,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000402",
+    "name": "S01B01A02P0000000402",
+    "feeder_id": "002",
+    "x": 0.63,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000000802",
+    "name": "S01B01A02P0000000802",
+    "feeder_id": "002",
+    "x": 0.64,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001007",
+    "name": "S01B01A02P0000001007",
+    "feeder_id": "002",
+    "x": 0.65,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001008",
+    "name": "S01B01A02P0000001008",
+    "feeder_id": "002",
+    "x": 0.66,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001009",
+    "name": "S01B01A02P0000001009",
+    "feeder_id": "002",
+    "x": 0.67,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001010",
+    "name": "S01B01A02P0000001010",
+    "feeder_id": "002",
+    "x": 0.68,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001011",
+    "name": "S01B01A02P0000001011",
+    "feeder_id": "002",
+    "x": 0.6900000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001012",
+    "name": "S01B01A02P0000001012",
+    "feeder_id": "002",
+    "x": 0.7000000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001013",
+    "name": "S01B01A02P0000001013",
+    "feeder_id": "002",
+    "x": 0.71,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001014",
+    "name": "S01B01A02P0000001014",
+    "feeder_id": "002",
+    "x": 0.72,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001015",
+    "name": "S01B01A02P0000001015",
+    "feeder_id": "002",
+    "x": 0.73,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001016",
+    "name": "S01B01A02P0000001016",
+    "feeder_id": "002",
+    "x": 0.74,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001017",
+    "name": "S01B01A02P0000001017",
+    "feeder_id": "002",
+    "x": 0.75,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001018",
+    "name": "S01B01A02P0000001018",
+    "feeder_id": "002",
+    "x": 0.76,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001019",
+    "name": "S01B01A02P0000001019",
+    "feeder_id": "002",
+    "x": 0.77,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001107",
+    "name": "S01B01A02P0000001107",
+    "feeder_id": "002",
+    "x": 0.78,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001108",
+    "name": "S01B01A02P0000001108",
+    "feeder_id": "002",
+    "x": 0.79,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001109",
+    "name": "S01B01A02P0000001109",
+    "feeder_id": "002",
+    "x": 0.8,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001110",
+    "name": "S01B01A02P0000001110",
+    "feeder_id": "002",
+    "x": 0.81,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001116",
+    "name": "S01B01A02P0000001116",
+    "feeder_id": "002",
+    "x": 0.8200000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001117",
+    "name": "S01B01A02P0000001117",
+    "feeder_id": "002",
+    "x": 0.8300000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001118",
+    "name": "S01B01A02P0000001118",
+    "feeder_id": "002",
+    "x": 0.84,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001125",
+    "name": "S01B01A02P0000001125",
+    "feeder_id": "002",
+    "x": 0.85,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001126",
+    "name": "S01B01A02P0000001126",
+    "feeder_id": "002",
+    "x": 0.86,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001127",
+    "name": "S01B01A02P0000001127",
+    "feeder_id": "002",
+    "x": 0.87,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001128",
+    "name": "S01B01A02P0000001128",
+    "feeder_id": "002",
+    "x": 0.88,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001129",
+    "name": "S01B01A02P0000001129",
+    "feeder_id": "002",
+    "x": 0.89,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001130",
+    "name": "S01B01A02P0000001130",
+    "feeder_id": "002",
+    "x": 0.9,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001131",
+    "name": "S01B01A02P0000001131",
+    "feeder_id": "002",
+    "x": 0.91,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001132",
+    "name": "S01B01A02P0000001132",
+    "feeder_id": "002",
+    "x": 0.92,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001226",
+    "name": "S01B01A02P0000001226",
+    "feeder_id": "002",
+    "x": 0.93,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001360",
+    "name": "S01B01A02P0000001360",
+    "feeder_id": "002",
+    "x": 0.9400000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000001367",
+    "name": "S01B01A02P0000001367",
+    "feeder_id": "002",
+    "x": 0.9500000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000002069",
+    "name": "S01B01A02P0000002069",
+    "feeder_id": "002",
+    "x": 0.96,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000002087",
+    "name": "S01B01A02P0000002087",
+    "feeder_id": "002",
+    "x": 0.97,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": true,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000002222",
+    "name": "S01B01A02P0000002222",
+    "feeder_id": "002",
+    "x": 0.98,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000002333",
+    "name": "S01B01A02P0000002333",
+    "feeder_id": "002",
+    "x": 0.99,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000003249",
+    "name": "S01B01A02P0000003249",
+    "feeder_id": "002",
+    "x": 1.0,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000003411",
+    "name": "S01B01A02P0000003411",
+    "feeder_id": "002",
+    "x": 1.01,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000003749",
+    "name": "S01B01A02P0000003749",
+    "feeder_id": "002",
+    "x": 1.02,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000003750",
+    "name": "S01B01A02P0000003750",
+    "feeder_id": "002",
+    "x": 1.03,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000003751",
+    "name": "S01B01A02P0000003751",
+    "feeder_id": "002",
+    "x": 1.04,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000003752",
+    "name": "S01B01A02P0000003752",
+    "feeder_id": "002",
+    "x": 1.05,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004541",
+    "name": "S01B01A02P0000004541",
+    "feeder_id": "002",
+    "x": 1.06,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004758",
+    "name": "S01B01A02P0000004758",
+    "feeder_id": "002",
+    "x": 1.07,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004759",
+    "name": "S01B01A02P0000004759",
+    "feeder_id": "002",
+    "x": 1.08,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004760",
+    "name": "S01B01A02P0000004760",
+    "feeder_id": "002",
+    "x": 1.09,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004761",
+    "name": "S01B01A02P0000004761",
+    "feeder_id": "002",
+    "x": 1.1,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004762",
+    "name": "S01B01A02P0000004762",
+    "feeder_id": "002",
+    "x": 1.11,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004975",
+    "name": "S01B01A02P0000004975",
+    "feeder_id": "002",
+    "x": 1.12,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004976",
+    "name": "S01B01A02P0000004976",
+    "feeder_id": "002",
+    "x": 1.1300000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004977",
+    "name": "S01B01A02P0000004977",
+    "feeder_id": "002",
+    "x": 1.1400000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000004978",
+    "name": "S01B01A02P0000004978",
+    "feeder_id": "002",
+    "x": 1.1500000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005046",
+    "name": "S01B01A02P0000005046",
+    "feeder_id": "002",
+    "x": 1.16,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005047",
+    "name": "S01B01A02P0000005047",
+    "feeder_id": "002",
+    "x": 1.17,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005048",
+    "name": "S01B01A02P0000005048",
+    "feeder_id": "002",
+    "x": 1.18,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005049",
+    "name": "S01B01A02P0000005049",
+    "feeder_id": "002",
+    "x": 1.19,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005200",
+    "name": "S01B01A02P0000005200",
+    "feeder_id": "002",
+    "x": 1.2,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005216",
+    "name": "S01B01A02P0000005216",
+    "feeder_id": "002",
+    "x": 1.21,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005222",
+    "name": "S01B01A02P0000005222",
+    "feeder_id": "002",
+    "x": 1.22,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005223",
+    "name": "S01B01A02P0000005223",
+    "feeder_id": "002",
+    "x": 1.23,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005224",
+    "name": "S01B01A02P0000005224",
+    "feeder_id": "002",
+    "x": 1.24,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005225",
+    "name": "S01B01A02P0000005225",
+    "feeder_id": "002",
+    "x": 1.25,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005226",
+    "name": "S01B01A02P0000005226",
+    "feeder_id": "002",
+    "x": 1.26,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005319",
+    "name": "S01B01A02P0000005319",
+    "feeder_id": "002",
+    "x": 1.27,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005383",
+    "name": "S01B01A02P0000005383",
+    "feeder_id": "002",
+    "x": 1.28,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005547",
+    "name": "S01B01A02P0000005547",
+    "feeder_id": "002",
+    "x": 1.29,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005625",
+    "name": "S01B01A02P0000005625",
+    "feeder_id": "002",
+    "x": 1.3,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005626",
+    "name": "S01B01A02P0000005626",
+    "feeder_id": "002",
+    "x": 1.31,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005627",
+    "name": "S01B01A02P0000005627",
+    "feeder_id": "002",
+    "x": 1.32,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005628",
+    "name": "S01B01A02P0000005628",
+    "feeder_id": "002",
+    "x": 1.33,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005629",
+    "name": "S01B01A02P0000005629",
+    "feeder_id": "002",
+    "x": 1.34,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005877",
+    "name": "S01B01A02P0000005877",
+    "feeder_id": "002",
+    "x": 1.35,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000005878",
+    "name": "S01B01A02P0000005878",
+    "feeder_id": "002",
+    "x": 1.36,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006160",
+    "name": "S01B01A02P0000006160",
+    "feeder_id": "002",
+    "x": 1.37,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006686",
+    "name": "S01B01A02P0000006686",
+    "feeder_id": "002",
+    "x": 1.3800000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006687",
+    "name": "S01B01A02P0000006687",
+    "feeder_id": "002",
+    "x": 1.3900000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006688",
+    "name": "S01B01A02P0000006688",
+    "feeder_id": "002",
+    "x": 1.4000000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006689",
+    "name": "S01B01A02P0000006689",
+    "feeder_id": "002",
+    "x": 1.41,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006690",
+    "name": "S01B01A02P0000006690",
+    "feeder_id": "002",
+    "x": 1.42,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006691",
+    "name": "S01B01A02P0000006691",
+    "feeder_id": "002",
+    "x": 1.43,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006692",
+    "name": "S01B01A02P0000006692",
+    "feeder_id": "002",
+    "x": 1.44,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006693",
+    "name": "S01B01A02P0000006693",
+    "feeder_id": "002",
+    "x": 1.45,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006694",
+    "name": "S01B01A02P0000006694",
+    "feeder_id": "002",
+    "x": 1.46,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006695",
+    "name": "S01B01A02P0000006695",
+    "feeder_id": "002",
+    "x": 1.47,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006696",
+    "name": "S01B01A02P0000006696",
+    "feeder_id": "002",
+    "x": 1.48,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006697",
+    "name": "S01B01A02P0000006697",
+    "feeder_id": "002",
+    "x": 1.49,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006698",
+    "name": "S01B01A02P0000006698",
+    "feeder_id": "002",
+    "x": 1.5,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006700",
+    "name": "S01B01A02P0000006700",
+    "feeder_id": "002",
+    "x": 1.51,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006701",
+    "name": "S01B01A02P0000006701",
+    "feeder_id": "002",
+    "x": 1.52,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006702",
+    "name": "S01B01A02P0000006702",
+    "feeder_id": "002",
+    "x": 1.53,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006703",
+    "name": "S01B01A02P0000006703",
+    "feeder_id": "002",
+    "x": 1.54,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006704",
+    "name": "S01B01A02P0000006704",
+    "feeder_id": "002",
+    "x": 1.55,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006705",
+    "name": "S01B01A02P0000006705",
+    "feeder_id": "002",
+    "x": 1.56,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006706",
+    "name": "S01B01A02P0000006706",
+    "feeder_id": "002",
+    "x": 1.57,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006816",
+    "name": "S01B01A02P0000006816",
+    "feeder_id": "002",
+    "x": 1.58,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006823",
+    "name": "S01B01A02P0000006823",
+    "feeder_id": "002",
+    "x": 1.59,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006825",
+    "name": "S01B01A02P0000006825",
+    "feeder_id": "002",
+    "x": 1.6,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006826",
+    "name": "S01B01A02P0000006826",
+    "feeder_id": "002",
+    "x": 1.61,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006827",
+    "name": "S01B01A02P0000006827",
+    "feeder_id": "002",
+    "x": 1.62,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006828",
+    "name": "S01B01A02P0000006828",
+    "feeder_id": "002",
+    "x": 1.6300000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006829",
+    "name": "S01B01A02P0000006829",
+    "feeder_id": "002",
+    "x": 1.6400000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006886",
+    "name": "S01B01A02P0000006886",
+    "feeder_id": "002",
+    "x": 1.6500000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006887",
+    "name": "S01B01A02P0000006887",
+    "feeder_id": "002",
+    "x": 1.6600000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006888",
+    "name": "S01B01A02P0000006888",
+    "feeder_id": "002",
+    "x": 1.67,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006889",
+    "name": "S01B01A02P0000006889",
+    "feeder_id": "002",
+    "x": 1.68,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006890",
+    "name": "S01B01A02P0000006890",
+    "feeder_id": "002",
+    "x": 1.69,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006891",
+    "name": "S01B01A02P0000006891",
+    "feeder_id": "002",
+    "x": 1.7,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006892",
+    "name": "S01B01A02P0000006892",
+    "feeder_id": "002",
+    "x": 1.71,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006893",
+    "name": "S01B01A02P0000006893",
+    "feeder_id": "002",
+    "x": 1.72,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006894",
+    "name": "S01B01A02P0000006894",
+    "feeder_id": "002",
+    "x": 1.73,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006895",
+    "name": "S01B01A02P0000006895",
+    "feeder_id": "002",
+    "x": 1.74,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006896",
+    "name": "S01B01A02P0000006896",
+    "feeder_id": "002",
+    "x": 1.75,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006897",
+    "name": "S01B01A02P0000006897",
+    "feeder_id": "002",
+    "x": 1.76,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006898",
+    "name": "S01B01A02P0000006898",
+    "feeder_id": "002",
+    "x": 1.77,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006899",
+    "name": "S01B01A02P0000006899",
+    "feeder_id": "002",
+    "x": 1.78,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006900",
+    "name": "S01B01A02P0000006900",
+    "feeder_id": "002",
+    "x": 1.79,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006901",
+    "name": "S01B01A02P0000006901",
+    "feeder_id": "002",
+    "x": 1.8,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006902",
+    "name": "S01B01A02P0000006902",
+    "feeder_id": "002",
+    "x": 1.81,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006904",
+    "name": "S01B01A02P0000006904",
+    "feeder_id": "002",
+    "x": 1.82,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006905",
+    "name": "S01B01A02P0000006905",
+    "feeder_id": "002",
+    "x": 1.83,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006906",
+    "name": "S01B01A02P0000006906",
+    "feeder_id": "002",
+    "x": 1.84,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006907",
+    "name": "S01B01A02P0000006907",
+    "feeder_id": "002",
+    "x": 1.85,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006908",
+    "name": "S01B01A02P0000006908",
+    "feeder_id": "002",
+    "x": 1.86,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006909",
+    "name": "S01B01A02P0000006909",
+    "feeder_id": "002",
+    "x": 1.87,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006910",
+    "name": "S01B01A02P0000006910",
+    "feeder_id": "002",
+    "x": 1.8800000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006911",
+    "name": "S01B01A02P0000006911",
+    "feeder_id": "002",
+    "x": 1.8900000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006912",
+    "name": "S01B01A02P0000006912",
+    "feeder_id": "002",
+    "x": 1.9000000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006913",
+    "name": "S01B01A02P0000006913",
+    "feeder_id": "002",
+    "x": 1.9100000000000001,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006914",
+    "name": "S01B01A02P0000006914",
+    "feeder_id": "002",
+    "x": 1.92,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006915",
+    "name": "S01B01A02P0000006915",
+    "feeder_id": "002",
+    "x": 1.93,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006963",
+    "name": "S01B01A02P0000006963",
+    "feeder_id": "002",
+    "x": 1.94,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000006976",
+    "name": "S01B01A02P0000006976",
+    "feeder_id": "002",
+    "x": 1.95,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007009",
+    "name": "S01B01A02P0000007009",
+    "feeder_id": "002",
+    "x": 1.96,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007010",
+    "name": "S01B01A02P0000007010",
+    "feeder_id": "002",
+    "x": 1.97,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007011",
+    "name": "S01B01A02P0000007011",
+    "feeder_id": "002",
+    "x": 1.98,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007012",
+    "name": "S01B01A02P0000007012",
+    "feeder_id": "002",
+    "x": 1.99,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007013",
+    "name": "S01B01A02P0000007013",
+    "feeder_id": "002",
+    "x": 2.0,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007014",
+    "name": "S01B01A02P0000007014",
+    "feeder_id": "002",
+    "x": 2.0100000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007029",
+    "name": "S01B01A02P0000007029",
+    "feeder_id": "002",
+    "x": 2.02,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007030",
+    "name": "S01B01A02P0000007030",
+    "feeder_id": "002",
+    "x": 2.0300000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007031",
+    "name": "S01B01A02P0000007031",
+    "feeder_id": "002",
+    "x": 2.04,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007032",
+    "name": "S01B01A02P0000007032",
+    "feeder_id": "002",
+    "x": 2.05,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007035",
+    "name": "S01B01A02P0000007035",
+    "feeder_id": "002",
+    "x": 2.06,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007043",
+    "name": "S01B01A02P0000007043",
+    "feeder_id": "002",
+    "x": 2.07,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007045",
+    "name": "S01B01A02P0000007045",
+    "feeder_id": "002",
+    "x": 2.08,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007686",
+    "name": "S01B01A02P0000007686",
+    "feeder_id": "002",
+    "x": 2.09,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007733",
+    "name": "S01B01A02P0000007733",
+    "feeder_id": "002",
+    "x": 2.1,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007735",
+    "name": "S01B01A02P0000007735",
+    "feeder_id": "002",
+    "x": 2.11,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007736",
+    "name": "S01B01A02P0000007736",
+    "feeder_id": "002",
+    "x": 2.12,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007743",
+    "name": "S01B01A02P0000007743",
+    "feeder_id": "002",
+    "x": 2.13,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000007748",
+    "name": "S01B01A02P0000007748",
+    "feeder_id": "002",
+    "x": 2.14,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000008077",
+    "name": "S01B01A02P0000008077",
+    "feeder_id": "002",
+    "x": 2.15,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000008078",
+    "name": "S01B01A02P0000008078",
+    "feeder_id": "002",
+    "x": 2.16,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000008445",
+    "name": "S01B01A02P0000008445",
+    "feeder_id": "002",
+    "x": 2.17,
+    "y": 0.0,
+    "phases": [
+      "A"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000008446",
+    "name": "S01B01A02P0000008446",
+    "feeder_id": "002",
+    "x": 2.18,
+    "y": 0.0,
+    "phases": [
+      "A"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000008447",
+    "name": "S01B01A02P0000008447",
+    "feeder_id": "002",
+    "x": 2.19,
+    "y": 0.0,
+    "phases": [
+      "A"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000008448",
+    "name": "S01B01A02P0000008448",
+    "feeder_id": "002",
+    "x": 2.2,
+    "y": 0.0,
+    "phases": [
+      "A"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000008449",
+    "name": "S01B01A02P0000008449",
+    "feeder_id": "002",
+    "x": 2.21,
+    "y": 0.0,
+    "phases": [
+      "A"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000008533",
+    "name": "S01B01A02P0000008533",
+    "feeder_id": "002",
+    "x": 2.22,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009171",
+    "name": "S01B01A02P0000009171",
+    "feeder_id": "002",
+    "x": 2.23,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009212",
+    "name": "S01B01A02P0000009212",
+    "feeder_id": "002",
+    "x": 2.24,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009213",
+    "name": "S01B01A02P0000009213",
+    "feeder_id": "002",
+    "x": 2.25,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009214",
+    "name": "S01B01A02P0000009214",
+    "feeder_id": "002",
+    "x": 2.2600000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009215",
+    "name": "S01B01A02P0000009215",
+    "feeder_id": "002",
+    "x": 2.27,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009216",
+    "name": "S01B01A02P0000009216",
+    "feeder_id": "002",
+    "x": 2.2800000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009259",
+    "name": "S01B01A02P0000009259",
+    "feeder_id": "002",
+    "x": 2.29,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009273",
+    "name": "S01B01A02P0000009273",
+    "feeder_id": "002",
+    "x": 2.3000000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009274",
+    "name": "S01B01A02P0000009274",
+    "feeder_id": "002",
+    "x": 2.31,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009275",
+    "name": "S01B01A02P0000009275",
+    "feeder_id": "002",
+    "x": 2.32,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009277",
+    "name": "S01B01A02P0000009277",
+    "feeder_id": "002",
+    "x": 2.33,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009278",
+    "name": "S01B01A02P0000009278",
+    "feeder_id": "002",
+    "x": 2.34,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009279",
+    "name": "S01B01A02P0000009279",
+    "feeder_id": "002",
+    "x": 2.35,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009281",
+    "name": "S01B01A02P0000009281",
+    "feeder_id": "002",
+    "x": 2.36,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009282",
+    "name": "S01B01A02P0000009282",
+    "feeder_id": "002",
+    "x": 2.37,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009283",
+    "name": "S01B01A02P0000009283",
+    "feeder_id": "002",
+    "x": 2.38,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009284",
+    "name": "S01B01A02P0000009284",
+    "feeder_id": "002",
+    "x": 2.39,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009285",
+    "name": "S01B01A02P0000009285",
+    "feeder_id": "002",
+    "x": 2.4,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009286",
+    "name": "S01B01A02P0000009286",
+    "feeder_id": "002",
+    "x": 2.41,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009287",
+    "name": "S01B01A02P0000009287",
+    "feeder_id": "002",
+    "x": 2.42,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009288",
+    "name": "S01B01A02P0000009288",
+    "feeder_id": "002",
+    "x": 2.43,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009289",
+    "name": "S01B01A02P0000009289",
+    "feeder_id": "002",
+    "x": 2.44,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009290",
+    "name": "S01B01A02P0000009290",
+    "feeder_id": "002",
+    "x": 2.45,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009352",
+    "name": "S01B01A02P0000009352",
+    "feeder_id": "002",
+    "x": 2.46,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009356",
+    "name": "S01B01A02P0000009356",
+    "feeder_id": "002",
+    "x": 2.47,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009357",
+    "name": "S01B01A02P0000009357",
+    "feeder_id": "002",
+    "x": 2.48,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009358",
+    "name": "S01B01A02P0000009358",
+    "feeder_id": "002",
+    "x": 2.49,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009372",
+    "name": "S01B01A02P0000009372",
+    "feeder_id": "002",
+    "x": 2.5,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009373",
+    "name": "S01B01A02P0000009373",
+    "feeder_id": "002",
+    "x": 2.5100000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009374",
+    "name": "S01B01A02P0000009374",
+    "feeder_id": "002",
+    "x": 2.52,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009377",
+    "name": "S01B01A02P0000009377",
+    "feeder_id": "002",
+    "x": 2.5300000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009378",
+    "name": "S01B01A02P0000009378",
+    "feeder_id": "002",
+    "x": 2.54,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009379",
+    "name": "S01B01A02P0000009379",
+    "feeder_id": "002",
+    "x": 2.5500000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009380",
+    "name": "S01B01A02P0000009380",
+    "feeder_id": "002",
+    "x": 2.56,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009381",
+    "name": "S01B01A02P0000009381",
+    "feeder_id": "002",
+    "x": 2.57,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009382",
+    "name": "S01B01A02P0000009382",
+    "feeder_id": "002",
+    "x": 2.58,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009383",
+    "name": "S01B01A02P0000009383",
+    "feeder_id": "002",
+    "x": 2.59,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009384",
+    "name": "S01B01A02P0000009384",
+    "feeder_id": "002",
+    "x": 2.6,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009385",
+    "name": "S01B01A02P0000009385",
+    "feeder_id": "002",
+    "x": 2.61,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009391",
+    "name": "S01B01A02P0000009391",
+    "feeder_id": "002",
+    "x": 2.62,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009393",
+    "name": "S01B01A02P0000009393",
+    "feeder_id": "002",
+    "x": 2.63,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009394",
+    "name": "S01B01A02P0000009394",
+    "feeder_id": "002",
+    "x": 2.64,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009452",
+    "name": "S01B01A02P0000009452",
+    "feeder_id": "002",
+    "x": 2.65,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009453",
+    "name": "S01B01A02P0000009453",
+    "feeder_id": "002",
+    "x": 2.66,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009455",
+    "name": "S01B01A02P0000009455",
+    "feeder_id": "002",
+    "x": 2.67,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009456",
+    "name": "S01B01A02P0000009456",
+    "feeder_id": "002",
+    "x": 2.68,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009457",
+    "name": "S01B01A02P0000009457",
+    "feeder_id": "002",
+    "x": 2.69,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009458",
+    "name": "S01B01A02P0000009458",
+    "feeder_id": "002",
+    "x": 2.7,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009473",
+    "name": "S01B01A02P0000009473",
+    "feeder_id": "002",
+    "x": 2.71,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009529",
+    "name": "S01B01A02P0000009529",
+    "feeder_id": "002",
+    "x": 2.72,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009642",
+    "name": "S01B01A02P0000009642",
+    "feeder_id": "002",
+    "x": 2.73,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009702",
+    "name": "S01B01A02P0000009702",
+    "feeder_id": "002",
+    "x": 2.74,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009821",
+    "name": "S01B01A02P0000009821",
+    "feeder_id": "002",
+    "x": 2.75,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009822",
+    "name": "S01B01A02P0000009822",
+    "feeder_id": "002",
+    "x": 2.7600000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009823",
+    "name": "S01B01A02P0000009823",
+    "feeder_id": "002",
+    "x": 2.77,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000009824",
+    "name": "S01B01A02P0000009824",
+    "feeder_id": "002",
+    "x": 2.7800000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010190",
+    "name": "S01B01A02P0000010190",
+    "feeder_id": "002",
+    "x": 2.79,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010194",
+    "name": "S01B01A02P0000010194",
+    "feeder_id": "002",
+    "x": 2.8000000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010321",
+    "name": "S01B01A02P0000010321",
+    "feeder_id": "002",
+    "x": 2.81,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010329",
+    "name": "S01B01A02P0000010329",
+    "feeder_id": "002",
+    "x": 2.82,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010330",
+    "name": "S01B01A02P0000010330",
+    "feeder_id": "002",
+    "x": 2.83,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010331",
+    "name": "S01B01A02P0000010331",
+    "feeder_id": "002",
+    "x": 2.84,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010453",
+    "name": "S01B01A02P0000010453",
+    "feeder_id": "002",
+    "x": 2.85,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010823",
+    "name": "S01B01A02P0000010823",
+    "feeder_id": "002",
+    "x": 2.86,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010973",
+    "name": "S01B01A02P0000010973",
+    "feeder_id": "002",
+    "x": 2.87,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000010974",
+    "name": "S01B01A02P0000010974",
+    "feeder_id": "002",
+    "x": 2.88,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011119",
+    "name": "S01B01A02P0000011119",
+    "feeder_id": "002",
+    "x": 2.89,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011120",
+    "name": "S01B01A02P0000011120",
+    "feeder_id": "002",
+    "x": 2.9,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011121",
+    "name": "S01B01A02P0000011121",
+    "feeder_id": "002",
+    "x": 2.91,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011133",
+    "name": "S01B01A02P0000011133",
+    "feeder_id": "002",
+    "x": 2.92,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011134",
+    "name": "S01B01A02P0000011134",
+    "feeder_id": "002",
+    "x": 2.93,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011235",
+    "name": "S01B01A02P0000011235",
+    "feeder_id": "002",
+    "x": 2.94,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011236",
+    "name": "S01B01A02P0000011236",
+    "feeder_id": "002",
+    "x": 2.95,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011293",
+    "name": "S01B01A02P0000011293",
+    "feeder_id": "002",
+    "x": 2.96,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011299",
+    "name": "S01B01A02P0000011299",
+    "feeder_id": "002",
+    "x": 2.97,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011301",
+    "name": "S01B01A02P0000011301",
+    "feeder_id": "002",
+    "x": 2.98,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011396",
+    "name": "S01B01A02P0000011396",
+    "feeder_id": "002",
+    "x": 2.99,
+    "y": 0.0,
+    "phases": [
+      "A"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011401",
+    "name": "S01B01A02P0000011401",
+    "feeder_id": "002",
+    "x": 3.0,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011404",
+    "name": "S01B01A02P0000011404",
+    "feeder_id": "002",
+    "x": 3.0100000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011417",
+    "name": "S01B01A02P0000011417",
+    "feeder_id": "002",
+    "x": 3.02,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011419",
+    "name": "S01B01A02P0000011419",
+    "feeder_id": "002",
+    "x": 3.0300000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011563",
+    "name": "S01B01A02P0000011563",
+    "feeder_id": "002",
+    "x": 3.04,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011564",
+    "name": "S01B01A02P0000011564",
+    "feeder_id": "002",
+    "x": 3.0500000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011679",
+    "name": "S01B01A02P0000011679",
+    "feeder_id": "002",
+    "x": 3.06,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011680",
+    "name": "S01B01A02P0000011680",
+    "feeder_id": "002",
+    "x": 3.0700000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011784",
+    "name": "S01B01A02P0000011784",
+    "feeder_id": "002",
+    "x": 3.08,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011812",
+    "name": "S01B01A02P0000011812",
+    "feeder_id": "002",
+    "x": 3.09,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011821",
+    "name": "S01B01A02P0000011821",
+    "feeder_id": "002",
+    "x": 3.1,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011960",
+    "name": "S01B01A02P0000011960",
+    "feeder_id": "002",
+    "x": 3.11,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011961",
+    "name": "S01B01A02P0000011961",
+    "feeder_id": "002",
+    "x": 3.12,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011962",
+    "name": "S01B01A02P0000011962",
+    "feeder_id": "002",
+    "x": 3.13,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011964",
+    "name": "S01B01A02P0000011964",
+    "feeder_id": "002",
+    "x": 3.14,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000011965",
+    "name": "S01B01A02P0000011965",
+    "feeder_id": "002",
+    "x": 3.15,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012217",
+    "name": "S01B01A02P0000012217",
+    "feeder_id": "002",
+    "x": 3.16,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012374",
+    "name": "S01B01A02P0000012374",
+    "feeder_id": "002",
+    "x": 3.17,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012444",
+    "name": "S01B01A02P0000012444",
+    "feeder_id": "002",
+    "x": 3.18,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012446",
+    "name": "S01B01A02P0000012446",
+    "feeder_id": "002",
+    "x": 3.19,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012449",
+    "name": "S01B01A02P0000012449",
+    "feeder_id": "002",
+    "x": 3.2,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012450",
+    "name": "S01B01A02P0000012450",
+    "feeder_id": "002",
+    "x": 3.21,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012451",
+    "name": "S01B01A02P0000012451",
+    "feeder_id": "002",
+    "x": 3.22,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012454",
+    "name": "S01B01A02P0000012454",
+    "feeder_id": "002",
+    "x": 3.23,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012455",
+    "name": "S01B01A02P0000012455",
+    "feeder_id": "002",
+    "x": 3.24,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012456",
+    "name": "S01B01A02P0000012456",
+    "feeder_id": "002",
+    "x": 3.25,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012457",
+    "name": "S01B01A02P0000012457",
+    "feeder_id": "002",
+    "x": 3.2600000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012458",
+    "name": "S01B01A02P0000012458",
+    "feeder_id": "002",
+    "x": 3.27,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012468",
+    "name": "S01B01A02P0000012468",
+    "feeder_id": "002",
+    "x": 3.2800000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012501",
+    "name": "S01B01A02P0000012501",
+    "feeder_id": "002",
+    "x": 3.29,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012762",
+    "name": "S01B01A02P0000012762",
+    "feeder_id": "002",
+    "x": 3.3000000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012764",
+    "name": "S01B01A02P0000012764",
+    "feeder_id": "002",
+    "x": 3.31,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012765",
+    "name": "S01B01A02P0000012765",
+    "feeder_id": "002",
+    "x": 3.3200000000000003,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012766",
+    "name": "S01B01A02P0000012766",
+    "feeder_id": "002",
+    "x": 3.33,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012767",
+    "name": "S01B01A02P0000012767",
+    "feeder_id": "002",
+    "x": 3.34,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012768",
+    "name": "S01B01A02P0000012768",
+    "feeder_id": "002",
+    "x": 3.35,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000012769",
+    "name": "S01B01A02P0000012769",
+    "feeder_id": "002",
+    "x": 3.36,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013081",
+    "name": "S01B01A02P0000013081",
+    "feeder_id": "002",
+    "x": 3.37,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013088",
+    "name": "S01B01A02P0000013088",
+    "feeder_id": "002",
+    "x": 3.38,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013091",
+    "name": "S01B01A02P0000013091",
+    "feeder_id": "002",
+    "x": 3.39,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013094",
+    "name": "S01B01A02P0000013094",
+    "feeder_id": "002",
+    "x": 3.4,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013281",
+    "name": "S01B01A02P0000013281",
+    "feeder_id": "002",
+    "x": 3.41,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013282",
+    "name": "S01B01A02P0000013282",
+    "feeder_id": "002",
+    "x": 3.42,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013444",
+    "name": "S01B01A02P0000013444",
+    "feeder_id": "002",
+    "x": 3.43,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013445",
+    "name": "S01B01A02P0000013445",
+    "feeder_id": "002",
+    "x": 3.44,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013446",
+    "name": "S01B01A02P0000013446",
+    "feeder_id": "002",
+    "x": 3.45,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013447",
+    "name": "S01B01A02P0000013447",
+    "feeder_id": "002",
+    "x": 3.46,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013452",
+    "name": "S01B01A02P0000013452",
+    "feeder_id": "002",
+    "x": 3.47,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013453",
+    "name": "S01B01A02P0000013453",
+    "feeder_id": "002",
+    "x": 3.48,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013454",
+    "name": "S01B01A02P0000013454",
+    "feeder_id": "002",
+    "x": 3.49,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013455",
+    "name": "S01B01A02P0000013455",
+    "feeder_id": "002",
+    "x": 3.5,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013456",
+    "name": "S01B01A02P0000013456",
+    "feeder_id": "002",
+    "x": 3.5100000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013526",
+    "name": "S01B01A02P0000013526",
+    "feeder_id": "002",
+    "x": 3.52,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  },
+  {
+    "node_id": "S01B01A02P0000013527",
+    "name": "S01B01A02P0000013527",
+    "feeder_id": "002",
+    "x": 3.5300000000000002,
+    "y": 0.0,
+    "phases": [
+      "A",
+      "B",
+      "C"
+    ],
+    "is_source": false,
+    "in_service": true,
+    "nominal_voltage_kv": 13.8,
+    "load_kw": 0.0,
+    "distributed_gen_kw": 0.0
+  }
+]

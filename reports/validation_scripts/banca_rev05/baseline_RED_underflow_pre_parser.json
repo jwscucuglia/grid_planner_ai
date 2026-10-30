@@ -1,0 +1,541 @@
+{
+  "source_hashes": {
+    "src\\kgp\\contracts.py": "3061b3ed8e963c68d5922b81d7060904db9f61f5ac83acf66fc37555544ad750",
+    "src\\kgp\\ingestion.py": "f3b17053012a9bc3e4e4cba841174a1e16bb2f0e2c5949b407b4bed90e926497",
+    "src\\kgp\\materials.py": "48840bbfeeaa5f9abe6310469fe44cf9e02ba5d423717a3d48868705370b9bda"
+  },
+  "raw_strict_reader": {
+    "0": "0",
+    "1e-400": "0.0",
+    "-1e-400": "-0.0",
+    "5e-324": "5e-324"
+  },
+  "results": [
+    {
+      "format": "json",
+      "source_literal": "0",
+      "source_sha256": "0ac4bea6756e02d8c73204f734875c8437c7b90f1391794909f083b7d4baa661",
+      "oracle_decimal": "0",
+      "oracle_positive": false,
+      "oracle_negative": false,
+      "import_valid": true,
+      "issues": [],
+      "imported_quantity": 0.0,
+      "imported_quantity_repr": "0.0",
+      "source_nonzero_became_zero": false,
+      "methods": {
+        "B0": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_INDIVIDUAL",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B1": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_GEOGRAPHIC",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B2": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "KGP": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": true,
+          "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        }
+      }
+    },
+    {
+      "format": "json",
+      "source_literal": "1e-400",
+      "source_sha256": "4cde13c69d5a2d96e60e4a87ee6954da00a58df6d26f7bdfd8a6271226fc0147",
+      "oracle_decimal": "1E-400",
+      "oracle_positive": true,
+      "oracle_negative": false,
+      "import_valid": true,
+      "issues": [],
+      "imported_quantity": 0.0,
+      "imported_quantity_repr": "0.0",
+      "source_nonzero_became_zero": true,
+      "methods": {
+        "B0": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_INDIVIDUAL",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B1": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_GEOGRAPHIC",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B2": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "KGP": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": true,
+          "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        }
+      }
+    },
+    {
+      "format": "json",
+      "source_literal": "-1e-400",
+      "source_sha256": "c6bf38f2c61b5f946ee8792a5e2ba81459545537c54744a7bbc79f9fb3e1b5bd",
+      "oracle_decimal": "-1E-400",
+      "oracle_positive": false,
+      "oracle_negative": true,
+      "import_valid": true,
+      "issues": [],
+      "imported_quantity": -0.0,
+      "imported_quantity_repr": "-0.0",
+      "source_nonzero_became_zero": true,
+      "methods": {
+        "B0": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_INDIVIDUAL",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B1": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_GEOGRAPHIC",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B2": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "KGP": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": true,
+          "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        }
+      }
+    },
+    {
+      "format": "json",
+      "source_literal": "5e-324",
+      "source_sha256": "a8160a01462c44a3b9597392803f39df7cd2958ffb80fc5d4751cf68856615f1",
+      "oracle_decimal": "5E-324",
+      "oracle_positive": true,
+      "oracle_negative": false,
+      "import_valid": true,
+      "issues": [],
+      "imported_quantity": 5e-324,
+      "imported_quantity_repr": "5e-324",
+      "source_nonzero_became_zero": false,
+      "methods": {
+        "B0": {
+          "feasible": false,
+          "complete": [],
+          "optimal": false,
+          "status": "HEURISTIC_INDIVIDUAL",
+          "materials_exact": {},
+          "violations": [
+            "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+          ]
+        },
+        "B1": {
+          "feasible": false,
+          "complete": [],
+          "optimal": false,
+          "status": "HEURISTIC_GEOGRAPHIC",
+          "materials_exact": {},
+          "violations": [
+            "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+          ]
+        },
+        "B2": {
+          "feasible": false,
+          "complete": [],
+          "optimal": false,
+          "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+          "materials_exact": {},
+          "violations": [
+            "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+          ]
+        },
+        "KGP": {
+          "feasible": false,
+          "complete": [],
+          "optimal": false,
+          "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+          "materials_exact": {},
+          "violations": [
+            "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+          ]
+        }
+      }
+    },
+    {
+      "format": "json",
+      "source_literal": "1e400",
+      "source_sha256": "d995003319eb3f4a072831d23d2cdba1e7917844dfd4d599b5a524c76d90d877",
+      "oracle_decimal": "1E+400",
+      "oracle_positive": true,
+      "oracle_negative": false,
+      "import_valid": false,
+      "issues": [
+        {
+          "code": "INVALID_FILE",
+          "table": "services",
+          "row": null,
+          "record_id": null,
+          "message": "contract[0].required_materials.M: valor não finito",
+          "severity": "ERROR"
+        }
+      ]
+    },
+    {
+      "format": "csv",
+      "source_literal": "0",
+      "source_sha256": "39dd255f7ca466aa3df1fe5ef92d62621b9fdf467eeb595437b696e1344be9bd",
+      "oracle_decimal": "0",
+      "oracle_positive": false,
+      "oracle_negative": false,
+      "import_valid": true,
+      "issues": [],
+      "imported_quantity": 0.0,
+      "imported_quantity_repr": "0.0",
+      "source_nonzero_became_zero": false,
+      "methods": {
+        "B0": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_INDIVIDUAL",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B1": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_GEOGRAPHIC",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B2": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "KGP": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": true,
+          "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        }
+      }
+    },
+    {
+      "format": "csv",
+      "source_literal": "1e-400",
+      "source_sha256": "bc1dd5a9561fb984095828f40c5b1e7cdb2e0ecd71fa81de68e3e0f276b59d9b",
+      "oracle_decimal": "1E-400",
+      "oracle_positive": true,
+      "oracle_negative": false,
+      "import_valid": true,
+      "issues": [],
+      "imported_quantity": 0.0,
+      "imported_quantity_repr": "0.0",
+      "source_nonzero_became_zero": true,
+      "methods": {
+        "B0": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_INDIVIDUAL",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B1": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_GEOGRAPHIC",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B2": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "KGP": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": true,
+          "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        }
+      }
+    },
+    {
+      "format": "csv",
+      "source_literal": "-1e-400",
+      "source_sha256": "7f475d40ea82c29968c14947f1084558e1f18763b1540837bd294aade757049c",
+      "oracle_decimal": "-1E-400",
+      "oracle_positive": false,
+      "oracle_negative": true,
+      "import_valid": true,
+      "issues": [],
+      "imported_quantity": -0.0,
+      "imported_quantity_repr": "-0.0",
+      "source_nonzero_became_zero": true,
+      "methods": {
+        "B0": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_INDIVIDUAL",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B1": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_GEOGRAPHIC",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "B2": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": false,
+          "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        },
+        "KGP": {
+          "feasible": true,
+          "complete": [
+            "S1"
+          ],
+          "optimal": true,
+          "status": "OPTIMAL_ON_DISCRETE_COLUMNS",
+          "materials_exact": {
+            "M": "0"
+          },
+          "violations": []
+        }
+      }
+    },
+    {
+      "format": "csv",
+      "source_literal": "5e-324",
+      "source_sha256": "bddc47c51c32edd9586a09e3cf62b9f2c9f3edd15ca32bdc809822a3ee3fe884",
+      "oracle_decimal": "5E-324",
+      "oracle_positive": true,
+      "oracle_negative": false,
+      "import_valid": true,
+      "issues": [],
+      "imported_quantity": 5e-324,
+      "imported_quantity_repr": "5e-324",
+      "source_nonzero_became_zero": false,
+      "methods": {
+        "B0": {
+          "feasible": false,
+          "complete": [],
+          "optimal": false,
+          "status": "HEURISTIC_INDIVIDUAL",
+          "materials_exact": {},
+          "violations": [
+            "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+          ]
+        },
+        "B1": {
+          "feasible": false,
+          "complete": [],
+          "optimal": false,
+          "status": "HEURISTIC_GEOGRAPHIC",
+          "materials_exact": {},
+          "violations": [
+            "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+          ]
+        },
+        "B2": {
+          "feasible": false,
+          "complete": [],
+          "optimal": false,
+          "status": "HEURISTIC_TOPOLOGICAL_GREEDY_LOCAL_ZONES",
+          "materials_exact": {},
+          "violations": [
+            "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+          ]
+        },
+        "KGP": {
+          "feasible": false,
+          "complete": [],
+          "optimal": false,
+          "status": "INFEASIBLE_ON_DISCRETE_COLUMNS",
+          "materials_exact": {},
+          "violations": [
+            "Carteira obrigatória incompleta: faltam 1 serviço(s) obrigatório(s): ['S1']."
+          ]
+        }
+      }
+    },
+    {
+      "format": "csv",
+      "source_literal": "1e400",
+      "source_sha256": "aa88ff2c6ae838a33fec15fcd4ed8b440bfa576c88d04c014f948244191e3f0a",
+      "oracle_decimal": "1E+400",
+      "oracle_positive": true,
+      "oracle_negative": false,
+      "import_valid": false,
+      "issues": [
+        {
+          "code": "INVALID_VALUE",
+          "table": "services",
+          "row": 1,
+          "record_id": "S1",
+          "message": "contract.M: valor não finito",
+          "severity": "ERROR"
+        }
+      ]
+    }
+  ]
+}
